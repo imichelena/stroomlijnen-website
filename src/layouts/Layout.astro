@@ -37,7 +37,7 @@ const currentPath = Astro.url.pathname;
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         background: var(--navy);
         color: var(--white);
         line-height: 1.6;
@@ -99,6 +99,11 @@ const currentPath = Astro.url.pathname;
         color: var(--cyan);
       }
 
+      .btn-green {
+        background: var(--green);
+        color: var(--white);
+      }
+
       section {
         padding: 5rem 0;
       }
@@ -125,8 +130,10 @@ const currentPath = Astro.url.pathname;
         </button>
         <ul class="nav-links" id="navLinks" role="list">
           <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
-          <li><a href="/diensten" class={currentPath.startsWith('/diensten') ? 'active' : ''}>Diensten</a></li>
-          <li><a href="/over-ons" class={currentPath.startsWith('/over-ons') ? 'active' : ''}>Over ons</a></li>
+          <li><a href="/theaters" class={currentPath.startsWith('/theaters') ? 'active' : ''}>Theaters</a></li>
+          <li><a href="/transport" class={currentPath.startsWith('/transport') ? 'active' : ''}>Transport</a></li>
+          <li><a href="/charger-kopen" class={currentPath.startsWith('/charger-kopen') ? 'active' : ''}>Charger Kopen</a></li>
+          <li><a href="/chargers" class={currentPath.startsWith('/chargers') ? 'active' : ''}>Onze Laadpalen</a></li>
           <li><a href="/contact" class={currentPath.startsWith('/contact') ? 'active' : ''}><span class="nav-cta">Contact</span></a></li>
         </ul>
       </nav>
@@ -148,20 +155,20 @@ const currentPath = Astro.url.pathname;
         </div>
         <div class="footer-links">
           <a href="/">Home</a>
-          <a href="/diensten">Diensten</a>
-          <a href="/over-ons">Over ons</a>
+          <a href="/theaters">Theaters</a>
+          <a href="/transport">Transport</a>
+          <a href="/charger-kopen">Charger Kopen</a>
+          <a href="/chargers">Onze Laadpalen</a>
           <a href="/contact">Contact</a>
         </div>
         <div class="footer-contact">
           <a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a>
-          <span>Amsterdam, Nederland</span>
+          <span>Amsterdam</span>
         </div>
         <div class="footer-bottom">
           <p>© 2026 Stroomlijnen B.V. Alle rechten voorbehouden.</p>
           <p class="footer-disclaimer">
-            Stroomlijnen B.V. is een onafhankelijke aanbieder van EV-laadinfrastructuur diensten. 
-            Alle vermelde besparingen en opbrengsten zijn schattingen op basis van gemiddelde gebruikspatronen en kunnen variëren afhankelijk van locatie, gebruik en marktomstandigheden. 
-            Resultaten zijn niet gegarandeerd.
+            Subsidiebedragen en HBE/ERE-opbrengsten zijn indicatief en onder voorbehoud van goedkeuring door RVO/NEa en actuele markttarieven.
           </p>
         </div>
       </div>
@@ -217,10 +224,10 @@ const currentPath = Astro.url.pathname;
       }
 
       .nav-links a {
-        padding: 0.5rem 0.85rem;
+        padding: 0.5rem 0.75rem;
         border-radius: 5px;
         color: var(--text);
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         font-weight: 500;
         transition: color 0.2s, background 0.2s;
         text-decoration: none;
