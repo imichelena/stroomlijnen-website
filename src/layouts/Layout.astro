@@ -1,0 +1,404 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Stroomlijnen transformeert inactieve netaansluitingen in inkomstengenererende EV-laadinfrastructuur.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | Stroomlijnen</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style is:global>
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --navy: #0a1628;
+        --navy-light: #0f2040;
+        --cyan: #00B0E4;
+        --green: #7CB82F;
+        --white: #ffffff;
+        --gray-light: #f4f7fb;
+        --gray: #6b7280;
+        --text: #e8edf5;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        background: var(--navy);
+        color: var(--white);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1;
+      }
+
+      a {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      h1, h2, h3, h4 {
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.1s;
+        text-decoration: none;
+        border: none;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: var(--cyan);
+        color: var(--navy);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid var(--cyan);
+        color: var(--cyan);
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      section:nth-child(even) {
+        background: var(--navy-light);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="site-header">
+      <nav class="container nav-inner">
+        <a href="/" class="nav-logo" aria-label="Stroomlijnen home">
+          <!-- SVG logo: two interlocking circles -->
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="22" r="13" fill="#7CB82F" fill-opacity="0.85"/>
+            <circle cx="28" cy="22" r="13" fill="#00B0E4" fill-opacity="0.85"/>
+          </svg>
+          <span class="nav-brand">Stroomlijnen</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a></li>
+          <li><a href="/diensten" class={currentPath.startsWith('/diensten') ? 'active' : ''}>Diensten</a></li>
+          <li><a href="/over-ons" class={currentPath.startsWith('/over-ons') ? 'active' : ''}>Over ons</a></li>
+          <li><a href="/contact" class={currentPath.startsWith('/contact') ? 'active' : ''}><span class="nav-cta">Contact</span></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="16" cy="22" r="13" fill="#7CB82F" fill-opacity="0.7"/>
+            <circle cx="28" cy="22" r="13" fill="#00B0E4" fill-opacity="0.7"/>
+          </svg>
+          <span>Stroomlijnen B.V.</span>
+        </div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/diensten">Diensten</a>
+          <a href="/over-ons">Over ons</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-contact">
+          <a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a>
+          <span>Amsterdam, Nederland</span>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Stroomlijnen B.V. Alle rechten voorbehouden.</p>
+          <p class="footer-disclaimer">
+            Stroomlijnen B.V. is een onafhankelijke aanbieder van EV-laadinfrastructuur diensten. 
+            Alle vermelde besparingen en opbrengsten zijn schattingen op basis van gemiddelde gebruikspatronen en kunnen variëren afhankelijk van locatie, gebruik en marktomstandigheden. 
+            Resultaten zijn niet gegarandeerd.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('navToggle');
+      const links = document.getElementById('navLinks');
+      toggle?.addEventListener('click', () => {
+        const open = links?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    </script>
+
+    <style>
+      /* ── Header ── */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(10, 22, 40, 0.97);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(0, 176, 228, 0.15);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 70px;
+        gap: 2rem;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+        color: var(--white);
+      }
+
+      .nav-brand {
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 0.25rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        padding: 0.5rem 0.85rem;
+        border-radius: 5px;
+        color: var(--text);
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.2s, background 0.2s;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--white);
+        background: rgba(0, 176, 228, 0.12);
+      }
+
+      .nav-links a.active {
+        color: var(--cyan);
+      }
+
+      .nav-cta {
+        background: var(--cyan);
+        color: var(--navy) !important;
+        padding: 0.45rem 1rem;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: transform 0.2s;
+      }
+
+      /* ── Footer ── */
+      .site-footer {
+        background: #060e1a;
+        border-top: 1px solid rgba(0, 176, 228, 0.12);
+        padding: 3rem 0 2rem;
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 1.5rem 2rem;
+        align-items: start;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--white);
+        grid-column: 1;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        grid-column: 2;
+        padding-top: 0.15rem;
+      }
+
+      .footer-links a {
+        color: var(--text);
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+
+      .footer-links a:hover {
+        color: var(--cyan);
+        text-decoration: none;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        grid-column: 3;
+        text-align: right;
+      }
+
+      .footer-contact a,
+      .footer-contact span {
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .footer-contact a:hover {
+        color: var(--cyan);
+      }
+
+      .footer-bottom {
+        grid-column: 1 / -1;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      .footer-bottom p {
+        font-size: 0.8rem;
+        color: rgba(255,255,255,0.45);
+      }
+
+      .footer-disclaimer {
+        font-size: 0.75rem !important;
+        color: rgba(255,255,255,0.3) !important;
+        max-width: 70ch;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: flex;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          align-items: stretch;
+          position: absolute;
+          top: 70px;
+          left: 0;
+          right: 0;
+          background: var(--navy);
+          border-bottom: 1px solid rgba(0,176,228,0.15);
+          padding: 1rem 1.5rem;
+          gap: 0.25rem;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .nav-links li {
+          width: 100%;
+        }
+
+        .nav-links a {
+          display: block;
+          padding: 0.65rem 0.85rem;
+          font-size: 1rem;
+        }
+
+        .footer-inner {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto;
+        }
+
+        .footer-brand,
+        .footer-links,
+        .footer-contact {
+          grid-column: 1;
+        }
+
+        .footer-contact {
+          text-align: left;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+      }
+    </style>
+  </body>
+</html>
