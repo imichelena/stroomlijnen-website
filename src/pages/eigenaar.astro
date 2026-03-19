@@ -1,0 +1,225 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Voor eigenaren" description="Alles over het plaatsen van laadpunten bij uw culturele locatie — techniek, verdienmodel, subsidies, CPO-keuze en aansluiting.">
+
+  <!-- Hero -->
+  <section style="padding: 60px 0 48px; background: linear-gradient(135deg, #f9fdfb 0%, #e8f5ee 100%); border-bottom: 1px solid #dde2e8;">
+    <div class="container-narrow">
+      <div class="section-label label-green">Voor eigenaren van culturele locaties</div>
+      <h1 style="margin-bottom: 14px;">Laadpunten bij uw locatie plaatsen</h1>
+      <p style="font-size: 1.05rem; color: #444; max-width: 640px;">
+        Uw locatie heeft stroomcapaciteit die overdag grotendeels ongebruikt is. Toerende gezelschappen en hun transportbedrijven hebben die capaciteit hard nodig. Op deze pagina vindt u alle informatie om een weloverwogen beslissing te nemen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hoe werkt het -->
+  <section>
+    <div class="container-narrow">
+      <div class="section-label label-green">Techniek</div>
+      <h2>Hoe werkt een laadpunt?</h2>
+      <p>Een laadpunt (ook wel laadpaal of EVSE genaamd) is de schakel tussen uw elektriciteitsaansluiting en het elektrische voertuig. Het bestaat uit drie onderdelen:</p>
+
+      <div class="cards-grid" style="grid-template-columns: repeat(3,1fr); margin-top: 24px;">
+        <div class="card">
+          <div class="card-icon">🔌</div>
+          <h3>Hardware</h3>
+          <p>De fysieke laadpaal met connector(s), display en communicatiemodule. Beschikbaar in AC (langzaam) en DC (snel).</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📡</div>
+          <h3>Communicatie</h3>
+          <p>Via het OCPP-protocol communiceert de laadpaal met een beheersysteem (backoffice). Dit regelt autorisatie, meting en facturering.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Backoffice (CPO)</h3>
+          <p>Een Charge Point Operator beheert uw laadpunt op afstand: tarieven instellen, storingen oplossen, rapporten leveren.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-green" style="margin-top: 32px;">
+        <h3>AC vs. DC — wat is het verschil?</h3>
+        <p>AC-laders (tot ~22 kW) zijn goedkoper maar langzamer — geschikt voor voertuigen die lang blijven staan. DC-snelladers (22–350 kW) laden veel sneller maar zijn duurder in aanschaf. Voor theaters met vrachtwagens die 8–10 uur blijven, is AC (22–60 kW) vaak de beste keuze.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verdienmodel -->
+  <section class="neutral">
+    <div class="container-narrow">
+      <div class="section-label label-neutral">Verdienmodel</div>
+      <h2>Wat levert het op?</h2>
+      <p>Als eigenaar ontvangt u een vergoeding per kWh die via uw laadpunten wordt geleverd. De hoogte hangt af van het tariefsmodel dat u afspreekt met uw CPO.</p>
+
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Werking</th>
+            <th>Typische opbrengst</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Passief inkomen</strong></td>
+            <td>CPO regelt alles, u ontvangt een vaste vergoeding per kWh</td>
+            <td>€0,05–€0,12 / kWh</td>
+          </tr>
+          <tr>
+            <td><strong>Eigen exploitatie</strong></td>
+            <td>U beheert tarieven zelf, hogere marge maar meer werk</td>
+            <td>€0,10–€0,25 / kWh</td>
+          </tr>
+          <tr>
+            <td><strong>Verhuur van capaciteit</strong></td>
+            <td>U verhuurt de aansluiting aan een CPO voor een vast bedrag per maand</td>
+            <td>€200–€600 / maand / punt</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-green" style="margin-top: 24px;">
+        <h3>Rekenvoorbeeld — 60 kW lader</h3>
+        <p>Een vrachtwagen die 8 uur laadt op 60 kW verbruikt ~360 kWh. Bij €0,10/kWh passieve opbrengst = <strong>€36 per laadsessie</strong>. Bij 200 laadsessies per jaar = €7.200 passief inkomen — zonder dat u iets hoeft te doen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subsidies -->
+  <section>
+    <div class="container-narrow">
+      <div class="section-label label-green">Subsidies</div>
+      <h2>Welke subsidies zijn er?</h2>
+      <p>Er zijn meerdere subsidieregelingen voor laadinfrastructuur. De belangrijkste voor culturele locaties:</p>
+
+      <div class="cards-grid" style="grid-template-columns: 1fr 1fr; margin-top: 20px;">
+        <div class="card">
+          <h3>SPRILA</h3>
+          <p>Subsidie voor publiek toegankelijke laadinfrastructuur voor zwaar wegtransport. Dekt een significant deel van de hardware- en installatiekosten.</p>
+          <p style="font-size:0.85rem; color: #888; margin-top: 8px;">Aanvragen via RVO.nl</p>
+        </div>
+        <div class="card">
+          <h3>SEBA</h3>
+          <p>Subsidie Elektrische Bedrijfsauto's — voor de voertuigkant. Relevant als uw locatie ook een eigen wagenpark heeft.</p>
+          <p style="font-size:0.85rem; color: #888; margin-top: 8px;">Aanvragen via RVO.nl</p>
+        </div>
+        <div class="card">
+          <h3>Provinciale regelingen</h3>
+          <p>Veel provincies hebben aanvullende subsidies voor laadinfrastructuur, soms specifiek voor culturele instellingen of mkb. Raadpleeg uw provincie.</p>
+        </div>
+        <div class="card">
+          <h3>SDE++ (BSS)</h3>
+          <p>Voor locaties met batterijopslag of zonnepanelen als aanvulling op de laadinfrastructuur. Langlopende productie-incentive.</p>
+          <p style="font-size:0.85rem; color: #888; margin-top: 8px;">Aanvragen via RVO.nl</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+        <strong>Tip:</strong> Subsidies zijn aan verandering onderhevig. Raadpleeg altijd de actuele informatie op <a href="https://www.rvo.nl" target="_blank" style="color: #2d7a4f;">rvo.nl</a> of vraag uw CPO om hulp bij de aanvraag.
+      </p>
+    </div>
+  </section>
+
+  <!-- CPO kiezen -->
+  <section class="neutral">
+    <div class="container-narrow">
+      <div class="section-label label-neutral">CPO-keuze</div>
+      <h2>Hoe kiest u een Charge Point Operator?</h2>
+      <p>Een CPO (Charge Point Operator) beheert uw laadpunt operationeel: autorisatie van gebruikers, facturering, monitoring en storingsdienst. U sluit een contract af voor doorgaans 5–10 jaar. Let op de volgende punten:</p>
+
+      <ul class="steps" style="margin-top: 24px;">
+        <li>
+          <div>
+            <strong>Open standaard (OCPP)</strong><br>
+            <span style="font-size:0.9rem;color:#555;">Zorg dat uw laadpunt communiceert via OCPP 2.0.1. Dit voorkomt vendor lock-in: u kunt van CPO wisselen zonder de hardware te vervangen.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Roaming</strong><br>
+            <span style="font-size:0.9rem;color:#555;">Controleer of de CPO is aangesloten op roaming-netwerken (OCPI). Zo kunnen gebruikers met elke laadpas of app bij uw laadpunt terecht, niet alleen klanten van één aanbieder.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Monitoring en rapportage</strong><br>
+            <span style="font-size:0.9rem;color:#555;">Vraag naar een eigenaarsdashboard: hoeveel is er geladen, wanneer, door wie, en wat heeft u verdiend?</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Storingsdienst</strong><br>
+            <span style="font-size:0.9rem;color:#555;">Wie handelt een storing af, en hoe snel? Zeker voor vrachtwagens die 's nachts laden is beschikbaarheid kritisch.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Contractvorm</strong><br>
+            <span style="font-size:0.9rem;color:#555;">Huur, koop of lease? Wie is eigenaar van de hardware? Wat zijn de opzegtermijnen? Lees het contract zorgvuldig.</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="stroomlijnen-note">
+        * Stroomlijnen biedt een specifiek pakket voor culturele locaties met: een cultureel tarief voor de sector, volledige verticale integratie (van hardware tot CPO), dynamische vermogenssturing op basis van gecontracteerd vs. aansluitvermogen zodat u nooit uw piekvermogen overschrijdt, en een eigen versleuteld netwerk zonder internetkoppeling van de hardware naar buitenlandse servers — ook bij uitval van internet blijft het systeem draaien. <a href="https://stroomlijnen.nu" target="_blank">stroomlijnen.nu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aansluiting & vermogen -->
+  <section>
+    <div class="container-narrow">
+      <div class="section-label label-green">Technische aansluiting</div>
+      <h2>Aansluiting en vermogensbeheer</h2>
+      <p>Voordat u laadpunten plaatst, moet u uw huidige netaansluiting in kaart brengen. Twee begrippen zijn cruciaal:</p>
+
+      <table class="info-table" style="margin-top: 16px;">
+        <thead>
+          <tr><th>Begriff</th><th>Betekenis</th><th>Typisch theater</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Aansluitvermogen</strong></td>
+            <td>Het maximale vermogen dat uw netaansluiting fysiek kan leveren</td>
+            <td>300–500 kW</td>
+          </tr>
+          <tr>
+            <td><strong>Gecontracteerd vermogen</strong></td>
+            <td>Het vermogen waarvoor u betaalt bij uw netbeheerder. Overschrijding leidt tot boetes of netproblemen.</td>
+            <td>150–350 kW</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-green" style="margin-top: 20px;">
+        <h3>Slim vermogensbeheer</h3>
+        <p>Theaters hebben overdag vaak veel overcapaciteit — avonden zijn drukker. Slimme laadinfrastructuur past het laadvermogen automatisch aan op het beschikbare vermogen op dat moment. Zo laadt u maximaal als de zaal leeg is, en beperkt het systeem het laadvermogen automatisch tijdens een voorstelling. Dit voorkomt boetes én maakt optimaal gebruik van uw aansluiting.</p>
+      </div>
+
+      <h3 style="margin-top: 28px;">Stappen voor aansluiting</h3>
+      <ul class="steps" style="margin-top: 16px;">
+        <li><div><strong>Huidige situatie in kaart brengen</strong><br><span style="font-size:0.9rem;color:#555;">Vraag uw netbeheerder om uw aansluit- en gecontracteerd vermogen op. Check of er ruimte is voor extra belasting.</span></div></li>
+        <li><div><strong>Locatie bepalen</strong><br><span style="font-size:0.9rem;color:#555;">Laaddok, parkeerterrein of binnenplaats? Let op kabellengte, beveiliging en toegankelijkheid voor vrachtwagens.</span></div></li>
+        <li><div><strong>Elektrotechnisch advies</strong><br><span style="font-size:0.9rem;color:#555;">Een erkend installateur beoordeelt of uw groepenkast en bekabeling geschikt zijn, of versterking nodig is.</span></div></li>
+        <li><div><strong>Vergunning</strong><br><span style="font-size:0.9rem;color:#555;">Afhankelijk van de locatie en het vermogen kan een omgevingsvergunning nodig zijn. Vraag dit na bij uw gemeente.</span></div></li>
+        <li><div><strong>CPO selecteren en contract afsluiten</strong><br><span style="font-size:0.9rem;color:#555;">Zie de checklist hierboven. Zorg dat OCPP en open standaarden zijn geborgd.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="green-light tight">
+    <div class="container-narrow" style="text-align:center;">
+      <h2>Klaar om verder te kijken?</h2>
+      <p style="max-width: 500px; margin: 0 auto 24px;">Bekijk ook onze pagina's over beschikbare subsidies en de technische specificaties van connectoren.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="/subsidies" class="btn btn-green">Subsidies →</a>
+        <a href="/connectoren" class="btn btn-outline-green">Connectoren →</a>
+        <a href="/veelgestelde-vragen" class="btn btn-outline-green">FAQ →</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

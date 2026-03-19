@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Veelgestelde vragen" description="Antwoorden op veelgestelde vragen over laadinfrastructuur bij culturele locaties — voor eigenaren en gebruikers.">
+
+<style>
+  details {
+    border-bottom: 1px solid var(--cs-border);
+    padding: 4px 0;
+  }
+  details:last-child { border-bottom: none; }
+  summary {
+    font-weight: 600;
+    font-size: 0.97rem;
+    cursor: pointer;
+    padding: 12px 4px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cs-text);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+';
+    font-size: 1.3rem;
+    color: var(--cs-muted);
+    font-weight: 300;
+    flex-shrink: 0;
+  }
+  details[open] summary::after { content: '−'; }
+  details[open] summary { color: var(--cs-green-dark); }
+  .faq-answer {
+    padding: 4px 4px 14px;
+    font-size: 0.93rem;
+    color: #444;
+    line-height: 1.65;
+  }
+</style>
+
+  <section style="padding: 60px 0 48px; background: var(--cs-neutral); border-bottom: 1px solid var(--cs-border);">
+    <div class="container-narrow">
+      <div class="section-label label-neutral">FAQ</div>
+      <h1 style="margin-bottom: 14px;">Veelgestelde vragen</h1>
+      <p style="font-size: 1.05rem; color: #444; max-width: 640px;">
+        Antwoorden op de meest gestelde vragen over laadinfrastructuur bij culturele locaties — voor eigenaren en gebruikers.
+      </p>
+    </div>
+  </section>
+
+  <!-- EIGENAAR -->
+  <section>
+    <div class="container-narrow">
+      <div class="section-label label-green">Voor eigenaren</div>
+      <h2 style="margin-bottom: 24px;">Vragen van locatie-eigenaren</h2>
+
+      <details>
+        <summary>Moet ik zelf investeren om laadpunten te plaatsen?</summary>
+        <div class="faq-answer">
+          In veel CPO-modellen hoeft u als eigenaar niet zelf te investeren in de hardware. De CPO plaatst de laadpunten voor eigen rekening en u ontvangt een vergoeding per kWh. Er zijn ook modellen waarbij u de hardware huurt of koopt — dit geeft meer controle maar vereist een eigen investering. Vraag meerdere CPO's om een offerte en vergelijk de contractvormen.
+        </div>
+      </details>
+
+      <details>
+        <summary>Wat als mijn netaansluiting al bijna vol is?</summary>
+        <div class="faq-answer">
+          Dit is een veelvoorkomende situatie bij theaters. Er zijn twee oplossingen: <br><br>
+          <strong>1. Vermogenssturing (load management):</strong> Slimme laadinfrastructuur past het laadvermogen automatisch aan op de beschikbare overcapaciteit. Als de zaal vol is, laadt het systeem langzamer — als de zaal leeg is, laadt het op volle snelheid.<br><br>
+          <strong>2. Batterijopslag (BSS):</strong> Een batterijbuffer laadt op wanneer de locatie weinig stroom gebruikt en levert die buffer terug aan de laadpunten op piekmomenten. Dit maakt laden op volle capaciteit mogelijk zonder de netaansluiting te overbelasten.
+        </div>
+      </details>
+
+      <details>
+        <summary>Ben ik aansprakelijk bij schade aan een voertuig tijdens het laden?</summary>
+        <div class="faq-answer">
+          Nee, in de gangbare CPO-contracten is de CPO verantwoordelijk voor de hardware, het beheer en de aansprakelijkheid bij schade die door de laadinfrastructuur wordt veroorzaakt. De CPO sluit hiervoor een bedrijfsaansprakelijkheidsverzekering af. Lees uw contract zorgvuldig op aansprakelijkheidsclausules en vraag uw CPO om de polisgegevens.
+        </div>
+      </details>
+
+      <details>
+        <summary>Kan ik bepalen wie er bij mijn laadpunt mag?</summary>
+        <div class="faq-answer">
+          Ja. U kunt kiezen voor een volledig openbaar laadpunt (iedereen met een geldige laadpas), een semi-openbaar punt (alleen contractpartners, bijv. specifieke vervoerders), of een privaat punt (uitsluitend uw eigen voertuigen of vaste contractanten). De meeste CPO's bieden alle drie de opties via hun beheersysteem. U kunt ook tijdsbeperkingen instellen — bijv. alleen laden tijdens dag- of nachturen.
+        </div>
+      </details>
+
+      <details>
+        <summary>Wat als ik van CPO wil wisselen?</summary>
+        <div class="faq-answer">
+          Als uw laadpunt werkt via de open standaard OCPP (Open Charge Point Protocol), kunt u van CPO wisselen zonder de hardware te vervangen. U wijzigt simpelweg de backoffice-configuratie. Zorg daarom altijd dat uw contract OCPP-compliance garandeert en dat u de eigenaar blijft van de hardware. Controleer ook de contractduur en opzegtermijnen — een CPO-contract loopt doorgaans 5 tot 10 jaar.
+        </div>
+      </details>
+
+      <details>
+        <summary>Hoe lang duurt de installatie van een laadpunt?</summary>
+        <div class="faq-answer">
+          De fysieke installatie duurt typisch 1 tot 3 dagen per laadpunt, afhankelijk van de bekabelingsafstand en eventuele aanpassingen aan de groepenkast. De volledige doorlooptijd is langer: vergunningsprocedures (indien nodig) kunnen 2 tot 8 weken duren, en de levering van hardware soms 4 tot 12 weken. Reken op een totale doorlooptijd van 2 tot 4 maanden van eerste gesprek tot eerste laadsessie.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- GEBRUIKER -->
+  <section class="neutral">
+    <div class="container-narrow">
+      <div class="section-label label-blue">Voor gebruikers</div>
+      <h2 style="margin-bottom: 24px;">Vragen van gebruikers</h2>
+
+      <details>
+        <summary>Welke laadpas werkt bij laadpunten van culturele locaties?</summary>
+        <div class="faq-answer">
+          Vrijwel alle laadpassen die zijn aangesloten op een OCPI-roaming netwerk (zoals Gireve, Hubject of de Nederlandse e-Laad-koppeling) werken bij laadpunten die via een open CPO zijn beheerd. In de praktijk betekent dit dat passen van grote aanbieders zoals Vattenfall, Shell Recharge, Allego, NewMotion, en veel zakelijke fleetkaarten gewoon werken. Twijfelt u? Controleer of de laadpaal het logo van uw netwerk toont, of start een sessie via de QR-code.
+        </div>
+      </details>
+
+      <details>
+        <summary>Mag ik 's nachts laden bij een theater?</summary>
+        <div class="faq-answer">
+          Dat hangt af van het beleid van de locatie. Sommige theaters bieden 24/7 toegang tot hun laadpunten, anderen beperken de toegang tot openingstijden of contracturen. Informeer bij de locatie of via uw CPO-app of nachtladen mogelijk is op die specifieke locatie. Voor tourende producties is nachtladen vaak juist de meest praktische optie — bespreek dit bij de locatie-intake.
+        </div>
+      </details>
+
+      <details>
+        <summary>Wat als ik geen laadpas heb?</summary>
+        <div class="faq-answer">
+          De meeste moderne laadpunten bieden alternatieven voor gebruikers zonder laadpas:<br><br>
+          <strong>QR-code:</strong> Scan de code op de paal met uw telefoon. U wordt doorgeleid naar een betaalpagina waar u met creditcard, iDEAL of Bancontact kunt betalen.<br><br>
+          <strong>App:</strong> Via apps zoals Plugsurfing, Chargemap of de app van de CPO kunt u een sessie starten zonder fysieke pas.<br><br>
+          Wilt u structureel laden? Overweeg een zakelijke laadpas — die is doorgaans goedkoper per kWh dan ad-hoc betalen.
+        </div>
+      </details>
+
+      <details>
+        <summary>Wie betaalt de stroom — ik of de locatie?</summary>
+        <div class="faq-answer">
+          U betaalt de stroom via uw laadpas of betaalmethode. De locatie ontvangt een vergoeding per geleverde kWh van de CPO — u betaalt het publieke laadtarief, de CPO verrekent de energiekosten met de locatie. De locatie betaalt dus niet de stroom voor uw voertuig.
+        </div>
+      </details>
+
+      <details>
+        <summary>Mag ik laden terwijl de voorstelling of het evenement bezig is?</summary>
+        <div class="faq-answer">
+          Ja, in de meeste gevallen wel. Laden tijdens een voorstelling is juist logisch voor toerende producties — het voertuig staat stil, de locatie heeft de stroomcapaciteit over (de productie zelf gebruikt het net al zwaar, maar het laadsysteem past het vermogen automatisch aan). In sommige gevallen beperkt vermogenssturing het laadvermogen tijdelijk — dit is normaal en automatisch.
+        </div>
+      </details>
+
+      <details>
+        <summary>Kan ik een laadpunt reserveren voor mijn aankomst?</summary>
+        <div class="faq-answer">
+          Reservering is op dit moment niet standaard beschikbaar bij de meeste laadpunten bij culturele locaties. Het is first come, first served. Voor toerende producties die langdurig laden is het aan te raden om bij aankomst direct aan te sluiten. Heeft u meerdere vrachtwagens? Bespreek dan de laadplanning vooraf met de locatie of de CPO.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="green-light tight">
+    <div class="container-narrow" style="text-align:center;">
+      <p style="margin-bottom: 16px; color: #444;">Staat uw vraag er niet bij? Bekijk de gedetailleerde informatiepagina's.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="/eigenaar" class="btn btn-green">Voor eigenaren →</a>
+        <a href="/gebruiker" class="btn btn-blue">Voor gebruikers →</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
