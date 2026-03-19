@@ -1,11 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+<Layout title="Home" description="Alles over laden in de culturele sector — voor eigenaren en gebruikers van laadpunten bij theaters, festivals en culturele locaties.">
 
-<Layout title="Cultuurstroom">
-  <main>
-    <h1>Cultuurstroom</h1>
-    <p>Culturele locaties als duurzame energiehubs</p>
-    <p>Coming soon.</p>
-  </main>
+  <!-- Hero -->
+  <section style="padding: 80px 0 60px; background: linear-gradient(135deg, #f9fbfa 0%, #e8f5ee 100%); border-bottom: 1px solid #dde2e8;">
+    <div class="container-narrow" style="text-align: center;">
+      <div class="section-label label-neutral">Informatie voor de culturele sector</div>
+      <h1 style="margin-bottom: 16px;">Laden bij culturele locaties<br>— hoe werkt het?</h1>
+      <p style="font-size: 1.1rem; color: #444; max-width: 600px; margin: 0 auto 36px;">
+        Cultuurstroom biedt onafhankelijke informatie over EV-laadinfrastructuur bij theaters, festivals en culturele locaties — voor eigenaren die laadpunten willen plaatsen én voor gebruikers die er hun voertuig willen opladen.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="/eigenaar" class="btn btn-green" style="font-size: 1rem; padding: 14px 28px;">🏛️ Ik ben eigenaar van een locatie →</a>
+        <a href="/gebruiker" class="btn btn-blue" style="font-size: 1rem; padding: 14px 28px;">🚛 Ik wil laden op locatie →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Twee paden -->
+  <section>
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+
+        <div style="border: 2px solid #2d7a4f; border-radius: 12px; padding: 32px; background: #f9fdfb;">
+          <div class="section-label label-green">Voor eigenaren</div>
+          <h2 style="color: #1d5236;">Laadpunten plaatsen bij uw locatie</h2>
+          <p style="color: #444;">U heeft stroomcapaciteit over. Toerende gezelschappen en hun transportbedrijven hebben die capaciteit nodig. Dit is wat u moet weten over het plaatsen, beheren en verdienen aan laadinfrastructuur.</p>
+          <ul style="margin: 16px 0 20px; padding-left: 18px; color: #444; font-size: 0.92rem;">
+            <li style="margin-bottom: 8px;">Hoe werkt een laadpunt technisch?</li>
+            <li style="margin-bottom: 8px;">Wat verdient u per kWh?</li>
+            <li style="margin-bottom: 8px;">Welke subsidies zijn er?</li>
+            <li style="margin-bottom: 8px;">Wat doet een CPO, en hoe kiest u er één?</li>
+            <li style="margin-bottom: 8px;">Welke aansluiting heeft u nodig?</li>
+          </ul>
+          <a href="/eigenaar" class="btn btn-green">Informatie voor eigenaren →</a>
+        </div>
+
+        <div style="border: 2px solid #1a5276; border-radius: 12px; padding: 32px; background: #f8fbfd;">
+          <div class="section-label label-blue">Voor gebruikers</div>
+          <h2 style="color: #154566;">Laden op locatie — wat moet ik weten?</h2>
+          <p style="color: #444;">U rijdt met een elektrische vrachtwagen of bestelbus en wilt laden bij een theater of culturele locatie. Dit is alles wat u moet weten over connectoren, betalen, snelheid en praktische instructies.</p>
+          <ul style="margin: 16px 0 20px; padding-left: 18px; color: #444; font-size: 0.92rem;">
+            <li style="margin-bottom: 8px;">Welke connector heb ik nodig?</li>
+            <li style="margin-bottom: 8px;">Hoe start en stop ik een laadsessie?</li>
+            <li style="margin-bottom: 8px;">Wat kost laden?</li>
+            <li style="margin-bottom: 8px;">Hoe lang duurt het laden?</li>
+            <li style="margin-bottom: 8px;">Wat doe ik als het niet werkt?</li>
+          </ul>
+          <a href="/gebruiker" class="btn btn-blue">Informatie voor gebruikers →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Context blok -->
+  <section class="neutral tight">
+    <div class="container-narrow">
+      <h2 style="text-align:center; margin-bottom: 32px;">Waarom nu?</h2>
+      <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card" style="border-top: 3px solid #2d7a4f;">
+          <div class="card-icon">🚫</div>
+          <h3>Zero-emissiezones</h3>
+          <p>Vanaf 2025 handhaven steeds meer steden zero-emissiezones. Theaters zonder laadpunt worden moeilijker bereikbaar voor tournees.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid #1a5276;">
+          <div class="card-icon">⚡</div>
+          <h3>Netcongestie</h3>
+          <p>Transportbedrijven krijgen geen extra aansluitcapaciteit op eigen terrein. Theaters hebben juist onbenutte capaciteit. Laadpunten bij theaters lossen dit structureel op.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid #888;">
+          <div class="card-icon">🌱</div>
+          <h3>Verduurzaming</h3>
+          <p>De culturele sector staat voor grote verduurzamingsopgaven. Laadinfrastructuur is een concrete, zichtbare stap — passief inkomen voor de locatie, schone logistiek voor de sector.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </Layout>
