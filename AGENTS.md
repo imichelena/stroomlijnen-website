@@ -28,10 +28,17 @@ Website for **Cultuurstroom** — an initiative connecting cultural venues (thea
 - **DNS:** Cloudflare (cultuurstroom.org) → slm-edge (46.224.113.157)
 
 ## Deployment
-```bash
-npm run build
-scp -r dist/* slm-edge:/var/www/cultuurstroom/
-```
+**Auto-deploy via Cloudflare Pages.** Every push to `main` triggers a build and deploy.
+- **Live URL:** https://cultuurstroom.org
+- **Workers dev URL:** https://cultuurstroom-website.ignaciomichelena.workers.dev
+- **Build:** `npm run build` → `./dist/`
+- Just push to `main` — Cloudflare handles the rest.
+
+## Content Owner
+**Jacco Patist** manages content via his Telegram agent. Workflow:
+1. Edit files in `src/pages/` and `src/layouts/`
+2. Commit and push to `main`
+3. Auto-deploys in ~30 seconds
 
 ## Content Ideas (from Stroomlijnen context)
 - Why theaters are perfect for EV charging (idle grid capacity during daytime)
