@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Het Platform" description="Het Stroomlijnen platform — open-source CPO-software, open-source EMS, Tailscale-netwerk. Transparantie als fundament.">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="section-label">Het Platform</div>
+      <h1>Transparantie<br>als fundament.</h1>
+      <p class="hero-lead">Ons laadplatform is volledig in eigen beheer gebouwd — van hardware tot laadsessie. De software is open-source. De architectuur is publiek. Geen zwarte dozen, geen externe afhankelijkheden.</p>
+    </div>
+  </section>
+
+  <!-- KERN -->
+  <section>
+    <div class="container">
+      <div class="section-label">Verticale integratie</div>
+      <h2>Alles in eigen hand</h2>
+      <div class="divider"></div>
+      <p class="lead" style="max-width:640px;">De meeste laadnetwerken zijn samengesteld uit losse componenten van verschillende leveranciers. Stroomlijnen bouwt de hele keten zelf — van de hardware die we importeren tot de software die de laadsessie beheert.</p>
+
+      <div class="cards-grid" style="margin-top:40px;">
+        <div class="card card-accent-blue">
+          <div class="card-icon">🔌</div>
+          <h3>Hardware</h3>
+          <p>Op maat geïmporteerde DC-laders via onze fabriekspartner. Modulair chassis: 30, 60, 90, 120 en 150 kW — hot-swappable modules. Bij een modulestoring draait de lader door op verminderd vermogen.</p>
+          <p style="font-size:0.85rem; color:var(--muted); margin-top:8px;">MID-gecertificeerd · CE · NEN 1010 · IP54</p>
+        </div>
+        <div class="card card-accent-blue">
+          <div class="card-icon">⚡</div>
+          <h3>CPO-software</h3>
+          <p>Ons eigen Charge Point Operator platform. OCPP 2.0.1 — de nieuwste open standaard. Real-time monitoring, autorisatie via laadpas, QR-code, app of Plug & Charge. Dynamische spotmarkt-pricing.</p>
+          <a href="https://github.com/stroomlijnen/cpo" target="_blank" class="card-link">GitHub → github.com/stroomlijnen/cpo</a>
+        </div>
+        <div class="card card-accent-blue">
+          <div class="card-icon">📊</div>
+          <h3>EMS — Energiebeheersysteem</h3>
+          <p>Ons eigen Energy Management System monitort real-time het totale gebouwverbruik. Laders schalen automatisch binnen de contractuele grenzen. Theateractiviteiten gaan altijd voor.</p>
+          <a href="https://github.com/stroomlijnen/ems" target="_blank" class="card-link">GitHub → github.com/stroomlijnen/ems</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAILSCALE -->
+  <section class="bg-grey">
+    <div class="container">
+      <div class="two-col-wide">
+        <div>
+          <div class="section-label">Netwerkarchitectuur</div>
+          <h2>Niet aan het internet</h2>
+          <div class="divider"></div>
+          <p>De meeste laadpalen communiceren via het publieke internet met externe cloudservers — ook die van fabrikanten buiten de EU. Dat maakt ze kwetsbaar: voor storingen, voor datalekken, voor externe afhankelijkheden.</p>
+          <p>Stroomlijnen-laders draaien op een <strong>privaat Tailscale-netwerk</strong>. Tailscale bouwt een versleuteld peer-to-peer netwerk tussen onze apparaten — zonder dat er een centrale server tussen zit die alles kan zien of controleren.</p>
+          <ul class="feature-list" style="margin-top:24px;">
+            <li>
+              <div class="fi-icon">🔒</div>
+              <div class="fi-text">
+                <strong>Geen publieke exposure</strong>
+                <span>Laadpalen zijn niet vindbaar op het internet. Geen open poorten, geen cloud-API's die aangevallen kunnen worden.</span>
+              </div>
+            </li>
+            <li>
+              <div class="fi-icon">📵</div>
+              <div class="fi-text">
+                <strong>Werkt zonder internet</strong>
+                <span>Als de internetverbinding uitvalt, blijft het systeem gewoon draaien. Het EMS en de laadpaal communiceren lokaal.</span>
+              </div>
+            </li>
+            <li>
+              <div class="fi-icon">🌍</div>
+              <div class="fi-text">
+                <strong>Geen data naar fabrikanten</strong>
+                <span>Hardware is volledig geïsoleerd van externe servers — ook van de fabrikant. Geen telemetrie, geen terugkoppeling.</span>
+              </div>
+            </li>
+            <li>
+              <div class="fi-icon">📖</div>
+              <div class="fi-text">
+                <strong>Waarom open-source?</strong>
+                <span>Wij verdienen niet aan licenties. Wij verdienen aan het beheren van laadinfrastructuur. Dus waarom zou onze software gesloten zijn?</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div style="background: var(--navy); border-radius: 12px; padding: 28px; font-family: monospace; font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.8;">
+            <div style="color: var(--accent); margin-bottom: 12px; font-family: sans-serif; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Architectuur</div>
+            <div><span style="color:rgba(255,255,255,0.35);">#</span> Laadpaal ↔ EMS</div>
+            <div style="color:var(--green);">OCPP 2.0.1 · lokaal</div>
+            <div style="margin-top:10px;"><span style="color:rgba(255,255,255,0.35);">#</span> EMS ↔ CPO-platform</div>
+            <div style="color:var(--green);">Tailscale E2E · privaat</div>
+            <div style="margin-top:10px;"><span style="color:rgba(255,255,255,0.35);">#</span> CPO-platform ↔ roaming</div>
+            <div style="color:var(--green);">OCPI · open standaard</div>
+            <div style="margin-top:10px;"><span style="color:rgba(255,255,255,0.35);">#</span> Fabrikant ↔ lader</div>
+            <div style="color:#ef4444;">geen verbinding ✗</div>
+            <div style="margin-top:16px; padding-top:16px; border-top: 1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.4); font-family:sans-serif; font-size:0.82rem;">
+              Alle communicatie is versleuteld of lokaal. Geen externe cloudafhankelijkheid.
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top:20px;">
+            <strong>Wil je onze software gebruiken?</strong><br>
+            Beide repositories zijn publiek op GitHub. Issues, pull requests en forks zijn welkom. Wil je het inzetten voor je eigen laadnetwerk? Neem contact op.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OCPP & ROAMING -->
+  <section>
+    <div class="container-md">
+      <div class="section-label">Open standaarden</div>
+      <h2>OCPP, OCPI en roaming</h2>
+      <div class="divider"></div>
+      <div class="cards-grid-2">
+        <div class="card">
+          <h3>OCPP 2.0.1</h3>
+          <p>Het Open Charge Point Protocol is de internationale standaard voor communicatie tussen laadpaal en beheersysteem. OCPP 2.0.1 is de meest recente versie — met betere beveiliging, slimmer laden en V2G-ondersteuning.</p>
+          <p style="font-size:0.85rem; color:var(--muted);">Elke laadpaal die OCPP spreekt, kan aan elk platform gekoppeld worden. Geen vendor lock-in.</p>
+        </div>
+        <div class="card">
+          <h3>OCPI — Roaming</h3>
+          <p>Via OCPI zijn ons platform gekoppeld aan Europese roaming-netwerken. Chauffeurs met een laadpas van elke grote aanbieder kunnen laden bij Stroomlijnen-locaties — en vice versa.</p>
+          <p style="font-size:0.85rem; color:var(--muted);">300.000+ publieke laadpunten bereikbaar via roaming voor Stroomlijnen-vlootklanten.</p>
+        </div>
+        <div class="card">
+          <h3>MID-certificering</h3>
+          <p>Alle Stroomlijnen-laders zijn uitgerust met MID-gecertificeerde energiemeters. Dit is wettelijk verplicht voor publieke facturatie — en garandeert dat u exact betaalt voor wat u laadt.</p>
+        </div>
+        <div class="card">
+          <h3>Plug & Charge (ISO 15118)</h3>
+          <p>Voertuigen die ISO 15118 ondersteunen worden automatisch herkend zodra de kabel wordt aangesloten. Geen pas, geen app — de sessie start en stopt automatisch.</p>
+          <a href="https://docs.stroomlijnen.nl/docs/plug-and-charge/what-is-pnc" class="card-link" target="_blank">Meer over Plug & Charge →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="bg-navy">
+    <div class="container-sm" style="text-align:center;">
+      <div class="section-label" style="color:var(--accent);">Open samenwerking</div>
+      <h2 style="color:var(--white);">Gebruik ons platform ook<br>voor jouw netwerk.</h2>
+      <p style="color:rgba(255,255,255,0.65); margin: 20px auto 32px; max-width:480px;">Beide repositories zijn publiek. Wil je bijdragen, forken of de software inzetten voor een ander netwerk? We helpen graag.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://github.com/stroomlijnen" target="_blank" class="btn btn-primary">GitHub →</a>
+        <a href="mailto:info@stroomlijnen.nl" class="btn btn-ghost">Contact opnemen</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

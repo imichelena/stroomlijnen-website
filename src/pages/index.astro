@@ -1,305 +1,121 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+<Layout title="Iedere zaal een laadpaal" description="Stroomlijnen plaatst laadpalen bij theaters voor elektrische vrachtwagens. Open-source, transparant, voor de culturele sector.">
 
-<Layout title="Iedere zaal een laadpaal" description="Stroomlijnen levert laadinfrastructuur voor theaters en elektrisch transport. Open-source platform, transparante prijzen, bodemprijzen voor de culturele sector.">
-
-  <style>
-    .hero {
-      background: var(--blue);
-      color: var(--white);
-      padding: 6rem 1.5rem 5rem;
-    }
-    .hero-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      max-width: 700px;
-    }
-    .hero h1 em {
-      color: var(--green);
-      font-style: normal;
-    }
-    .hero-sub {
-      font-size: 1.2rem;
-      color: rgba(255,255,255,0.8);
-      max-width: 580px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .bridge {
-      background: var(--off-white);
-      padding: 4rem 1.5rem;
-      border-bottom: 1px solid var(--gray-light);
-    }
-    .bridge-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .bridge h2 {
-      font-size: 1.65rem;
-      color: var(--blue);
-      margin-bottom: 1rem;
-      max-width: 800px;
-    }
-    .bridge p {
-      font-size: 1.05rem;
-      color: var(--gray-dark);
-      max-width: 760px;
-      line-height: 1.8;
-    }
-    .blocks {
-      padding: 5rem 1.5rem;
-    }
-    .blocks-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .blocks-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    .block {
-      border: 1.5px solid var(--gray-light);
-      border-radius: 8px;
-      padding: 2rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .block:hover {
-      border-color: var(--green);
-      box-shadow: 0 4px 20px rgba(46,204,113,0.12);
-    }
-    .block-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .block h3 {
-      font-size: 1.2rem;
-      color: var(--blue);
-      margin-bottom: 0.75rem;
-    }
-    .block p {
-      font-size: 0.95rem;
-      color: var(--gray);
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-    }
-    .block a.link {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--blue);
-    }
-    .block a.link:hover {
-      color: var(--green-dark);
-      text-decoration: none;
-    }
-    .why {
-      background: var(--blue);
-      color: var(--white);
-      padding: 5rem 1.5rem;
-    }
-    .why-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .why h2 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .why-sub {
-      color: rgba(255,255,255,0.65);
-      font-size: 1rem;
-      margin-bottom: 3rem;
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-    }
-    .why-item {
-      display: flex;
-      gap: 1rem;
-      padding: 1.5rem;
-      background: rgba(255,255,255,0.05);
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .why-item-num {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--green);
-      flex-shrink: 0;
-      line-height: 1.2;
-    }
-    .why-item h4 {
-      font-size: 1rem;
-      margin-bottom: 0.35rem;
-      font-weight: 600;
-    }
-    .why-item p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.6;
-    }
-    .cta-bar {
-      padding: 4rem 1.5rem;
-      text-align: center;
-    }
-    .cta-bar-inner {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .cta-bar h2 {
-      font-size: 2rem;
-      color: var(--blue);
-      margin-bottom: 1rem;
-    }
-    .cta-bar p {
-      color: var(--gray);
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
-    }
-    .cta-bar-btns {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    @media (max-width: 768px) {
-      .blocks-grid, .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1>Iedere zaal<br/>een <em>laadpaal</em>.</h1>
-      <p class="hero-sub">
-        Stroomlijnen levert complete laadinfrastructuur voor theaters en elektrische transporteurs.
-        Geen tussenpersoon. Geen verborgen marges. Open-source van hardware tot laadsessie.
-      </p>
+    <div class="container">
+      <div class="section-label">Stroomlijnen</div>
+      <h1>Iedere zaal<br>een laadpaal.</h1>
+      <p class="hero-lead">Theaters hebben grote elektriciteitsaansluitingen die overdag stilstaan. Elektrische vrachtwagens hebben die stroom nodig. Wij verbinden die twee — transparant, open-source, voor de culturele sector.</p>
       <div class="hero-ctas">
-        <a href="/theaters" class="btn btn-primary">Voor theaters</a>
-        <a href="/transport" class="btn btn-outline-white">Voor transporteurs</a>
+        <a href="/theaters" class="btn btn-primary">Voor theaters →</a>
+        <a href="/transport" class="btn btn-ghost">Voor transporteurs →</a>
       </div>
     </div>
   </section>
 
-  <section class="bridge">
-    <div class="bridge-inner">
-      <h2>Theaters en elektrisch transport horen samen.</h2>
-      <p>
-        Theaters hebben laaddokken, parkeerplaatsen en een stabiele stroomaansluiting.
-        Elektrische vrachtwagens en touringcars hebben laadbehoefte op vaste routes.
-        Stroomlijnen verbindt die twee: theaters verdienen passief inkomen, transporteurs
-        laden betrouwbaar bij culturele locaties langs hun route. De culturele sector
-        financiert zo deels zijn eigen verduurzaming — zonder afhankelijk te zijn van overheidssubsidies.
-      </p>
-    </div>
-  </section>
-
-  <section class="blocks">
-    <div class="blocks-inner">
-      <h2 style="font-size: 1.8rem; color: var(--blue);">Wat we bieden</h2>
-      <div class="blocks-grid">
-        <div class="block">
-          <div class="block-icon">🎭</div>
+  <!-- DRIE PADEN -->
+  <section>
+    <div class="container">
+      <div class="section-label">Wat wij doen</div>
+      <h2>Laadinfrastructuur voor de culturele sector</h2>
+      <p class="lead" style="max-width:620px;">Van hardware tot laadsessie — alles in eigen beheer. Geen tussenschakels, geen abonnementen, geen verborgen kosten.</p>
+      <div class="cards-grid">
+        <div class="card card-accent-green">
+          <div class="card-icon">🎭</div>
           <h3>Theaters</h3>
-          <p>
-            Laadpaal bij het laaddok. Volledig beheerd door Stroomlijnen.
-            Passief inkomen van €0,10 per kWh. Nul omkijken naar beheer,
-            facturen of storingen.
-          </p>
-          <a href="/theaters" class="link">Meer voor theaters →</a>
+          <p>U plaatst een laadpaal bij uw laaddok. Wij beheren alles. U verdient €0,10 per geleverde kWh — zonder investering, zonder operationele last. Hardware vaak €0 via SPRILA-subsidie.</p>
+          <a href="/theaters" class="card-link">Meer voor theaters →</a>
         </div>
-        <div class="block">
-          <div class="block-icon">🚛</div>
+        <div class="card card-accent-blue">
+          <div class="card-icon">🚛</div>
           <h3>Elektrisch Transporteurs</h3>
-          <p>
-            Laad uw elektrische trucks en touringcars bij Stroomlijnen-locaties.
-            Plug & Charge, vaste tarieven, factuur per vloot.
-            Transparant, geen verrassingen.
-          </p>
-          <a href="/transport" class="link">Meer voor transporteurs →</a>
+          <p>Uw elektrische vrachtwagen laadt bij het theater terwijl de technici werken. Plug & Charge, transparante tarieven, geen abonnement vereist. CCS2 standaard voor trucks.</p>
+          <a href="/transport" class="card-link">Meer voor transporteurs →</a>
         </div>
-        <div class="block">
-          <div class="block-icon">⚡</div>
+        <div class="card card-accent-grey">
+          <div class="card-icon">⚡</div>
           <h3>Open Platform</h3>
-          <p>
-            Onze CPO- en EMS-software is open-source.
-            Laadpalen hangen via Tailscale — niet publiek aan het internet.
-            Geen vendor lock-in. Alles inzichtelijk.
-          </p>
-          <a href="/open-source" class="link">Bekijk het platform →</a>
+          <p>Onze CPO- en EMS-software zijn open-source. Geen cloudkoppeling — het systeem draait op een privaat Tailscale-netwerk. Geen vendor lock-in. Alle code vrij beschikbaar.</p>
+          <a href="/platform" class="card-link">Meer over ons platform →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="why">
-    <div class="why-inner">
-      <h2>Waarom wij anders zijn</h2>
-      <p class="why-sub">Feiten, geen slogans.</p>
-      <div class="why-grid">
-        <div class="why-item">
-          <div class="why-item-num">1</div>
-          <div>
-            <h4>Volledig verticaal geïntegreerd</h4>
-            <p>Van hardware-inkoop tot laadsessie-verrekening: alles in eigen beheer. Geen externe CPO, geen derde partij tussen u en uw data.</p>
+  <!-- WAAROM ANDERS -->
+  <section class="bg-grey">
+    <div class="container-md">
+      <div class="section-label">Wat ons onderscheidt</div>
+      <h2>Transparantie is geen marketingterm</h2>
+      <div class="divider"></div>
+      <ul class="feature-list">
+        <li>
+          <div class="fi-icon">🔧</div>
+          <div class="fi-text">
+            <strong>Volledig verticaal geïntegreerd</strong>
+            <span>Van hardware-inkoop tot de laadsessie — alles in eigen beheer. Geen afhankelijkheden van externe platforms of CPO's.</span>
           </div>
-        </div>
-        <div class="why-item">
-          <div class="why-item-num">2</div>
-          <div>
-            <h4>Transparante aanschafprijs</h4>
-            <p>U ziet exact wat een laadpaal kost. Aanschafprijs + €0,04/kWh servicedelta, publiek gepubliceerd. Geen verborgen marges.</p>
+        </li>
+        <li>
+          <div class="fi-icon">📖</div>
+          <div class="fi-text">
+            <strong>Open-source software</strong>
+            <span>Onze CPO-software (OCPP 2.0.1) en EMS zijn publiek beschikbaar op GitHub. Gebruik ze ook voor uw eigen netwerk.</span>
           </div>
-        </div>
-        <div class="why-item">
-          <div class="why-item-num">3</div>
-          <div>
-            <h4>Open-source software</h4>
-            <p>Onze CPO-software en EMS zijn open-source. U kunt alles inzien, auditen en zelf draaien. Transparantie is geen marketing — het is ons businessmodel.</p>
+        </li>
+        <li>
+          <div class="fi-icon">🔒</div>
+          <div class="fi-text">
+            <strong>Niet aan het internet</strong>
+            <span>Laadpalen draaien op een privaat Tailscale-netwerk. Geen cloudkoppeling, geen externe toegang. Het systeem werkt ook bij internetuitval.</span>
           </div>
-        </div>
-        <div class="why-item">
-          <div class="why-item-num">4</div>
-          <div>
-            <h4>Privaat netwerk via Tailscale</h4>
-            <p>Laadpalen hangen NIET publiek aan het internet. Communicatie via versleuteld Tailscale-netwerk. Geen open poorten, geen aanvalsvlak.</p>
+        </li>
+        <li>
+          <div class="fi-icon">💶</div>
+          <div class="fi-text">
+            <strong>Transparante prijzen</strong>
+            <span>Aanschafprijs, installatiekosten en delta per kWh — alles openbaar. Geen kleine lettertjes, geen verborgen marges.</span>
           </div>
-        </div>
-        <div class="why-item">
-          <div class="why-item-num">5</div>
-          <div>
-            <h4>ERE-certificaten → Cultureel Fonds</h4>
-            <p>Alle energiecertificaten (ERE) die onze installaties genereren gaan naar een cultureel fonds. Groene stroom die de culturele sector direct ten goede komt.</p>
+        </li>
+        <li>
+          <div class="fi-icon">🎨</div>
+          <div class="fi-text">
+            <strong>ERE-certificaten naar het Cultureel Fonds</strong>
+            <span>Alle verdiende energiecertificaten (ERE) gaan naar een fonds voor de culturele sector — in oprichting. Niet naar aandeelhouders.</span>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <section class="cta-bar">
-    <div class="cta-bar-inner">
-      <h2>Klaar om te beginnen?</h2>
-      <p>Theater of transportbedrijf — neem contact op of lees de documentatie. We reageren binnen één werkdag.</p>
-      <div class="cta-bar-btns">
-        <a href="/theaters" class="btn btn-primary">Ik heb een theater</a>
-        <a href="/transport" class="btn btn-outline">Ik heb een wagenpark</a>
+  <!-- CONTEXT -->
+  <section>
+    <div class="container">
+      <div class="two-col-wide">
+        <div>
+          <div class="section-label">De context</div>
+          <h2>Waarom dit nu speelt</h2>
+          <div class="divider"></div>
+          <p>Steeds meer Nederlandse steden handhaven zero-emissiezones. Dieselvrachtwagens worden geweerd uit binnensteden. Gezelschappen en transportbedrijven schakelen over op elektrisch — maar elektrische trucks hebben onderweg een laadpunt nodig.</p>
+          <p>Tegelijkertijd hebben theaters grote elektriciteitsaansluitingen die zijn gedimensioneerd op avondpiekbelasting. Overdag staat die capaciteit grotendeels stil. Dat is de ruimte die wij inzetten — zonder netuitbreiding, zonder grote investeringen.</p>
+          <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="/theaters" class="btn btn-primary">Voor theaters →</a>
+            <a href="https://docs.stroomlijnen.nl" class="btn btn-outline-blue" target="_blank">Technische documentatie ↗</a>
+          </div>
+        </div>
+        <div>
+          <div class="callout callout-blue">
+            <strong>Opgericht 2023</strong><br>
+            Stroomlijnen is opgericht met een ideële inslag — niet om grote winsten te maken, maar om maatschappelijke impact te creëren. Commercieel als middel, niet als doel.
+          </div>
+          <div class="callout" style="margin-top:20px;">
+            <strong>Eerste locatie live</strong><br>
+            Het living lab bij Lichtwerk Amsterdam is operationeel: 60 kW DC-lader, batterijopslag, zonnepanelen en lokale EMS-server.
+          </div>
+        </div>
       </div>
     </div>
   </section>
