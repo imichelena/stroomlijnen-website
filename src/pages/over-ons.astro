@@ -1,115 +1,157 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+<Layout title="Over ons" description="Stroomlijnen — opgericht 2023. Missie, team, het Cultureel Fonds en onze eerste locatie.">
 
-<Layout title="Over ons" description="Stroomlijnen is opgericht in 2023. Open-source laadinfrastructuur voor de culturele sector, met een ideële inslag.">
-
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
+      <div class="section-label">Over Stroomlijnen</div>
       <h1>Opgericht 2023.</h1>
-      <p class="hero-sub">Laadinfrastructuur voor de culturele sector. Geen grote winsten. Maatschappelijke impact.</p>
+      <p class="hero-lead">Stroomlijnen is niet ontstaan vanuit een businessplan, maar vanuit een concrete urgentie: het rondreizend theater dreigde vast te lopen op de energietransitie. Wij kennen de sector van binnenuit en bouwen een oplossing die echt werkt.</p>
     </div>
   </section>
 
+  <!-- MISSIE -->
   <section>
-    <div class="container-sm">
-      <h2>Missie</h2>
-      <div class="divider"></div>
-      <p>
-        Stroomlijnen is opgericht met een ideële inslag — niet om grote winsten te maken, maar om
-        maatschappelijke impact te creëren met de culturele sector als vertrekpunt.
-      </p>
-      <p>
-        Theaters en culturele locaties beschikken over ruimte, stroom en een vaste plek in het stedelijk weefsel.
-        Elektrisch transport groeit. Stroomlijnen verbindt die twee op een manier die eerlijk, transparant
-        en duurzaam is — zonder afhankelijkheid van grote energiebedrijven of subsidiestromen.
-      </p>
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="section-label">Missie</div>
+          <h2>Maatschappelijke impact via commercie</h2>
+          <div class="divider"></div>
+          <p>Stroomlijnen is opgericht met een ideële inslag — niet om grote winsten te maken, maar om maatschappelijke impact te creëren met de culturele sector als vertrekpunt.</p>
+          <p>Het bedrijf is commercieel als middel, niet als doel. Wat we verdienen, gaat grotendeels terug naar de sector via het Cultureel Fonds. Eventuele overwinsten vloeien eveneens terug — niet naar aandeelhouders.</p>
+          <p>We geloven dat verduurzaming niet afhankelijk moet zijn van grote marges. Bodemprijzen voor de sector zijn een bewuste keuze, niet een bijproduct van concurrentiedruk.</p>
+        </div>
+        <div>
+          <div class="callout">
+            <strong>25 jaar ervaring in de sector</strong><br>
+            Het team van Stroomlijnen komt uit de evenementenstroomvoorziening, theatertechniek en IT-infrastructuur. We installeren geen hardware zonder te begrijpen hoe een theater werkt — van de kleedkamer tot het laaddok.
+          </div>
+          <div class="callout" style="margin-top:16px;">
+            <strong>Reserveonderdelen op voorraad in Amsterdam</strong><br>
+            Power modules, touchscreens, connectors — beschikbaar voor directe inzet. Geen weken wachten op onderdelen uit het buitenland. Fabrieksgetraind serviceteam.
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="grey">
-    <div class="container-sm">
-      <h2>Team</h2>
+  <!-- TEAM -->
+  <section class="bg-grey">
+    <div class="container-md">
+      <div class="section-label">Team</div>
+      <h2>Wie wij zijn</h2>
       <div class="divider"></div>
-      <div class="cards">
+      <div class="cards-grid-2">
         <div class="card">
-          <div class="card-icon">🛠️</div>
+          <div class="card-icon">👤</div>
           <h3>Ignacio Michelena</h3>
-          <p>CEO — verantwoordelijk voor techniek, software en netwerk­architectuur.</p>
-          <a href="mailto:ignacio@stroomlijnen.nl" class="card-link">ignacio@stroomlijnen.nl</a>
+          <h4 style="color:var(--accent); font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">CEO · Technisch directeur</h4>
+          <p>Verantwoordelijk voor de technische architectuur — van hardware-import tot de open-source CPO- en EMS-software. Bouwt en beheert de IT-infrastructuur van het platform.</p>
+          <p style="font-size:0.85rem;"><a href="mailto:ignacio@stroomlijnen.nl" style="color:var(--accent);">ignacio@stroomlijnen.nl</a></p>
         </div>
         <div class="card">
-          <div class="card-icon">🎭</div>
+          <div class="card-icon">👤</div>
           <h3>Jacco Patist</h3>
-          <p>Commercieel directeur — eigenaar van Lichtwerk B.V., 30+ jaar ervaring in de theatersector.</p>
-          <a href="mailto:jacco@lichtwerk.nl" class="card-link">jacco@lichtwerk.nl</a>
+          <h4 style="color:var(--accent); font-size:0.82rem; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:10px;">Commercieel directeur · Eigenaar Lichtwerk B.V.</h4>
+          <p>30 jaar ervaring in de theaterproductiesector. Verantwoordelijk voor de commerciële strategie, klantrelaties en de VSCD-samenwerking. Eigenaar van Lichtwerk B.V. — de eerste pilotlocatie.</p>
+          <p style="font-size:0.85rem;"><a href="mailto:jacco@lichtwerk.nl" style="color:var(--accent);">jacco@lichtwerk.nl</a></p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CULTUREEL FONDS -->
   <section>
-    <div class="container-sm">
-      <h2>Het Cultureel Fonds</h2>
+    <div class="container-md">
+      <div class="section-label">Cultureel Fonds</div>
+      <h2>ERE-certificaten terug naar de sector</h2>
       <div class="divider"></div>
-
-      <h3>Wat zijn ERE-certificaten?</h3>
-      <p>
-        ERE-certificaten zijn digitale bewijzen dat groene stroom is geleverd aan het elektriciteitsnet.
-        Ze worden uitgegeven per megawattuur duurzame opwekking en zijn verhandelbaar.
-        Laadnetwerken die groene stroom leveren genereren automatisch ERE-certificaten.
-      </p>
-
-      <p>
-        Bij de meeste laadnetwerken behouden de exploitanten deze certificaten en verhandelen ze op
-        de energiemarkt als extra inkomstenstroom.
-      </p>
-
-      <div class="callout">
-        Bij Stroomlijnen gaan alle ERE-certificaten naar het <strong>Cultureel Fonds (in oprichting)</strong>.
-        Dit fonds ondersteunt de culturele sector — niet ons bedrijf.
-      </div>
-
-      <p>
-        Het fonds is momenteel in oprichting. Zodra het formeel is geregistreerd, wordt de structuur
-        en governance publiek gepubliceerd.
-      </p>
-
-      <div class="callout callout-blue">
-        <strong>Status:</strong> Cultureel Fonds — in oprichting (2025)
+      <div class="two-col">
+        <div>
+          <h3>Wat zijn ERE-certificaten?</h3>
+          <p>Elke kWh groene stroom die via een Stroomlijnen-laadpaal wordt geleverd, genereert een <strong>Europees Energie Certificaat (ERE)</strong> — ook wel Garantie van Oorsprong (GvO) genoemd. Dit is een officieel, verhandelbaar bewijs dat de geleverde stroom aantoonbaar hernieuwbaar is.</p>
+          <p>Op de markt hebben deze certificaten een waarde. Bij de meeste CPO's verdwijnt die opbrengst in de bedrijfsresultaten. Bij Stroomlijnen niet.</p>
+        </div>
+        <div>
+          <h3>Wat Stroomlijnen ermee doet</h3>
+          <p>Alle ERE-certificaten die via Stroomlijnen-locaties worden gegenereerd, gaan naar het <strong>Cultureel Fonds</strong>. Dit fonds ondersteunt de culturele sector — de exacte invulling bepalen we samen met de sector.</p>
+          <div class="callout callout-green" style="margin-top:16px;">
+            <strong>Status: in oprichting.</strong><br>
+            Het Cultureel Fonds wordt formeel opgericht in 2025–2026. De bestemming van de certificaten staat vast in het contract — ongeacht de oprichtingstatus van het fonds.
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="grey">
-    <div class="container-sm">
-      <h2>Locaties</h2>
+  <!-- EERSTE LOCATIE -->
+  <section class="bg-grey">
+    <div class="container-md">
+      <div class="section-label">Eerste locatie</div>
+      <h2>Living lab — Lichtwerk Amsterdam</h2>
       <div class="divider"></div>
-      <ul class="facts">
-        <li><strong>Lichtwerk Amsterdam</strong> — eerste pilotlocatie, operationeel sinds 2024</li>
-      </ul>
-      <p style="margin-top: 16px; font-size: 0.9rem; color: var(--muted);">
-        Meer locaties worden toegevoegd. Theaters die zich aanmelden komen op de openbare locatiekaart
-        zodra de installatie live is.
-      </p>
+      <div class="two-col">
+        <div>
+          <p>Het eerste Stroomlijnen-systeem draait bij <strong>Lichtwerk B.V.</strong> in Amsterdam — het productiebedrijf van Jacco Patist. Dit is het living lab waar wij de technologie testen en verfijnen voordat we uitrollen naar andere theaters.</p>
+          <ul class="feature-list" style="margin-top:20px;">
+            <li>
+              <div class="fi-icon">⚡</div>
+              <div class="fi-text">
+                <strong>60 kW DC-laadpunt</strong>
+                <span>CCS2, volledig operationeel voor elektrische vrachtwagens.</span>
+              </div>
+            </li>
+            <li>
+              <div class="fi-icon">🔋</div>
+              <div class="fi-text">
+                <strong>Batterijopslag (BSS)</strong>
+                <span>Buffer voor peakshaving en laadoptimalisatie.</span>
+              </div>
+            </li>
+            <li>
+              <div class="fi-icon">☀️</div>
+              <div class="fi-text">
+                <strong>Zonnepanelen</strong>
+                <span>Eigen opwek gekoppeld aan het EMS.</span>
+              </div>
+            </li>
+            <li>
+              <div class="fi-icon">📡</div>
+              <div class="fi-text">
+                <strong>Triple-redundante EMS-servers</strong>
+                <span>Lokaal draaiend, Tailscale-netwerk, geen internetafhankelijkheid.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div style="background:var(--navy); border-radius:12px; padding:24px; color:rgba(255,255,255,0.75); font-size:0.88rem; line-height:1.8;">
+            <div style="color:var(--accent); font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;">Status living lab</div>
+            <div>✓ 60 kW DC-lader — operationeel</div>
+            <div>✓ Batterijopslag — operationeel</div>
+            <div>✓ Zonnepanelen — aangesloten</div>
+            <div>✓ EMS lokaal — productie</div>
+            <div>✓ OCPP 2.0.1 — live</div>
+            <div>✓ Tailscale-netwerk — actief</div>
+            <div style="margin-top:14px; padding-top:14px; border-top:1px solid rgba(255,255,255,0.1); color:var(--muted); font-size:0.82rem;">Lichtwerk B.V. · Amsterdam</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="tight">
-    <div class="container-sm">
-      <h2>Contact</h2>
-      <div class="divider"></div>
-      <div class="cards">
-        <div class="card">
-          <h3>Technisch / algemeen</h3>
-          <p>Vragen over het platform, software of netwerkinrichting.</p>
-          <a href="mailto:ignacio@stroomlijnen.nl" class="card-link">ignacio@stroomlijnen.nl →</a>
-        </div>
-        <div class="card">
-          <h3>Commercieel / theaters</h3>
-          <p>Interesse als theater of transportbedrijf.</p>
-          <a href="mailto:jacco@lichtwerk.nl" class="card-link">jacco@lichtwerk.nl →</a>
-        </div>
+  <!-- CONTACT -->
+  <section class="bg-navy">
+    <div class="container-sm" style="text-align:center;">
+      <div class="section-label">Contact</div>
+      <h2 style="color:#fff;">In gesprek?</h2>
+      <p style="color:rgba(255,255,255,0.65); margin:20px auto 32px; max-width:420px;">Voor theaters, transportbedrijven en andere vragen — neem direct contact op.</p>
+      <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+        <a href="mailto:jacco@lichtwerk.nl" class="btn btn-primary">jacco@lichtwerk.nl</a>
+        <a href="mailto:ignacio@stroomlijnen.nl" class="btn btn-ghost">ignacio@stroomlijnen.nl</a>
       </div>
     </div>
   </section>
