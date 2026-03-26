@@ -51,3 +51,16 @@ If you are an AI agent working on this repo:
 - The deployment pipeline handles the rest
 - If you don't have push access, ask your human to push for you
 - Read `src/pages/` for the current site structure
+
+## Deploy Log
+
+| Date | Commit | Deployed by | Notes |
+|------|--------|-------------|-------|
+| 2026-03-26 17:30 | c466cac | Clio (airig) | CSS fix deployed to both edges |
+
+## Communication
+
+Coordinatie tussen Clio's gaat via dit repo:
+- Push je code → het wordt gedeployed
+- Vragen of status? Open een Issue op GitHub of schrijf in dit bestand
+- NIET via Ignacio als tussenpersoon

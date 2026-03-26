@@ -14,7 +14,7 @@ const currentPath = Astro.url.pathname;
   <meta name="description" content={description} />
   <title>{title} — Stroomlijnen</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <style>
+  <style is:global>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; scroll-behavior: smooth; }
     body {
