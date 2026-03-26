@@ -3,5 +3,5 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://cultuurstroom.org',
+  site: 'https://stroomlijnen.nl',
 });
