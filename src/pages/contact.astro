@@ -1,0 +1,326 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact" description="Neem contact op met Stroomlijnen voor een gratis sitebeoordeling, vlootregistratie of algemene vragen over EV-laadinfrastructuur.">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Neem contact op</h1>
+      <p class="hero-sub">Heeft u vragen over onze diensten, wilt u een gratis sitebeoordeling plannen, of wilt u uw vloot registreren? Wij reageren binnen 24 uur.</p>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section class="contact-main">
+    <div class="container contact-inner">
+
+      <!-- Form -->
+      <div class="form-container">
+        <h2>Stuur ons een bericht</h2>
+        <form
+          action="https://formspree.io/f/mlgpjlbn"
+          method="POST"
+          class="contact-form"
+        >
+          <div class="form-row form-row-2">
+            <div class="form-group">
+              <label for="naam">Naam <span class="required">*</span></label>
+              <input type="text" id="naam" name="naam" required placeholder="Uw naam" />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mailadres <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="uw@email.nl" />
+            </div>
+          </div>
+          <div class="form-row form-row-2">
+            <div class="form-group">
+              <label for="telefoon">Telefoonnummer</label>
+              <input type="tel" id="telefoon" name="telefoon" placeholder="+31 6 ..." />
+            </div>
+            <div class="form-group">
+              <label for="bedrijf">Bedrijf</label>
+              <input type="text" id="bedrijf" name="bedrijf" placeholder="Uw organisatie" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bericht">Bericht <span class="required">*</span></label>
+            <textarea id="bericht" name="bericht" required rows="6" placeholder="Vertel ons over uw locatie, vloot of vraagstuk..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">Verstuur bericht →</button>
+          <p class="form-note">Wij reageren binnen 24 uur op alle zakelijke aanvragen.</p>
+        </form>
+      </div>
+
+      <!-- Contact info -->
+      <div class="contact-info">
+        <h2>Direct contact</h2>
+        <div class="info-items">
+          <div class="info-item">
+            <div class="info-icon">✉</div>
+            <div>
+              <span class="info-label">E-mail</span>
+              <a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <span class="info-label">Vestiging</span>
+              <span>Amsterdam, Nederland</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">⏱</div>
+            <div>
+              <span class="info-label">Reactietijd</span>
+              <span>Binnen 24 uur op werkdagen</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-topics">
+          <h3>Waarmee kunnen wij u helpen?</h3>
+          <ul class="topic-list">
+            <li><a href="/theaters">Gratis sitebeoordeling voor uw theater of locatie</a></li>
+            <li><a href="/transport">Uw vloot registreren voor vlootprijzen</a></li>
+            <li><a href="/charger-kopen">Offerte voor aankoop of financiering</a></li>
+            <li><a href="/chargers">Technische specificaties van onze hardware</a></li>
+            <li>Overige vragen</li>
+          </ul>
+        </div>
+
+        <div class="disclaimer-box">
+          <p>Subsidiebedragen en HBE/ERE-opbrengsten zijn indicatief en onder voorbehoud van goedkeuring door RVO/NEa en actuele markttarieven.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #0a1628 0%, #0d1e38 100%);
+    padding: 6rem 0 4rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    color: var(--text);
+    font-size: 1.1rem;
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  /* Contact main */
+  .contact-main { background: var(--navy-light); }
+
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* Form */
+  .form-container h2,
+  .contact-info h2 {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .required {
+    color: var(--cyan);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,176,228,0.2);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: rgba(0,176,228,0.5);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .btn-submit {
+    align-self: flex-start;
+    font-size: 1rem;
+  }
+
+  .form-note {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.4);
+    margin-top: -0.5rem;
+  }
+
+  /* Contact info */
+  .info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .info-icon {
+    font-size: 1.25rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,176,228,0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .info-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .info-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-item a,
+  .info-item span:last-child {
+    color: var(--white);
+    font-size: 0.95rem;
+  }
+
+  .info-item a:hover {
+    color: var(--cyan);
+  }
+
+  /* Topics */
+  .contact-topics {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,176,228,0.12);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-topics h3 {
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .topic-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .topic-list li {
+    font-size: 0.9rem;
+    color: var(--text);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .topic-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 0.85rem;
+  }
+
+  .topic-list a {
+    color: var(--text);
+    transition: color 0.2s;
+  }
+
+  .topic-list a:hover {
+    color: var(--cyan);
+    text-decoration: none;
+  }
+
+  /* Disclaimer */
+  .disclaimer-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+
+  .disclaimer-box p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .contact-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

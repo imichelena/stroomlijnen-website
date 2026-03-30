@@ -1,123 +1,321 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Iedere zaal een laadpaal" description="Stroomlijnen plaatst laadpalen bij theaters voor elektrische vrachtwagens. Open-source, transparant, voor de culturele sector.">
+<Layout title="Home" description="Stroomlijnen verbindt theaters en transportbedrijven via laadinfrastructuur voor elektrische vrachtwagens. Geen investering vooraf, passief inkomen, volledig beheerd.">
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <div class="section-label">Stroomlijnen</div>
-      <h1>Iedere zaal<br>een laadpaal.</h1>
-      <p class="hero-lead">Theaters hebben grote elektriciteitsaansluitingen die overdag stilstaan. Elektrische vrachtwagens hebben die stroom nodig. Wij verbinden die twee — transparant, open-source, voor de culturele sector.</p>
-      <div class="hero-ctas">
-        <a href="/theaters" class="btn btn-primary">Voor theaters →</a>
-        <a href="/transport" class="btn btn-ghost">Voor transporteurs →</a>
+      <div class="hero-content">
+        <h1>Het rondreizend theater draaiende houden — samen</h1>
+        <p class="hero-sub">Nederland heeft 75 jaar lang cultuur naar het publiek gebracht. Dat systeem staat nu onder druk: 18 steden hebben zero-emissiezones, producties touren met elektrische trucks, en theaters zonder laadpunt verdwijnen van de tourneekaart. Stroomlijnen bouwt het laadnetwerk dat het tournetwerk overeind houdt — theater voor theater.</p>
+        <div class="hero-ctas">
+          <a href="/theaters" class="btn btn-primary">Voor Theaters →</a>
+          <a href="/transport" class="btn btn-outline">Voor Transport →</a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- DRIE PADEN -->
-  <section>
+  <!-- Kernboodschap -->
+  <section class="benefits">
     <div class="container">
-      <div class="section-label">Wat wij doen</div>
-      <h2>Laadinfrastructuur voor de culturele sector</h2>
-      <p class="lead" style="max-width:620px;">Van hardware tot laadsessie — alles in eigen beheer. Geen tussenschakels, geen abonnementen, geen verborgen kosten.</p>
       <div class="cards-grid">
-        <div class="card card-accent-green">
+        <div class="card">
           <div class="card-icon">🎭</div>
           <h3>Theaters</h3>
-          <p>U plaatst een laadpaal bij uw laaddok. Wij beheren alles. U verdient €0,10 per geleverde kWh — zonder investering, zonder operationele last. Hardware vaak €0 via SPRILA-subsidie.</p>
+          <p>Theaters zonder laadpunt krijgen straks een sticker bij het laaddok: "Verboden voor elektrische voertuigen." Die sticker betekent: geen tournees meer. Stroomlijnen plaatst snelladers bij uw laaddok — passief inkomen, volledig beheerd, SPRILA-subsidie indien van toepassing.</p>
           <a href="/theaters" class="card-link">Meer voor theaters →</a>
         </div>
-        <div class="card card-accent-blue">
+        <div class="card">
           <div class="card-icon">🚛</div>
-          <h3>Elektrisch Transporteurs</h3>
-          <p>Uw elektrische vrachtwagen laadt bij het theater terwijl de technici werken. Plug & Charge, transparante tarieven, geen abonnement vereist. CCS2 standaard voor trucks.</p>
-          <a href="/transport" class="card-link">Meer voor transporteurs →</a>
+          <h3>Transportbedrijven</h3>
+          <p>Theaters investeren in laadpunten voor u. Laad uw vloot betaalbaar bij elk theater op uw route — terwijl de technici werken. Geen eigen netuitbreiding. ERE-certificaten automatisch geregeld.</p>
+          <a href="/transport" class="card-link">Meer voor transport →</a>
         </div>
-        <div class="card card-accent-grey">
+        <div class="card">
           <div class="card-icon">⚡</div>
-          <h3>Het Platform</h3>
-          <p>Onze CPO- en EMS-software zijn open-source. Geen cloudkoppeling — het systeem draait op een privaat Tailscale-netwerk. Geen vendor lock-in. Alle code vrij beschikbaar.</p>
-          <a href="/platform" class="card-link">Meer over ons platform →</a>
+          <h3>Groen &amp; Betrouwbaar</h3>
+          <p>100% groene stroom in samenwerking met Pure Energie. Eigen modulaire hardware met 30 jaar ervaring in theatertechniek en IT. "The show must go on" — betrouwbaarheid is onze standaard.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WAAROM ANDERS -->
-  <section class="bg-grey">
-    <div class="container-md">
-      <div class="section-label">Wat ons onderscheidt</div>
-      <h2>Transparantie is geen marketingterm</h2>
-      <div class="divider"></div>
-      <ul class="feature-list">
-        <li>
-          <div class="fi-icon">🔧</div>
-          <div class="fi-text">
-            <strong>Volledig verticaal geïntegreerd</strong>
-            <span>Van hardware-inkoop tot de laadsessie — alles in eigen beheer. Geen afhankelijkheden van externe platforms of CPO's.</span>
-          </div>
-        </li>
-        <li>
-          <div class="fi-icon">📖</div>
-          <div class="fi-text">
-            <strong>Open-source software</strong>
-            <span>Onze CPO-software (OCPP 2.0.1) en EMS zijn publiek beschikbaar op GitHub. Gebruik ze ook voor uw eigen netwerk.</span>
-          </div>
-        </li>
-        <li>
-          <div class="fi-icon">🔒</div>
-          <div class="fi-text">
-            <strong>Niet aan het internet</strong>
-            <span>Laadpalen draaien op een privaat Tailscale-netwerk. Geen cloudkoppeling, geen externe toegang. Het systeem werkt ook bij internetuitval.</span>
-          </div>
-        </li>
-        <li>
-          <div class="fi-icon">💶</div>
-          <div class="fi-text">
-            <strong>Transparante prijzen</strong>
-            <span>Aanschafprijs, installatiekosten en delta per kWh — alles openbaar. Geen kleine lettertjes, geen verborgen marges.</span>
-          </div>
-        </li>
-        <li>
-          <div class="fi-icon">🎨</div>
-          <div class="fi-text">
-            <strong>ERE-certificaten naar het Cultureel Fonds</strong>
-            <span>Alle verdiende energiecertificaten (ERE) gaan naar een fonds voor de culturele sector — in oprichting. Niet naar aandeelhouders.</span>
-          </div>
-        </li>
-      </ul>
+  <!-- Over ons -->
+  <section class="about">
+    <div class="container about-inner">
+      <div class="about-text">
+        <h2>Wie zijn wij?</h2>
+        <p>Stroomlijnen verbindt theaters en transportbedrijven via laadinfrastructuur. Ons team komt uit de theatertechniek en evenementenstroom — wij weten dat betrouwbaarheid geen optie is. "The show must go on" is ons credo, ook voor laadinfrastructuur.</p>
+        <p>Theaters hebben van oudsher grote netaansluitingen. Die beschikbare capaciteit zetten wij om in passief inkomen. Tegelijk laden transportbedrijven betaalbaar op route, zonder eigen infrastructuurinvestering. Een theater met een laadpunt geeft het signaal: onze tourneelogistiek klopt. Als het hele netwerk laadpunten heeft, zijn elektrische tournees eenvoudiger dan diesel.</p>
+        <p>Ons model: volledig beheerd op het Monta-platform, OCPP 2.0.1, 24/7 monitoring en eigen modulaire hardware. Van fabriek tot stoeprand.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat">
+          <span class="stat-num">25</span>
+          <span class="stat-label">jaar ervaring evenementenstroom</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">24/7</span>
+          <span class="stat-label">monitoring en on-site service</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">360 kW</span>
+          <span class="stat-label">max laadvermogen per locatie</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- CONTEXT -->
-  <section>
+  <!-- Urgentie boodschap -->
+  <section class="urgency-banner">
     <div class="container">
-      <div class="two-col-wide">
-        <div>
-          <div class="section-label">De context</div>
-          <h2>Waarom dit nu speelt</h2>
-          <div class="divider"></div>
-          <p>Steeds meer Nederlandse steden handhaven zero-emissiezones. Dieselvrachtwagens worden geweerd uit binnensteden. Gezelschappen en transportbedrijven schakelen over op elektrisch — maar elektrische trucks hebben onderweg een laadpunt nodig.</p>
-          <p>Tegelijkertijd hebben theaters grote elektriciteitsaansluitingen die zijn gedimensioneerd op avondpiekbelasting. Overdag staat die capaciteit grotendeels stil. Dat is de ruimte die wij inzetten — zonder netuitbreiding, zonder grote investeringen.</p>
-          <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
-            <a href="/theaters" class="btn btn-primary">Voor theaters →</a>
-            <a href="https://docs.stroomlijnen.nl" class="btn btn-outline-blue" target="_blank">Technische documentatie ↗</a>
-          </div>
+      <div class="banner-inner">
+        <div class="banner-text">
+          <h2>Elektrisch transport is geen vraag meer — het is een planning</h2>
+          <p>18 Nederlandse steden hebben al zero-emissiezones. Theaters staan in die stadscentra. Elektrische vrachtwagens hebben laadpunten nodig bij elke bestemming — niet alleen op het depot. Stroomlijnen bouwt dat netwerk, theater voor theater.</p>
         </div>
-        <div>
-          <div class="callout callout-blue">
-            <strong>Opgericht 2023</strong><br>
-            Stroomlijnen is opgericht met een ideële inslag — niet om grote winsten te maken, maar om maatschappelijke impact te creëren. Commercieel als middel, niet als doel.
-          </div>
-          <div class="callout" style="margin-top:20px;">
-            <strong>Eerste locatie live</strong><br>
-            Het living lab bij Lichtwerk Amsterdam is operationeel: 60 kW DC-lader, batterijopslag, zonnepanelen en lokale EMS-server.
-          </div>
+        <div class="banner-quote">
+          <blockquote>
+            "Eén theater met een lader helpt weinig. Maar als het hele theaternetwerk laadpunten biedt, worden elektrische tournees eenvoudiger dan diesel."
+          </blockquote>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Klaar om te beginnen?</h2>
+      <p>Plan een vrijblijvend gesprek. Wij beoordelen uw netaansluiting, berekenen uw potentiële vergoeding en bespreken de subsidiemogelijkheden — zonder verplichtingen.</p>
+      <a href="/contact" class="btn btn-primary">Neem contact op →</a>
     </div>
   </section>
 
 </Layout>
+
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #0a1628 0%, #0d1e38 60%, #091422 100%);
+    padding: 7rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,176,228,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text);
+    margin-bottom: 2.5rem;
+    max-width: 620px;
+    line-height: 1.75;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* Benefits / Cards */
+  .benefits {
+    background: var(--navy-light);
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(0,176,228,0.15);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    border-color: rgba(0,176,228,0.35);
+  }
+
+  .card-icon {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--white);
+  }
+
+  .card p {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: var(--cyan);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .card-link:hover { opacity: 0.75; }
+
+  /* About */
+  .about {
+    background: var(--navy);
+  }
+
+  .about-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+    color: var(--white);
+  }
+
+  .about-text p {
+    color: var(--text);
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+
+  .about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+    border-left: 3px solid var(--cyan);
+    padding-left: 1.25rem;
+  }
+
+  .stat-num {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--cyan);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  /* Urgency Banner */
+  .urgency-banner {
+    background: linear-gradient(135deg, #071220 0%, #0a1a2e 100%);
+    border-top: 1px solid rgba(0,176,228,0.1);
+    border-bottom: 1px solid rgba(0,176,228,0.1);
+  }
+
+  .banner-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .banner-text h2 {
+    font-size: 1.6rem;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .banner-text p {
+    color: var(--text);
+    line-height: 1.75;
+    font-size: 0.95rem;
+  }
+
+  .banner-quote blockquote {
+    border-left: 3px solid var(--green);
+    padding: 1.25rem 1.5rem;
+    background: rgba(124,184,47,0.06);
+    border-radius: 0 8px 8px 0;
+    color: var(--text);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Bottom CTA */
+  .cta-section {
+    background: var(--navy-light);
+  }
+
+  .cta-inner {
+    text-align: center;
+  }
+
+  .cta-inner h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-inner p {
+    color: var(--text);
+    margin-bottom: 2rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .about-inner,
+    .banner-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+</style>
