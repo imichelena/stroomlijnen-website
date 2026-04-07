@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Kennisbank" description="Alles wat je moet weten over elektrisch laden bij theaters en op tournee — van laadfaciliteit tot financiële afhandeling.">
+
+  <section class="hero" style="padding: 4rem 0 3rem;">
+    <div class="container">
+      <p class="section-label">Kennisbank</p>
+      <h1>Alles over elektrisch laden</h1>
+      <p class="hero-sub" style="max-width: 600px;">Praktische informatie voor theaters, festivalorganisaties en tourende gezelschappen. Elk onderwerp is ook als PDF te downloaden.</p>
+    </div>
+  </section>
+
+  <section style="padding: 3rem 0 5rem;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+
+        <!-- 1. Waarom elektrisch onvermijdbaar is -->
+        <a href="/kennisbank/waarom-elektrisch" style="text-decoration: none;">
+          <div class="kb-card">
+            <div class="kb-icon">⚡</div>
+            <div class="kb-num">01</div>
+            <h3>Waarom elektrisch onvermijdbaar is</h3>
+            <p>Zero-emissiezones, nieuwe regelgeving en de praktijk van elektrisch toeren. Wat verandert er en waarom nu handelen?</p>
+            <span class="kb-link">Lees meer →</span>
+          </div>
+        </a>
+
+        <!-- 2. Laadfaciliteit organiseren -->
+        <a href="/kennisbank/laadfaciliteit" style="text-decoration: none;">
+          <div class="kb-card">
+            <div class="kb-icon">🔧</div>
+            <div class="kb-num">02</div>
+            <h3>Laadfaciliteit organiseren</h3>
+            <p>Welk laadpunt bij welk voertuig? Netaansluiting, vermogensbeheer, subsidies en installatie stap voor stap uitgelegd.</p>
+            <span class="kb-link">Lees meer →</span>
+          </div>
+        </a>
+
+        <!-- 3. Het laadproces -->
+        <a href="/kennisbank/het-laadproces" style="text-decoration: none;">
+          <div class="kb-card">
+            <div class="kb-icon">🔌</div>
+            <div class="kb-num">03</div>
+            <h3>Het laadproces</h3>
+            <p>Hoe start en stop je een laadsessie? Connectoren, authenticatie, wat te doen bij storingen — alles voor chauffeurs en locatiebeheerders.</p>
+            <span class="kb-link">Lees meer →</span>
+          </div>
+        </a>
+
+        <!-- 4. Planning op tournee -->
+        <a href="/kennisbank/planning" style="text-decoration: none;">
+          <div class="kb-card">
+            <div class="kb-icon">🗺️</div>
+            <div class="kb-num">04</div>
+            <h3>Planning op tournee</h3>
+            <p>Laadstrategie per rit, rijbereik, laden bij theater vs. onderweg, en de tijdlijn van aankomst tot vertrek.</p>
+            <span class="kb-link">Lees meer →</span>
+          </div>
+        </a>
+
+        <!-- 5. Financiële afhandeling -->
+        <a href="/kennisbank/financieel" style="text-decoration: none;">
+          <div class="kb-card">
+            <div class="kb-icon">💶</div>
+            <div class="kb-num">05</div>
+            <h3>Financiële afhandeling</h3>
+            <p>Tariefmodellen, passief inkomen voor de locatie, ERE-certificaten, btw, facturatie en subsidieaanvraag stappenplan.</p>
+            <span class="kb-link">Lees meer →</span>
+          </div>
+        </a>
+
+        <!-- Compleet boekje -->
+        <div class="kb-card kb-card-cta">
+          <div class="kb-icon">📖</div>
+          <h3>Compleet boekje</h3>
+          <p>Alle onderwerpen gebundeld in één PDF — geschikt voor intern gebruik, subsidieaanvragen of als naslagwerk.</p>
+          <a href="/kennisbank/download-boekje" class="btn-primary" style="display:inline-block; margin-top:1rem; padding:.6rem 1.25rem; border-radius:6px; font-weight:600; font-size:.9rem; text-decoration:none;">Download PDF →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .kb-card {
+    background: #ffffff0a;
+    border: 1px solid rgba(0,176,228,.15);
+    border-radius: 12px;
+    padding: 1.75rem;
+    height: 100%;
+    transition: border-color .2s, transform .2s;
+    position: relative;
+  }
+  .kb-card:hover {
+    border-color: rgba(0,176,228,.45);
+    transform: translateY(-2px);
+  }
+  .kb-card-cta {
+    border-color: rgba(0,176,228,.3);
+    background: #00b0e410;
+  }
+  .kb-icon { font-size: 1.8rem; margin-bottom: .6rem; line-height: 1; }
+  .kb-num {
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: .08em;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+  }
+  .kb-card h3 { font-size: 1.05rem; color: var(--white); margin-bottom: .6rem; }
+  .kb-card p { font-size: .9rem; color: var(--text); line-height: 1.6; }
+  .kb-link { display: inline-block; margin-top: 1rem; font-size: .85rem; font-weight: 600; color: var(--cyan); }
+</style>
