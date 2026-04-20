@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Charger Kopen" activeNav="/charger-kopen">
+<Layout title="Lader Kopen" activeNav="/charger-kopen">
 <style>
 .page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem}
 .page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem;max-width:800px}
@@ -40,40 +40,45 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="page-hero">
     <div class="container">
-      <h1>Eigen laadpaal, uw voorwaarden</h1>
-      <p>Achttien steden breiden hun zero-emissiezones uit — met meer op komst. Locaties die nu investeren in laadinfrastructuur, staan straks stevig in het netwerk. De SPRILA-subsidie verlaagt de drempel aanzienlijk, en met langlopende financiering bent u eigenaar zonder grote kapitaalinzet vooraf.</p>
+      <h1>Lader kopen</h1>
+      <p>U bent eigenaar, u bepaalt de tarieven, alle opbrengsten zijn voor u. Stroomlijnen levert de hardware, begeleidt de SPRILA-subsidieaanvraag en doet de ingebruikstelling. De installatie verzorgt u met uw eigen installateur.</p>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Voor wie is dit geschikt?</h2>
-      <p style="color:var(--text);margin-bottom:1rem">Charger Kopen is voor locaties die volledige controle willen over hun laadinfrastructuur. U bent eigenaar, u bepaalt de tarieven, en alle opbrengsten zijn voor u.</p>
-      <div class="audience-grid">
-        <div class="audience-card"><div class="audience-icon">🏢</div><h3>Kantoren & bedrijfsparken</h3><p>Bied werknemers en bezoekers laadmogelijkheden. Verhoog de aantrekkelijkheid van uw locatie.</p></div>
-        <div class="audience-card"><div class="audience-icon">🏬</div><h3>Retail & horeca</h3><p>Klanten die laden, verblijven langer. Genereer passief inkomen naast uw kernactiviteit.</p></div>
-        <div class="audience-card"><div class="audience-icon">🅿️</div><h3>Parkeerterreinen</h3><p>Maximaliseer de waarde van elke parkeerplaats met DC snelladers voor doorrijdende EV-rijders.</p></div>
-        <div class="audience-card"><div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><h3>Theaters & culturele venues</h3><p>Grote netaansluitingen, dagelijks vrachtverkeer bij het laaddok, en zero-emissiezones in uw stadscentrum. Een eigen lader houdt uw theater op de tourneekaart én genereert passief inkomen.</p></div>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">Voor wie</h2>
+      <div class="audience-grid" style="margin-bottom:3rem">
+        <div class="audience-card">
+          <div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <h3>Theaters & culturele venues</h3>
+          <p>Grote netaansluitingen, dagelijks vrachtverkeer bij het loadingdock. Een eigen lader houdt uw theater in de tour én genereert passief inkomen.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Wageneigenaren & gezelschappen</h3>
+          <p>Laad op uw eigen depot of thuisbasis. Of neem een mobiele lader mee onderweg voor locaties zonder vaste infrastructuur.</p>
+        </div>
+        <div class="audience-card">
+          <div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+          <h3>Wagentoeleveranciers</h3>
+          <p>Lever uw klanten een complete oplossing: vrachtwagen én laadinfrastructuur. Stroomlijnen levert hardware, ingebruikstelling en platform.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">Flexibele financiering</h2>
-      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">U hoeft niet de volledige aanschafprijs vooraf te betalen. Stroomlijnen biedt een 7 of 10 jaar financieringsplan waarbij u na afloop volledig eigenaar bent van de installatie. Rente: 0% voor de theatersector; 4–8% voor overige sectoren.</p>
-      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">De SPRILA-subsidie kan als aanbetaling worden ingezet — dit verlaagt uw maandlasten significant of dekt een groot deel van de investering. Wij begeleiden u door het aanvraagproces.</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Hoe het werkt</h2>
+      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">U koopt de hardware rechtstreeks van Stroomlijnen. Uw eigen elektricien of installateur plaatst de lader. Wij doen de ingebruikstelling, koppeling aan het Stroomlijnen-platform en 24/7 monitoring. SPRILA-subsidie kan tot 40% van de hardware dekken — wij begeleiden de aanvraag.</p>
       <div class="finance-steps">
-        <div class="finance-step"><div class="finance-step-num">1</div><p>Sitebeoordeling — gratis en vrijblijvend</p></div>
-        <div class="finance-step"><div class="finance-step-num">2</div><p>Voorstel met financieringsoverzicht</p></div>
-        <div class="finance-step"><div class="finance-step-num">3</div><p>SPRILA-subsidieaanvraag (indien van toepassing)</p></div>
-        <div class="finance-step"><div class="finance-step-num">4</div><p>Installatie door gecertificeerde monteurs</p></div>
-        <div class="finance-step"><div class="finance-step-num">5</div><p>Go live — u bent operationeel</p></div>
+        <div class="finance-step"><div class="finance-step-num">1</div><p>Vrijblijvend gesprek — wij beoordelen uw netaansluiting en situatie</p></div>
+        <div class="finance-step"><div class="finance-step-num">2</div><p>Offerte hardware + SPRILA-subsidieoverzicht</p></div>
+        <div class="finance-step"><div class="finance-step-num">3</div><p>SPRILA-aanvraag (indien van toepassing) — wij begeleiden</p></div>
+        <div class="finance-step"><div class="finance-step-num">4</div><p>Installatie door uw eigen elektricien of installateur</p></div>
+        <div class="finance-step"><div class="finance-step-num">5</div><p>Ingebruikstelling door Stroomlijnen — uw lader is live</p></div>
       </div>
-      <dl class="finance-specs">
-        <div><dt>Financieringsperiode</dt><dd>7 of 10 jaar — daarna volledige eigendom</dd></div>
-        <div><dt>SPRILA-subsidie</dt><dd>Beschikbaar — als aanbetaling inzetbaar</dd></div>
-      </dl>
     </div>
   </section>
 
@@ -105,22 +110,10 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <section>
-    <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:2rem">Van gesprek tot stroom in 4 stappen</h2>
-      <div class="flow-steps">
-        <div class="flow-step"><div class="flow-icon">🔍</div><h4>Sitebeoordeling</h4><p>We analyseren uw netaansluiting, parkeercapaciteit en gebruik.</p></div>
-        <div class="flow-step"><div class="flow-icon">📋</div><h4>Voorstel</h4><p>Concreet voorstel met model, kosten, subsidie en financiering.</p></div>
-        <div class="flow-step"><div class="flow-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h4>Installatie</h4><p>Gecertificeerde monteurs installeren en testen de installatie.</p></div>
-        <div class="flow-step"><div class="flow-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>Go live</h4><p>Uw laadpaal is operationeel en verbonden met het Stroomlijnen-platform.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <div class="container cta-block">
-      <h2>Klaar om uw plek in het netwerk te claimen?</h2>
-      <p>Plan een gratis sitebeoordeling. Wij beoordelen uw netaansluiting, bespreken de SPRILA-subsidiemogelijkheden en leveren een concreet voorstel — zonder verplichtingen.</p>
-      <a href="/contact" class="btn btn-primary">Plan een sitebeoordeling →</a>
+      <h2>Interesse? Neem contact op.</h2>
+      <p>Wij bespreken uw situatie, beoordelen de netaansluiting en leveren een offerte met SPRILA-subsidieoverzicht — zonder verplichtingen.</p>
+      <a href="/contact" class="btn btn-primary">Neem contact op →</a>
     </div>
   </section>
 </Layout>
