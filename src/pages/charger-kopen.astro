@@ -1,515 +1,126 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Charger Kopen" description="Koop uw eigen laadpaal op uw voorwaarden. Flexibele financiering, SPRILA-subsidie als aanbetaling, 7 of 10 jaar plan met eigendom achteraf.">
+<Layout title="Charger Kopen" activeNav="/charger-kopen">
+<style>
+.page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem;max-width:800px}
+.page-hero p{font-size:1.1rem;color:var(--text);max-width:640px;line-height:1.75;margin-bottom:2rem}
+.audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:2rem}
+.audience-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:10px;padding:1.5rem}
+.audience-icon{font-size:1.5rem;margin-bottom:.5rem}
+.audience-card h3{color:var(--white);font-size:1rem;margin-bottom:.4rem}
+.audience-card p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
+.finance-steps{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem;counter-reset:step}
+.finance-step{display:flex;gap:1rem;align-items:center;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-radius:8px;counter-increment:step}
+.finance-step-num{background:var(--cyan);color:var(--navy);width:1.75rem;height:1.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0;min-width:1.75rem}
+.finance-step p{color:var(--text);font-size:.9rem;margin:0}
+.finance-specs{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;padding:1.25rem;background:rgba(0,176,228,.06);border-radius:8px;border:1px solid rgba(0,176,228,.15)}
+.finance-spec dt{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em}
+.finance-spec dd{color:var(--white);font-size:.95rem;font-weight:600}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+.model-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;display:flex;flex-direction:column}
+.model-card.featured{border-color:var(--cyan)}
+.model-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan);margin-bottom:.5rem}
+.model-power{font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
+.model-name{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:1rem}
+.model-card ul{list-style:none;flex:1}
+.model-card ul li{color:var(--text);font-size:.85rem;padding:.2rem 0 .2rem 1.1rem;position:relative}
+.model-card ul li:before{content:"✓";color:var(--green);position:absolute;left:0}
+.model-std{font-size:.8rem;color:var(--gray);margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+.flow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem}
+.flow-step{text-align:center}
+.flow-icon{font-size:2rem;margin-bottom:.75rem}
+.flow-step h4{color:var(--white);margin-bottom:.4rem}
+.flow-step p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
+.cta-block{text-align:center;padding:5rem 0}
+.cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
+.cta-block p{color:var(--text);max-width:520px;margin:0 auto 2rem;line-height:1.7}
+</style>
 
-  <!-- Hero -->
-  <section class="hero">
+  <section class="page-hero">
     <div class="container">
-      <div class="hero-badge">Charger Kopen</div>
       <h1>Eigen laadpaal, uw voorwaarden</h1>
-      <p class="hero-sub">Achttien steden breiden hun zero-emissiezones uit — met meer op komst. Locaties die nu investeren in laadinfrastructuur, staan straks stevig in het netwerk. De SPRILA-subsidie verlaagt de drempel aanzienlijk, en met langlopende financiering bent u eigenaar zonder grote kapitaalinzet vooraf.</p>
+      <p>Achttien steden breiden hun zero-emissiezones uit — met meer op komst. Locaties die nu investeren in laadinfrastructuur, staan straks stevig in het netwerk. De SPRILA-subsidie verlaagt de drempel aanzienlijk, en met langlopende financiering bent u eigenaar zonder grote kapitaalinzet vooraf.</p>
     </div>
   </section>
 
-  <!-- Voor wie -->
-  <section class="for-who">
+  <section>
     <div class="container">
-      <h2>Voor wie is dit geschikt?</h2>
-      <p class="section-intro">Charger Kopen is voor locaties die volledige controle willen over hun laadinfrastructuur. U bent eigenaar, u bepaalt de tarieven, en alle opbrengsten zijn voor u. Geschikt voor theaters, transportdepots, kantoren, parkeerterreinen en elk gebouw met beschikbare netcapaciteit.</p>
-      <div class="who-grid">
-        <div class="who-card">
-          <div class="who-icon">🏢</div>
-          <h3>Kantoren & bedrijfsparken</h3>
-          <p>Bied werknemers en bezoekers laadmogelijkheden. Verhoog de aantrekkelijkheid van uw locatie.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">🏬</div>
-          <h3>Retail & horeca</h3>
-          <p>Klanten die laden, verblijven langer. Genereer passief inkomen naast uw kernactiviteit.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">🅿</div>
-          <h3>Parkeerterreinen</h3>
-          <p>Maximaliseer de waarde van elke parkeerplaats met DC snelladers voor doorrijdende EV-rijders.</p>
-        </div>
-        <div class="who-card">
-          <div class="who-icon">🎭</div>
-          <h3>Theaters & culturele venues</h3>
-          <p>Grote netaansluitingen, dagelijks vrachtverkeer bij het laaddok, en zero-emissiezones in uw stadscentrum. Een eigen lader houdt uw theater op de tourneekaart én genereert passief inkomen.</p>
-        </div>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Voor wie is dit geschikt?</h2>
+      <p style="color:var(--text);margin-bottom:1rem">Charger Kopen is voor locaties die volledige controle willen over hun laadinfrastructuur. U bent eigenaar, u bepaalt de tarieven, en alle opbrengsten zijn voor u.</p>
+      <div class="audience-grid">
+        <div class="audience-card"><div class="audience-icon">🏢</div><h3>Kantoren & bedrijfsparken</h3><p>Bied werknemers en bezoekers laadmogelijkheden. Verhoog de aantrekkelijkheid van uw locatie.</p></div>
+        <div class="audience-card"><div class="audience-icon">🏬</div><h3>Retail & horeca</h3><p>Klanten die laden, verblijven langer. Genereer passief inkomen naast uw kernactiviteit.</p></div>
+        <div class="audience-card"><div class="audience-icon">🅿️</div><h3>Parkeerterreinen</h3><p>Maximaliseer de waarde van elke parkeerplaats met DC snelladers voor doorrijdende EV-rijders.</p></div>
+        <div class="audience-card"><div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><h3>Theaters & culturele venues</h3><p>Grote netaansluitingen, dagelijks vrachtverkeer bij het laaddok, en zero-emissiezones in uw stadscentrum. Een eigen lader houdt uw theater op de tourneekaart én genereert passief inkomen.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- Financiering -->
-  <section class="financing">
-    <div class="container financing-inner">
-      <div class="financing-text">
-        <h2>Flexibele financiering</h2>
-        <p>U hoeft niet de volledige aanschafprijs vooraf te betalen. Stroomlijnen biedt een <strong>7 of 10 jaar financieringsplan</strong> waarbij u na afloop volledig eigenaar bent van de installatie. Rente: <strong>0% voor de theatersector</strong>; 4–8% voor overige sectoren.</p>
-        <p>De SPRILA-subsidie kan als aanbetaling worden ingezet — dit verlaagt uw maandlasten significant of dekt een groot deel van de investering. Wij begeleiden u door het aanvraagproces.</p>
-        <div class="financing-steps">
-          <div class="fin-step">
-            <span class="fin-num">1</span>
-            <span>Sitebeoordeling — gratis en vrijblijvend</span>
-          </div>
-          <div class="fin-step">
-            <span class="fin-num">2</span>
-            <span>Voorstel met financieringsoverzicht</span>
-          </div>
-          <div class="fin-step">
-            <span class="fin-num">3</span>
-            <span>SPRILA-subsidieaanvraag (indien van toepassing)</span>
-          </div>
-          <div class="fin-step">
-            <span class="fin-num">4</span>
-            <span>Installatie door gecertificeerde monteurs</span>
-          </div>
-          <div class="fin-step">
-            <span class="fin-num">5</span>
-            <span>Go live — u bent operationeel</span>
-          </div>
-        </div>
-      </div>
-      <div class="financing-highlight">
-        <div class="fin-card">
-          <span class="fin-card-label">Financieringsperiode</span>
-          <span class="fin-card-value">7 of 10 jaar</span>
-          <span class="fin-card-sub">daarna volledige eigendom</span>
-        </div>
-        <div class="fin-card">
-          <span class="fin-card-label">SPRILA-subsidie</span>
-          <span class="fin-card-value">Beschikbaar</span>
-          <span class="fin-card-sub">als aanbetaling inzetbaar</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modellen -->
-  <section class="models">
+  <section>
     <div class="container">
-      <h2>Beschikbare modellen</h2>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">Flexibele financiering</h2>
+      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">U hoeft niet de volledige aanschafprijs vooraf te betalen. Stroomlijnen biedt een 7 of 10 jaar financieringsplan waarbij u na afloop volledig eigenaar bent van de installatie. Rente: 0% voor de theatersector; 4–8% voor overige sectoren.</p>
+      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">De SPRILA-subsidie kan als aanbetaling worden ingezet — dit verlaagt uw maandlasten significant of dekt een groot deel van de investering. Wij begeleiden u door het aanvraagproces.</p>
+      <div class="finance-steps">
+        <div class="finance-step"><div class="finance-step-num">1</div><p>Sitebeoordeling — gratis en vrijblijvend</p></div>
+        <div class="finance-step"><div class="finance-step-num">2</div><p>Voorstel met financieringsoverzicht</p></div>
+        <div class="finance-step"><div class="finance-step-num">3</div><p>SPRILA-subsidieaanvraag (indien van toepassing)</p></div>
+        <div class="finance-step"><div class="finance-step-num">4</div><p>Installatie door gecertificeerde monteurs</p></div>
+        <div class="finance-step"><div class="finance-step-num">5</div><p>Go live — u bent operationeel</p></div>
+      </div>
+      <dl class="finance-specs">
+        <div><dt>Financieringsperiode</dt><dd>7 of 10 jaar — daarna volledige eigendom</dd></div>
+        <div><dt>SPRILA-subsidie</dt><dd>Beschikbaar — als aanbetaling inzetbaar</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Beschikbare modellen</h2>
       <div class="models-grid">
         <div class="model-card">
-          <div class="model-power">30 kW</div>
-          <h3>Portable</h3>
-          <p>Mobiele lader, ideaal voor locaties zonder vaste installatiemogelijkheid. 4G connectiviteit, plug-and-play installatie.</p>
-          <ul class="model-specs">
-            <li>Mobiel inzetbaar</li>
-            <li>4G + WiFi</li>
-            <li>MID-gecertificeerd</li>
-          </ul>
+          <div class="model-badge">30 kW</div>
+          <div class="model-power">Portable</div>
+          <div class="model-name">Mobiele lader</div>
+          <ul><li>Mobiel inzetbaar</li><li>4G + WiFi</li><li>MID-gecertificeerd</li></ul>
         </div>
-        <div class="model-card model-card-featured">
-          <div class="model-badge">Meest gevraagd</div>
-          <div class="model-power">120 kW</div>
-          <h3>DC Fixed</h3>
-          <p>Vaste installatie voor intensief gebruik. Geschikt voor vrachtwagens, bussen en snellaadlocaties. Modulair ontwerp.</p>
-          <ul class="model-specs">
-            <li>Vaste installatie</li>
-            <li>Geschikt voor vrachtwagens</li>
-            <li>Modulair uitbreidbaar</li>
-          </ul>
+        <div class="model-card featured">
+          <div class="model-badge">Meest gevraagd · 120 kW</div>
+          <div class="model-power">DC Fixed</div>
+          <div class="model-name">Vaste installatie</div>
+          <ul><li>Vaste installatie</li><li>Geschikt voor vrachtwagens</li><li>Modulair uitbreidbaar</li></ul>
         </div>
         <div class="model-card">
-          <div class="model-power">60–360 kW</div>
-          <h3>Modulair Systeem</h3>
-          <p>Schaalbaar systeem voor grootschalige laadlocaties. Fail-safe redundantie — deels operationeel bij uitval van een module.</p>
-          <ul class="model-specs">
-            <li>Schaalbaar per module</li>
-            <li>Fail-safe redundantie</li>
-            <li>V2G-capable optie</li>
-          </ul>
+          <div class="model-badge">60–360 kW</div>
+          <div class="model-power">Modulair Systeem</div>
+          <div class="model-name">Schaalbare infrastructuur</div>
+          <ul><li>Schaalbaar per module</li><li>Fail-safe redundantie</li><li>V2G-capable optie</li></ul>
         </div>
       </div>
-      <p class="models-note">Alle modellen: OCPP 2.0.1 | MID-gecertificeerd | 24/7 monitoring via Monta</p>
+      <p class="model-std">Alle modellen: OCPP 2.0.1 | MID-gecertificeerd | 24/7 monitoring via Stroomlijnen-platform</p>
     </div>
   </section>
 
-  <!-- Proces -->
-  <section class="process">
+  <section>
     <div class="container">
-      <h2>Van gesprek tot stroom in 4 stappen</h2>
-      <div class="process-flow">
-        <div class="process-step">
-          <div class="process-icon">🔍</div>
-          <h3>Sitebeoordeling</h3>
-          <p>We analyseren uw netaansluiting, parkeercapaciteit en gebruik.</p>
-        </div>
-        <div class="process-arrow">→</div>
-        <div class="process-step">
-          <div class="process-icon">📋</div>
-          <h3>Voorstel</h3>
-          <p>Concreet voorstel met model, kosten, subsidie en financiering.</p>
-        </div>
-        <div class="process-arrow">→</div>
-        <div class="process-step">
-          <div class="process-icon">🔧</div>
-          <h3>Installatie</h3>
-          <p>Gecertificeerde monteurs installeren en testen de installatie.</p>
-        </div>
-        <div class="process-arrow">→</div>
-        <div class="process-step">
-          <div class="process-icon">⚡</div>
-          <h3>Go live</h3>
-          <p>Uw laadpaal is operationeel en verbonden met het Monta platform.</p>
-        </div>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:2rem">Van gesprek tot stroom in 4 stappen</h2>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-icon">🔍</div><h4>Sitebeoordeling</h4><p>We analyseren uw netaansluiting, parkeercapaciteit en gebruik.</p></div>
+        <div class="flow-step"><div class="flow-icon">📋</div><h4>Voorstel</h4><p>Concreet voorstel met model, kosten, subsidie en financiering.</p></div>
+        <div class="flow-step"><div class="flow-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><h4>Installatie</h4><p>Gecertificeerde monteurs installeren en testen de installatie.</p></div>
+        <div class="flow-step"><div class="flow-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>Go live</h4><p>Uw laadpaal is operationeel en verbonden met het Stroomlijnen-platform.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container cta-inner">
+  <section>
+    <div class="container cta-block">
       <h2>Klaar om uw plek in het netwerk te claimen?</h2>
       <p>Plan een gratis sitebeoordeling. Wij beoordelen uw netaansluiting, bespreken de SPRILA-subsidiemogelijkheden en leveren een concreet voorstel — zonder verplichtingen.</p>
       <a href="/contact" class="btn btn-primary">Plan een sitebeoordeling →</a>
     </div>
   </section>
-
 </Layout>
-
-<style>
-  .hero {
-    background: linear-gradient(135deg, #0a1628 0%, #0d1e38 100%);
-    padding: 6rem 0 5rem;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    background: rgba(124,184,47,0.12);
-    color: var(--green);
-    border: 1px solid rgba(124,184,47,0.25);
-    padding: 0.35rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: clamp(1.8rem, 3.5vw, 2.75rem);
-    max-width: 600px;
-    margin-bottom: 1.25rem;
-  }
-
-  .hero-sub {
-    color: var(--text);
-    font-size: 1.1rem;
-    max-width: 580px;
-    line-height: 1.75;
-  }
-
-  /* For who */
-  .for-who { background: var(--navy-light); }
-
-  .for-who h2,
-  .financing-text h2,
-  .models h2,
-  .process h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: var(--white);
-  }
-
-  .section-intro {
-    color: var(--text);
-    max-width: 680px;
-    margin-bottom: 2.5rem;
-    line-height: 1.75;
-  }
-
-  .who-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .who-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(0,176,228,0.12);
-    border-radius: 10px;
-    padding: 1.75rem;
-  }
-
-  .who-icon {
-    font-size: 2rem;
-    margin-bottom: 0.85rem;
-  }
-
-  .who-card h3 {
-    font-size: 1.05rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-
-  .who-card p {
-    color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-
-  /* Financing */
-  .financing { background: var(--navy); }
-
-  .financing-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  .financing-text p {
-    color: var(--text);
-    margin-bottom: 1rem;
-    line-height: 1.75;
-  }
-
-  .financing-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin-top: 1.75rem;
-  }
-
-  .fin-step {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    color: var(--text);
-    font-size: 0.95rem;
-  }
-
-  .fin-num {
-    min-width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    background: rgba(0,176,228,0.15);
-    border: 1px solid rgba(0,176,228,0.3);
-    color: var(--cyan);
-    font-size: 0.85rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .financing-highlight {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .fin-card {
-    background: rgba(0,176,228,0.07);
-    border: 1px solid rgba(0,176,228,0.2);
-    border-radius: 10px;
-    padding: 1.5rem 1.75rem;
-    text-align: center;
-    min-width: 180px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .fin-card-label {
-    font-size: 0.75rem;
-    color: var(--text);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .fin-card-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--cyan);
-  }
-
-  .fin-card-value sup {
-    font-size: 1rem;
-  }
-
-  .fin-card-sub {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.45);
-  }
-
-  /* Models */
-  .models { background: var(--navy-light); }
-
-  .models h2 { margin-bottom: 2rem; }
-
-  .models-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .model-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(0,176,228,0.15);
-    border-radius: 10px;
-    padding: 2rem;
-    position: relative;
-  }
-
-  .model-card-featured {
-    border-color: rgba(0,176,228,0.4);
-    background: rgba(0,176,228,0.06);
-  }
-
-  .model-badge {
-    position: absolute;
-    top: -12px;
-    left: 1.5rem;
-    background: var(--cyan);
-    color: var(--navy);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-  }
-
-  .model-power {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--cyan);
-    margin-bottom: 0.25rem;
-  }
-
-  .model-card h3 {
-    font-size: 1.1rem;
-    color: var(--white);
-    margin-bottom: 0.75rem;
-  }
-
-  .model-card p {
-    color: var(--text);
-    font-size: 0.9rem;
-    line-height: 1.65;
-    margin-bottom: 1rem;
-  }
-
-  .model-specs {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .model-specs li {
-    color: rgba(255,255,255,0.6);
-    font-size: 0.85rem;
-    padding-left: 1rem;
-    position: relative;
-  }
-
-  .model-specs li::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--cyan);
-  }
-
-  .models-note {
-    color: rgba(255,255,255,0.4);
-    font-size: 0.85rem;
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  /* Process */
-  .process { background: var(--navy); }
-
-  .process h2 { margin-bottom: 2.5rem; }
-
-  .process-flow {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-
-  .process-step {
-    flex: 1;
-    min-width: 160px;
-    text-align: center;
-    padding: 1.5rem 1rem;
-  }
-
-  .process-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .process-step h3 {
-    font-size: 1rem;
-    color: var(--white);
-    margin-bottom: 0.5rem;
-  }
-
-  .process-step p {
-    color: var(--text);
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-
-  .process-arrow {
-    color: var(--cyan);
-    font-size: 1.5rem;
-    align-self: center;
-    padding: 0 0.25rem;
-    opacity: 0.6;
-  }
-
-  /* CTA */
-  .cta-section { background: var(--navy-light); }
-
-  .cta-inner {
-    text-align: center;
-  }
-
-  .cta-inner h2 {
-    font-size: 1.9rem;
-    margin-bottom: 1rem;
-  }
-
-  .cta-inner p {
-    color: var(--text);
-    margin-bottom: 2rem;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (max-width: 768px) {
-    .financing-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .financing-highlight {
-      flex-direction: row;
-    }
-
-    .fin-card {
-      flex: 1;
-    }
-
-    .process-arrow {
-      display: none;
-    }
-
-    .process-flow {
-      flex-direction: column;
-    }
-
-    .process-step {
-      text-align: left;
-      padding: 1rem;
-    }
-  }
-</style>

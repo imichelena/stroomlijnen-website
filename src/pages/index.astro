@@ -1,7 +1,46 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Home" description="Stroomlijnen verbindt theaters en transportbedrijven via laadinfrastructuur voor elektrische vrachtwagens. Geen investering vooraf, passief inkomen, volledig beheerd.">
+
+<Layout title="Home" activeNav="/">
+<style>
+.hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,176,228,.08) 0%,transparent 70%);pointer-events:none}
+.hero-content{max-width:720px}
+.hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem}
+.hero-sub{font-size:1.15rem;color:var(--text);margin-bottom:2.5rem;max-width:620px;line-height:1.75}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.benefits{background:var(--navy-light)}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;transition:border-color .2s;display:flex;flex-direction:column}
+.card:hover{border-color:rgba(0,176,228,.35)}
+.card-icon{font-size:1.75rem;margin-bottom:1rem}
+.card h3{font-size:1.2rem;margin-bottom:.75rem;color:var(--white)}
+.card p{color:var(--text);font-size:.95rem;line-height:1.7;flex:1}
+.card-link{display:inline-block;margin-top:1.25rem;color:var(--cyan);font-size:.88rem;font-weight:600;text-decoration:none;transition:opacity .2s}
+.card-link:hover{opacity:.75}
+.about{background:var(--navy)}
+.about-inner{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
+.about-text h2{font-size:2rem;margin-bottom:1.25rem;color:var(--white)}
+.about-text p{color:var(--text);margin-bottom:1rem;line-height:1.75}
+.about-stats{display:flex;flex-direction:column;gap:2rem}
+.stat{text-align:center;border-left:3px solid var(--cyan);padding-left:1.25rem}
+.stat-num{display:block;font-size:1.8rem;font-weight:700;color:var(--cyan)}
+.stat-label{font-size:.8rem;color:var(--text);line-height:1.4}
+.urgency-banner{background:linear-gradient(135deg,#071220,#0a1a2e);border-top:1px solid rgba(0,176,228,.1);border-bottom:1px solid rgba(0,176,228,.1)}
+.banner-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.banner-text h2{font-size:1.6rem;color:var(--white);margin-bottom:1rem;line-height:1.3}
+.banner-text p{color:var(--text);line-height:1.75;font-size:.95rem}
+.banner-quote blockquote{border-left:3px solid var(--green);padding:1.25rem 1.5rem;background:rgba(124,184,47,.06);border-radius:0 8px 8px 0;color:var(--text);font-style:italic;font-size:1.05rem;line-height:1.7;margin:0}
+.cta-section{background:var(--navy-light)}
+.cta-inner{text-align:center}
+.cta-inner h2{font-size:2rem;margin-bottom:1rem}
+.cta-inner p{color:var(--text);margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+@media(max-width:768px){
+  .about-inner,.banner-inner{grid-template-columns:1fr}
+  .about-stats{flex-direction:row;justify-content:center}
+}
+</style>
 
   <!-- Hero -->
   <section class="hero">
@@ -11,46 +50,45 @@ import Layout from '../layouts/Layout.astro';
         <p class="hero-sub">Nederland heeft 75 jaar lang cultuur naar het publiek gebracht. Dat systeem staat nu onder druk: 18 steden hebben zero-emissiezones, producties touren met elektrische trucks, en theaters zonder laadpunt verdwijnen van de tourneekaart. Stroomlijnen bouwt het laadnetwerk dat het tournetwerk overeind houdt — theater voor theater.</p>
         <div class="hero-ctas">
           <a href="/theaters" class="btn btn-primary">Voor Theaters →</a>
-          <a href="/transport" class="btn btn-outline">Voor Transport →</a>
+          <a href="/transport" class="btn btn-outline">Voor Gezelschappen →</a>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Kernboodschap -->
+  <!-- Benefits -->
   <section class="benefits">
     <div class="container">
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">🎭</div>
+          <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
           <h3>Theaters</h3>
-          <p>Theaters zonder laadpunt krijgen straks een sticker bij het laaddok: "Verboden voor elektrische voertuigen." Die sticker betekent: geen tournees meer. Stroomlijnen plaatst snelladers bij uw laaddok — passief inkomen, volledig beheerd, SPRILA-subsidie indien van toepassing.</p>
+          <p>Theaters zonder laadpunt worden door tourende gezelschappen straks overgeslagen. Stroomlijnen plaatst snelladers bij uw laaddok — op maat, geschikt voor elke tour, cultureel tarief, alles geregeld van fabriek tot stoeprand tot backend.</p>
           <a href="/theaters" class="card-link">Meer voor theaters →</a>
         </div>
         <div class="card">
-          <div class="card-icon">🚛</div>
-          <h3>Transportbedrijven</h3>
-          <p>Theaters investeren in laadpunten voor u. Laad uw vloot betaalbaar bij elk theater op uw route — terwijl de technici werken. Geen eigen netuitbreiding. ERE-certificaten automatisch geregeld.</p>
-          <a href="/transport" class="card-link">Meer voor transport →</a>
+          <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Gezelschappen</h3>
+          <p>Theaters investeren in laadpunten voor u. Laad uw vloot betaalbaar bij elk theater op uw route — terwijl de technici werken. Zalen zorgen voor de laadinfra, netverzwaring op eigen terrein voor een snellader is hierdoor niet meer nodig, daardoor kunnen wij overstappen op elektrisch transport.</p>
+          <a href="/transport" class="card-link">Meer voor gezelschappen →</a>
         </div>
         <div class="card">
-          <div class="card-icon">⚡</div>
-          <h3>Groen &amp; Betrouwbaar</h3>
+          <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <h3>Groen & Betrouwbaar</h3>
           <p>100% groene stroom in samenwerking met Pure Energie. Eigen modulaire hardware met 30 jaar ervaring in theatertechniek en IT. "The show must go on" — betrouwbaarheid is onze standaard.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Over ons -->
+  <!-- About -->
   <section class="about">
     <div class="container about-inner">
       <div class="about-text">
         <h2>Wie zijn wij?</h2>
-        <p>Stroomlijnen verbindt theaters en transportbedrijven via laadinfrastructuur. Ons team komt uit de theatertechniek en evenementenstroom — wij weten dat betrouwbaarheid geen optie is. "The show must go on" is ons credo, ook voor laadinfrastructuur.</p>
-        <p>Theaters hebben van oudsher grote netaansluitingen. Die beschikbare capaciteit zetten wij om in passief inkomen. Tegelijk laden transportbedrijven betaalbaar op route, zonder eigen infrastructuurinvestering. Een theater met een laadpunt geeft het signaal: onze tourneelogistiek klopt. Als het hele netwerk laadpunten heeft, zijn elektrische tournees eenvoudiger dan diesel.</p>
-        <p>Ons model: volledig beheerd op het Monta-platform, OCPP 2.0.1, 24/7 monitoring en eigen modulaire hardware. Van fabriek tot stoeprand.</p>
+        <p>Stroomlijnen verbindt reizende gezelschappen en theaters via laadinfrastructuur. Wij kennen beide kanten van het spectrum en zien dat de logistieke puzzel alleen gezamenlijk is op te lossen.</p>
+        <p>Theaters hebben van oudsher grote netaansluitingen. De beschikbare capaciteit zetten we in om de wagens van gezelschappen te laden. Vanaf 2030 kunnen alleen theaters met laadfaciliteit nog bezocht worden door tourende gezelschappen. Als het hele netwerk laadpunten heeft, zijn elektrische tournees eenvoudiger dan diesel.</p>
+        <p>Ons model: volledig beheerd op eigen Stroomlijnen-platform, OCPP 2.0.1, 24/7 monitoring en eigen modulaire hardware. Van fabriek tot stoeprand.</p>
       </div>
       <div class="about-stats">
         <div class="stat">
@@ -69,13 +107,13 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Urgentie boodschap -->
+  <!-- Urgency banner -->
   <section class="urgency-banner">
     <div class="container">
       <div class="banner-inner">
         <div class="banner-text">
-          <h2>Elektrisch transport is geen vraag meer — het is een planning</h2>
-          <p>18 Nederlandse steden hebben al zero-emissiezones. Theaters staan in die stadscentra. Elektrische vrachtwagens hebben laadpunten nodig bij elke bestemming — niet alleen op het depot. Stroomlijnen bouwt dat netwerk, theater voor theater.</p>
+          <h2>Elektrisch transport is geen vraag meer — het is noodzaak</h2>
+          <p>Diesel is onbetaalbaar, kilometerheffing voor vrachtwagens, 18 Nederlandse steden hebben al zero-emissiezones. Theaters staan in die stadscentra. Elektrische vrachtwagens hebben laadpunten nodig bij elke bestemming — niet alleen op de thuisbasis. Stroomlijnen bouwt dat netwerk, zaal voor zaal.</p>
         </div>
         <div class="banner-quote">
           <blockquote>
@@ -86,7 +124,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- Bottom CTA -->
+  <!-- CTA -->
   <section class="cta-section">
     <div class="container cta-inner">
       <h2>Klaar om te beginnen?</h2>
@@ -94,228 +132,4 @@ import Layout from '../layouts/Layout.astro';
       <a href="/contact" class="btn btn-primary">Neem contact op →</a>
     </div>
   </section>
-
 </Layout>
-
-<style>
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, #0a1628 0%, #0d1e38 60%, #091422 100%);
-    padding: 7rem 0 6rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(0,176,228,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    max-width: 720px;
-  }
-
-  .hero h1 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--white);
-    margin-bottom: 1.25rem;
-  }
-
-  .hero-sub {
-    font-size: 1.15rem;
-    color: var(--text);
-    margin-bottom: 2.5rem;
-    max-width: 620px;
-    line-height: 1.75;
-  }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  /* Benefits / Cards */
-  .benefits {
-    background: var(--navy-light);
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(0,176,228,0.15);
-    border-radius: 10px;
-    padding: 2rem;
-    transition: border-color 0.2s;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card:hover {
-    border-color: rgba(0,176,228,0.35);
-  }
-
-  .card-icon {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-    color: var(--white);
-  }
-
-  .card p {
-    color: var(--text);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    flex: 1;
-  }
-
-  .card-link {
-    display: inline-block;
-    margin-top: 1.25rem;
-    color: var(--cyan);
-    font-size: 0.88rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .card-link:hover { opacity: 0.75; }
-
-  /* About */
-  .about {
-    background: var(--navy);
-  }
-
-  .about-inner {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .about-text h2 {
-    font-size: 2rem;
-    margin-bottom: 1.25rem;
-    color: var(--white);
-  }
-
-  .about-text p {
-    color: var(--text);
-    margin-bottom: 1rem;
-    line-height: 1.75;
-  }
-
-  .about-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .stat {
-    text-align: center;
-    border-left: 3px solid var(--cyan);
-    padding-left: 1.25rem;
-  }
-
-  .stat-num {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--cyan);
-  }
-
-  .stat-label {
-    font-size: 0.8rem;
-    color: var(--text);
-    line-height: 1.4;
-  }
-
-  /* Urgency Banner */
-  .urgency-banner {
-    background: linear-gradient(135deg, #071220 0%, #0a1a2e 100%);
-    border-top: 1px solid rgba(0,176,228,0.1);
-    border-bottom: 1px solid rgba(0,176,228,0.1);
-  }
-
-  .banner-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-
-  .banner-text h2 {
-    font-size: 1.6rem;
-    color: var(--white);
-    margin-bottom: 1rem;
-    line-height: 1.3;
-  }
-
-  .banner-text p {
-    color: var(--text);
-    line-height: 1.75;
-    font-size: 0.95rem;
-  }
-
-  .banner-quote blockquote {
-    border-left: 3px solid var(--green);
-    padding: 1.25rem 1.5rem;
-    background: rgba(124,184,47,0.06);
-    border-radius: 0 8px 8px 0;
-    color: var(--text);
-    font-style: italic;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* Bottom CTA */
-  .cta-section {
-    background: var(--navy-light);
-  }
-
-  .cta-inner {
-    text-align: center;
-  }
-
-  .cta-inner h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .cta-inner p {
-    color: var(--text);
-    margin-bottom: 2rem;
-    max-width: 520px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 768px) {
-    .about-inner,
-    .banner-inner {
-      grid-template-columns: 1fr;
-    }
-
-    .about-stats {
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
-</style>
