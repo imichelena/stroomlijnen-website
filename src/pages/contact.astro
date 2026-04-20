@@ -123,13 +123,23 @@ form textarea{resize:vertical;min-height:120px}
               <select id="type" name="type">
                 <option value="">Selecteer</option>
                 <option value="theater">Theater / culturele instelling</option>
+                <option value="vscd-tarief">VSCD-tarief aanvragen</option>
                 <option value="transport">Transportbedrijf</option>
+                <option value="charger-kopen">Laadpaal kopen</option>
                 <option value="other">Overig</option>
               </select>
             </div>
             <div><label for="bericht">Bericht</label><textarea id="bericht" name="bericht" placeholder="Uw vraag of opmerking..."></textarea></div>
             <button type="submit" class="btn btn-primary" style="width:100%">Verstuur →</button>
           </form>
+          <script>
+            const params = new URLSearchParams(window.location.search);
+            const typeParam = params.get('type');
+            if (typeParam) {
+              const sel = document.getElementById('type');
+              if (sel) { sel.value = typeParam; }
+            }
+          </script>
         </div>
         <div class="contact-info">
           <h2>Stroomlijnen B.V.</h2>
