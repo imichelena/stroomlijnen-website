@@ -6,22 +6,31 @@ import Layout from '../layouts/Layout.astro';
 .page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem}
 .page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem}
 .page-hero p{font-size:1.1rem;color:var(--text);max-width:640px;line-height:1.75}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem}
+.team-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;display:flex;flex-direction:column;align-items:center;text-align:center;transition:border-color .2s}
+.team-card:hover{border-color:rgba(0,176,228,.35)}
+.team-photo{width:6rem;height:6rem;border-radius:50%;background:rgba(0,176,228,.08);border:2px solid rgba(0,176,228,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;overflow:hidden;font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.3)}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+.team-card h3{color:var(--white);font-size:1.15rem;margin-bottom:.2rem}
+.team-role{color:var(--cyan);font-size:.83rem;font-weight:600;margin-bottom:.75rem;display:block}
+.team-card p{color:var(--text);font-size:.88rem;line-height:1.6;margin:0;max-width:320px}
+.team-social{margin-top:.75rem}
+.team-social a{color:rgba(255,255,255,.35);font-size:.82rem;text-decoration:none;transition:color .2s}
+.team-social a:hover{color:var(--cyan)}
+
+/* Missie */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:1rem}
 .two-col p{color:var(--text);line-height:1.75;margin-bottom:1rem}
 .sidebar-stats{display:flex;flex-direction:column;gap:1.5rem}
 .sidebar-stat{border-left:3px solid var(--cyan);padding-left:1.25rem}
 .sidebar-stat h3{color:var(--white);margin-bottom:.25rem}
 .sidebar-stat p{color:var(--text);font-size:.9rem;line-height:1.6;margin:0}
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
-.team-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem}
-.team-avatar{width:3.5rem;height:3.5rem;background:var(--cyan);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--navy);font-size:1.1rem;margin-bottom:1rem}
-.team-card h3{color:var(--white);margin-bottom:.25rem}
-.team-role{color:var(--cyan);font-size:.85rem;font-weight:600;margin-bottom:.75rem;display:block}
-.team-card p{color:var(--text);font-size:.9rem;line-height:1.65;margin:0}
-.team-card a{color:var(--cyan);font-size:.85rem;display:inline-block;margin-top:.75rem}
+
 .lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2rem}
 .lab-item{background:rgba(255,255,255,.06);border-radius:8px;padding:1.25rem}
-.lab-icon{font-size:1.25rem;margin-bottom:.5rem}
+.lab-icon{margin-bottom:.5rem}
 .lab-item h4{color:var(--white);font-size:.95rem;margin-bottom:.25rem}
 .lab-item p{color:var(--text);font-size:.82rem;line-height:1.55;margin:0}
 .lab-status{margin-top:1.5rem;background:rgba(0,176,228,.06);border:1px solid rgba(0,176,228,.2);border-radius:8px;padding:1.25rem}
@@ -29,19 +38,73 @@ import Layout from '../layouts/Layout.astro';
 .lab-status ul{list-style:none}
 .lab-status li{color:var(--text);font-size:.88rem;padding:.2rem 0;padding-left:1.5rem;position:relative}
 .lab-status li:before{content:"✓";color:var(--green);position:absolute;left:0;font-weight:700}
+
 .cta-block{text-align:center;padding:5rem 0}
 .cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
 .cta-block p{color:var(--text);max-width:520px;margin:0 auto 2rem;line-height:1.7}
+
 @media(max-width:768px){.two-col{grid-template-columns:1fr}}
 </style>
 
   <section class="page-hero">
     <div class="container">
-      <h1>Over Stroomlijnen</h1>
-      <p>Opgericht 2023. Niet vanuit een businessplan, maar vanuit een concrete urgentie: het rondreizend theater dreigde vast te lopen op de energietransitie. Wij kennen de sector van binnenuit en bouwen een oplossing die echt werkt.</p>
+      <h1>Over ons</h1>
+      <p>Stroomlijnen is opgericht vanuit de sector — niet vanuit een businessplan. Wij kennen de uitdagingen van binnenuit en bouwen een laadnetwerk dat past bij hoe het theater werkt.</p>
     </div>
   </section>
 
+  <!-- Team — eerst! -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Team</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Wij zijn Stroomlijnen</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:.5rem">Van hardware en software tot theaterlogistiek en financiën — samen brengen we de elektrificatie van de culturele tour van de grond.</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo"><img src="/team-ignacio.jpg" alt="Ignacio Michelena" /></div>
+          <h3>Ignacio Michelena</h3>
+          <span class="team-role">CEO · Technisch directeur</span>
+          <p>Technische architectuur, hardware-import, open-source CPO/EMS, IT-infrastructuur. Bouwt en beheert het platform.</p>
+          <div class="team-social">
+            <a href="mailto:ignacio@stroomlijnen.nl">ignacio@stroomlijnen.nl</a><br>
+            <a href="https://www.linkedin.com/in/imichelena" target="_blank">LinkedIn →</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="/team-jacco.jpg" alt="Jacco Patist" /></div>
+          <h3>Jacco Patist</h3>
+          <span class="team-role">Commercieel directeur</span>
+          <p>30 jaar ervaring in de theaterproductiesector. Commerciële strategie, klantrelaties. Eigenaar Lichtwerk B.V. — de eerste pilotlocatie.</p>
+          <div class="team-social">
+            <a href="mailto:jacco@stroomlijnen.nl">jacco@stroomlijnen.nl</a><br>
+            <a href="https://www.linkedin.com/in/jacco-patist-81629897" target="_blank">LinkedIn →</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="/team-sijmen.jpg" alt="Sijmen Visser" /></div>
+          <h3>Sijmen Visser</h3>
+          <span class="team-role">CFO</span>
+          <p>Financiën, subsidieaanvragen (SPRILA, MOOI, DEI+), projectmanagement. Zorgt dat de financiering rondkomt en projecten op schema blijven.</p>
+          <div class="team-social">
+            <a href="mailto:sijmen@stroomlijnen.nl">sijmen@stroomlijnen.nl</a><br>
+            <a href="https://www.linkedin.com/in/sijmen-visser" target="_blank">LinkedIn →</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="/team-eugene.jpg" alt="Eugene van Dijk" /></div>
+          <h3>Eugene van Dijk</h3>
+          <span class="team-role">Projectmanager locaties</span>
+          <p>Verantwoordelijk voor de uitrol van laadlocaties bij theaters. Coördineert installaties en bewaakt de planning.</p>
+          <div class="team-social">
+            <a href="mailto:eugene@stroomlijnen.nl">eugene@stroomlijnen.nl</a><br>
+            <a href="https://www.linkedin.com/in/eugene-van-dijk-012a8a45" target="_blank">LinkedIn →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Missie -->
   <section>
     <div class="container">
       <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.5rem">Missie</p>
@@ -66,40 +129,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section>
-    <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Team</p>
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:2rem">Wie wij zijn</h2>
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar">IM</div>
-          <h3>Ignacio Michelena</h3>
-          <span class="team-role">CEO · Technisch directeur</span>
-          <p>Verantwoordelijk voor de technische architectuur — van hardware-import tot de open-source CPO- en EMS-software. Bouwt en beheert de IT-infrastructuur van het platform.</p>
-          <a href="mailto:ignacio@stroomlijnen.nl">ignacio@stroomlijnen.nl</a>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">JP</div>
-          <h3>Jacco Patist</h3>
-          <span class="team-role">Commercieel directeur · Eigenaar Lichtwerk B.V.</span>
-          <p>30 jaar ervaring in de theaterproductiesector. Verantwoordelijk voor de commerciële strategie, klantrelaties en de VSCD-samenwerking. Eigenaar van Lichtwerk B.V. — de eerste pilotlocatie.</p>
-          <a href="mailto:jacco@stroomlijnen.nl">jacco@stroomlijnen.nl</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Cultureel Fonds</p>
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">ERE-certificaten terug naar de sector</h2>
-      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1rem">Elke kWh groene stroom die via een Stroomlijnen-laadpaal wordt geleverd, genereert een Europees Energie Certificaat (ERE) — ook wel Garantie van Oorsprong (GvO) genoemd. Dit is een officieel, verhandelbaar bewijs dat de geleverde stroom aantoonbaar hernieuwbaar is.</p>
-      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1rem">Op de markt hebben deze certificaten een waarde. Bij de meeste CPO's verdwijnt die opbrengst in de bedrijfsresultaten. Bij Stroomlijnen niet.</p>
-      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1rem">Alle ERE-certificaten die via Stroomlijnen-locaties worden gegenereerd, gaan naar het Cultureel Fonds. Dit fonds ondersteunt de culturele sector — de exacte invulling bepalen we samen met de sector.</p>
-      <p style="color:rgba(255,255,255,.35);font-size:.85rem;max-width:600px;line-height:1.65">Het Cultureel Fonds wordt formeel opgericht in 2025–2026. De bestemming van de certificaten staat vast in het contract — ongeacht de oprichtingstatus van het fonds.</p>
-    </div>
-  </section>
-
+  <!-- Living lab -->
   <section>
     <div class="container">
       <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Eerste locatie</p>
@@ -109,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>60 kW DC-laadpunt CCS2</h4><p>Volledig operationeel voor elektrische vrachtwagens.</p></div>
         <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="7" y1="11" x2="7" y2="13"/><line x1="10" y1="9" x2="10" y2="15"/></svg></div><h4>Batterijopslag (BSS)</h4><p>Buffer voor peakshaving en laadoptimalisatie.</p></div>
         <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><h4>Zonnepanelen</h4><p>Eigen opwek gekoppeld aan het EMS.</p></div>
-        <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#00B0E4"/></svg></div><h4>Triple-redundante EMS-servers</h4><p>Lokaal draaiend, Tailscale-netwerk, geen internetafhankelijkheid.</p></div>
+        <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#00B0E4"/></svg></div><h4>Triple-redundante servers</h4><p>Lokaal draaiend via Tailscale, geen internetafhankelijkheid.</p></div>
       </div>
       <div class="lab-status">
         <h4>Status living lab</h4>
@@ -122,6 +152,32 @@ import Layout from '../layouts/Layout.astro';
           <li>Tailscale-netwerk — actief</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- ERE & Cultuurfonds -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Maatschappelijke impact</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">ERE-certificaten naar het Cultureel Fonds</h2>
+      <div class="two-col">
+        <div>
+          <p>Elke kWh die via een Stroomlijnen-lader wordt geleverd, genereert een Europees Energie Certificaat (ERE) — ook wel Garantie van Oorsprong (GvO) genoemd. Dit is een officieel, verhandelbaar bewijs van hernieuwbare energieopwekking.</p>
+          <p>Op de markt hebben deze certificaten een waarde. Bij de meeste CPO's verdwijnt die opbrengst in de bedrijfsresultaten. Bij Stroomlijnen niet.</p>
+          <p>Alle ERE-certificaten die via Stroomlijnen-locaties worden gegenereerd, gaan naar het Cultureel Fonds. Dit fonds ondersteunt de culturele sector — de exacte invulling bepalen we samen met de sector.</p>
+        </div>
+        <div>
+          <div class="sidebar-stat">
+            <h3>Hoe werkt het?</h3>
+            <p>Stroomlijnen verzorgt de registratie, inning en levering van de ERE-certificaten aan het Cultureel Fonds (in oprichting). Het fonds is een zelfstandige entiteit, los van Stroomlijnen, die de opbrengst gebruikt voor maatschappelijke doelen.</p>
+          </div>
+          <div class="sidebar-stat" style="margin-top:2rem">
+            <h3>Wat betekent dit voor u?</h3>
+            <p>Het fonds verstrekt subsidies aan groepen en organisaties die elektrisch rijden nog niet kunnen betalen. Zo reikt de impact van uw lader verder dan uw eigen locatie.</p>
+          </div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:.85rem;max-width:600px;line-height:1.65;margin-top:1.5rem">Het Cultureel Fonds wordt formeel opgericht in 2025—2026. De bestemming van de certificaten staat vast in het contract — ongeacht de oprichtingstatus van het fonds.</p>
     </div>
   </section>
 

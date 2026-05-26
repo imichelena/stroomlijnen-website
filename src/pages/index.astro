@@ -2,122 +2,402 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Home" activeNav="/">
+<Layout title="Stroomlijnen — Laadinfrastructuur voor theaters en transport" activeNav="/">
 <style>
-.hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem;position:relative;overflow:hidden}
+/* Hero */
+.hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 5rem;position:relative;overflow:hidden}
 .hero:before{content:"";position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,176,228,.08) 0%,transparent 70%);pointer-events:none}
-.hero-content{max-width:720px}
-.hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem}
-.hero-sub{font-size:1.15rem;color:var(--text);margin-bottom:2.5rem;max-width:620px;line-height:1.75}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.benefits{background:var(--navy-light)}
+.hero-content{max-width:800px;margin-bottom:2.5rem}
+.hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:.75rem}
+.hero-sub{font-size:1.1rem;color:var(--text);max-width:620px;line-height:1.75;margin-bottom:1.5rem}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap}
+.hero-ctas .btn{font-size:.9rem;padding:.7rem 1.5rem}
+
+/* Service pillars — wat levert Stroomlijnen */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
+.pillar{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1.25rem 1.5rem;display:flex;gap:.85rem;align-items:flex-start}
+.pillar-icon{width:1.75rem;height:1.75rem;flex-shrink:0;margin-top:.05rem}
+.pillar-icon svg{width:100%;height:100%}
+.pillar h4{color:var(--white);font-size:.95rem;margin-bottom:.2rem}
+.pillar p{color:var(--text);font-size:.82rem;line-height:1.55;margin:0}
+
+/* Product cards */
+.products-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-bottom:2rem}
+.product-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:1.5rem;display:flex;flex-direction:column;transition:border-color .2s}
+.product-card:hover{border-color:rgba(0,176,228,.35)}
+.product-card.featured{border-color:var(--cyan)}
+.product-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan);margin-bottom:.4rem}
+.product-card h3{color:var(--white);font-size:1rem;margin-bottom:.75rem}
+.product-card .price{font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:.5rem}
+.product-card .price small{font-size:.8rem;font-weight:400;color:var(--gray)}
+.spec-sm{display:flex;flex-wrap:wrap;gap:.35rem 1rem;font-size:.82rem;color:var(--text);margin-bottom:.75rem}
+.spec-sm span{white-space:nowrap}
+.product-card .card-link{display:inline-block;margin-top:.75rem;color:var(--cyan);font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .2s}
+.product-card .card-link:hover{opacity:.75}
+
+/* Vertical integration — 7 vs 1 */
+.integration-block{background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;margin-top:1.5rem}
+.integration-row{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.integration-many{display:flex;flex-direction:column;gap:.4rem}
+.integration-many span{display:flex;align-items:center;gap:.5rem;color:var(--text);font-size:.88rem;padding:.25rem .5rem;border-radius:4px;background:rgba(255,255,255,.03)}
+.integration-many .sep{color:var(--cyan);font-weight:700;font-size:1.2rem}
+.integration-one{text-align:center;padding:1.5rem;background:rgba(0,176,228,.08);border-radius:8px;border:2px solid var(--cyan)}
+.integration-one h3{color:var(--cyan);font-size:1.3rem;margin-bottom:.3rem}
+.integration-one p{color:var(--text);font-size:.88rem;margin:0}
+
+/* Benefits */
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
 .card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;transition:border-color .2s;display:flex;flex-direction:column}
 .card:hover{border-color:rgba(0,176,228,.35)}
-.card-icon{font-size:1.75rem;margin-bottom:1rem}
-.card h3{font-size:1.2rem;margin-bottom:.75rem;color:var(--white)}
-.card p{color:var(--text);font-size:.95rem;line-height:1.7;flex:1}
-.card-link{display:inline-block;margin-top:1.25rem;color:var(--cyan);font-size:.88rem;font-weight:600;text-decoration:none;transition:opacity .2s}
+.card-icon{margin-bottom:1rem;flex-shrink:0;width:2rem;height:2rem}
+.card-icon svg{width:100%;height:100%}
+.card h3{font-size:1.15rem;margin-bottom:.6rem;color:var(--white)}
+.card p{color:var(--text);font-size:.92rem;line-height:1.7;flex:1}
+.card-link{display:inline-block;margin-top:1rem;color:var(--cyan);font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .2s}
 .card-link:hover{opacity:.75}
-.about{background:var(--navy)}
-.about-inner{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center}
-.about-text h2{font-size:2rem;margin-bottom:1.25rem;color:var(--white)}
-.about-text p{color:var(--text);margin-bottom:1rem;line-height:1.75}
-.about-stats{display:flex;flex-direction:column;gap:2rem}
-.stat{text-align:center;border-left:3px solid var(--cyan);padding-left:1.25rem}
+
+/* How it works — 3 steps */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
+.step-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:10px;padding:1.75rem;text-align:center}
+.step-num{background:var(--cyan);color:var(--navy);width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;margin:0 auto .75rem}
+.step-card h3{color:var(--white);font-size:1rem;margin-bottom:.5rem}
+.step-card p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
+
+/* Stats */
+.stats-row{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem}
+.stat{text-align:center;border-left:3px solid var(--cyan);padding-left:1.25rem;min-width:160px}
 .stat-num{display:block;font-size:1.8rem;font-weight:700;color:var(--cyan)}
 .stat-label{font-size:.8rem;color:var(--text);line-height:1.4}
+
+/* Urgency */
 .urgency-banner{background:linear-gradient(135deg,#071220,#0a1a2e);border-top:1px solid rgba(0,176,228,.1);border-bottom:1px solid rgba(0,176,228,.1)}
 .banner-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .banner-text h2{font-size:1.6rem;color:var(--white);margin-bottom:1rem;line-height:1.3}
 .banner-text p{color:var(--text);line-height:1.75;font-size:.95rem}
 .banner-quote blockquote{border-left:3px solid var(--green);padding:1.25rem 1.5rem;background:rgba(124,184,47,.06);border-radius:0 8px 8px 0;color:var(--text);font-style:italic;font-size:1.05rem;line-height:1.7;margin:0}
+
+/* CTA */
 .cta-section{background:var(--navy-light)}
 .cta-inner{text-align:center}
 .cta-inner h2{font-size:2rem;margin-bottom:1rem}
 .cta-inner p{color:var(--text);margin-bottom:2rem;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7}
+
 @media(max-width:768px){
-  .about-inner,.banner-inner{grid-template-columns:1fr}
-  .about-stats{flex-direction:row;justify-content:center}
+  .banner-inner{grid-template-columns:1fr}
+  .integration-row{grid-template-columns:1fr}
 }
 </style>
 
-  <!-- Hero -->
+  <!-- Hero — propositie eerst, producten daarna -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Het rondreizend theater draaiende houden — samen</h1>
-        <p class="hero-sub">Nederland heeft 75 jaar lang cultuur naar het publiek gebracht. Dat systeem staat nu onder druk: 18 steden hebben zero-emissiezones, producties touren met elektrische trucks, en theaters zonder laadpunt verdwijnen uit de tour. Stroomlijnen bouwt het laadnetwerk dat het tournetwerk overeind houdt — theater voor theater.</p>
+        <h1>Laadinfrastructuur voor de culturele tour</h1>
+        <p class="hero-sub">Van hardware tot laadsessie, van 24/7 monitoring tot energierapportage. Stroomlijnen regelt alles in een compleet pakket — voor theaters én tourende gezelschappen.</p>
         <div class="hero-ctas">
-          <a href="/theaters" class="btn btn-primary">Voor Theaters →</a>
-          <a href="/transport" class="btn btn-outline">Voor Gezelschappen →</a>
+          <a href="/theaters" class="btn btn-primary">Voor theaters →</a>
+          <a href="/transport" class="btn btn-outline">Voor gezelschappen →</a>
+          <a href="/charger-kopen" class="btn btn-outline">Bekijk producten →</a>
+        </div>
+      </div>
+
+      <!-- Vier pijlers: wat Stroomlijnen levert -->
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div><h4>Hardware</h4><p>Directe import, eigen voorraad in NL. Modulaire 30—180 kW DC-laders met 2 jaar garantie.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div><h4>Platform</h4><p>OCPP 2.0.1. Open-source CPO & EMS. Eigen servers op locatie, geen internetafhankelijkheid.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><h4>Service</h4><p>24/7 monitoring, remote diagnose, respons binnen 4 uur. Mobiele backup-lader bij uitval.</p></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.5 9a3.5 3.5 0 1 0 0 6"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="8" y1="13" x2="14" y2="13"/></svg></div>
+          <div><h4>ERE & Cultuurfonds</h4><p>ERE-certificaten gaan naar het Cultureel Fonds — een deel van de opbrengst uit laden vloeit terug naar de sector.</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits -->
+  <!-- Producten -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Producten</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Laders voor elk gebruik</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:1.5rem">Stroomlijnen importeert rechtstreeks uit de fabriek — industriële hardware, geen tussenhandel. Alle modellen zijn OCPP 2.0.1, MID-gecertificeerd en worden 24/7 gemonitord.</p>
+
+      <!-- Meta-bar -->
+      <div style="display:flex;gap:2rem;flex-wrap:wrap;padding:1rem 1.5rem;background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;margin-bottom:2rem">
+        <div style="display:flex;align-items:center;gap:.5rem;color:var(--text);font-size:.85rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <strong style="color:var(--cyan)">2—4 weken</strong> levertijd uit voorraad NL
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;color:var(--text);font-size:.85rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <strong style="color:var(--cyan)">2 jaar</strong> fabrieksgarantie
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;color:var(--text);font-size:.85rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <strong style="color:var(--cyan)">Onderdelen</strong> op voorraad in Amsterdam
+        </div>
+        <div style="display:flex;align-items:center;gap:.5rem;color:var(--text);font-size:.85rem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <strong style="color:var(--cyan)">Modulair</strong> — hot-swappable power modules
+        </div>
+      </div>
+
+      <!-- Product cards met specs -->
+      <div class="products-row">
+        <div class="product-card">
+          <div class="product-badge">AC lader</div>
+          <div style="width:100%;height:140px;border-radius:8px;margin-bottom:1rem;background:linear-gradient(145deg,#0d1e38,#152a4a);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 400 140" fill="none" style="width:100%;height:100%">
+              <rect x="140" y="10" width="120" height="120" rx="10" fill="#00B0E4" opacity=".2"/>
+              <rect x="150" y="20" width="40" height="45" rx="6" fill="#00B0E4" opacity=".5"/>
+              <rect x="200" y="20" width="40" height="45" rx="6" fill="#00B0E4" opacity=".3"/>
+              <rect x="150" y="75" width="90" height="6" rx="3" fill="#00B0E4" opacity=".4"/>
+              <rect x="150" y="85" width="90" height="6" rx="3" fill="#00B0E4" opacity=".3"/>
+              <rect x="150" y="95" width="90" height="6" rx="3" fill="#00B0E4" opacity=".2"/>
+              <circle cx="200" cy="38" r="6" fill="#84BD00" opacity=".8"/>
+              <text x="200" y="125" text-anchor="middle" fill="#00B0E4" font-size="10" opacity=".6">22kW AC</text>
+            </svg>
+          </div>
+          <table style="width:100%;border-collapse:collapse;margin-bottom:.75rem;font-size:.82rem">
+            <tr><td style="color:var(--gray);width:40%;padding:.15rem 0">Vermogen</td><td style="color:var(--text);padding:.15rem 0">22 kW AC (3-fase)</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Aansluiting</td><td style="color:var(--text);padding:.15rem 0">Type 2 socket</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Connectiviteit</td><td style="color:var(--text);padding:.15rem 0">4G + WiFi + Ethernet</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Protocol</td><td style="color:var(--text);padding:.15rem 0">OCPP 2.0.1</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Authenticatie</td><td style="color:var(--text);padding:.15rem 0">RFID / QR-code</td></tr>
+          </table>
+          <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-top:auto">
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">Wand/paal</span>
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">Semi-publiek</span>
+          </div>
+          <div class="price">€2.499 <small>excl. btw</small></div>
+        </div>
+        <div class="product-card">
+          <div class="product-badge">Mobiele DC lader</div>
+          <div style="width:100%;height:140px;border-radius:8px;margin-bottom:1rem;background:linear-gradient(145deg,#0d1e38,#152a4a);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 400 140" fill="none" style="width:100%;height:100%">
+              <rect x="155" y="10" width="90" height="90" rx="10" fill="#84BD00" opacity=".2"/>
+              <rect x="155" y="10" width="90" height="90" rx="10" stroke="#84BD00" stroke-width="1.5" stroke-dasharray="6 4" opacity=".5"/>
+              <rect x="165" y="20" width="30" height="30" rx="4" fill="#84BD00" opacity=".5"/>
+              <rect x="205" y="20" width="30" height="30" rx="4" fill="#84BD00" opacity=".3"/>
+              <rect x="165" y="58" width="70" height="5" rx="2" fill="#84BD00" opacity=".4"/>
+              <rect x="165" y="66" width="70" height="5" rx="2" fill="#84BD00" opacity=".3"/>
+              <path d="M175 10 L175 2 L225 2 L225 10" stroke="#84BD00" stroke-width="3" opacity=".5" fill="none"/>
+              <circle cx="200" cy="30" r="4" fill="#00B0E4" opacity=".7"/>
+              <text x="200" y="115" text-anchor="middle" fill="#84BD00" font-size="10" opacity=".6">30kW DC mobiel</text>
+              <path d="M200 100 L200 125" stroke="#00B0E4" stroke-width="2" opacity=".3"/>
+              <circle cx="200" cy="128" r="3" fill="#00B0E4" opacity=".5"/>
+            </svg>
+          </div>
+          <table style="width:100%;border-collapse:collapse;margin-bottom:.75rem;font-size:.82rem">
+            <tr><td style="color:var(--gray);width:40%;padding:.15rem 0">Vermogen</td><td style="color:var(--text);padding:.15rem 0">30 kW DC</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Connectiviteit</td><td style="color:var(--text);padding:.15rem 0">4G + WiFi</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Protocol</td><td style="color:var(--text);padding:.15rem 0">OCPP 2.0.1</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Certificering</td><td style="color:var(--text);padding:.15rem 0">MID</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Installatie</td><td style="color:var(--text);padding:.15rem 0">Plug-and-play</td></tr>
+          </table>
+          <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-top:auto">
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">Mobiel</span>
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">4G</span>
+          </div>
+          <div class="price">€8.999 <small>excl. btw</small></div>
+        </div>
+        <div class="product-card featured">
+          <div class="product-badge">★ Meest ingezet — vaste DC snellader</div>
+          <div style="width:100%;height:140px;border-radius:8px;margin-bottom:1rem;background:linear-gradient(145deg,#0d1e38,#152a4a);display:flex;align-items:center;justify-content:center">
+            <svg viewBox="0 0 400 140" fill="none" style="width:100%;height:100%">
+              <rect x="120" y="8" width="160" height="124" rx="12" fill="#00B0E4" opacity=".2"/>
+              <rect x="120" y="8" width="160" height="124" rx="12" stroke="#00B0E4" stroke-width="1" opacity=".4"/>
+              <rect x="155" y="18" width="90" height="40" rx="6" fill="#0a1628" opacity=".7"/>
+              <rect x="160" y="22" width="80" height="32" rx="4" fill="#00B0E4" opacity=".3"/>
+              <text x="200" y="40" text-anchor="middle" fill="white" font-size="11" opacity=".8">120 kW</text>
+              <text x="200" y="48" text-anchor="middle" fill="white" font-size="6" opacity=".5">READY</text>
+              <rect x="135" y="65" width="35" height="20" rx="4" fill="#00B0E4" opacity=".4"/>
+              <rect x="182" y="65" width="35" height="20" rx="4" fill="#00B0E4" opacity=".4"/>
+              <rect x="230" y="65" width="35" height="20" rx="4" fill="#00B0E4" opacity=".4"/>
+              <rect x="135" y="92" width="130" height="2" rx="1" fill="#00B0E4" opacity=".2"/>
+              <rect x="135" y="97" width="130" height="2" rx="1" fill="#00B0E4" opacity=".2"/>
+              <path d="M160 132 L150 142" stroke="#00B0E4" stroke-width="2" opacity=".4" stroke-linecap="round"/>
+              <circle cx="150" cy="144" r="3" fill="#00B0E4" opacity=".5"/>
+              <path d="M240 132 L250 142" stroke="#00B0E4" stroke-width="2" opacity=".4" stroke-linecap="round"/>
+              <circle cx="250" cy="144" r="3" fill="#00B0E4" opacity=".5"/>
+            </svg>
+          </div>
+          <table style="width:100%;border-collapse:collapse;margin-bottom:.75rem;font-size:.82rem">
+            <tr><td style="color:var(--gray);width:40%;padding:.15rem 0">Vermogen</td><td style="color:var(--text);padding:.15rem 0">120 kW DC</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Ontwerp</td><td style="color:var(--text);padding:.15rem 0">Modulair (hot-swap)</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Protocol</td><td style="color:var(--text);padding:.15rem 0">OCPP 2.0.1</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Certificering</td><td style="color:var(--text);padding:.15rem 0">MID</td></tr>
+            <tr><td style="color:var(--gray);padding:.15rem 0">Voertuig</td><td style="color:var(--text);padding:.15rem 0">Vrachtwagen / bus</td></tr>
+          </table>
+          <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin-top:auto">
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">Vaste installatie</span>
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">Zwaar transport</span>
+            <span style="font-size:.7rem;padding:.2rem .5rem;border-radius:4px;background:rgba(0,176,228,.12);color:var(--cyan);border:1px solid rgba(0,176,228,.2)">Modulair</span>
+          </div>
+          <div class="price">€27.000 <small>excl. btw*</small></div>
+          <p style="color:rgba(255,255,255,.35);font-size:.72rem;margin-top:.35rem">* Na 25% theaterkorting bij Stroomlijnen CPO/eMSP. Catalogusprijs €36.000.</p>
+        </div>
+      </div>
+
+      <!-- Standaard op alle modellen -->
+      <div style="margin-top:2rem">
+        <h3 style="color:var(--white);font-size:1.1rem;margin-bottom:1rem">Standaard op alle modellen</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.85rem">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1rem;text-align:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" style="margin:0 auto .4rem;display:block"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#00B0E4"/></svg>
+            <p style="color:var(--white);font-size:.82rem;margin:0">OCPP 2.0.1</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1rem;text-align:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" style="margin:0 auto .4rem;display:block"><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 9l9-6 9 6"/><line x1="3" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="21" y2="17"/></svg>
+            <p style="color:var(--white);font-size:.82rem;margin:0">MID-gecertificeerd</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1rem;text-align:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" style="margin:0 auto .4rem;display:block"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <p style="color:var(--white);font-size:.82rem;margin:0">24/7 monitoring</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1rem;text-align:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" style="margin:0 auto .4rem;display:block"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <p style="color:var(--white);font-size:.82rem;margin:0">2 jaar garantie</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1rem;text-align:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" style="margin:0 auto .4rem;display:block"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <p style="color:var(--white);font-size:.82rem;margin:0">Hot-swap modules</p>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1rem;text-align:center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" style="margin:0 auto .4rem;display:block"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <p style="color:var(--white);font-size:.82rem;margin:0">Voorraad in NL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verticale integratie — 7 partijen vs 1 -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Eén aanspreekpunt</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Normaal heeft u zeven partijen nodig. Stroomlijnen doet het in één pakket.</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:700px;line-height:1.7;margin-bottom:1.5rem">Een laadproject vereist normaal een leverancier, installateur, CPO-platform, laadpasbeheer, ERE-registratie, storingsdienst én CO2-rapportage. Stroomlijnen regelt dit allemaal — één contract, één factuur, één telefoonnummer.</p>
+      <div class="integration-block">
+        <div class="integration-row">
+          <div class="integration-many">
+            <span>🔌 Leverancier</span>
+            <span>🔧 Installateur</span>
+            <span>💻 CPO-platform (SaaS, maandkosten)</span>
+            <span>🆔 eMSP / laadpasbeheer</span>
+            <span>🌿 ERE-certificaatregistratie</span>
+            <span>🛡️ Monitoring & storingsdienst</span>
+            <span>📊 CO₂-rapportage</span>
+            <span class="sep">= 7 contracten, 7 facturen, 7 telefoonnummers</span>
+          </div>
+          <div class="integration-one">
+            <h3>→ 1</h3>
+            <p>Stroomlijnen vervangt alle zeven rollen in een compleet, volledig beheerd pakket.</p>
+            <a href="/contact" class="btn btn-primary" style="margin-top:.75rem;font-size:.85rem;padding:.5rem 1.25rem;display:inline-block">Vrijblijvend gesprek →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hoe het werkt -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Hoe het werkt</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Drie stappen naar een werkend laadnetwerk</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:.5rem">Het model is simpel: theaters plaatsen laders, transportbedrijven laden er, en iedereen profiteert.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <h3>Stroomlijnen plaatst een snellader bij uw laaddok</h3>
+          <p>Wij regelen de hardware, installatie en het OCPP-platform. Uw bestaande aansluiting is vaak voldoende — overdag staat die capaciteit stil.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <h3>Transportbedrijven laden tegen cultureel tarief</h3>
+          <p>Gezelschappen laden via het Stroomlijnen-netwerk. Eén tarief, één pas, één factuur — ongeacht waar de tournee stopt.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <h3>U ontvangt passief inkomen per kWh</h3>
+          <p>Theater ontvangt de grootste marge. Stroomlijnen regelt de administratie, inning en uitbetaling. U hoeft niets te doen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voordelen voor theater & transport -->
   <section class="benefits">
     <div class="container">
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <h3>Theaters</h3>
-          <p>Theaters zonder laadpunt worden door tourende gezelschappen straks overgeslagen. Stroomlijnen plaatst snelladers bij het loadingdock — op maat, geschikt voor elke tour, cultureel tarief, alles geregeld van fabriek tot stoeprand tot backend.</p>
-          <a href="/theaters" class="card-link">Meer voor theaters →</a>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+          <h3>Volledig beheerd</h3>
+          <p>Wij regelen alles: hardware, installatie, OCPP-platform, 24/7 monitoring en afrekening. Het theater ontvangt passief inkomen per kWh — zonder zorgen.</p>
+          <a href="/theaters" class="card-link">Voor theaters →</a>
         </div>
         <div class="card">
-          <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <h3>Gezelschappen</h3>
-          <p>Theaters investeren in laadpunten, hierdoor kunnen gezelschappen overstappen op elektrisch transport. Laad uw vloot betaalbaar bij elk theater op uw route — terwijl de technici werken. Netverzwaring op eigen terrein voor een snellader was al onmogelijk maar is hierdoor niet meer nodig.</p>
-          <a href="/transport" class="card-link">Meer voor gezelschappen →</a>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Één tarief, landelijk</h3>
+          <p>Gezelschappen laden bij elk aangesloten theater tegen hetzelfde culturele tarief. Eén pas, één factuur — ongeacht waar de tournee stopt.</p>
+          <a href="/transport" class="card-link">Voor gezelschappen →</a>
         </div>
         <div class="card">
-          <div class="card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Groen & Betrouwbaar</h3>
-          <p>100% groene stroom in samenwerking met Pure Energie. Eigen modulaire hardware met 30 jaar ervaring in theatertechniek en IT. "The show must go on" — betrouwbaarheid is onze standaard.</p>
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.5 9a3.5 3.5 0 1 0 0 6"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="8" y1="13" x2="14" y2="13"/></svg></div>
+          <h3>Maatschappelijke impact</h3>
+          <p>ERE-certificaten gaan naar het Cultureel Fonds. Laden wordt een bijdrage aan cultuur — niet aan aandeelhouders.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="about">
-    <div class="container about-inner">
-      <div class="about-text">
-        <h2>Wie zijn wij?</h2>
-        <p>Stroomlijnen verbindt reizende gezelschappen en theaters via laadinfrastructuur. Wij kennen beide kanten van het spectrum en zien dat de logistieke puzzel alleen gezamenlijk is op te lossen.</p>
-        <p>Theaters hebben van oudsher grote netaansluitingen. De beschikbare capaciteit zetten we in om de wagens van gezelschappen te laden. Vanaf 2030 kunnen alleen theaters met laadfaciliteit nog bezocht worden door tourende gezelschappen. Als het hele netwerk laadpunten heeft, zijn elektrische tournees eenvoudiger dan diesel.</p>
-        <p>Ons model: volledig beheerd op eigen Stroomlijnen-platform, OCPP 2.0.1, 24/7 monitoring en eigen modulaire hardware. Van fabriek tot stoeprand.</p>
-      </div>
-      <div class="about-stats">
+  <!-- Stats -->
+  <section>
+    <div class="container" style="text-align:center">
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Stroomlijnen in cijfers</h2>
+      <div class="stats-row">
         <div class="stat">
-          <span class="stat-num">25</span>
-          <span class="stat-label">jaar ervaring evenementenstroom</span>
+          <span class="stat-num">180 kW</span>
+          <span class="stat-label">max laadvermogen per locatie</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">25+</span>
+          <span class="stat-label">jaar ervaring in de sector</span>
         </div>
         <div class="stat">
           <span class="stat-num">24/7</span>
-          <span class="stat-label">monitoring en on-site service</span>
+          <span class="stat-label">monitoring en remote support</span>
         </div>
         <div class="stat">
-          <span class="stat-num">360 kW</span>
-          <span class="stat-label">max laadvermogen per locatie</span>
+          <span class="stat-num">4 u</span>
+          <span class="stat-label">respons bij storing</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Urgency banner -->
+  <!-- Urgency banner: waarom nu -->
   <section class="urgency-banner">
     <div class="container">
       <div class="banner-inner">
         <div class="banner-text">
-          <h2>Elektrisch transport is geen vraag meer — het is noodzaak</h2>
-          <p>Dure diesel, hoge kilometerheffing voor dieselwagens, 18+ ZE-zones, nieuwe diesels worden niet meer toegelaten in ZE-zones. Bij aanschaf is een elektrische wagen nu nog de enige optie, maar dan moet je wel kunnen laden. Samen maken we dit mogelijk en blijven we cultuur naar de mensen brengen.</p>
+          <h2>Elektrisch touren is geen vraag meer — het is noodzaak</h2>
+          <p>Dure diesel, kilometerheffing, 18+ zero-emissiezones. Nieuwe dieselwagens worden niet meer toegelaten in ZE-zones. Elektrisch is de enige optie, maar dan moeten theaters wel laadpunten hebben. Samen maken we het mogelijk.</p>
         </div>
         <div class="banner-quote">
           <blockquote>
-            "Eén theater met een lader helpt weinig. Maar als het hele theaternetwerk laadpunten biedt, worden elektrische tournees eenvoudiger dan diesel."
+            Eind 2025: 2.145 e-trucks in Nederland.<br>
+            Verwachting 2030: 15.000 tot 40.000.<br>
+            <br>
+            Bron: RVO / Topsector Logistiek
           </blockquote>
         </div>
       </div>
@@ -127,9 +407,9 @@ import Layout from '../layouts/Layout.astro';
   <!-- CTA -->
   <section class="cta-section">
     <div class="container cta-inner">
-      <h2>Klaar om te beginnen?</h2>
-      <p>Plan een vrijblijvend gesprek. Wij beoordelen uw netaansluiting, berekenen uw potentiële vergoeding en bespreken de subsidiemogelijkheden — zonder verplichtingen.</p>
-      <a href="/contact" class="btn btn-primary">Neem contact op →</a>
+      <h2>Samen houden wij het theater draaiende</h2>
+      <p>Het Nederlandse tournéesysteem is uniek — en het waard om te behouden. Elektrische trucks hebben laadpunten nodig bij elke bestemming. Wij komen graag vrijblijvend langs.</p>
+      <a href="/contact" class="btn btn-primary">Plan een vrijblijvend gesprek →</a>
     </div>
   </section>
 </Layout>

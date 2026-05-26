@@ -53,7 +53,7 @@ form textarea{resize:vertical;min-height:120px}
         <div class="service-card">
           <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
           <h3>Theaters</h3>
-          <p>U plaatst een laadpaal bij uw laaddok. Wij beheren alles. U verdient €0,10 per geleverde kWh — zonder investering, zonder operationele last. Hardware vaak €0 via SPRILA-subsidie.</p>
+          <p>U plaatst een lader bij uw laaddok. Wij beheren alles. U verdient €0,10 per geleverde kWh — zonder investering, zonder operationele last. Hardware vaak €0 via SPRILA-subsidie.</p>
           <a href="/theaters">Meer voor theaters →</a>
         </div>
         <div class="service-card">
@@ -135,14 +135,7 @@ form textarea{resize:vertical;min-height:120px}
             <div><label for="bericht">Bericht</label><textarea id="bericht" name="bericht" placeholder="Uw vraag of opmerking..." required></textarea></div>
             <button type="submit" class="btn btn-primary" style="width:100%">Verstuur →</button>
           </form>
-          <script>
-            const params = new URLSearchParams(window.location.search);
-            const typeParam = params.get('type');
-            if (typeParam) {
-              const sel = document.getElementById('type');
-              if (sel) { sel.value = typeParam; }
-            }
-          </script>
+          <script type="module">const a=new URLSearchParams(window.location.search),t=a.get("type");if(t){const e=document.getElementById("type");e&&(e.value=t)}</script>
         </div>
         <div class="contact-info">
           <h2>Stroomlijnen B.V.</h2>

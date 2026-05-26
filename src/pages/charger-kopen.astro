@@ -1,38 +1,63 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Lader Kopen" activeNav="/charger-kopen">
+<Layout title="Lader Kopen — Directe Inkoop" activeNav="/charger-kopen">
 <style>
-.page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem}
-.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem;max-width:800px}
+.page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 5rem}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:.75rem;max-width:800px}
 .page-hero p{font-size:1.1rem;color:var(--text);max-width:640px;line-height:1.75;margin-bottom:2rem}
+
+/* Audience */
 .audience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;margin-top:2rem}
 .audience-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:10px;padding:1.5rem}
-.audience-icon{font-size:1.5rem;margin-bottom:.5rem}
-.audience-card h3{color:var(--white);font-size:1rem;margin-bottom:.4rem}
-.audience-card p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
-.finance-steps{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem;counter-reset:step}
-.finance-step{display:flex;gap:1rem;align-items:center;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-radius:8px;counter-increment:step}
+.audience-icon{width:1.5rem;height:1.5rem;margin-bottom:.5rem}
+.audience-icon svg{width:100%;height:100%}
+.audience-card h3{color:var(--white);font-size:.95rem;margin-bottom:.35rem}
+.audience-card p{color:var(--text);font-size:.82rem;line-height:1.55;margin:0}
+
+/* Why Stroomlijnen hardware */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2rem}
+.why-card{background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:1.5rem}
+.why-card h3{color:var(--white);font-size:.95rem;margin-bottom:.4rem}
+.why-card p{color:var(--text);font-size:.82rem;line-height:1.55;margin:0}
+
+/* Finance steps */
+.finance-steps{display:flex;flex-direction:column;gap:.7rem;margin-top:1.5rem}
+.finance-step{display:flex;gap:1rem;align-items:center;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-radius:8px}
 .finance-step-num{background:var(--cyan);color:var(--navy);width:1.75rem;height:1.75rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0;min-width:1.75rem}
-.finance-step p{color:var(--text);font-size:.9rem;margin:0}
-.finance-specs{display:flex;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;padding:1.25rem;background:rgba(0,176,228,.06);border-radius:8px;border:1px solid rgba(0,176,228,.15)}
-.finance-spec dt{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em}
-.finance-spec dd{color:var(--white);font-size:.95rem;font-weight:600}
-.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem}
-.model-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;display:flex;flex-direction:column}
+.finance-step p{color:var(--text);font-size:.85rem;margin:0}
+
+/* Models */
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:2rem}
+.model-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:1.5rem;display:flex;flex-direction:column}
 .model-card.featured{border-color:var(--cyan)}
-.model-badge{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan);margin-bottom:.5rem}
-.model-power{font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:.25rem}
-.model-name{font-size:1rem;font-weight:600;color:var(--text);margin-bottom:1rem}
+.model-badge{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan);margin-bottom:.4rem}
+.model-power{font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:.2rem}
+.model-name{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.75rem}
 .model-card ul{list-style:none;flex:1}
-.model-card ul li{color:var(--text);font-size:.85rem;padding:.2rem 0 .2rem 1.1rem;position:relative}
+.model-card ul li{color:var(--text);font-size:.82rem;padding:.2rem 0 .2rem 1.1rem;position:relative}
 .model-card ul li:before{content:"✓";color:var(--green);position:absolute;left:0}
-.model-std{font-size:.8rem;color:var(--gray);margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08);text-align:center}
-.flow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;margin-top:2rem}
+.model-card .price{font-size:1.1rem;font-weight:700;color:var(--cyan);margin-top:1rem;padding-top:.75rem;border-top:1px solid rgba(255,255,255,.08)}
+.model-card .price small{font-size:.75rem;font-weight:400;color:var(--gray)}
+.product-image{width:100%;height:160px;border-radius:8px;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-image svg{width:100%;height:100%}
+.model-std{font-size:.78rem;color:var(--gray);margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08)}
+
+/* Financial example */
+.fin-example{background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;margin-top:2rem}
+.fin-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.25rem}
+.fin-item{text-align:center}
+.fin-item p{color:var(--gray);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem}
+.fin-item .num{font-size:1.2rem;font-weight:700;color:var(--white)}
+.fin-item .num.positive{color:var(--green)}
+.fin-item .num.highlight{color:var(--cyan)}
+
+/* Flow */
+.flow-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.25rem;margin-top:2rem}
 .flow-step{text-align:center}
-.flow-icon{font-size:2rem;margin-bottom:.75rem}
-.flow-step h4{color:var(--white);margin-bottom:.4rem}
-.flow-step p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
+.flow-icon{font-size:1.5rem;margin-bottom:.5rem}
+.flow-step h4{color:var(--white);margin-bottom:.35rem;font-size:.9rem}
+.flow-step p{color:var(--text);font-size:.8rem;line-height:1.5;margin:0}
 .cta-block{text-align:center;padding:5rem 0}
 .cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
 .cta-block p{color:var(--text);max-width:520px;margin:0 auto 2rem;line-height:1.7}
@@ -40,38 +65,60 @@ import Layout from '../layouts/Layout.astro';
 
   <section class="page-hero">
     <div class="container">
-      <h1>Lader kopen</h1>
-      <p>U bent eigenaar, u bepaalt de tarieven, alle opbrengsten zijn voor u. Stroomlijnen levert de hardware, begeleidt de SPRILA-subsidieaanvraag en doet de ingebruikstelling. De installatie verzorgt u met uw eigen installateur.</p>
+      <h1>Lader kopen — direct van de importeur</h1>
+      <p>Stroomlijnen importeert rechtstreeks uit de fabriek. Geen tussenhandel, geen dealeropslag. Daardoor liggen onze prijzen 20—25% onder de markt — en krijgt u dezelfde hardware, zelfde garantie.</p>
     </div>
   </section>
 
+  <!-- Voor wie -->
   <section>
     <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">Voor wie</h2>
-      <div class="audience-grid" style="margin-bottom:3rem">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Voor wie</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Direct kopen, zelf exploiteren</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:1rem">U bent eigenaar, u bepaalt de tarieven, alle opbrengsten zijn voor u. Stroomlijnen levert de hardware, begeleidt de SPRILA-subsidieaanvraag en doet de ingebruikstelling.</p>
+      <div class="audience-grid">
         <div class="audience-card">
-          <div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+          <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
           <h3>Theaters & culturele venues</h3>
-          <p>Grote netaansluitingen, dagelijks vrachtverkeer bij het loadingdock. Een eigen lader houdt uw theater in de tour én genereert passief inkomen.</p>
+          <p>Uw eigen lader bij het loadingdock. Houdt uw theater in de tour en genereert passief inkomen.</p>
         </div>
         <div class="audience-card">
-          <div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
           <h3>Wageneigenaren & gezelschappen</h3>
-          <p>Laad op uw eigen depot of thuisbasis. Of neem een mobiele lader mee onderweg voor locaties zonder vaste infrastructuur.</p>
+          <p>Laad op uw eigen depot of thuisbasis. Of neem een mobiele lader mee onderweg.</p>
         </div>
         <div class="audience-card">
-          <div class="audience-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+          <div class="audience-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
           <h3>Wagentoeleveranciers</h3>
-          <p>Lever uw klanten een complete oplossing: vrachtwagen én laadinfrastructuur. Stroomlijnen levert hardware, ingebruikstelling en platform.</p>
+          <p>Lever uw klanten een complete oplossing: vrachtwagen én laadinfrastructuur.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Waarom Stroomlijnen hardware -->
   <section>
     <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Waarom direct kopen?</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Directe import, lokale voorraad</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:660px;line-height:1.7;margin-bottom:1rem">Stroomlijnen is officieel importeur en distributeur van Hongjiali EV-laadstations. Dat betekent geen tussenhandel, lagere prijzen en onderdelen op voorraad in Nederland.</p>
+      <div class="why-grid">
+        <div class="why-card"><h3>20—25% lagere prijs</h3><p>Geen dealeropslag, geen tussenhandel. Dezelfde hardware als bij andere aanbieders, maar rechtstreeks uit de fabriek.</p></div>
+        <div class="why-card"><h3>Voorraad in Nederland</h3><p>Levering vanuit ons magazijn in Amsterdam. Geen maanden wachten op schepen uit Azië.</p></div>
+        <div class="why-card"><h3>2 jaar garantie</h3><p>Fabrieksgarantie op alle hardware. Remote diagnose, directe actie op locatie bij storing.</p></div>
+        <div class="why-card"><h3>Modulair ontwerp</h3><p>Eén chassis voor 30—150 kW. Hot-swappable modules: bij uitval van een module draait de lader door.</p></div>
+        <div class="why-card"><h3>OCPP 2.0.1</h3><p>Open protocol, geen vendor lock-in. Te koppelen aan elk CPO-platform naar keuze.</p></div>
+        <div class="why-card"><h3>Mobiele backup</h3><p>Valt uw lader uit? Binnen 24 uur staat er een mobiele vervanger.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hoe het werkt -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Zelf kopen, samen installeren</p>
       <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Hoe het werkt</h2>
-      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">U koopt de hardware rechtstreeks van Stroomlijnen. Uw eigen elektricien of installateur plaatst de lader. Wij doen de ingebruikstelling, koppeling aan het Stroomlijnen-platform en 24/7 monitoring. SPRILA-subsidie kan tot 40% van de hardware dekken — wij begeleiden de aanvraag.</p>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:1rem">U koopt de hardware rechtstreeks van Stroomlijnen. Uw eigen elektricien plaatst de lader. Wij doen de ingebruikstelling en koppeling aan het platform.</p>
       <div class="finance-steps">
         <div class="finance-step"><div class="finance-step-num">1</div><p>Vrijblijvend gesprek — wij beoordelen uw netaansluiting en situatie</p></div>
         <div class="finance-step"><div class="finance-step-num">2</div><p>Offerte hardware + SPRILA-subsidieoverzicht</p></div>
@@ -82,37 +129,109 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Modellen -->
   <section>
     <div class="container">
       <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Beschikbare modellen</h2>
+      <p style="color:var(--text);font-size:.9rem;margin-bottom:1rem">Alle prijzen exclusief BTW. Installatie door uw eigen installateur.</p>
       <div class="models-grid">
         <div class="model-card">
-          <div class="model-badge">30 kW</div>
-          <div class="model-power">Portable</div>
+          <div class="model-badge">30 kW DC</div>
+          <div class="product-image" style="background:linear-gradient(145deg,#0d1e38,#152a4a)">
+            <svg viewBox="0 0 400 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="155" y="15" width="90" height="100" rx="10" fill="#84BD00" opacity=".2"/>
+              <rect x="155" y="15" width="90" height="100" rx="10" stroke="#84BD00" stroke-width="1.5" stroke-dasharray="6 4" opacity=".5"/>
+              <rect x="165" y="25" width="30" height="35" rx="4" fill="#84BD00" opacity=".5"/>
+              <rect x="205" y="25" width="30" height="35" rx="4" fill="#84BD00" opacity=".3"/>
+              <rect x="165" y="70" width="70" height="5" rx="2" fill="#84BD00" opacity=".4"/>
+              <rect x="165" y="80" width="70" height="5" rx="2" fill="#84BD00" opacity=".3"/>
+              <path d="M175 15 L175 5 L225 5 L225 15" stroke="#84BD00" stroke-width="3" opacity=".5" fill="none"/>
+              <circle cx="200" cy="38" r="5" fill="#00B0E4" opacity=".7"/>
+              <text x="200" y="130" text-anchor="middle" fill="#84BD00" font-size="11" opacity=".6" font-family="system-ui">30kW</text>
+            </svg>
+          </div>
+          <div class="model-power">Mobiel</div>
           <div class="model-name">Mobiele lader</div>
-          <ul><li>Mobiel inzetbaar</li><li>4G + WiFi</li><li>MID-gecertificeerd</li></ul>
+          <ul><li>Mobiel inzetbaar</li><li>4G + WiFi</li><li>MID-gecertificeerd</li><li>Plug-and-play</li></ul>
+          <div class="price">€8.999 <small>excl. btw</small></div>
         </div>
         <div class="model-card featured">
-          <div class="model-badge">Meest gevraagd · 120 kW</div>
-          <div class="model-power">DC Fixed</div>
-          <div class="model-name">Vaste installatie</div>
-          <ul><li>Vaste installatie</li><li>Geschikt voor vrachtwagens</li><li>Modulair uitbreidbaar</li></ul>
+          <div class="model-badge">Meest gevraagd · 120 kW DC</div>
+          <div class="product-image" style="background:linear-gradient(145deg,#0d1e38,#152a4a)">
+            <svg viewBox="0 0 400 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="120" y="10" width="160" height="140" rx="12" fill="#00B0E4" opacity=".2"/>
+              <rect x="120" y="10" width="160" height="140" rx="12" stroke="#00B0E4" stroke-width="1" opacity=".4"/>
+              <rect x="155" y="22" width="90" height="45" rx="6" fill="#0a1628" opacity=".7"/>
+              <rect x="160" y="27" width="80" height="35" rx="4" fill="#00B0E4" opacity=".3"/>
+              <text x="200" y="48" text-anchor="middle" fill="white" font-size="11" opacity=".8" font-family="system-ui">120 kW</text>
+              <text x="200" y="56" text-anchor="middle" fill="white" font-size="7" opacity=".5" font-family="system-ui">READY</text>
+              <rect x="135" y="75" width="40" height="24" rx="4" fill="#00B0E4" opacity=".4"/>
+              <rect x="180" y="75" width="40" height="24" rx="4" fill="#00B0E4" opacity=".4"/>
+              <rect x="225" y="75" width="40" height="24" rx="4" fill="#00B0E4" opacity=".4"/>
+              <rect x="135" y="108" width="130" height="2" rx="1" fill="#00B0E4" opacity=".2"/>
+              <rect x="135" y="114" width="130" height="2" rx="1" fill="#00B0E4" opacity=".2"/>
+              <rect x="135" y="120" width="130" height="2" rx="1" fill="#00B0E4" opacity=".2"/>
+              <path d="M160 150 L150 162" stroke="#00B0E4" stroke-width="2" opacity=".4" stroke-linecap="round"/>
+              <circle cx="150" cy="164" r="4" fill="#00B0E4" opacity=".5"/>
+              <path d="M240 150 L250 162" stroke="#00B0E4" stroke-width="2" opacity=".4" stroke-linecap="round"/>
+              <circle cx="250" cy="164" r="4" fill="#00B0E4" opacity=".5"/>
+              <text x="200" y="155" text-anchor="middle" fill="#00B0E4" font-size="9" opacity=".4" font-family="system-ui">CCS2 x2</text>
+            </svg>
+          </div>
+          <div class="model-power">Fixed</div>
+          <div class="model-name">Vaste snellader</div>
+          <ul><li>Vaste installatie</li><li>Geschikt voor vrachtwagens</li><li>Modulair uitbreidbaar</li><li>Dual gun (2 laadpunten)</li><li>MID-gecertificeerd</li></ul>
+          <div class="price">€27.000 <small>excl. btw*</small></div>
         </div>
         <div class="model-card">
-          <div class="model-badge">60–360 kW</div>
+          <div class="model-badge">60—180 kW DC</div>
           <div class="model-power">Modulair Systeem</div>
           <div class="model-name">Schaalbare infrastructuur</div>
           <ul><li>Schaalbaar per module</li><li>Fail-safe redundantie</li><li>V2G-capable optie</li></ul>
+          <div class="price">Op aanvraag</div>
         </div>
       </div>
-      <p class="model-std">Alle modellen: OCPP 2.0.1 | MID-gecertificeerd | 24/7 monitoring via Stroomlijnen-platform</p>
+      <p class="model-std">* Na 25% theaterkorting bij gebruik Stroomlijnen CPO/eMSP. Catalogusprijs €36.000.<br>Alle modellen: OCPP 2.0.1 | MID-gecertificeerd | 24/7 monitoring via Stroomlijnen-platform</p>
+    </div>
+  </section>
+
+  <!-- Financieel voorbeeld -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Financieel voorbeeld</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Wat levert een eigen lader op?</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:680px;line-height:1.7;margin-bottom:1rem">Een 120 kW DC-lader bij een gemiddeld theater, met SPRILA-subsidie:</p>
+      <div class="fin-example">
+        <div class="fin-row">
+          <div class="fin-item"><p>Investering (na korting)</p><div class="num">€27.000</div></div>
+          <div class="fin-item"><p>SPRILA 40%</p><div class="num highlight">- €10.800</div></div>
+          <div class="fin-item"><p>Netto investering</p><div class="num">€16.200</div></div>
+          <div class="fin-item"><p>Jaarmarge bij 100%</p><div class="num positive">€7.820</div></div>
+          <div class="fin-item"><p>Nettowinst 10 jaar</p><div class="num positive">€62.000</div></div>
+        </div>
+        <p style="color:rgba(255,255,255,.5);font-size:.72rem;margin-top:1rem;line-height:1.4">Uitgangspunten: 34.000 kWh/jaar, cultuur 70% (€0,45), commercieel 20% (€0,60), thuis 10% (€0,00). Inkoop €0,17/kWh, Stroomlijnen €0,05/kWh. Gebruiksgroei: jaar 1=10%, jr 2=30%, jr 3=70%, jr 4-10=100%.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flow -->
+  <section>
+    <div class="container" style="text-align:center">
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Het traject in vier stappen</h2>
+      <p style="color:var(--text);max-width:600px;margin:0 auto 1rem;line-height:1.7">Van interesse tot een werkende lader.</p>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-icon">📞</div><h4>Gesprek</h4><p>We bespreken uw situatie, netaansluiting en wensen.</p></div>
+        <div class="flow-step"><div class="flow-icon">📄</div><h4>Offerte</h4><p>U ontvangt een offerte met subsidieoverzicht.</p></div>
+        <div class="flow-step"><div class="flow-icon">🔌</div><h4>Installatie</h4><p>Uw installateur plaatst de lader.</p></div>
+        <div class="flow-step"><div class="flow-icon">✅</div><h4>Live</h4><p>Stroomlijnen stelt in bedrijf en monitort 24/7.</p></div>
+      </div>
     </div>
   </section>
 
   <section>
     <div class="container cta-block">
-      <h2>Interesse? Neem contact op.</h2>
-      <p>Wij bespreken uw situatie, beoordelen de netaansluiting en leveren een offerte met SPRILA-subsidieoverzicht — zonder verplichtingen.</p>
+      <h2>Interesse?</h2>
+      <p>Wij bespreken uw situatie, beoordelen de netaansluiting en leveren een offerte — zonder verplichtingen.</p>
       <a href="/contact" class="btn btn-primary">Neem contact op →</a>
     </div>
   </section>
