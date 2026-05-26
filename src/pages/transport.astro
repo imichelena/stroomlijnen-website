@@ -13,6 +13,7 @@ import Layout from '../layouts/Layout.astro';
 .step p{color:var(--text);font-size:.88rem;line-height:1.55;margin:0}
 .steps-cta{text-align:center;margin-top:1.5rem}
 .steps-cta a{color:var(--cyan);font-size:.88rem;font-weight:600}
+.steps-cta .btn{font-size:1rem;padding:.85rem 2.5rem;color:var(--navy)!important}
 
 /* Highlight box */
 .highlight-box{background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
@@ -20,17 +21,7 @@ import Layout from '../layouts/Layout.astro';
 .highlight-box p{color:var(--text);font-size:.88rem;line-height:1.6;margin:0}
 .highlight-box .big-num{font-size:2rem;font-weight:700;color:var(--cyan);display:block}
 
-.auth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem;margin-top:2rem}
-.auth-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:1.5rem}
-.auth-icon{width:1.5rem;height:1.5rem;margin-bottom:.6rem}
-.auth-icon svg{width:100%;height:100%}
-.auth-card h3{color:var(--white);margin-bottom:.35rem;font-size:.95rem}
-.auth-card p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
 
-table{width:100%;border-collapse:collapse;margin-top:1.5rem}
-th{text-align:left;color:var(--cyan);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;padding:.6rem .75rem;border-bottom:1px solid rgba(255,255,255,.1)}
-td{padding:.6rem .75rem;color:var(--text);font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.05)}
-tr:last-child td{border-bottom:none}
 .cta-block{text-align:center;padding:5rem 0}
 .cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
 .cta-block p{color:var(--text);max-width:520px;margin:0 auto 2rem;line-height:1.7}
@@ -66,7 +57,7 @@ tr:last-child td{border-bottom:none}
         <div class="step"><div class="step-num">5</div><div><h4>Maandelijks factuur</h4><p>Alle laadsessies worden gebundeld en achteraf gefactureerd. Overzicht via uw persoonlijke portal.</p></div></div>
       </div>
       <div class="steps-cta">
-        <a href="/contact">Account aanvragen →</a>
+        <a href="/contact" class="btn btn-primary">Laadpassen aanvragen →</a>
       </div>
     </div>
   </section>
@@ -96,71 +87,49 @@ tr:last-child td{border-bottom:none}
           <p style="color:var(--text);font-size:.85rem;margin-top:.35rem">voor alle locaties</p>
         </div>
         <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1.25rem;text-align:center">
-          <span class="big-num" style="font-size:1.6rem;font-weight:700;color:var(--cyan);display:block">7—10 uur</span>
-          <p style="color:var(--text);font-size:.85rem;margin-top:.35rem">laadtijd volle truck</p>
+          <span class="big-num" style="font-size:1.6rem;font-weight:700;color:var(--cyan);display:block">4 uur</span>
+          <p style="color:var(--text);font-size:.85rem;margin-top:.35rem">laadtijd volle truck (120 kW)</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Laadoplossingen -->
+  <!-- Kosten -->
   <section>
     <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Drie laadoplossingen voor elk voertuig</h2>
-      <p style="color:var(--text);font-size:.9rem;margin-bottom:1rem">Of u nu met een vrachtwagen, bakwagen of bestelbus op tournee gaat — er is een passende laadoplossing.</p>
-      <div class="auth-grid">
-        <div class="auth-card">
-          <div class="auth-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <h3>60—120 kW DC snellader</h3>
-          <p>Voor elektrische vrachtwagens (trekker-oplegger, bakwagen). CCS2-connector. Laadt een volle truck in 7—10 uur — precies de tijd dat u bij het theater staat.</p>
-        </div>
-        <div class="auth-card">
-          <div class="auth-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>22 kW AC lader</h3>
-          <p>Voor lichte bestelwagens, inspicientenauto's en tourbussen. Type 2-connector. Compact, eenvoudig te installeren bij elk theater.</p>
-        </div>
-        <div class="auth-card">
-          <div class="auth-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-          <h3>Mobiele lader voor onderweg</h3>
-          <p>Voor locaties zonder vaste Stroomlijnen-lader. 30 kW, plug-and-play, rijdt mee in de truck. Laadt op elke locatie met voldoende netcapaciteit.</p>
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Kosten</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Transparante tarieven, geen verrassingen</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:700px;line-height:1.7;margin-bottom:1.5rem">Een laadpas kost <strong style="color:var(--white)">€10 eenmalig</strong> en <strong style="color:var(--white)">€5 per maand</strong>. Geen verdere (verborgen) kosten.</p>
+      <div style="background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+          <div>
+            <p style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">Eenmalig</p>
+            <p style="font-size:1.3rem;font-weight:700;color:var(--white)">€10</p>
+            <p style="color:var(--text);font-size:.82rem;margin-top:.2rem">per laadpas</p>
+          </div>
+          <div>
+            <p style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">Per maand</p>
+            <p style="font-size:1.3rem;font-weight:700;color:var(--white)">€5</p>
+            <p style="color:var(--text);font-size:.82rem;margin-top:.2rem">per laadpas</p>
+          </div>
+          <div>
+            <p style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">Afrekening</p>
+            <p style="font-size:1rem;font-weight:600;color:var(--white)">Maandelijks</p>
+            <p style="color:var(--text);font-size:.82rem;margin-top:.2rem">via SEPA-machtiging achteraf</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Tarieven -->
-  <section>
-    <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Tarieven</h2>
-      <p style="color:var(--text);margin-bottom:1.5rem">Alle gezelschappen krijgen automatisch het cultureel tarief. Geen abonnement, geen roaming-kosten.</p>
-      <table>
-        <thead><tr><th>Tarief</th><th>Voor wie</th></tr></thead>
-        <tbody>
-          <tr><td><strong style="color:var(--cyan)">Cultureel tarief</strong> — €0,45/kWh</td><td>Toerende gezelschappen — automatisch via uw Stroomlijnen-account</td></tr>
-          <tr><td>Eigen gebruik — €0,00/kWh</td><td>Theaters die zelf laden op hun eigen lader</td></tr>
-          <tr><td>Commercieel tarief — marktconform</td><td>Overige gebruikers zonder Stroomlijnen-account</td></tr>
-        </tbody>
-      </table>
-      <p style="color:var(--text);font-size:.8rem;margin-top:.75rem;line-height:1.55">Vergelijk: commerciële snelladers rekenen vaak €0,60—€0,80/kWh. Diesel kost ~€0,60/km voor een truck; elektrisch ~€0,45/km* bij cultureel tarief.</p>
-    </div>
-  </section>
-
-  <!-- Voertuigoverzicht -->
-  <section>
-    <div class="container">
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Voertuigen op tournee</h2>
-      <p style="color:var(--text);font-size:.9rem;margin-bottom:1rem">Welke connector en welk vermogen heeft u nodig?</p>
-      <table>
-        <thead><tr><th>Voertuigtype</th><th>Connector</th><th>Vermogen</th><th>Actieradius</th><th>Laadkosten/km</th></tr></thead>
-        <tbody>
-          <tr><td>Vrachtwagen (18—40T)</td><td>CCS2</td><td>60—120 kW DC</td><td>250—500 km</td><td>€0,45/km*</td></tr>
-          <tr><td>Bakwagen (14m³)</td><td>CCS2 / Type 2</td><td>22—50 kW</td><td>100—220 km</td><td>€0,18/km</td></tr>
-          <tr><td>Bestelbus / tourbus</td><td>Type 2</td><td>11—22 kW AC</td><td>130—280 km</td><td>€0,14/km</td></tr>
-        </tbody>
-      </table>
-      <p style="color:var(--text);font-size:.82rem;margin-top:.75rem;line-height:1.55">Vergelijk diesel: truck ~€0,60/km, bakwagen ~€0,23/km, bestelbus ~€0,18/km. Elektrisch is aanzienlijk goedkoper — als u kunt laden.</p>
-      <p style="color:rgba(255,255,255,.4);font-size:.72rem;margin-top:.35rem;line-height:1.5;max-width:600px">* Truck verbruikt ~1 kWh/km. Bij cultureel tarief €0,45/kWh = €0,45/km. Diesel: €2,05/liter (ex btw), 1 liter per 5 km = €0,41/km brandstof + €0,19/km kilometerheffing = €0,60/km. Bron: RVO, eigen berekening.</p>
+      <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem">
+        <div style="display:flex;gap:.75rem;align-items:flex-start;padding:.75rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">
+          <span style="color:var(--cyan);font-size:1.1rem">🔑</span>
+          <p style="color:var(--text);font-size:.88rem;line-height:1.55;margin:0">Bij de pas krijgt u toegang tot uw eigen <strong style="color:var(--white)">portaal</strong> — elke pas is daar zichtbaar, krijgt een naam en kunt u schorsen of blokkeren.</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;padding:.75rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">
+          <span style="color:var(--cyan);font-size:1.1rem">📊</span>
+          <p style="color:var(--text);font-size:.88rem;line-height:1.55;margin:0">Overzicht van alle (historische) laadsessies en facturen — altijd inzicht in uw laadgedrag en kosten.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -170,8 +139,8 @@ tr:last-child td{border-bottom:none}
       <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">Veelgestelde vragen</h2>
       <div class="faq">
         <div class="faq-item"><h4>Kan ik de hele tour elektrisch rijden?</h4><p>In de meeste gevallen ja. Afstanden tussen Nederlandse theaters zijn goed haalbaar met moderne e-trucks. Een truck rijdt 250—500 km op een lading, een bakwagen 100—220 km. De bedoeling is dat u bij elk theater kunt laden — dan is de actieradius geen belemmering.</p></div>
-        <div class="faq-item"><h4>Wat als een theater nog geen Stroomlijnen-lader heeft?</h4><p>Dan kunt u een mobiele lader meenemen (30 kW, plug-and-play). Of wij vragen het theater om aan te sluiten — elk nieuw laadpunt versterkt het netwerk.</p></div>
-        <div class="faq-item"><h4>Hoe lang staat mijn wagen te laden?</h4><p>Truck bij 60 kW: 7—10 uur volledig — de tijd dat u bij het theater staat. Bakwagen bij 80—150 kW: 1—2 uur. Bestelbus bij 22 kW: 2—4 uur.</p></div>
+        <div class="faq-item"><h4>Wat als een theater nog geen Stroomlijnen-lader heeft?</h4><p>Dan kunt u een mobiele lader meenemen (30 kW, plug-and-play).</p></div>
+        <div class="faq-item"><h4>Hoe lang staat mijn wagen te laden?</h4><p>Met een 120 kW lader is een truck in 4 uur vol — de meeste producties, en dus wagens, zijn minimaal 10 uur aanwezig. Bakwagen bij 80—150 kW: 2—3 uur. Bestelbus bij 22 kW: 2—4 uur.</p></div>
         <div class="faq-item"><h4>Is elektrisch goedkoper dan diesel?</h4><p>Ja. Truck: €0,45/km* (elektrisch) vs €0,60/km (diesel). Bakwagen: €0,18 vs €0,23. Plus: u vermijdt kilometerheffing voor dieselwagens en ZE-zone-boetes.</p></div>
         <div class="faq-item"><h4>Moet ik de hele tour in één keer omschakelen?</h4><p>Nee, maar het is efficiënter. Zodra meerdere steden op uw tour een ZE-zone hebben, wordt wisselen tussen elektrisch en diesel tijdrovend en duur.</p></div>
         <div class="faq-item"><h4>Hoe regel ik een Stroomlijnen-account?</h4><p>Neem contact op — wij regelen uw account, het cultureel tarief en de facturatie. Daarna laadt u bij alle aangesloten Stroomlijnen-locaties.</p></div>
@@ -182,10 +151,10 @@ tr:last-child td{border-bottom:none}
   <!-- CTA -->
   <section>
     <div class="container cta-block">
-      <h2>Account aanvragen of meer weten?</h2>
+      <h2>Laadpassen aanvragen of meer weten?</h2>
       <p>Neem contact op — wij zetten u op het culturele tarief en regelen uw account. Direct laden bij alle Stroomlijnen-locaties.</p>
       <div class="btn-row">
-        <a href="/contact" class="btn btn-primary">Account aanvragen →</a>
+        <a href="/contact" class="btn btn-primary">Laadpassen aanvragen →</a>
       </div>
     </div>
   </section>

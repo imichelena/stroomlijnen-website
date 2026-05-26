@@ -125,33 +125,20 @@ import Layout from '../layouts/Layout.astro';
   <!-- Drie opties -->
   <section>
     <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Drie opties</p>
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Twee opties</p>
       <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Kies het model dat bij u past</h2>
-      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:1rem">Of u nu volledig ontzorgd wilt worden of maximale controle zoekt — er is een passende optie.</p>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:1rem">Of u nu volledig beheerd wilt worden of maximale controle zoekt — er is een passende optie.</p>
       <div class="options-grid">
-        <div class="option-card">
-          <div class="option-label">Optie A — Ontzorgd</div>
-          <h3>Financial lease</h3>
-          <p>Volledig beheerd, geen investering vooraf. U betaalt de lader terug uit de opbrengst.</p>
-          <ul>
-            <li>SPRILA-subsidie tot 40%</li>
-            <li>0% rente, 7 jaar aflossen</li>
-            <li>CPO + monitoring + support + ERE + onderhoud inbegrepen</li>
-          </ul>
-          <div class="option-price">
-            <dt>Speciaal VSCD-tarief beschikbaar</dt>
-            <dd><a href="mailto:info@stroomlijnen.nl" style="color:var(--cyan);font-size:.85rem">Vraag aan →</a></dd>
-          </div>
-        </div>
         <div class="option-card featured">
-          <div class="option-label">Optie B — Aanbevolen</div>
+          <div class="option-label">Optie A — Aanbevolen</div>
           <h3>Aanschaf & beheerd</h3>
           <p>U bent direct eigenaar. Stroomlijnen beheert de lader, het platform en de administratie.</p>
           <ul>
-            <li>SPRILA-subsidie tot 40%</li>
+            <li>SPRILA-subsidie tot 40% (theater dient zelf in)</li>
             <li>Geen aflossing of verrekeningen</li>
-            <li>Hoger inkomen per kWh dan Optie A</li>
+            <li>Financiering restbedrag eventueel i.s.m. Cultuur+Ondernemen</li>
             <li>CPO + monitoring + 24/7 support + ERE + onderhoud</li>
+            <li>Onderdeel van het culturele laadnetwerk</li>
           </ul>
           <div class="option-price">
             <dt>120 kW DC snellader</dt>
@@ -161,20 +148,20 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
         <div class="option-card">
-          <div class="option-label">Optie C — Eigen regie</div>
+          <div class="option-label">Optie B — Eigen regie</div>
           <h3>Zelfkoop, eigen exploitatie</h3>
           <p>Maximale controle. U koopt de hardware, Stroomlijnen levert en stelt in bedrijf.</p>
           <div class="option-price">
-            <dt>Investering 60 kW</dt><dd>€32.500 excl. btw</dd>
-            <dt>Investering 120 kW</dt><dd>€41.000 excl. btw</dd>
-            <dt>SPRILA-subsidie</dt><dd>Tot 40%</dd>
+            <dt>Investering 120 kW</dt><dd>€36.000 excl. btw</dd>
+            <dt>SPRILA-subsidie</dt><dd>Tot 40% (theater dient zelf in)</dd>
             <dt>Uw inkomsten</dt><dd>100% — u bepaalt tarief</dd>
             <dt>Rekenvoorbeeld</dt><dd>€0,20 delta × 32.000 kWh = €6.400/jr</dd>
           </div>
-          <p style="color:var(--text);font-size:.8rem;margin-top:1rem">✓ Stroomlijnen levert hardware, SPRILA-ondersteuning en inbedrijfstelling.</p>
+          <p style="color:var(--text);font-size:.8rem;margin-top:1rem">✓ Stroomlijnen levert hardware, inbedrijfstelling en portal.</p>
+          <p style="color:var(--text);font-size:.8rem;margin-top:.5rem">✗ Geen onderdeel van het culturele laadnetwerk</p>
         </div>
       </div>
-      <p class="disclaimer">SPRILA 2026: Budget nog niet definitief goedgekeurd. Bedragen indicatief op basis van 40%-regeling MKB. Theater dient aanvraag zelf in. Stroomlijnen begeleidt de aanvraag. Energie: dynamisch (spotmarkt) of vast €0,35/kWh bij batterijopslag (ESS).</p>
+      <p class="disclaimer">SPRILA 2026: Budget nog niet definitief goedgekeurd. Bedragen indicatief op basis van 40%-regeling MKB. Theater dient aanvraag zelf in. Energie: dynamisch (spotmarkt) of vast €0,35/kWh bij batterijopslag (ESS).</p>
     </div>
   </section>
 
@@ -208,22 +195,8 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
       </div>
-      <p style="color:var(--text);font-size:.78rem;margin-top:.75rem;line-height:1.5">Rekenvoorbeeld op basis van: 34.000 kWh/jaar, cultuur 70% (€0,45), commercieel 20% (€0,60), thuis 10% (€0,00). Inkoop €0,17/kWh, Stroomlijnen vergoeding €0,05/kWh. Groei: jaar 1 = 10%, jaar 3 = 70%, jaar 4—10 = 100%. Zie het infodocument voor het volledige rekenmodel.</p>
-    </div>
-  </section>
-
-  <!-- Roadmap -->
-  <section>
-    <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Roadmap</p>
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Van snellader naar energieknooppunt</h2>
-      <p style="color:var(--text);margin-bottom:1rem;font-size:.9rem">Elke fase bouwt voort op de vorige. U begint met een snellader en passief inkomen. Uw systeem groeit mee zonder extra kapitaalinzet.</p>
-      <div class="roadmap">
-        <div class="roadmap-item"><span class="roadmap-phase">Nu beschikbaar</span><div><h4>Fase 1 — Snellader & platform</h4><p>DC-snellader op uw terrein. OCPP 2.0.1 platform, 24/7 monitoring, CO₂-rapportage, facturatie. Passief inkomen vanaf dag één.</p></div></div>
-        <div class="roadmap-item"><span class="roadmap-phase">Pilot 2026—2027</span><div><h4>Fase 2 — Zonnepanelen & batterij</h4><p>Batterijopslag en zonnepanelen op uw dak. Lokaal opgewekte energie voor laden én eigen verbruik. Slim EMS.</p></div></div>
-        <div class="roadmap-item"><span class="roadmap-phase">2027—2028</span><div><h4>Fase 3 — Slim laden & peakshaving</h4><p>Batterij maakt een vast laadtarief mogelijk. Inkopen bij lage prijs, leveren aan vast tarief. Ook peakshaving voor eigen verbruik.</p></div></div>
-        <div class="roadmap-item"><span class="roadmap-phase">Toekomstvisie</span><div><h4>Fase 4 — Theater als energiehub</h4><p>Uw theater als lokaal energieknooppunt: laden, opslaan, terugleveren, V2G. Bij netuitval fungeert het als lokaal energiepunt.</p></div></div>
-      </div>
+      <p style="color:var(--text);font-size:.78rem;margin-top:.75rem;line-height:1.5">Rekenvoorbeeld op basis van: 34.000 kWh/jaar, cultuur 70% (€0,45), commercieel 20% (€0,60), thuis 10% (€0,00). Inkoopkosten €0,22/kWh. Groei: jaar 1 = 10%, jaar 3 = 70%, jaar 4—10 = 100%. Zie het infodocument voor het volledige rekenmodel.</p>
+      <p style="color:var(--text);font-size:.88rem;line-height:1.7;margin-top:1.25rem;max-width:700px">De netto-investering is met SPRILA-subsidie beperkt tot €16.200 — en kan desgewenst worden gefinancierd. Zelfs in de minimale modus (alleen cultuurtarief, geen commerciële of openbare leveringen) verdient de lader zich op termijn terug. Wordt de laadtijd ook verkocht aan bijvoorbeeld een lokale aannemer, dan stijgt de opbrengst verder.</p>
     </div>
   </section>
 
@@ -249,12 +222,27 @@ import Layout from '../layouts/Layout.astro';
       <div class="faq">
         <div class="faq-item"><h4>Hebben we genoeg capaciteit op onze aansluiting?</h4><p>Waarschijnlijk wel. Theaters zijn gedimensioneerd op avondpiekbelasting. Overdag staat die capaciteit grotendeels stil — precies de ruimte die we gebruiken voor laden. Een 60 kW lader laadt in 10 uur ruim voldoende voor een volle vrachtwagen. Ons EMS begrenst de lader automatisch binnen uw gecontracteerd vermogen.</p></div>
         <div class="faq-item"><h4>Gaat het laden ten koste van onze voorstelling?</h4><p>Nee. Het Stroomlijnen-platform monitort real-time uw gebouwverbruik en begrenst de lader. Uw voorstelling heeft altijd prioriteit. Laden gebeurt vooral overdag en 's nachts.</p></div>
-        <div class="faq-item"><h4>Welk vermogen hebben we nodig?</h4><p>Minimaal 60 kW DC. Daarmee laadt een elektrische trekker-oplegger in 7—10 uur volledig op. Een 22 kW AC-lader volstaat voor lichte bestelwagens en tourbussen.</p></div>
-        <div class="faq-item"><h4>Wat kost het ons? Wat levert het op?</h4><p>De opties staan hierboven — van €0 investering (financial lease) tot volledige eigendom. Het theater ontvangt de grootste marge per kWh. Stroomlijnen ontvangt een vaste vergoeding van €0,05/kWh voor platform, monitoring en administratie.</p></div>
+        <div class="faq-item"><h4>Welk vermogen hebben we nodig?</h4><p>Minimaal 60 kW DC — daarmee laadt een elektrische trekker-oplegger in 7—10 uur volledig op. Een 120 kW lader is optimaal: u laadt overdag snel bij en kunt 's avonds stoppen. Het theater gebruikt die stroomcapaciteit overdag toch niet. Een 22 kW AC-lader volstaat voor lichte bestelwagens en tourbussen.</p></div>
+        <div class="faq-item"><h4>Wat kost het ons? Wat levert het op?</h4><p>De opties staan hierboven — van €27.000 (volledig beheerd) tot €36.000 (eigen regie). De netto-investering is met SPRILA-subsidie beperkt en kan desgewenst worden gefinancierd. Zelfs in de minimale modus (alleen cultuurtarief, geen commerciële of openbare leveringen) verdient de lader zich op termijn terug. Wordt de laadtijd ook verkocht aan bijvoorbeeld een lokale aannemer, dan stijgt de opbrengst verder. Het beheer, platform en administratie zijn voor rekening van Stroomlijnen.</p></div>
         <div class="faq-item"><h4>Hoe zit het met veiligheid en verzekering?</h4><p>Stroomlijnen levert gecertificeerde hardware (CE, MID, NEN 1010) met automatische foutdetectie, noodstop en branddetectiekoppeling. Laders zijn onzichtbaar op internet via een privaat Tailscale-netwerk — geen open poorten, geen externe toegang. Elke lader heeft een eigen digitaal paspoort. Het systeem voldoet aan NIS2-normen.</p></div>
         <div class="faq-item"><h4>Wat als we huren van de gemeente?</h4><p>Dan heeft u toestemming nodig van de eigenaar. Stroomlijnen begeleidt dit traject en kan technische documentatie aanleveren voor gemeente of verhuurder.</p></div>
         <div class="faq-item"><h4>Wie installeert en onderhoudt?</h4><p>Installatie door uw eigen installateur. Stroomlijnen doet de inbedrijfstelling en is verantwoordelijk voor alle onderhoud, software-updates en 24/7 monitoring.</p></div>
         <div class="faq-item"><h4>Hoe lang duurt het voordat de lader er staat?</h4><p>Vanaf bestelling is levering 2—4 weken. Installatie + inbedrijfstelling kost 1—2 dagen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Roadmap</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Van snellader naar energieknooppunt</h2>
+      <p style="color:var(--text);margin-bottom:1rem;font-size:.9rem">Elke fase bouwt voort op de vorige. U begint met een snellader en passief inkomen. Uw systeem groeit mee zonder extra kapitaalinzet.</p>
+      <div class="roadmap">
+        <div class="roadmap-item"><span class="roadmap-phase">Nu beschikbaar</span><div><h4>Fase 1 — Snellader & platform</h4><p>DC-snellader op uw terrein. OCPP 2.0.1 platform, 24/7 monitoring, CO₂-rapportage, facturatie. Passief inkomen vanaf dag één.</p></div></div>
+        <div class="roadmap-item"><span class="roadmap-phase">Pilot 2026—2027</span><div><h4>Fase 2 — Zonnepanelen & batterij</h4><p>Batterijopslag en zonnepanelen op uw dak. Lokaal opgewekte energie voor laden én eigen verbruik. Slim EMS.</p></div></div>
+        <div class="roadmap-item"><span class="roadmap-phase">2027—2028</span><div><h4>Fase 3 — Slim laden & peakshaving</h4><p>Batterij maakt een vast laadtarief mogelijk. Inkopen bij lage prijs, leveren aan vast tarief. Ook peakshaving voor eigen verbruik.</p></div></div>
+        <div class="roadmap-item"><span class="roadmap-phase">Toekomstvisie</span><div><h4>Fase 4 — Theater als energiehub</h4><p>Uw theater als lokaal energieknooppunt: laden, opslaan, terugleveren, V2G. Bij netuitval fungeert het als lokaal energiepunt.</p></div></div>
       </div>
     </div>
   </section>

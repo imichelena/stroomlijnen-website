@@ -3,26 +3,6 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="Iedere zaal een laadpaal" activeNav="/contact">
 <style>
-.page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem}
-.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem;max-width:800px}
-.page-hero p{font-size:1.1rem;color:var(--text);max-width:640px;line-height:1.75}
-.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
-.service-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;display:flex;flex-direction:column}
-.service-icon{font-size:1.75rem;margin-bottom:1rem}
-.service-card h3{color:var(--white);font-size:1.15rem;margin-bottom:.75rem}
-.service-card p{color:var(--text);font-size:.9rem;line-height:1.7;flex:1;margin:0}
-.service-card a{color:var(--cyan);font-size:.85rem;font-weight:600;display:inline-block;margin-top:1rem;text-decoration:none}
-.service-card a:hover{text-decoration:underline}
-.usp-list{display:flex;flex-direction:column;gap:.75rem;margin-top:2rem}
-.usp-item{display:flex;gap:1rem;align-items:flex-start;padding:.75rem 1rem;background:rgba(255,255,255,.03);border-radius:8px}
-.usp-icon{font-size:1.1rem;flex-shrink:0;margin-top:.1rem}
-.usp-item p{color:var(--text);font-size:.9rem;line-height:1.65;margin:0}
-.usp-item strong{color:var(--white)}
-.context-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.context-cols p{color:var(--text);line-height:1.75;margin-bottom:1rem}
-.context-stat{border-left:3px solid var(--cyan);padding-left:1rem;margin-top:1.5rem}
-.context-stat h4{color:var(--white);margin-bottom:.25rem}
-.context-stat p{color:var(--text);font-size:.9rem;margin:0;line-height:1.65}
 .contact-section{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
 form label{display:block;font-size:.8rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.35rem}
 form input,form select,form textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.75rem 1rem;color:var(--white);font-size:.95rem;margin-bottom:1.25rem;transition:border-color .2s;font-family:inherit}
@@ -34,80 +14,8 @@ form textarea{resize:vertical;min-height:120px}
 .contact-info dt{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2rem}
 .contact-info dd{color:var(--text);font-size:.95rem;margin:0}
 .contact-info a{color:var(--cyan)}
-@media(max-width:768px){.context-cols,.contact-section{grid-template-columns:1fr}}
+@media(max-width:768px){.contact-section{grid-template-columns:1fr}}
 </style>
-
-  <section class="page-hero">
-    <div class="container">
-      <h1>Iedere zaal een laadpaal.</h1>
-      <p>Theaters hebben grote elektriciteitsaansluitingen die overdag stilstaan. Elektrische vrachtwagens hebben die stroom nodig. Wij verbinden die twee — transparant, open-source, voor de culturele sector.</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Wat wij doen</p>
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">Laadinfrastructuur voor de culturele sector</h2>
-      <p style="color:var(--text);margin-bottom:2rem">Van hardware tot laadsessie — alles in eigen beheer. Geen tussenschakels, geen abonnementen, geen verborgen kosten.</p>
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
-          <h3>Theaters</h3>
-          <p>U plaatst een lader bij uw laaddok. Wij beheren alles. U verdient €0,10 per geleverde kWh — zonder investering, zonder operationele last. Hardware vaak €0 via SPRILA-subsidie.</p>
-          <a href="/theaters">Meer voor theaters →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-          <h3>Elektrisch Transporteurs</h3>
-          <p>Uw elektrische vrachtwagen laadt bij het theater terwijl de technici werken. Plug & Charge, transparante tarieven, geen abonnement vereist. CCS2 standaard voor trucks.</p>
-          <a href="/transport">Meer voor transporteurs →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <h3>Het Platform</h3>
-          <p>Onze CPO- en EMS-software zijn open-source. Geen cloudkoppeling — het systeem draait op een privaat Tailscale-netwerk. Geen vendor lock-in. Alle code vrij beschikbaar.</p>
-          <a href="#">Meer over ons platform →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">Wat ons onderscheidt</p>
-      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1.5rem">Transparantie is geen marketingterm</h2>
-      <div class="usp-list">
-        <div class="usp-item"><div class="usp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><p><strong>Volledig verticaal geïntegreerd</strong> — Van hardware-inkoop tot de laadsessie — alles in eigen beheer. Geen afhankelijkheden van externe platforms of CPO's.</p></div>
-        <div class="usp-item"><div class="usp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><p><strong>Open-source software</strong> — Onze CPO-software (OCPP 2.0.1) en EMS zijn publiek beschikbaar op GitHub. Gebruik ze ook voor uw eigen netwerk.</p></div>
-        <div class="usp-item"><div class="usp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><p><strong>Niet aan het internet</strong> — Laadpalen draaien op een privaat Tailscale-netwerk. Geen cloudkoppeling, geen externe toegang. Het systeem werkt ook bij internetuitval.</p></div>
-        <div class="usp-item"><div class="usp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.5 9a3.5 3.5 0 1 0 0 6"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="8" y1="13" x2="14" y2="13"/></svg></div><p><strong>Transparante prijzen</strong> — Aanschafprijs, installatiekosten en delta per kWh — alles openbaar. Geen kleine lettertjes, geen verborgen marges.</p></div>
-        <div class="usp-item"><div class="usp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg></div><p><strong>ERE-certificaten naar het Cultureel Fonds</strong> — Alle verdiende energiecertificaten (ERE) gaan naar een fonds voor de culturele sector — in oprichting. Niet naar aandeelhouders.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">De context</p>
-      <div class="context-cols">
-        <div>
-          <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">Waarom dit nu speelt</h2>
-          <p>Steeds meer Nederlandse steden handhaven zero-emissiezones. Dieselvrachtwagens worden geweerd uit binnensteden. Gezelschappen en transportbedrijven schakelen over op elektrisch — maar elektrische trucks hebben onderweg een laadpunt nodig.</p>
-          <p>Tegelijkertijd hebben theaters grote elektriciteitsaansluitingen die zijn gedimensioneerd op avondpiekbelasting. Overdag staat die capaciteit grotendeels stil. Dat is de ruimte die wij inzetten — zonder netuitbreiding, zonder grote investeringen.</p>
-        </div>
-        <div>
-          <div class="context-stat">
-            <h4>Opgericht 2023</h4>
-            <p>Stroomlijnen is opgericht met een ideële inslag — niet om grote winsten te maken, maar om maatschappelijke impact te creëren. Commercieel als middel, niet als doel.</p>
-          </div>
-          <div class="context-stat" style="margin-top:2rem">
-            <h4>Eerste locatie live</h4>
-            <p>Het living lab bij Lichtwerk Amsterdam is operationeel: 60 kW DC-lader, batterijopslag, zonnepanelen en lokale EMS-server.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section>
     <div class="container">
@@ -126,9 +34,8 @@ form textarea{resize:vertical;min-height:120px}
               <select id="type" name="type">
                 <option value="">Selecteer</option>
                 <option value="theater">Theater / culturele instelling</option>
-                <option value="vscd-tarief">VSCD-tarief aanvragen</option>
+                <option value="reizend-gezelschap">Reizend gezelschap / management</option>
                 <option value="transport">Transportbedrijf</option>
-                <option value="charger-kopen">Laadpaal kopen</option>
                 <option value="other">Overig</option>
               </select>
             </div>
