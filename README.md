@@ -1,43 +1,51 @@
-# Astro Starter Kit: Minimal
+# stroomlijnen.nl
+
+De publieke marketingsite van **Stroomlijnen B.V.** — laadinfrastructuur voor
+culturele locaties en transport.
+
+Live: https://stroomlijnen.nl
+
+## Stack
+
+Astro 6 (static output) + Tailwind 4. Node ≥ 22.12.0.
+
+## Lokaal draaien
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # -> dist/
+npm run preview   # bekijk de build lokaal
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Pagina's
 
-## 🚀 Project Structure
+| Route | Bestand |
+|---|---|
+| `/` | `src/pages/index.astro` |
+| `/theaters/` | `src/pages/theaters.astro` |
+| `/transport/` | `src/pages/transport.astro` |
+| `/over-ons/` | `src/pages/over-ons.astro` |
+| `/contact/` | `src/pages/contact.astro` |
+| `/thanks/` | `src/pages/thanks.astro` (na contactformulier) |
 
-Inside of your Astro project, you'll see the following folders and files:
+Layout, navigatie en footer staan in `src/layouts/Layout.astro`. De
+kleuren staan als CSS-variabelen in `src/styles/global.css`:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- `--cyan` `#00B0E4` · `--green` `#84BD00` · donkerblauw `#0C2340`
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deployen
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**Push naar `main`.** Meer niet — de deploy naar beide edge-VPS'en is
+geautomatiseerd.
 
-Any static assets, like images, can be placed in the `public/` directory.
+Upload **nooit** losse bestanden naar een server (geen SCP/rsync/SSH). Er
+staan twee edge-VPS'en achter Cloudflare round-robin; een losse upload raakt
+er maar één, waardoor de andere verouderde content serveert.
 
-## 🧞 Commands
+De volledige uitleg en agent-instructies staan in `AGENTS.md`.
 
-All commands are run from the root of the project, from a terminal:
+## Content aanpassen zonder code
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+De pagina's zijn losse `.astro`-bestanden: tekst staat direct in de HTML,
+met inline styling. Zoek de betreffende regel en pas hem aan. Er is geen CMS.
