@@ -38,6 +38,9 @@ import Layout from '../layouts/Layout.astro';
 .lab-status ul{list-style:none}
 .lab-status li{color:var(--text);font-size:.88rem;padding:.2rem 0;padding-left:1.5rem;position:relative}
 .lab-status li:before{content:"✓";color:var(--green);position:absolute;left:0;font-weight:700}
+.lab-video{margin-top:1.5rem}
+.lab-video video{width:100%;display:block;border-radius:8px;border:1px solid rgba(0,176,228,.2);background:#0d1e38}
+.lab-video figcaption{margin-top:.6rem;color:var(--text);font-size:.85rem;line-height:1.55}
 
 .cta-block{text-align:center;padding:5rem 0}
 .cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
@@ -131,6 +134,13 @@ import Layout from '../layouts/Layout.astro';
         <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><h4>Zonnepanelen</h4><p>Eigen opwek gekoppeld aan het EMS.</p></div>
         <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#00B0E4"/></svg></div><h4>Triple-redundante servers</h4><p>Lokaal draaiend via Tailscale, geen internetafhankelijkheid.</p></div>
       </div>
+
+      <figure class="lab-video">
+        <video src="/video/soc-status-op-afstand.mp4" poster="/video/soc-status-op-afstand-poster.jpg"
+               autoplay loop muted playsinline preload="metadata"></video>
+        <figcaption>SOC en status op afstand zichtbaar</figcaption>
+      </figure>
+
       <div class="lab-status">
         <h4>Status living lab</h4>
         <ul>
