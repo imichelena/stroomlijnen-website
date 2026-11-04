@@ -4,7 +4,7 @@ import Architecture from './CommercialArchitecture.astro';
 import {copy,routes,docsUrl,type Lang,type Page} from '../data/commercial';
 interface Props {lang:Lang; page:Page}
 const {lang,page}=Astro.props;const c=copy[lang];const p=c[page];const r=routes[lang];
-const team=[['Ignacio Michelena','ignacio'],['Jacco Patist','jacco'],['Eugene van Dijk','eugene']];
+const team=[['Ignacio Michelena','ignacio'],['Jacco Patist','jacco']];
 ---
 <Layout lang={lang} page={page}>
  <section class:list={['hero shell',{'home-hero':page==='home'}]}>
