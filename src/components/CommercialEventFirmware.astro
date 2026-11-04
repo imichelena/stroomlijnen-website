@@ -5,7 +5,6 @@ const {lang}=Astro.props;
 const nl=lang==='nl';
 const photos=[
  {id:344,alt:nl?'Voorzijde van een Stroomlijnen-lader op ITGWO, met Bouwplaats van de Toekomst op het scherm en twee CCS2-connectoren':'Front of a Stroomlijnen charger at ITGWO, with Bouwplaats van de Toekomst on the screen and two CCS2 connectors',caption:nl?'De evenementinterface op de lader.':'The event interface on the charger.'},
- {id:345,alt:nl?'Een hand houdt een CCS2-connector bij de Stroomlijnen-lader; het scherm toont Bouwplaats van de Toekomst':'A hand holds a CCS2 connector beside the Stroomlijnen charger; the screen shows Bouwplaats van de Toekomst',caption:nl?'Evenementsoftware, op de laadpaal zelf.':'Event software, on the charger itself.'},
  {id:346,alt:nl?'Detail van een hand aan de CCS2-connector, met het laadscherm en de lader op het ITGWO-terrein op de achtergrond':'Detail of a hand on the CCS2 connector, with the charging screen and charger on the ITGWO grounds in the background',caption:nl?'Dezelfde lader, van dichtbij.':'The same charger, up close.'}
 ];
 ---
@@ -16,14 +15,14 @@ const photos=[
  </div>
  <div class="event-firmware-photos">{photos.map(photo=><figure>
   <a class="event-photo-link" href={`/images/itgwo/firmware-${photo.id}-1600.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}>
-   <img src={`/images/itgwo/firmware-${photo.id}-960.webp`} srcset={[480,960,1600].map(w=>`/images/itgwo/firmware-${photo.id}-${w}.webp ${w}w`).join(', ')} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) calc((100vw - 168px) / 3), 408px" width="4000" height="6000" alt={photo.alt} loading="lazy" decoding="async"/>
+   <img src={`/images/itgwo/firmware-${photo.id}-960.webp`} srcset={[480,960,1600].map(w=>`/images/itgwo/firmware-${photo.id}-${w}.webp ${w}w`).join(', ')} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1060px) calc((100vw - 108px) / 2), 466px" width="4000" height="6000" alt={photo.alt} loading="lazy" decoding="async"/>
   </a>
   <figcaption><span>{photo.caption}</span><span class="photo-credit">{nl?'Foto':'Photo'}: Sabine Haitsma</span><a class="enlarge" href={`/images/itgwo/firmware-${photo.id}-1600.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'} ${photo.id}`}>{nl?'Bekijk groter':'View larger'} <span aria-hidden="true">↗</span></a></figcaption>
  </figure>)}</div>
 </section>
 <style>
  .event-firmware-intro {align-items:end;margin-bottom:44px;}
- .event-firmware-photos {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start;}
+ .event-firmware-photos {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:start;max-width:960px;margin-inline:auto;}
  .event-photo-link {display:block;}
  .event-firmware-photos img {width:100%;height:auto;aspect-ratio:2/3;}
  figcaption {font-size:.75rem;line-height:1.6;padding-top:16px;}
