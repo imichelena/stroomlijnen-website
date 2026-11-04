@@ -1,0 +1,18 @@
+---
+import {copy,type Lang} from '../data/commercial';
+interface Props {lang:Lang}
+const {lang}=Astro.props;const s=copy[lang].security;
+---
+<figure class="architecture">
+ <div class="diagram-heading"><span>{s.diagramTitle}</span><span aria-hidden="true">01 / 03</span></div>
+ <div class="architecture-flow">
+  <div class="arch-node cloud"><span class="node-label">03 / {lang==='nl'?'Platform':'Platform'}</span><h3>{s.cloud}</h3><p>{s.cloudText}</p></div>
+  <div class="arch-connection"><span aria-hidden="true">↑</span><p>{s.uplink}</p></div>
+  <div class="arch-node bastion"><span class="node-label">02 / {lang==='nl'?'Locatie':'Site'}</span><h3>{s.bastion}</h3><p>{s.bastionText}</p></div>
+  <div class="arch-devices">
+   <div><div class="arch-connection"><span aria-hidden="true">↑</span><p><span class="mobile-endpoint">{lang==='nl'?'Naar bastion: ':'To bastion: '}</span>{s.dcPath}</p></div><div class="arch-node"><span class="node-label">01 / DC</span><h3>{s.dc}</h3></div></div>
+   <div><div class="arch-connection"><span aria-hidden="true">↑</span><p><span class="mobile-endpoint">{lang==='nl'?'Naar bastion: ':'To bastion: '}</span>{s.acPath}</p></div><div class="arch-node"><span class="node-label">01 / AC</span><h3>{s.ac}</h3></div></div>
+  </div>
+ </div>
+ <figcaption>{s.diagramCaption}</figcaption>
+</figure>

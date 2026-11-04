@@ -1,0 +1,54 @@
+---
+import '../styles/fonts.css';
+import '../styles/commercial.css';
+import { copy, routes, docsUrl, type Lang, type Page } from '../data/commercial';
+interface Props { lang: Lang; page: Page }
+const {lang, page} = Astro.props;
+const c = copy[lang];
+const p = c[page];
+const other = lang === 'nl' ? 'en' : 'nl';
+const keys: Page[] = ['home','technology','security','applications','about','contact'];
+const canonical = 'https://stroomlijnen.nl';
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+ <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>{p.eyebrow} | Stroomlijnen</title><meta name="description" content={p.intro} />
+ <link rel="canonical" href={canonical + routes[lang][page]} />
+ <link rel="alternate" hreflang="nl" href={canonical + routes.nl[page]} />
+ <link rel="alternate" hreflang="en" href={canonical + routes.en[page]} />
+ <link rel="alternate" hreflang="x-default" href={canonical + routes.nl[page]} />
+ <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+ <meta property="og:title" content={`${p.eyebrow} | Stroomlijnen`} /><meta property="og:description" content={p.intro} />
+ <meta property="og:type" content="website" /><meta property="og:url" content={canonical + routes[lang][page]} />
+ <meta property="og:image" content={canonical + '/images/charger-120kw-v2.jpg'} />
+ <meta name="theme-color" content="#0C2340" />
+</head>
+<body>
+ <a class="skip" href="#main">{c.skip}</a>
+ <header class="header">
+  <div class="shell header-inner">
+   <a href={routes[lang].home} class="brand" aria-label="Stroomlijnen home"><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37" /></a>
+   <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-open={c.menu} data-close={c.close}>{c.menu} <span aria-hidden="true">+</span></button>
+   <nav id="main-nav" aria-label={lang === 'nl' ? 'Hoofdnavigatie' : 'Main navigation'}>
+    {keys.filter(k=>k !== 'home').map(k=><a href={routes[lang][k]} aria-current={page === k ? 'page' : undefined} class={k==='contact'?'nav-contact':''}>{c.nav[keys.indexOf(k)]}</a>)}
+    <a class="language" href={routes[other][page]} lang={other} hreflang={other} aria-label={other === 'en' ? 'Read this page in English' : 'Lees deze pagina in het Nederlands'}>{other.toUpperCase()} <span aria-hidden="true">↗</span></a>
+   </nav>
+  </div>
+ </header>
+ <main id="main" tabindex="-1"><slot /></main>
+ {page !== 'contact' && <section class="closing"><div class="shell closing-inner"><div><p class="eyebrow">{lang==='nl'?'Uw volgende stap':'Your next step'}</p><h2>{c.next}</h2><p>{c.nextText}</p></div><a class="button" href={routes[lang].contact}>{c.discuss}<span aria-hidden="true">↗</span></a></div></section>}
+ <footer class="footer shell"><div class="footer-top"><div><a class="brand" href={routes[lang].home}><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37" loading="lazy" /></a><p>{c.footer}</p></div><div class="footer-contact"><a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a><span>Nieuwe Hemweg 4-A<br/>1013 BG Amsterdam</span></div><div class="footer-links"><a href={docsUrl(lang)}>{c.docs} ↗</a><a href={routes[lang].contact}>{c.nav[5]}</a><a href={routes[other][page]} lang={other}>{other==='en'?'English':'Nederlands'}</a></div></div><div class="footer-bottom"><span>© 2026 Stroomlijnen B.V.</span><span>KVK 93264526 · {c.rights}</span></div></footer>
+ <script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  function setMenu(open: boolean) { if (!toggle || !nav) return; toggle.setAttribute('aria-expanded', String(open)); nav.classList.toggle('is-open',open); toggle.innerHTML = `${open ? toggle.dataset.close : toggle.dataset.open} <span aria-hidden="true">${open?'−':'+'}</span>`; }
+  toggle?.addEventListener('click',()=>setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  document.addEventListener('keydown',(e)=>{if(e.key==='Escape' && toggle?.getAttribute('aria-expanded')==='true'){setMenu(false);toggle.focus();}});
+  document.addEventListener('click',e=>{if(e.target instanceof Node && !nav?.contains(e.target) && !toggle?.contains(e.target))setMenu(false);});
+  matchMedia('(min-width: 1001px)').addEventListener('change',()=>setMenu(false));
+  document.documentElement.classList.add('js');
+ </script>
+</body>
+</html>
