@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/CommercialLayout.astro';
 import Architecture from './CommercialArchitecture.astro';
+import Fieldwork from './CommercialFieldwork.astro';
 import {copy,routes,docsUrl,type Lang,type Page} from '../data/commercial';
 interface Props {lang:Lang; page:Page}
 const {lang,page}=Astro.props;const c=copy[lang];const p=c[page];const r=routes[lang];
@@ -39,6 +40,7 @@ const team=[['Ignacio Michelena','ignacio'],['Jacco Patist','jacco']];
   <section class="mist-band"><div class="shell section lab"><figure><img src="/images/charger-120kw-v2.jpg" alt={lang==='nl'?'DC-lader en vrachtwagen bij de praktijkinstallatie':'DC charger and truck at the practical installation'} width="1280" height="853" loading="lazy"/><figcaption>Lichtwerk · Amsterdam</figcaption></figure><div><p class="eyebrow">Living lab</p><h2>{c.about.labTitle}</h2><p>{c.about.labText}</p><a class="text-link" href={r.technology}>{c.discover} →</a></div></div></section>
   <section class="shell section"><h2>{c.about.team}</h2><div class="team">{team.map(([name,id],i)=><article><img src={`/team-${id}.jpg`} alt={name} width="400" height="440" loading="lazy"/><h3>{name}</h3><p class="role">{c.about.roles[i]}</p><p>{c.about.teamText[i]}</p></article>)}</div></section>
  </>}
+ {(['applications','about'].includes(page))&&<Fieldwork lang={lang}/>}
  {page==='contact'&&<section class="shell contact-grid"><div><h2>{c.contact.formTitle}</h2><form action="https://formspree.io/f/mlgpjlbn" method="POST">
   <input type="hidden" name="_next" value="https://stroomlijnen.nl/thanks"/><input type="hidden" name="_subject" value="Nieuw contactbericht via stroomlijnen.nl"/><input type="text" name="_gotcha" class="honeypot" tabindex="-1" aria-hidden="true" autocomplete="off"/>
   <div class="form-pair"><div><label for="naam">{c.contact.name} <span aria-hidden="true">*</span></label><input id="naam" name="naam" autocomplete="name" required/></div><div><label for="organisatie">{c.contact.company}</label><input id="organisatie" name="organisatie" autocomplete="organization"/></div></div>

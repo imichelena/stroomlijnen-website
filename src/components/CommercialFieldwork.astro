@@ -1,0 +1,26 @@
+---
+import type {Lang} from '../data/commercial';
+interface Props {lang:Lang}
+const {lang}=Astro.props;
+const nl=lang==='nl';
+const photos=[
+ {id:'vehicles',width:1600,height:1123,alt:nl?'Elektrische tractor en vrachtwagen tussen de bomen op ITGWO':'Electric tractor and truck among the trees at ITGWO',caption:nl?'Elektrisch materieel op het festivalterrein.':'Electric vehicles on the festival grounds.'},
+ {id:'charger',width:960,height:1440,alt:nl?'Stroomlijnen DC-lader met twee CCS2-connectoren op ITGWO':'Stroomlijnen DC charger with two CCS2 connectors at ITGWO',caption:nl?'Laadinfrastructuur in een tijdelijke omgeving.':'Charging infrastructure in a temporary setting.'}
+];
+---
+<section class="shell section fieldwork" aria-labelledby="fieldwork-title">
+ <div class="editorial fieldwork-intro"><div><p class="eyebrow">ITGWO · Into The Great Wide Open</p><h2 id="fieldwork-title">{nl?'Techniek buiten\nde tekentafel.':'Technology beyond\nthe drawing board.'}</h2></div><p class="lead">{nl?'Onze Stroomlijnen-lader op Into The Great Wide Open, naast elektrisch materieel op het festivalterrein.':'Our Stroomlijnen charger at Into The Great Wide Open, alongside electric vehicles on the festival grounds.'}</p></div>
+ <div class="fieldwork-photos">{photos.map(photo=><figure>
+  <img src={`/images/itgwo/${photo.id}-960.webp`} srcset={(photo.id==='vehicles'?[480,960,1600]:[480,960]).map(w=>`/images/itgwo/${photo.id}-${w}.webp ${w}w`).join(', ')} sizes={photo.id==='vehicles'?'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 63vw, 860px':'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 30vw, 400px'} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async"/>
+  <figcaption><span>ITGWO · {photo.caption}</span><span class="photo-credit">{nl?'Foto':'Photo'}: Sabine Haitsma</span></figcaption>
+ </figure>)}</div>
+</section>
+<style>
+ .fieldwork-intro {align-items:end; margin-bottom:44px;}
+ .fieldwork-photos {display:grid;grid-template-columns:2.137fr 1fr;gap:28px;align-items:start;}
+ .fieldwork-photos img {width:100%;height:auto;}
+ figcaption {font-size:.75rem;line-height:1.6;padding-top:16px;}
+ figcaption span {display:block;}
+ .photo-credit {color:var(--slate);margin-top:5px;}
+ @media(max-width:760px) {.fieldwork-photos {grid-template-columns:1fr;gap:32px;}.fieldwork-intro {margin-bottom:30px;}.fieldwork-photos figure:last-child {max-width:440px;}}
+</style>
