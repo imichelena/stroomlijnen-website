@@ -2,6 +2,7 @@
 import Layout from '../layouts/CommercialLayout.astro';
 import Architecture from './CommercialArchitecture.astro';
 import Fieldwork from './CommercialFieldwork.astro';
+import EventFirmware from './CommercialEventFirmware.astro';
 import {copy,routes,docsUrl,type Lang,type Page} from '../data/commercial';
 interface Props {lang:Lang; page:Page}
 const {lang,page}=Astro.props;const c=copy[lang];const p=c[page];const r=routes[lang];
@@ -25,6 +26,7 @@ const team=[['Ignacio Michelena','ignacio'],['Jacco Patist','jacco']];
   <nav class="section-nav shell" aria-label={lang==='nl'?'Op deze pagina':'On this page'}>{c.home.strip.map((label,i)=><a href={`#technology-${i}`}>0{i+1} / {label}</a>)}</nav>
   <div class="shell">{c.technology.rows.map(([label,title,text,note],i)=><section id={`technology-${i}`} class="technology-row"><div><p class="eyebrow">{label}</p><h2>{title}</h2></div><div><p class="lead">{text}</p><p>{note}</p>{i===0&&<a class="text-link" href={docsUrl(lang,'energie/ems')}>{lang==='nl'?'Energiemanagement in onze documentatie':'Explore energy management in our documentation'} →</a>}{i===1&&<a class="text-link" href={docsUrl(lang,'energie/ess')}>{lang==='nl'?'Batterijopslag in onze documentatie':'Explore battery storage in our documentation'} →</a>}{i===3&&<a class="text-link" href={docsUrl(lang,'klantportaal/overview')}>{lang==='nl'?'Klantportaal in onze documentatie':'Explore the customer portal in our documentation'} →</a>}{i===2&&<a class="text-link" href={docsUrl(lang,'pandeneigenaren/ac-vs-dc-laders')}>{lang==='nl'?'AC en DC in onze documentatie':'Compare AC and DC charging in our documentation'} →</a>}</div>{i===2&&<div class="product-lineup">{c.technology.products.map(([title,text,img])=><figure><img loading="lazy" src={`/images/${img}`} width="600" height="440" alt={title}/><figcaption><h3>{title}</h3><p>{text}</p></figcaption></figure>)}</div>}</section>)}</div>
   <section class="mist-band"><div class="shell section editorial"><h2>{c.technology.recognitionTitle}</h2><div><p class="lead">{c.technology.recognition}</p><p>{c.technology.recognitionNote}</p><a class="text-link" href={docsUrl(lang,'plug-and-charge/setup-guide')}>{c.technology.recognitionLink} ↗</a></div></div></section>
+  <EventFirmware lang={lang}/>
  </>}
  {page==='security'&&<>
   <div class="shell"><Architecture lang={lang}/></div>

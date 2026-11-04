@@ -1,26 +1,39 @@
 ---
-import type {Lang} from '../data/commercial';
+import {routes,type Lang} from '../data/commercial';
 interface Props {lang:Lang}
 const {lang}=Astro.props;
 const nl=lang==='nl';
 const photos=[
- {id:'vehicles',width:1600,height:1123,alt:nl?'Elektrische tractor en vrachtwagen tussen de bomen op ITGWO':'Electric tractor and truck among the trees at ITGWO',caption:nl?'Elektrisch materieel op het festivalterrein.':'Electric vehicles on the festival grounds.'},
- {id:'charger',width:960,height:1440,alt:nl?'Stroomlijnen DC-lader met twee CCS2-connectoren op ITGWO':'Stroomlijnen DC charger with two CCS2 connectors at ITGWO',caption:nl?'Laadinfrastructuur in een tijdelijke omgeving.':'Charging infrastructure in a temporary setting.'}
+ {id:'truck-tractor-248',width:6000,height:4000,widths:[480,960,1600],alt:nl?'Elektrische tractor naast een vrachtwagen, met kabels op het ITGWO-terrein tussen de bomen':'Electric tractor beside a truck, with cables on the wooded ITGWO grounds',caption:nl?'Van truck naar tractor: V2V in de proefopstelling.':'Truck to tractor: V2V in the proof-of-concept setup.'},
+ {id:'charger',width:960,height:1440,widths:[480,960],alt:nl?'Stroomlijnen DC-lader met twee CCS2-connectoren op ITGWO':'Stroomlijnen DC charger with two CCS2 connectors at ITGWO',caption:nl?'Onze Stroomlijnen-lader op het festivalterrein.':'Our Stroomlijnen charger on the festival grounds.'},
+ {id:'connector-157',width:4000,height:6000,widths:[480,960,1600],alt:nl?'Een hand aan de CCS2-connector van de Stroomlijnen-lader op ITGWO, naast het laadscherm':'A hand on the Stroomlijnen charger’s CCS2 connector at ITGWO, beside the charging screen',caption:nl?'Laden van dichtbij: connector en bediening.':'Charging up close: connector and controls.'}
 ];
 ---
 <section class="shell section fieldwork" aria-labelledby="fieldwork-title">
- <div class="editorial fieldwork-intro"><div><p class="eyebrow">ITGWO · Into The Great Wide Open</p><h2 id="fieldwork-title">{nl?'Techniek buiten\nde tekentafel.':'Technology beyond\nthe drawing board.'}</h2></div><p class="lead">{nl?'Onze Stroomlijnen-lader op Into The Great Wide Open, naast elektrisch materieel op het festivalterrein.':'Our Stroomlijnen charger at Into The Great Wide Open, alongside electric vehicles on the festival grounds.'}</p></div>
+ <div class="editorial fieldwork-intro">
+  <div><p class="eyebrow">ITGWO · Into The Great Wide Open</p><h2 id="fieldwork-title">{nl?'Van tractor\nnaar hoofdpodium.':'From tractor\nto main stage.'}</h2><p class="fieldwork-label">{nl?'Mobiele energie · Proof of concept':'Mobile energy · Proof of concept'}</p></div>
+  <div><p class="lead">{nl?'Wat kan een truck nog meer dan vervoeren? Op Into The Great Wide Open verkende een proof of concept hoe je energie uit een voertuig op locatie kunt inzetten. Eerst deelde een truck stroom met een tractor: vehicle-to-vehicle (V2V).':'What else can a truck do besides transport? At Into The Great Wide Open, a proof of concept explored putting a vehicle’s energy to work on site. First, a truck shared power with a tractor: vehicle-to-vehicle (V2V).'}</p>
+   <p>{nl?'Later die dag werd de truck ingezet om het hoofdpodium van het festival van stroom te voorzien. Van materieel naar muziek, op een afgelegen eiland: twee toepassingen van mobiele energie, op één dag.':'Later that day, the truck was used to power the festival’s main stage. From machinery to music, on a remote island: two uses of mobile energy in one day.'}</p>
+   <p class="fieldwork-scope">{nl?'Een praktijkexperiment, geen standaarddienst. Onze lader was ook op het terrein aanwezig, met eigen firmware voor het evenement.':'A practical experiment, not a standard service. Our charger was also on site, with custom firmware for the event.'}</p>
+   <a class="text-link" href={`${routes[lang].technology}#event-firmware-title`}>{nl?'Bekijk de software op onze lader':'Explore the software on our charger'} <span aria-hidden="true">→</span></a>
+  </div>
+ </div>
  <div class="fieldwork-photos">{photos.map(photo=><figure>
-  <img src={`/images/itgwo/${photo.id}-960.webp`} srcset={(photo.id==='vehicles'?[480,960,1600]:[480,960]).map(w=>`/images/itgwo/${photo.id}-${w}.webp ${w}w`).join(', ')} sizes={photo.id==='vehicles'?'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 63vw, 860px':'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 30vw, 400px'} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async"/>
-  <figcaption><span>ITGWO · {photo.caption}</span><span class="photo-credit">{nl?'Foto':'Photo'}: Sabine Haitsma</span></figcaption>
+  <a class="fieldwork-photo-link" href={`/images/itgwo/${photo.id}-${photo.widths.at(-1)}.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}><img src={`/images/itgwo/${photo.id}-960.webp`} srcset={photo.widths.map(w=>`/images/itgwo/${photo.id}-${w}.webp ${w}w`).join(', ')} sizes={photo.id==='truck-tractor-248'?'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 50vw, 648px':'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 23vw, 288px'} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async"/></a>
+  <figcaption><span>ITGWO · {photo.caption}</span><span class="photo-credit">{nl?'Foto':'Photo'}: Sabine Haitsma</span><a class="enlarge" href={`/images/itgwo/${photo.id}-${photo.widths.at(-1)}.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}>{nl?'Bekijk groter':'View larger'} <span aria-hidden="true">↗</span></a></figcaption>
  </figure>)}</div>
 </section>
 <style>
- .fieldwork-intro {align-items:end; margin-bottom:44px;}
- .fieldwork-photos {display:grid;grid-template-columns:2.137fr 1fr;gap:28px;align-items:start;}
+ .fieldwork-intro {align-items:start; margin-bottom:44px;}
+ .fieldwork-label {margin-top:24px;font-size:.875rem;color:var(--slate);}
+ .fieldwork-scope {font-size:.875rem;color:var(--slate);}
+ .fieldwork-photos {display:grid;grid-template-columns:2.25fr 1fr 1fr;gap:28px;align-items:start;}
+ .fieldwork-photo-link {display:block;}
  .fieldwork-photos img {width:100%;height:auto;}
  figcaption {font-size:.75rem;line-height:1.6;padding-top:16px;}
- figcaption span {display:block;}
+ figcaption>span {display:block;}
  .photo-credit {color:var(--slate);margin-top:5px;}
- @media(max-width:760px) {.fieldwork-photos {grid-template-columns:1fr;gap:32px;}.fieldwork-intro {margin-bottom:30px;}.fieldwork-photos figure:last-child {max-width:440px;}}
+ .enlarge {display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration-color:var(--cyan);}
+ .enlarge:hover {text-decoration-color:currentColor;}
+ @media(max-width:760px) {.fieldwork-photos {grid-template-columns:1fr;gap:32px;}.fieldwork-intro {margin-bottom:30px;}}
 </style>

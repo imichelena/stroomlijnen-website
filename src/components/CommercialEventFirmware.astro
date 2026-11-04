@@ -1,0 +1,35 @@
+---
+import type {Lang} from '../data/commercial';
+interface Props {lang:Lang}
+const {lang}=Astro.props;
+const nl=lang==='nl';
+const photos=[
+ {id:344,alt:nl?'Voorzijde van een Stroomlijnen-lader op ITGWO, met Bouwplaats van de Toekomst op het scherm en twee CCS2-connectoren':'Front of a Stroomlijnen charger at ITGWO, with Bouwplaats van de Toekomst on the screen and two CCS2 connectors',caption:nl?'De evenementinterface op de lader.':'The event interface on the charger.'},
+ {id:345,alt:nl?'Een hand houdt een CCS2-connector bij de Stroomlijnen-lader; het scherm toont Bouwplaats van de Toekomst':'A hand holds a CCS2 connector beside the Stroomlijnen charger; the screen shows Bouwplaats van de Toekomst',caption:nl?'Evenementsoftware, op de laadpaal zelf.':'Event software, on the charger itself.'},
+ {id:346,alt:nl?'Detail van een hand aan de CCS2-connector, met het laadscherm en de lader op het ITGWO-terrein op de achtergrond':'Detail of a hand on the CCS2 connector, with the charging screen and charger on the ITGWO grounds in the background',caption:nl?'Dezelfde lader, van dichtbij.':'The same charger, up close.'}
+];
+---
+<section class="shell section event-firmware" aria-labelledby="event-firmware-title">
+ <div class="editorial event-firmware-intro">
+  <div><p class="eyebrow">ITGWO · Into The Great Wide Open</p><h2 id="event-firmware-title">{nl?'Eigen firmware.\nVoor het evenement.':'Custom firmware.\nFor the event.'}</h2></div>
+  <p class="lead">{nl?'Voor Into The Great Wide Open voorzagen we onze laders van eigen firmware voor het evenement. Op het laadscherm is de interface van Bouwplaats van de Toekomst te zien: evenementgerichte software op onze eigen laadapparatuur.':'For Into The Great Wide Open, we equipped our chargers with custom firmware for the event. The charging screen shows the Bouwplaats van de Toekomst interface: event-specific software on our own charging equipment.'}</p>
+ </div>
+ <div class="event-firmware-photos">{photos.map(photo=><figure>
+  <a class="event-photo-link" href={`/images/itgwo/firmware-${photo.id}-1600.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}>
+   <img src={`/images/itgwo/firmware-${photo.id}-960.webp`} srcset={[480,960,1600].map(w=>`/images/itgwo/firmware-${photo.id}-${w}.webp ${w}w`).join(', ')} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) calc((100vw - 168px) / 3), 408px" width="4000" height="6000" alt={photo.alt} loading="lazy" decoding="async"/>
+  </a>
+  <figcaption><span>{photo.caption}</span><span class="photo-credit">{nl?'Foto':'Photo'}: Sabine Haitsma</span><a class="enlarge" href={`/images/itgwo/firmware-${photo.id}-1600.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'} ${photo.id}`}>{nl?'Bekijk groter':'View larger'} <span aria-hidden="true">↗</span></a></figcaption>
+ </figure>)}</div>
+</section>
+<style>
+ .event-firmware-intro {align-items:end;margin-bottom:44px;}
+ .event-firmware-photos {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;align-items:start;}
+ .event-photo-link {display:block;}
+ .event-firmware-photos img {width:100%;height:auto;aspect-ratio:2/3;}
+ figcaption {font-size:.75rem;line-height:1.6;padding-top:16px;}
+ figcaption>span {display:block;}
+ .photo-credit {color:var(--slate);margin-top:5px;}
+ .enlarge {display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration-color:var(--cyan);}
+ .enlarge:hover {text-decoration-color:currentColor;}
+ @media(max-width:760px) {.event-firmware-photos {grid-template-columns:1fr;gap:32px;}.event-firmware-intro {margin-bottom:30px;}}
+</style>
