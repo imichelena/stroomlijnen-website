@@ -1,31 +1,35 @@
 *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy: #0a1628;
-  --navy-light: #0f2040;
+  color-scheme: light;
+  --navy: #0C2340;
+  --navy-light: #F2F5F8;
+  --deep-space: #0A1628;
+  --surface: #ffffff;
+  --border: #D9E2EC;
   --cyan: #00B0E4;
-  --green: #7CB82F;
+  --green: #84BD00;
   --white: #ffffff;
-  --gray-light: #f4f7fb;
-  --gray: #6b7280;
-  --text: #e8edf5;
+  --gray-light: #F2F5F8;
+  --gray: #5A6B7E;
+  --text: #0C2340;
 }
 html{scroll-behavior:smooth}
-body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--navy);color:var(--white);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--surface);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
 main{flex:1}
-a{color:var(--cyan);text-decoration:none}
+a{color:var(--navy);text-decoration:none}
 a:hover{text-decoration:underline}
 h1,h2,h3,h4{line-height:1.2;font-weight:700}
 .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
 .btn{display:inline-block;padding:.85rem 2rem;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s,transform .1s;text-decoration:none;border:none}
 .btn:hover{opacity:.9;transform:translateY(-1px);text-decoration:none}
 .btn-primary{background:var(--cyan);color:var(--navy)}
-.btn-outline{background:transparent;border:2px solid var(--cyan);color:var(--cyan)}
-.btn-green{background:var(--green);color:var(--white)}
+.btn-outline{background:transparent;border:2px solid var(--navy);color:var(--navy)}
+.btn-green{background:var(--green);color:var(--navy)}
 section{padding:5rem 0}
 section:nth-child(2n){background:var(--navy-light)}
 
 /* Navigation */
-.site-header{position:sticky;top:0;z-index:100;background:#0a1628f7;backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,176,228,.15)}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,176,228,.15)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;gap:2rem}
 .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--white)}
 .nav-brand{font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
@@ -35,7 +39,7 @@ section:nth-child(2n){background:var(--navy-light)}
 .nav-links a.active{color:var(--cyan)}
 .nav-cta{background:var(--cyan);color:var(--navy)!important;padding:.45rem 1rem;border-radius:5px;font-weight:600}
 .nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
-.nav-toggle span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:transform .2s}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:transform .2s}
 
 /* Footer */
 .site-footer{background:#060e1a;border-top:1px solid rgba(0,176,228,.12);padding:3rem 0 2rem}
@@ -51,10 +55,67 @@ section:nth-child(2n){background:var(--navy-light)}
 .footer-bottom p{font-size:.8rem;color:rgba(255,255,255,.45)}
 .footer-disclaimer{font-size:.75rem!important;color:rgba(255,255,255,.3)!important;max-width:70ch}
 
+/* Default light canvas. Page components still contain dark-era scoped styles
+   and inline declarations. These compatibility rules intentionally override
+   colors only; do not invert --white or --cyan (assets/buttons need true colors).
+   !important is confined to compatibility colors and accessible focus states. */
+main :is(h1,h2,h3,h4,h5,h6,strong),
+main [style*="color:var(--white)"],
+main [style*="color: var(--white)"],
+main :is(.price,.option-price dd){color:var(--navy)!important}
+
+/* Tech Blue and Eco Green stay accents, not low-contrast text on white. */
+main [style*="color:var(--cyan)"],
+main [style*="color: var(--cyan)"],
+main [style*="color:var(--green)"],
+main [style*="color: var(--green)"],
+main :is(.product-badge,.card-link,.team-role,.what-title,.option-label,.stat-num,.big-num),
+main .steps-cta a,
+main .contact-info a,
+main .integration-many .sep{color:var(--navy)!important}
+main a:not(.btn){text-decoration:underline;text-decoration-color:var(--cyan);text-underline-offset:.2em}
+main a:not(.btn):hover{opacity:1;color:var(--navy)!important;text-decoration-thickness:2px}
+
+main :is(.hero,.page-hero){background:linear-gradient(135deg,#fff,var(--gray-light))!important;border-bottom:1px solid var(--border)}
+main .urgency-banner{background:var(--gray-light)!important;border-color:var(--border)}
+main .banner-quote blockquote{font-style:normal;background:rgba(132,189,0,.07)}
+main :is(.pillar,.product-card,.card,.step-card,.step,.team-card,.lab-item,.feature-card,.option-card,.roadmap-item,.faq-item){background:var(--surface)!important;border-color:var(--border);box-shadow:0 2px 8px rgba(12,35,64,.035)}
+main :is(.product-card,.option-card).featured{border-color:var(--cyan)}
+main :is(.product-card,.card,.team-card,.feature-card):hover{border-color:var(--cyan)}
+main [style*="background:rgba(255,255,255,"]{background:var(--surface)!important;border-color:var(--border)!important}
+main :is(.what-item,.integration-many span){background:var(--surface)}
+main :is(.option-price,.disclaimer){border-color:var(--border)}
+main [style*="color:rgba(255,255,255,"],
+main :is(.disclaimer,.team-social a,.team-photo){color:var(--gray)!important}
+main :is(.option-card ul li,.lab-status li)::before{color:var(--navy)}
+
+/* Keep the existing official logo intact, with a solid dark clear-space panel. */
+.nav-logo{background:var(--deep-space);padding:8px 12px;border-radius:6px;flex-shrink:0}
+.nav-logo img{max-width:100%;height:auto;max-height:36px}
+.nav-links a:hover,.nav-links a.active{color:var(--navy);background:rgba(0,176,228,.1)}
+.nav-links a.active{box-shadow:inset 0 -2px var(--cyan)}
+.nav-links a[style*="color:"]{color:var(--navy)!important}
+.nav-links a[href*="cultuurfonds"]{border-bottom:2px solid var(--green)}
+
+/* The footer is the deliberate dark brand anchor, not an OS-dependent theme. */
+.site-footer{background:var(--deep-space);--text:#B8C7D6;--gray:#B8C7D6;color:#fff}
+.footer-bottom{border-color:#1E3252}
+.footer-bottom p,.footer-disclaimer{color:#B8C7D6!important}
+.footer-links a:hover,.footer-contact a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--cyan)}
+
+/* Native controls must also stay light on dark-mode operating systems. */
+main form :is(input,select,textarea){background:var(--surface)!important;color:var(--navy)!important;border-color:var(--gray)!important}
+main form select option{background:var(--surface)!important;color:var(--navy)!important}
+main form :is(input,textarea)::placeholder{color:var(--gray);opacity:1}
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid var(--navy)!important;outline-offset:3px}
+.site-footer a:focus-visible{outline-color:var(--cyan)!important}
+::selection{background:var(--cyan);color:var(--navy)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
 /* Mobile */
 @media(max-width:768px){
   .nav-toggle{display:flex}
-  .nav-links{display:none;flex-direction:column;align-items:stretch;position:absolute;top:70px;left:0;right:0;background:var(--navy);border-bottom:1px solid rgba(0,176,228,.15);padding:1rem 1.5rem;gap:.25rem}
+  .nav-links{display:none;flex-direction:column;align-items:stretch;position:absolute;top:70px;left:0;right:0;background:var(--surface);border-bottom:1px solid rgba(0,176,228,.15);padding:1rem 1.5rem;gap:.25rem}
   .nav-links.open{display:flex}
   .nav-links li{width:100%}
   .nav-links a{display:block;padding:.65rem .85rem;font-size:1rem}
