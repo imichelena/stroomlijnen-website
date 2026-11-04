@@ -89,8 +89,8 @@ main [style*="color:rgba(255,255,255,"],
 main :is(.disclaimer,.team-social a,.team-photo){color:var(--gray)!important}
 main :is(.option-card ul li,.lab-status li)::before{color:var(--navy)}
 
-/* Keep the existing official logo intact, with a solid dark clear-space panel. */
-.nav-logo{background:var(--deep-space);padding:8px 12px;border-radius:6px;flex-shrink:0}
+/* Keep the official transparent logo directly on the light header. */
+.nav-logo{background:transparent;padding:8px 12px;flex-shrink:0}
 .nav-logo img{max-width:100%;height:auto;max-height:36px}
 .nav-links a:hover,.nav-links a.active{color:var(--navy);background:rgba(0,176,228,.1)}
 .nav-links a.active{box-shadow:inset 0 -2px var(--cyan)}
