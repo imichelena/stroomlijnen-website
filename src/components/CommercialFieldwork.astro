@@ -5,6 +5,7 @@ const {lang}=Astro.props;
 const nl=lang==='nl';
 const photos=[
  {id:'truck-tractor-248',width:6000,height:4000,widths:[480,960,1600],alt:nl?'Elektrische tractor naast een vrachtwagen, met kabels op het ITGWO-terrein tussen de bomen':'Electric tractor beside a truck, with cables on the wooded ITGWO grounds',caption:nl?'Van truck naar tractor: V2V in de proefopstelling.':'Truck to tractor: V2V in the proof-of-concept setup.'},
+ {id:'main-stage-04275',width:6000,height:4000,widths:[480,960,1600,2400],alt:nl?'Publiek voor een overdekt podium tussen de bomen op ITGWO':'Audience facing a covered stage among the trees at ITGWO',caption:nl?'Later die dag: van truck naar hoofdpodium, vehicle-to-load (V2L) als praktijkexperiment.':'Later that day: truck to main stage, vehicle-to-load (V2L) as a practical experiment.'},
  {id:'charger',width:960,height:1440,widths:[480,960],alt:nl?'Stroomlijnen DC-lader met twee CCS2-connectoren op ITGWO':'Stroomlijnen DC charger with two CCS2 connectors at ITGWO',caption:nl?'Onze Stroomlijnen-lader op het festivalterrein.':'Our Stroomlijnen charger on the festival grounds.'},
  {id:'connector-157',width:4000,height:6000,widths:[480,960,1600],alt:nl?'Een hand aan de CCS2-connector van de Stroomlijnen-lader op ITGWO, naast het laadscherm':'A hand on the Stroomlijnen charger’s CCS2 connector at ITGWO, beside the charging screen',caption:nl?'Laden van dichtbij: connector en bediening.':'Charging up close: connector and controls.'}
 ];
@@ -19,7 +20,7 @@ const photos=[
   </div>
  </div>
  <div class="fieldwork-photos">{photos.map(photo=><figure>
-  <a class="fieldwork-photo-link" href={`/images/itgwo/${photo.id}-${photo.widths.at(-1)}.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}><img src={`/images/itgwo/${photo.id}-960.webp`} srcset={photo.widths.map(w=>`/images/itgwo/${photo.id}-${w}.webp ${w}w`).join(', ')} sizes={photo.id==='truck-tractor-248'?'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 50vw, 648px':'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 23vw, 288px'} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async"/></a>
+  <a class="fieldwork-photo-link" href={`/images/itgwo/${photo.id}-${photo.widths.at(-1)}.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}><img src={`/images/itgwo/${photo.id}-960.webp`} srcset={photo.widths.map(w=>`/images/itgwo/${photo.id}-${w}.webp ${w}w`).join(', ')} sizes={photo.width>photo.height?'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 50vw, 648px':'(max-width: 760px) calc(100vw - 40px), (max-width: 1392px) 23vw, 288px'} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async"/></a>
   <figcaption><span>ITGWO · {photo.caption}</span><span class="photo-credit">{nl?'Foto':'Photo'}: Sabine Haitsma</span><a class="enlarge" href={`/images/itgwo/${photo.id}-${photo.widths.at(-1)}.webp`} aria-label={`${nl?'Bekijk grotere foto':'View larger photo'}: ${photo.alt}`}>{nl?'Bekijk groter':'View larger'} <span aria-hidden="true">↗</span></a></figcaption>
  </figure>)}</div>
 </section>
@@ -27,7 +28,9 @@ const photos=[
  .fieldwork-intro {align-items:start; margin-bottom:44px;}
  .fieldwork-label {margin-top:24px;font-size:.875rem;color:var(--slate);}
  .fieldwork-scope {font-size:.875rem;color:var(--slate);}
- .fieldwork-photos {display:grid;grid-template-columns:2.25fr 1fr 1fr;gap:28px;align-items:start;}
+ .fieldwork-photos {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;align-items:start;}
+ .fieldwork-photos figure:nth-child(-n+2) {grid-column:span 2;}
+ .fieldwork-photos figure:nth-child(3) {grid-column:2;}
  .fieldwork-photo-link {display:block;}
  .fieldwork-photos img {width:100%;height:auto;}
  figcaption {font-size:.75rem;line-height:1.6;padding-top:16px;}
@@ -35,5 +38,5 @@ const photos=[
  .photo-credit {color:var(--slate);margin-top:5px;}
  .enlarge {display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration-color:var(--cyan);}
  .enlarge:hover {text-decoration-color:currentColor;}
- @media(max-width:760px) {.fieldwork-photos {grid-template-columns:1fr;gap:32px;}.fieldwork-intro {margin-bottom:30px;}}
+ @media(max-width:760px) {.fieldwork-photos figure:nth-child(n) {grid-column:auto;}.fieldwork-photos {grid-template-columns:1fr;gap:32px;}.fieldwork-intro {margin-bottom:30px;}}
 </style>
