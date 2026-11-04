@@ -124,3 +124,22 @@ main form :is(input,textarea)::placeholder{color:var(--gray);opacity:1}
   .footer-contact{text-align:left}
   .footer-links{flex-direction:column;gap:.5rem}
 }
+
+/* Shared visual language with the Stroomlijnen knowledge base. */
+body{font-family:'Inter',sans-serif}
+h1,h2,h3,h4,.nav-brand{font-family:'Archivo',sans-serif;letter-spacing:-.025em}
+main h1{font-size:clamp(2.25rem,4.5vw,3.75rem);line-height:1.08;max-width:19ch}
+main h2{letter-spacing:-.02em}
+.nav-inner{height:72px}
+.nav-logo{padding:0;background:transparent}
+.nav-logo img{width:180px;height:30px;object-fit:contain;max-height:30px}
+.site-header{box-shadow:none;border-bottom:1px solid #d7e0e8}
+.nav-links a{font-weight:500}
+.btn,.nav-cta{border-radius:5px}
+.btn-primary,.nav-cta{background:#0c2340;color:#fff!important}
+.btn-outline{border:1px solid #0c2340}
+.hero{background:#fff!important}
+.card,.product-card,.usp-card,.step,.option-card,.team-card{border-color:#d7e0e8!important;box-shadow:none!important;border-radius:6px}
+.section-label{letter-spacing:.08em}
+.footer-brand img{width:180px;height:30px;object-fit:contain}
+@media(max-width:768px){.nav-links{top:72px}main h1{font-size:clamp(2rem,8vw,2.75rem)}}
