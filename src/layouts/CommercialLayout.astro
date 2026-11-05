@@ -2,10 +2,12 @@
 import '../styles/fonts.css';
 import '../styles/commercial.css';
 import { copy, routes, docsUrl, type Lang, type Page } from '../data/commercial';
-interface Props { lang: Lang; page: Page }
-const {lang, page} = Astro.props;
+interface Props { lang: Lang; page: Page; title?: string; description?: string; showClosing?: boolean }
+const {lang, page, showClosing = true} = Astro.props;
 const c = copy[lang];
 const p = c[page];
+const title = Astro.props.title ?? p.eyebrow;
+const description = Astro.props.description ?? p.intro;
 const other = lang === 'nl' ? 'en' : 'nl';
 const keys: Page[] = ['home','technology','security','applications','about','contact'];
 const canonical = 'https://stroomlijnen.nl';
@@ -14,7 +16,7 @@ const canonical = 'https://stroomlijnen.nl';
 <html lang={lang}>
 <head>
  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>{p.eyebrow} | Stroomlijnen</title><meta name="description" content={p.intro} />
+ <title>{title} | Stroomlijnen</title><meta name="description" content={description} />
  <link rel="canonical" href={canonical + routes[lang][page]} />
  <link rel="alternate" hreflang="nl" href={canonical + routes.nl[page]} />
  <link rel="alternate" hreflang="en" href={canonical + routes.en[page]} />
@@ -22,7 +24,7 @@ const canonical = 'https://stroomlijnen.nl';
  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=rings-1" />
   <link rel="icon" type="image/png" sizes="224x224" href="/favicon-rings.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
- <meta property="og:title" content={`${p.eyebrow} | Stroomlijnen`} /><meta property="og:description" content={p.intro} />
+ <meta property="og:title" content={`${title} | Stroomlijnen`} /><meta property="og:description" content={description} />
  <meta property="og:type" content="website" /><meta property="og:url" content={canonical + routes[lang][page]} />
  <meta property="og:image" content={canonical + '/images/charger-120kw-v2.jpg'} />
  <meta name="theme-color" content="#0C2340" />
@@ -40,7 +42,7 @@ const canonical = 'https://stroomlijnen.nl';
   </div>
  </header>
  <main id="main" tabindex="-1"><slot /></main>
- {page !== 'contact' && <section class="closing"><div class="shell closing-inner"><div><p class="eyebrow">{lang==='nl'?'Uw volgende stap':'Your next step'}</p><h2>{c.next}</h2><p>{c.nextText}</p></div><a class="button" href={routes[lang].contact}>{c.discuss}<span aria-hidden="true">↗</span></a></div></section>}
+ {showClosing && page !== 'contact' && <section class="closing"><div class="shell closing-inner"><div><p class="eyebrow">{lang==='nl'?'Uw volgende stap':'Your next step'}</p><h2>{c.next}</h2><p>{c.nextText}</p></div><a class="button" href={routes[lang].contact}>{c.discuss}<span aria-hidden="true">↗</span></a></div></section>}
  <footer class="footer shell"><div class="footer-top"><div><a class="brand" href={routes[lang].home}><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37" loading="lazy" /></a><p>{c.footer}</p></div><div class="footer-contact"><a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a><span>Nieuwe Hemweg 4-A<br/>1013 BG Amsterdam</span></div><div class="footer-links"><a href={docsUrl(lang)}>{c.docs} ↗</a><a href={routes[lang].contact}>{c.nav[5]}</a><a href={routes[other][page]} lang={other}>{other==='en'?'English':'Nederlands'}</a></div></div><div class="footer-bottom"><span>© 2026 Stroomlijnen B.V.</span><span>KVK 93264526 · {c.rights}</span></div></footer>
  <script>
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
