@@ -1,0 +1,35 @@
+---
+interface Props { lang?: 'nl' | 'en'; idPrefix?: string; }
+const { lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl', idPrefix = `capacity-${lang}` } = Astro.props;
+const en = lang === 'en';
+---
+<div class="capacity-explorer editorial-capacity" data-capacity data-lang={lang}>
+ <div class="diagram-top"><span class="diagram-tag">{en ? 'Explore the balance' : 'Verken de verdeling'}</span><span>{en ? '01 / Share capacity' : '01 / Vermogen verdelen'}</span></div>
+ <div class="capacity-layout">
+  <div class="capacity-control">
+   <label for={`${idPrefix}-demand`}>{en ? 'How much does your building need?' : 'Hoeveel vraagt uw gebouw?'}</label>
+   <div class="capacity-value"><output for={`${idPrefix}-demand`} data-building-output>45</output><span>kW</span></div>
+   <input id={`${idPrefix}-demand`} type="range" min="10" max="90" value="45" step="1" aria-describedby={`${idPrefix}-help`}/>
+   <div class="range-ends"><span>{en ? 'A quiet moment' : 'Rustig moment'}</span><span>{en ? 'A busy working day' : 'Drukke werkdag'}</span></div>
+   <p id={`${idPrefix}-help`}>{en ? 'Adjust building demand. The room for charging changes with it.' : 'Verschuif het gebouwverbruik. De ruimte voor laden beweegt mee.'}</p>
+   <div class="capacity-equation"><span>100 <small>{en ? 'kW limit' : 'kW grens'}</small></span><b>−</b><span data-equation-building>45 <small>{en ? 'kW building' : 'kW gebouw'}</small></span><b>=</b><span data-equation-space>55 <small>{en ? 'kW available' : 'kW beschikbaar'}</small></span></div>
+  </div>
+  <div class="capacity-visual">
+   <div class="capacity-chart-heading"><span>{en ? 'Configured power limit' : 'Ingesteld vermogensplafond'}</span><strong>100 <small>kW</small></strong></div>
+   <div class="capacity-plot" role="img" aria-labelledby={`${idPrefix}-title`} aria-describedby={`${idPrefix}-desc`}>
+    <span id={`${idPrefix}-title`} class="diagram-visually-hidden">{en ? 'Power allocated within a configured 100 kilowatt limit' : 'Verdeling binnen een ingesteld vermogensplafond van 100 kilowatt'}</span>
+    <span id={`${idPrefix}-desc`} class="diagram-visually-hidden" data-capacity-desc>{en ? 'The building uses 45 kW. Charging uses 55 of the requested 70 kW. Total demand is 100 kW.' : 'Het gebouw gebruikt 45 kW. Laden gebruikt 55 van de gevraagde 70 kW. De totale afname is 100 kW.'}</span>
+    <div class="capacity-scale" aria-hidden="true"><span>0</span><span>25</span><span>50</span><span>75</span><span>100 kW</span></div>
+    <div class="capacity-power-track" aria-hidden="true"><span class="capacity-building-segment" data-building-bar style="width:45%"></span><span class="capacity-charging-segment" data-charging-bar style="width:55%"></span><span class="capacity-remaining-segment" data-remaining-bar style="width:0%"></span></div>
+   </div>
+   <dl class="capacity-metrics">
+    <div><dt><i class="building-swatch"></i>{en ? 'Building' : 'Gebouw'}</dt><dd><span data-building-label>45</span><small>kW</small></dd></div>
+    <div><dt><i class="charging-swatch"></i>{en ? 'Charging' : 'Laden'}</dt><dd><span data-charging-label>55</span><small>kW</small></dd></div>
+    <div><dt><i class="remaining-swatch"></i>{en ? 'Unused' : 'Onbenut'}</dt><dd><span data-remaining-label>0</span><small>kW</small></dd></div>
+   </dl>
+   <div class="capacity-demand-caption"><span data-charge-detail>{en ? '55 of 70 kW requested for charging' : '55 van 70 kW gevraagd voor laden'}</span><span>{en ? 'Total' : 'Totaal'} <strong data-total>100 kW</strong></span></div>
+  </div>
+ </div>
+ <div class="diagram-result" aria-live="polite"><span class="result-dot" aria-hidden="true"></span><p data-capacity-result>{en ? 'The building needs 45 kW. There is 55 kW for charging. Charging temporarily uses 15 kW less power, so delivering the same energy takes longer.' : 'Het gebouw vraagt 45 kW. Er is 55 kW voor laden. Het laden gaat tijdelijk met 15 kW minder vermogen; dezelfde hoeveelheid energie vraagt daardoor meer tijd.'}</p></div>
+ <p class="diagram-note">{en ? 'Simplified example, not site advice. Configured site power limit: 100 kW. Fixed charging demand: 70 kW. No solar or battery. Real installations must also account for phase loading, safety margins and vehicle limits.' : 'Vereenvoudigd rekenvoorbeeld, geen locatieadvies. Ingestelde locatiegrens: 100 kW. Vaste laadvraag: 70 kW. Zonder zon of batterij. In de praktijk tellen ook fasebelasting, veiligheidsmarges en voertuiggrenzen mee.'}</p>
+</div>

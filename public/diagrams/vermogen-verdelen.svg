@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 350" role="img" aria-labelledby="capacity-title capacity-desc">
+<style>text{font-family:Inter,Arial,sans-serif}.chart-guides{stroke:#e0e5df;fill:#93a09d;font-size:11px}.chart-guides text{stroke:none}.chart-limit{fill:#53676b;font-size:12px}.chart-bar-label{font-size:23px}.chart-key{font-size:15px;font-weight:600;fill:#0c2340}.chart-small{font-size:10px;fill:#72827d}.chart-total{font-size:16px;font-weight:600;fill:#0c2340}.architecture-energy{fill:none;stroke:#00b0e4;stroke-width:3}.architecture-control{fill:none;stroke:#73a400;stroke-width:2;stroke-dasharray:6 5}.architecture-platform{fill:none;stroke:#8998a5;stroke-width:2;stroke-dasharray:2 5}.architecture-box{fill:white;stroke:#b7c4bf;stroke-width:1.2}.architecture-zone{fill:#7a8b84;font-size:11px;letter-spacing:.13em}.architecture-label{fill:#0c2340;font-size:14px;font-weight:500}.architecture-small{fill:#71837c;font-size:11px}</style>
+    <title id="capacity-title">Verdeling binnen een aansluiting van 100 kW</title>
+    <desc id="capacity-desc">Het gebouw gebruikt 45 kW. Van de gevraagde 70 kW voor laden is 55 kW beschikbaar. Het totale verbruik blijft 100 kW.</desc>
+    <defs><pattern id="capacity-hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#d7dcd7" stroke-width="2"/></pattern></defs>
+    <g class="chart-guides"><path d="M45 288H405M45 178H405"/><text x="10" y="293">0</text><text x="2" y="183">50</text></g>
+    <rect x="78" y="68" width="110" height="220" rx="2" fill="url(#capacity-hatch)"/>
+    <rect x="78" y="189" width="110" height="99" fill="#0C2340"/>
+    <rect x="78" y="68" width="110" height="121" fill="#00B0E4"/>
+    <path d="M45 68H405" stroke="#0C2340" stroke-width="1.5" stroke-dasharray="5 5"/>
+    <text x="78" y="42" class="chart-limit">100 kW · aansluitlimiet</text>
+    <text x="133" y="245" text-anchor="middle" fill="white" class="chart-bar-label">45</text>
+    <text x="133" y="134" text-anchor="middle" fill="#0C2340" class="chart-bar-label">55</text>
+    <path d="M209 125H238M209 239H238" stroke="#b5c0c1" fill="none"/>
+    <text x="252" y="119" class="chart-key">Laden</text><text x="252" y="141" class="chart-small">55 van 70 kW gevraagd</text>
+    <text x="252" y="232" class="chart-key">Gebouw</text><text x="252" y="254" class="chart-small">Verbruik op dit moment</text>
+    <text x="78" y="322" class="chart-small">Uw totale afname</text>
+    <text x="390" y="322" text-anchor="end" class="chart-total">100 kW</text>
+   </svg>

@@ -1,0 +1,31 @@
+---
+interface Props { idPrefix?: string; lang?: 'nl' | 'en'; }
+const { idPrefix = 'campus', lang = 'nl' } = Astro.props;
+const en = lang === 'en';
+const parts = en ? [
+  { name: 'Solar', text: 'Energy from your roof. Put it to work where your business needs it.', x: 44, y: 26 },
+  { name: 'Storage', text: 'Store energy for later. A battery can help when demand rises.', x: 17, y: 57 },
+  { name: 'DC · trucks', text: 'Fast DC charging for trucks. Matched to routes, departure times and available power.', x: 23, y: 64 },
+  { name: 'AC · cars', text: 'Compact AC chargers for cars and vans. Charge while people work or visit.', x: 55, y: 67 }
+] : [
+  { name: 'Zon', text: 'Energie van uw eigen dak. Inzetten waar uw bedrijf het nodig heeft.', x: 44, y: 26 },
+  { name: 'Opslag', text: 'Energie bewaren voor later. Een batterij kan helpen wanneer de vraag stijgt.', x: 17, y: 57 },
+  { name: 'DC · trucks', text: 'Snel DC-laden voor trucks. Afgestemd op routes, vertrektijden en beschikbare ruimte.', x: 23, y: 64 },
+  { name: 'AC · auto’s', text: 'Compacte AC-laders voor auto’s en bestelbussen. Laden tijdens het werken of een bezoek.', x: 55, y: 67 }
+];
+---
+<figure class="rendered-campus" data-rendered-campus>
+  <div class="campus-image">
+    <img src="/images/scenes/campus-1536.webp" srcset="/images/scenes/campus-640.webp 640w, /images/scenes/campus-960.webp 960w, /images/scenes/campus-1536.webp 1536w" sizes="(max-width:800px) 100vw, 60vw" width="1536" height="1024" fetchpriority="high" alt={en ? 'Architectural illustration of a business site: rooftop solar, battery storage, a truck connected to a large DC fast charger, and a car and van connected to compact AC chargers.' : 'Architectonische illustratie van een bedrijfslocatie: zonnepanelen, batterijopslag, een truck aan een grote DC-snellader en een auto en bestelbus aan compacte AC-laders.'}/>
+    {parts.map((part, i) => <span class:list={['campus-point', { 'is-active': i === 0 }]} style={`left:${part.x}%;top:${part.y}%`} data-campus-point={i} aria-hidden="true">0{i + 1}</span>)}
+  </div>
+  <figcaption class="campus-explorer">
+    <div class="campus-choices" role="group" aria-label={en ? 'Explore the energy system' : 'Ontdek het energiesysteem'}>
+      {parts.map((part, i) => <button type="button" data-campus-choice={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`${idPrefix}-detail`} data-description={part.text}><span aria-hidden="true">0{i + 1}</span>{part.name}</button>)}
+    </div>
+    <p class="campus-detail" id={`${idPrefix}-detail`} aria-live="polite">{parts[0].text}</p>
+  </figcaption>
+</figure>
+<style>
+  .rendered-campus{margin:0;width:100%}.campus-image{position:relative}.campus-image img{display:block;width:100%;height:auto;mix-blend-mode:multiply}.campus-point{position:absolute;display:grid;place-items:center;width:25px;height:25px;transform:translate(-50%,-50%);border-radius:50%;background:#f8f8f0eb;color:#26453e;border:1px solid #fff;box-shadow:0 2px 8px #20352b20;font:500 9px Inter,sans-serif;transition:background .3s,color .3s}.campus-point.is-active{background:#23463f;color:white}.campus-point.is-active:after{content:'';position:absolute;inset:-5px;border:1px solid #23463f80;border-radius:50%;animation:campus-pulse 3s ease-out infinite}.campus-explorer{margin:0 28px}.campus-choices{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-bottom:1px solid #cbd2c4}.campus-choices button{display:flex;align-items:center;gap:7px;border:0;border-bottom:2px solid transparent;padding:11px 0;background:none;color:#6a7768;font:500 11px Inter,sans-serif;white-space:nowrap;text-align:left}.campus-choices button span{font-size:8px;opacity:.7}.campus-choices button[aria-pressed=true]{border-color:#526d49;color:#193a35}.campus-detail{min-height:48px;padding:12px 0 0;max-width:590px;color:#63705f;font-size:11px;line-height:1.6}.campus-choices button:focus-visible{outline:2px solid #007e9e;outline-offset:3px}.campus-point{pointer-events:none}@keyframes campus-pulse{0%{transform:scale(.85);opacity:0}25%{opacity:.8}100%{transform:scale(1.5);opacity:0}}:global(.motion-paused) .campus-point:after{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.campus-point:after{animation:none!important}.campus-point{transition:none}}@media(max-width:800px){.campus-explorer{margin-inline:18px}.campus-choices{gap:8px}.campus-choices button{font-size:10px;gap:5px}.campus-detail{min-height:50px;font-size:11px}.campus-point{width:21px;height:21px;font-size:8px}}
+</style>

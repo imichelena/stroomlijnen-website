@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="architecture-map" viewBox="0 0 860 490" role="img" aria-labelledby="architecture-title architecture-desc">
+<style>text{font-family:Inter,Arial,sans-serif}.architecture-energy{fill:none;stroke:#00b0e4;stroke-width:3}.architecture-control{fill:none;stroke:#73a400;stroke-width:2;stroke-dasharray:6 5}.architecture-platform{fill:none;stroke:#8998a5;stroke-width:2;stroke-dasharray:2 5}.architecture-box{fill:white;stroke:#b7c4bf;stroke-width:1.2}.architecture-zone{fill:#7a8b84;font-size:11px;letter-spacing:.13em}.architecture-label{fill:#0c2340;font-size:14px;font-weight:500}.architecture-small{fill:#71837c;font-size:11px}</style>
+  <title id="architecture-title">Stroom loopt via de verdeler. De EMS-besturing geeft opdrachten.</title>
+  <desc id="architecture-desc">Op locatie loopt elektrisch vermogen van het net via de meter en verdeler naar het gebouw en de laders. Het lokale EMS ontvangt metingen en begrenst de laders. Het cloudplatform ondersteunt inzicht en beheer, met communicatie via de lokale netwerkgrens. Het EMS is geen onderdeel van de vermogenskabel.</desc>
+  <rect x="22" y="42" width="566" height="415" rx="8" fill="#edf0e9" stroke="#cbd2cb"/>
+  <text x="46" y="74" class="architecture-zone">OP UW LOCATIE</text>
+  <text x="648" y="74" class="architecture-zone">PLATFORM</text>
+  <path d="M145 332H244M350 332H410V271H474M410 332V390H474" class="architecture-energy"/>
+  <path d="M119 292V159H243M297 198V214H446V349H521V355" class="architecture-control"/>
+  <path d="M350 159H692" class="architecture-platform"/>
+  <rect x="69" y="292" width="100" height="80" rx="4" class="architecture-box"/>
+  <path d="M106 311V329M130 311V329M106 319H130M118 329V346" stroke="#0C2340" stroke-width="2" fill="none"/>
+  <text x="119" y="398" text-anchor="middle" class="architecture-label">Net + meter</text>
+  <rect x="244" y="292" width="106" height="80" rx="4" class="architecture-box"/>
+  <path d="M264 332H330M276 318V346M297 318V346M318 318V346" stroke="#0C2340" stroke-width="2" fill="none"/>
+  <text x="297" y="398" text-anchor="middle" class="architecture-label">Verdeler</text>
+  <rect x="244" y="120" width="106" height="78" rx="4" fill="#0C2340"/>
+  <text x="297" y="152" text-anchor="middle" fill="white" class="architecture-label">Lokaal EMS</text>
+  <text x="297" y="174" text-anchor="middle" fill="#b8d8e0" class="architecture-small">Meten → sturen</text>
+  <rect x="474" y="236" width="88" height="70" rx="4" class="architecture-box"/>
+  <path d="M495 284V258L517 247L540 258V284M501 284V266H534V284M511 284V273H523V284" fill="none" stroke="#0C2340" stroke-width="1.7"/>
+  <text x="518" y="327" text-anchor="middle" class="architecture-label">Gebouw</text>
+  <rect x="474" y="355" width="88" height="70" rx="4" class="architecture-box"/>
+  <path d="M498 409V371H520V409M502 376H516V386H502M520 378C541 375 539 402 532 400" fill="none" stroke="#0C2340" stroke-width="1.7"/>
+  <text x="519" y="446" text-anchor="middle" class="architecture-label">Laders</text>
+  <rect x="692" y="120" width="126" height="78" rx="4" class="architecture-box"/>
+  <path d="M731 147H778V173H731ZM737 167L746 158L755 161L767 151" fill="none" stroke="#0C2340" stroke-width="1.5"/>
+  <text x="755" y="224" text-anchor="middle" class="architecture-label">Inzicht &amp; beheer</text>
+  <circle cx="588" cy="159" r="16" fill="#f5f4ef" stroke="#8796a1"/><path d="M583 156V151A5 5 0 0 1 593 151V156M581 156H595V166H581Z" fill="none" stroke="#0C2340" stroke-width="1.4"/>
+  <text x="588" y="199" text-anchor="middle" class="architecture-small">Netwerkgrens</text>
+  <text x="119" y="215" text-anchor="middle" class="architecture-small">Metingen</text>
+  <text x="404" y="242" text-anchor="middle" class="architecture-small">Laadbudget</text>
+  <text x="646" y="301" class="architecture-small">De stroom blijft op locatie.</text>
+  <text x="646" y="324" class="architecture-small">Het platform maakt</text>
+  <text x="646" y="347" class="architecture-small">gebruik en beheer zichtbaar.</text>
+ </svg>

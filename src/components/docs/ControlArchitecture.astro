@@ -1,0 +1,29 @@
+---
+interface Props { lang?: 'nl' | 'en'; idPrefix?: string; }
+const { lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl', idPrefix = `architecture-${lang}` } = Astro.props;
+const en = lang === 'en';
+const layers = en ? [
+ {key:'power',number:'01',title:'Electrical power',intro:'The physical connection',steps:['Grid connection','Meter & distribution','Building + chargers'],caption:'Electricity travels through the site’s electrical installation. The EMS does not carry that power.'},
+ {key:'control',number:'02',title:'Local control',intro:'Measure and adjust',steps:['Site measurements','Local EMS','Charging budget'],caption:'The EMS turns measurements into a power budget. Chargers adjust within the agreed site limits.'},
+ {key:'platform',number:'03',title:'Information & management',intro:'Site and platform',steps:['Site data','Network boundary','Platform'],caption:'The platform brings information together for management. Permissions and communication paths depend on the installation.'}
+] : [
+ {key:'power',number:'01',title:'Elektrisch vermogen',intro:'De fysieke verbinding',steps:['Netaansluiting','Meter & verdeler','Gebouw + laders'],caption:'Stroom loopt door de elektrische installatie op locatie. Het EMS voert dat vermogen niet zelf.'},
+ {key:'control',number:'02',title:'Lokale besturing',intro:'Meten en bijsturen',steps:['Locatiemetingen','Lokaal EMS','Laadbudget'],caption:'Het EMS vertaalt metingen naar een vermogensbudget. Laders passen zich aan binnen de afgesproken locatiegrenzen.'},
+ {key:'platform',number:'03',title:'Inzicht & beheer',intro:'Locatie en platform',steps:['Locatiegegevens','Netwerkgrens','Platform'],caption:'Het platform brengt informatie samen voor beheer. Toegangsrechten en communicatiepaden hangen af van de installatie.'}
+];
+---
+<div class="architecture-explorer layered-architecture">
+ <div class="diagram-top"><span class="diagram-tag">{en ? 'Three distinct responsibilities' : 'Drie verschillende verantwoordelijkheden'}</span><span>{en ? '03 / Measure & control' : '03 / Meten & besturen'}</span></div>
+ <div class="architecture-context">
+  <img src="/images/scenes/campus-960.webp" srcset="/images/scenes/campus-960.webp 960w, /images/scenes/campus-1536.webp 1536w" sizes="(max-width:550px) calc(100vw - 80px), 350px" width="1536" height="1024" loading="lazy" decoding="async" alt={en ? 'Illustrative business site with a solar roof, battery storage and vehicle charging.' : 'Illustratieve bedrijfslocatie met een zonnedak, batterijopslag en laden voor voertuigen.'}/>
+  <div><p class="architecture-context-label">{en ? 'One site. Separate roles.' : 'Eén locatie. Eigen verantwoordelijkheden.'}</p><h3 id={`${idPrefix}-title`}>{en ? 'Power flows. Control coordinates. Data informs.' : 'Stroom loopt. Besturing verdeelt. Data geeft inzicht.'}</h3><p>{en ? 'Three layers work together, with a clear role for each.' : 'Drie lagen werken samen, elk met een duidelijke taak.'}</p></div>
+ </div>
+ <ol class="architecture-layers" aria-labelledby={`${idPrefix}-title`}>
+  {layers.map(layer => <li class={`architecture-layer layer-${layer.key}`}>
+   <div class="architecture-layer-heading"><span>{layer.number}</span><div><h4>{layer.title}</h4><p>{layer.intro}</p></div></div>
+   <div class="architecture-layer-body"><ol class="architecture-layer-route" aria-label={layer.title}>{layer.steps.map((step,i) => <li><span>{step}</span>{i<2 && <i class="architecture-route-arrow" aria-hidden="true">→</i>}</li>)}</ol><p>{layer.caption}</p></div>
+  </li>)}
+ </ol>
+ <div class="architecture-boundary-note"><span aria-hidden="true">↳</span><p>{en ? 'Local control and platform access are different functions. The actual installation determines what continues to work if a connection is lost.' : 'Lokale besturing en toegang tot het platform zijn verschillende functies. De daadwerkelijke installatie bepaalt wat blijft werken als een verbinding wegvalt.'}</p></div>
+ <p class="diagram-note">{en ? 'Functional overview, not a wiring or network drawing. Solar and storage are omitted from the power route for clarity. Protocols, authorisation and failure behaviour vary by installation.' : 'Functioneel overzicht, geen bedradings- of netwerktekening. Zon en opslag zijn voor de leesbaarheid weggelaten uit het stroompad. Protocollen, autorisatie en storingsgedrag verschillen per installatie.'}</p>
+</div>
