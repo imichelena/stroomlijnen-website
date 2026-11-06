@@ -48,7 +48,7 @@ const navItems = [
         <ul class="nav-links" id="navLinks" role="list">
           {navItems.map(({ href, label }) => (
             <li>
-              <a href={href} class={activeNav === href ? 'active' : ''}>{label}</a>
+              <a href={href} class={activeNav === href ? 'active' : ''} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}>{label}</a>
             </li>
           ))}
           <li>
@@ -73,7 +73,7 @@ const navItems = [
           <a href="/theaters">Theaters</a>
           <a href="/transport">Gezelschappen</a>
           <a href="/over-ons">Over ons</a>
-          <a href="https://docs.stroomlijnen.nl/">Kennisbank</a>
+          <a href="https://docs.stroomlijnen.nl/" target="_blank" rel="noopener noreferrer">Kennisbank</a>
           <a href="/contact">Contact</a>
         </div>
         <div class="footer-contact">
