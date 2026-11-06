@@ -316,9 +316,6 @@ form textarea { resize:vertical; margin-bottom:8px; }
 .story-day time { font-size:.78rem; padding-top:4px; font-variant-numeric:tabular-nums; }
 .story-day h3 { font-size:1.2rem; }
 .story-day li p { font-size:.85rem; margin-top:8px; color:var(--slate); }
-.day-bars { display:flex; gap:3px; align-items:end; height:36px; }
-.day-bars i { width:4px; background:var(--cyan); height:14px; }
-.day-bars i:nth-child(2) { height:21px; }.day-bars i:nth-child(3) { height:26px; }.day-bars i:nth-child(4) { height:31px; }.day-bars i:nth-child(5) { height:36px; background:var(--navy); }
 .story-energy { background:var(--deep); color:white; }
 .story-energy em { color:var(--cyan); }
 .story-energy-intro { display:grid; grid-template-columns:1.3fr .7fr; gap:80px; align-items:end; }
@@ -377,13 +374,7 @@ form textarea { resize:vertical; margin-bottom:8px; }
 .story-docs { border-top:1px solid var(--line); margin-top:36px; padding-top:22px; }
 .story-docs p { font-size:.78rem; color:var(--slate); }
 .story-docs .text-link { font-size:.82rem; }
-/* Only the observer opts elements into hiding. Focus, print and reduced motion
-   always expose content. Transforms use no layout-affecting scroll handlers. */
-.home-story.motion-ready [data-reveal] { transition:opacity .65s ease,transform .65s cubic-bezier(.2,.65,.3,1); }
-.home-story.motion-ready [data-reveal]:not(.is-visible) { opacity:0; transform:translateY(24px); }
-.home-story.motion-ready [data-reveal]:focus-within { opacity:1; transform:none; }
-.home-story.motion-ready .story-steps li:nth-child(2),.home-story.motion-ready .story-day li:nth-child(2) { transition-delay:90ms; }
-.home-story.motion-ready .story-steps li:nth-child(3),.home-story.motion-ready .story-day li:nth-child(3) { transition-delay:180ms; }
+/* Content is always visible; only decorative illustration accents animate. */
 @media(min-width:1550px) { .story-hero-image>img { height:620px; } }
 @media(max-width:1100px) {
  .story-problem,.story-proof-grid,.story-applications>.shell,.story-contact { column-gap:45px; }
@@ -443,11 +434,7 @@ form textarea { resize:vertical; margin-bottom:8px; }
  .story-day li { grid-template-columns:48px 1fr 28px; gap:12px; }
  .story-chapters a { font-size:.55rem; }
 }
-@media(prefers-reduced-motion:reduce) {
- .home-story.motion-ready [data-reveal]:not(.is-visible) { opacity:1; transform:none; }
-}
 @media print {
- .home-story.motion-ready [data-reveal]:not(.is-visible) { opacity:1; transform:none; }
  .story-flow svg { width:100%; margin:0; }
  .story-kit-body { display:block; }
 }
@@ -458,7 +445,7 @@ form textarea { resize:vertical; margin-bottom:8px; }
 .energy-art .scene-labels { font-family:Inter,Arial,sans-serif; font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; }
 .energy-art .flow-device-labels { font-size:13px; letter-spacing:1.2px; }
 .energy-art.flow-compact .flow-device-labels { font-size:10px; letter-spacing:.7px; }
-.sector-visual { display:block; width:80px; height:auto; }
+.sector-visual { display:block; }
 .current-trace { stroke-dasharray:12 86; }
 /* Static drawings remain complete without JS. The existing viewport observer
    starts and pauses CSS motion; reduced-motion also handles live preference changes. */
@@ -471,9 +458,76 @@ form textarea { resize:vertical; margin-bottom:8px; }
 @keyframes illustration-breathe { 0%,100% { opacity:.5; } 50% { opacity:1; } }
 @keyframes illustration-led { 0%,75%,100% { opacity:1; } 85% { opacity:.3; } }
 @keyframes illustration-shimmer { 0%,100% { opacity:.08; } 50% { opacity:.3; } }
-@media(max-width:760px) { .sector-visual { width:60px; } }
 @media(prefers-reduced-motion:reduce) {
  .energy-art *, .energy-art use { animation:none!important; }
  .energy-art .current-trace { stroke-dasharray:none; opacity:.8; }
 }
 @media print { .energy-art * { animation:none!important; } }
+
+/* Day demand: static values are legible before any animation or script runs. */
+.story-problem { gap:36px 60px; }
+.story-problem>div:first-child { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; column-gap:60px; }
+.story-problem>div:first-child .eyebrow { grid-column:1/-1; }
+.story-problem .story-intro { margin-top:0; }
+.day-timeline { grid-column:1/-1; background:var(--mist); padding:28px 32px; margin:0; }
+.day-chart-heading { display:flex; justify-content:space-between; gap:16px; font-size:1rem; }
+.day-chart-heading>span { font-size:.75rem; color:var(--slate); }
+.day-legend { display:flex; flex-wrap:wrap; gap:12px 24px; list-style:none; padding:0; margin:20px 0; font-size:.75rem; }
+.day-legend li { display:flex; align-items:center; gap:8px; }
+.day-key { width:12px; height:12px; display:inline-block; }
+.band-0 { background:#0C2340; color:white; }.band-1 { background:#00B0E4; color:#0C2340; }.band-2 { background:#84BD00; color:#0C2340; }
+.day-chart { display:grid; grid-template-columns:repeat(4,1fr); }
+.day-slot-title { display:flex; flex-direction:column; gap:3px; font-size:.75rem; }
+.day-slot-title time { font-size:1.2rem; font-weight:600; }
+.day-plot { position:relative; height:180px; margin-top:16px; border-bottom:1px solid #9BAFBE; }
+.day-limit { position:absolute; top:33.333%; width:100%; border-top:1px dashed #607E99; font-size:.65rem; padding-top:3px; }
+.day-stack { position:absolute; inset:0 25%; display:flex; flex-direction:column-reverse; }
+.day-band { display:grid; place-items:center; flex-shrink:0; position:relative; }
+.day-band b { font-size:.7rem; line-height:1; }
+.day-band:after { content:''; position:absolute; inset:0; background:white; opacity:0; }
+.is-flowing .day-band:after { animation:day-load 3s ease-in-out 2; animation-delay:calc(var(--slot)*.3s); }
+@keyframes day-load { 50% { opacity:.22; } }
+.day-net { font-size:.75rem; margin:12px 0 18px; }
+.home-story .day-timeline figcaption { display:block; font-size:.72rem; border-top:1px solid var(--line); padding-top:16px; }
+.story-day { grid-column:1/-1; }
+.story-day ol { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:16px; }
+.story-day li { display:block; padding:16px 0 0; }
+.story-day time { display:block; margin-bottom:10px; color:var(--slate); }
+.story-day h3 { font-size:1rem; }
+/* Unequal editorial columns, open space and alternating scene/text alignment. */
+.story-applications>.shell { grid-template-columns:1fr; }
+.story-app-intro { display:grid; grid-template-columns:1fr 1fr; column-gap:60px; margin-bottom:36px; }
+.story-app-intro .eyebrow { grid-column:1/-1; }
+.story-app-intro>p:last-child { margin-top:0; max-width:420px; }
+.story-application-list { display:grid; grid-template-columns:1.15fr 1fr; gap:24px 52px; align-items:start; }
+.story-application-list>a { position:relative; grid-template-columns:minmax(180px,240px) 1fr; gap:20px; align-items:center; padding:24px 0; }
+.story-application-list>a:nth-child(even) { grid-template-columns:1fr; padding-top:12px; }
+.story-application-list>a:nth-child(even) .sector-visual { justify-self:center; }
+.story-application-list>a:last-child { border-bottom:0; }
+.story-application-list h3 { font-size:1.35rem; }
+.story-application-arrow { position:absolute; right:0; top:12px; }
+.sector-visual { width:100%; max-width:260px; height:auto; }
+.story-contact-copy { background:var(--mist); padding:30px; border-top:4px solid var(--cyan); }
+.contact-mark { width:72px; height:72px; display:block; margin-bottom:22px; }
+@media(max-width:1100px) and (min-width:761px) {
+ .story-application-list>a { grid-template-columns:1fr; }
+ .story-application-list>a:nth-child(even) { margin-top:55px; }
+}
+@media(max-width:760px) {
+ .story-problem>div:first-child,.story-app-intro { display:block; }
+ .story-problem .story-intro,.story-app-intro>p:last-child { margin-top:24px; }
+ .day-timeline { padding:22px 18px; }
+ .day-chart-heading { flex-direction:column; gap:6px; }
+ .day-chart { grid-template-columns:1fr; gap:16px; }
+ .day-slot { display:grid; grid-template-columns:100px 1fr; gap:0 12px; align-items:center; }
+ .day-plot { height:125px; margin:0; }
+ .day-stack { inset-inline:25%; }
+ .day-net { grid-column:2; margin:8px 0 0; }
+ .story-day ol { grid-template-columns:1fr; gap:12px; }
+ .story-day li { display:grid; grid-template-columns:48px 1fr; gap:14px; }
+ .story-application-list { grid-template-columns:1fr; gap:16px; }
+ .story-application-list>a,.story-application-list>a:nth-child(even) { grid-template-columns:1fr; gap:10px; padding:20px 0; }
+ .story-application-list .sector-visual { width:240px; max-width:100%; justify-self:center; }
+ .story-contact-copy { padding:24px; }
+}
+@media(prefers-reduced-motion:reduce),print { .day-band:after { animation:none!important; } }

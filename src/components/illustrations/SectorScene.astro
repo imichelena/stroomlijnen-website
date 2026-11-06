@@ -1,10 +1,15 @@
 ---
+import DeviceDefs from './DeviceDefs.astro';
 interface Props { sector: 'hospitality' | 'transport' | 'property' | 'industry' }
 const { sector } = Astro.props;
 const p = `sector-${sector}`;
 const glass = `url(#${p}-glass)`;
 ---
-<svg class="sector-visual" viewBox="0 0 112 112" aria-hidden="true">
+<svg class="sector-visual" viewBox="0 0 240 180" aria-hidden="true">
+ <DeviceDefs prefix={`${p}-devices`}/>
+ <path d="M5 112L115 57L235 117L125 174Z" fill="#DFE9EF"/>
+ <path d="M16 128L119 77M46 143L149 92" fill="none" stroke="white" stroke-width="2"/>
+ <g transform="translate(22 0) scale(1.25)">
  <defs><linearGradient id={`${p}-glass`} x2="1" y2="1"><stop stop-color="#00B0E4"/><stop offset="1" stop-color="#0C2340"/></linearGradient></defs>
  <path d="M3 81L52 56L109 85L60 110Z" fill="#D7E3EC"/><path d="M3 81L60 109L109 85V89L60 112L3 85Z" fill="#BBCDDC"/>
  {sector === 'transport' ? <>
@@ -26,4 +31,10 @@ const glass = `url(#${p}-glass)`;
   {sector === 'property' && <><path d="M67 74L84 82V100L67 92Z" fill="#DCE7EF"/><path d="M84 82L103 72V90L84 100Z" fill="#607E99"/><path d="M67 74L86 64L103 72L84 82Z" fill="#fff"/><path d="M71 80L79 84V91L71 87ZM88 84L98 79V86L88 91Z" fill={glass}/></>}
  </>}
  {sector !== 'transport' && <><path d="M7 89L15 93L25 88L17 84Z" fill="#84BD00"/><ellipse cx="16" cy="80" rx="7" ry="9" fill="#598B20"/><ellipse cx="14" cy="77" rx="5" ry="7" fill="#94BE53"/></>}
+ </g>
+ <path d="M173 100L205 116L154 143" fill="none" stroke="#00B0E4" stroke-width="2" stroke-dasharray="4 3"/>
+ <use href={`#${p}-devices-charger`} transform="translate(174 58) scale(.58)"/>
+ {sector !== 'transport' && <use href={`#${p}-devices-van`} transform="translate(102 109) scale(.46)"/>}
+ {sector === 'transport' && <use href={`#${p}-devices-charger`} transform="translate(142 42) scale(.45)"/>}
+ {sector === 'industry' && <use href={`#${p}-devices-battery`} transform="translate(16 111) scale(.37)"/>}
 </svg>
