@@ -1,0 +1,35 @@
+---
+import '../styles/fonts.css';
+import '../styles/knowledge.css';
+import CapacityExplorer from '../components/docs/CapacityExplorer.astro';
+import DayFlow from '../components/docs/DayFlow.astro';
+import ControlArchitecture from '../components/docs/ControlArchitecture.astro';
+---
+<!doctype html>
+<html lang="nl">
+ <head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Energie, helder uitgelegd | Stroomlijnen</title>
+  <meta name="description" content="Ontdek hoe slim laden, batterijopslag en lokale besturing samenwerken. Interactieve visuele uitleg van Stroomlijnen."/>
+  <link rel="icon" href="/favicon.svg"/>
+  <meta name="theme-color" content="#f5f4ef"/>
+ </head>
+ <body class="knowledge-page">
+  <a class="knowledge-skip" href="#inhoud">Naar de inhoud</a>
+  <header class="knowledge-header"><a href="/" aria-label="Stroomlijnen home"><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37"/></a><nav aria-label="Hoofdnavigatie"><a href="/">Terug naar het verhaal <span aria-hidden="true">↗</span></a><a href="https://docs.stroomlijnen.nl/">Volledige kennisbank <span aria-hidden="true">↗</span></a></nav></header>
+  <main id="inhoud">
+   <section class="knowledge-intro"><p class="knowledge-eyebrow"><span></span> De techniek in beeld</p><div class="knowledge-intro-row"><h1>Energie.<br/><em>Helder uitgelegd.</em></h1><p>Een systeem begrijpt u sneller als u ziet wat het doet. Ontdek hoe beschikbare stroom, slim laden en opslag samenkomen op uw locatie.</p></div></section>
+   <div class="knowledge-body">
+    <aside class="knowledge-index"><p>In deze uitleg</p><nav aria-label="Onderwerpen"><a href="#vermogen"><span>01</span> Ruimte om te laden</a><a href="#opslag"><span>02</span> Energie voor later</a><a href="#besturing"><span>03</span> Wie regelt wat?</a></nav><button class="motion-toggle" type="button" data-motion-toggle aria-pressed="false">Animatie pauzeren <span aria-hidden="true">Ⅱ</span></button></aside>
+    <div class="knowledge-articles">
+     <article id="vermogen" class="knowledge-article"><div class="article-heading"><span>01</span><div><h2>De aansluiting blijft gelijk.<br/>De verdeling beweegt mee.</h2><p>Uw gebouw en uw voertuigen delen dezelfde aansluiting. Gebruikt het gebouw tijdelijk meer stroom? Dan verlaagt het energiemanagementsysteem het beschikbare laadvermogen. Zo past laden zich aan uw werkdag aan.</p></div></div><CapacityExplorer/><div class="article-after"><p><strong>Wat u hier ziet:</strong> vermogen (kW) is wat u op één moment kunt gebruiken. Energie (kWh) is wat u over een periode verbruikt. Minder snel laden vraagt dus meer tijd.</p><a href="https://docs.stroomlijnen.nl/docs/energie/netcongestie/">Meer over netcongestie <span aria-hidden="true">↗</span></a></div></article>
+     <article id="opslag" class="knowledge-article"><div class="article-heading"><span>02</span><div><h2>Niet alle energie hoeft<br/>meteen op.</h2><p>De zon schijnt niet op bestelling. En uw piek valt niet altijd op het gunstigste moment. Een batterij kan beschikbare energie bewaren en later weer leveren. Bekijk hoe dat er op een werkdag uit kan zien.</p></div></div><DayFlow/><div class="article-after"><p><strong>Een buffer heeft grenzen.</strong> Hoe lang een batterij kan helpen, hangt af van de opgeslagen energie en het gevraagde vermogen. Daarom begint een ontwerp bij het verbruiksprofiel van uw locatie.</p><a href="https://docs.stroomlijnen.nl/docs/pandeneigenaren/overzicht/">Van locatie naar ontwerp <span aria-hidden="true">↗</span></a></div></article>
+     <article id="besturing" class="knowledge-article"><div class="article-heading"><span>03</span><div><h2>Stroom gaat door kabels.<br/>Inzicht komt uit data.</h2><p>Het EMS is de lokale regelaar. Het meet, rekent en geeft de laders een vermogensbudget. Het platform brengt informatie samen voor beheer. Dat zijn verschillende taken — en verschillende verbindingen.</p></div></div><ControlArchitecture/><div class="article-after"><p><strong>Duidelijke verantwoordelijkheden.</strong> Meten en bijsturen op locatie zijn iets anders dan sessiebeheer in het platform. De precieze verbindingen en toegangsrechten horen bij het ontwerp van uw installatie.</p><a href="/veiligheid/">Bekijk de netwerkarchitectuur <span aria-hidden="true">↗</span></a></div></article>
+     <section class="knowledge-next"><p class="knowledge-eyebrow">Van begrijpen naar toepassen</p><h2>Hoe werkt dit<br/>op uw locatie?</h2><a href="/contact/">Laten we het bekijken <span aria-hidden="true">↗</span></a></section>
+    </div>
+   </div>
+  </main>
+  <footer class="knowledge-footer"><span>© 2026 Stroomlijnen B.V.</span><a href="https://docs.stroomlijnen.nl/">Alle documentatie ↗</a><a href="/">Terug naar Stroomlijnen ↗</a></footer>
+  <script>import '../scripts/knowledge';</script>
+ </body>
+</html>

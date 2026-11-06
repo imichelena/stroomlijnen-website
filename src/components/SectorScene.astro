@@ -1,0 +1,12 @@
+---
+interface Props { kind?: 'truck' | 'hotel' | 'office' | 'factory' | 'stage'; lang?: 'nl' | 'en'; }
+const { kind = 'truck', lang = 'nl' } = Astro.props;
+const assets = {truck:'logistics',hotel:'hotel',office:'office',factory:'factory',stage:'stage'};
+const descriptions = {
+  nl:{truck:'Architectonische illustratie van een elektrische truck aan een DC-lader bij een logistiek bedrijf.',hotel:'Architectonische illustratie van een hotel met zonnepanelen en gastenauto’s aan compacte AC-laders.',office:'Architectonische illustratie van een kantoor met zonnepanelen, batterijopslag en auto’s aan AC-laders.',factory:'Architectonische illustratie van een productiebedrijf met zonnepanelen, opslag, DC-laden voor een truck en AC-laden voor een auto.',stage:'Architectonische illustratie van een theater met zonnepanelen, opslag en DC- en AC-laders voor touringvoertuigen en bezoekers.'},
+  en:{truck:'Architectural illustration of an electric truck at a DC charger outside a logistics business.',hotel:'Architectural illustration of a hotel with rooftop solar and guest cars at compact AC chargers.',office:'Architectural illustration of an office with rooftop solar, battery storage and cars at AC chargers.',factory:'Architectural illustration of a manufacturing business with solar, storage, DC truck charging and AC car charging.',stage:'Architectural illustration of a theatre with solar, storage and DC and AC charging for touring vehicles and visitors.'}
+};
+const asset = assets[kind];
+---
+<img class="sector-render" src={`/images/scenes/${asset}-960.webp`} srcset={`/images/scenes/${asset}-640.webp 640w, /images/scenes/${asset}-960.webp 960w, /images/scenes/${asset}-1536.webp 1536w`} sizes="(max-width:800px) calc(100vw - 60px), 50vw" width="1536" height="1024" loading="lazy" decoding="async" alt={descriptions[lang][kind]}/>
+<style>.sector-render{display:block;width:100%;height:auto;mix-blend-mode:multiply}</style>

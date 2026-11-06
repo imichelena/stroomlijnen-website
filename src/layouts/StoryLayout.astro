@@ -1,0 +1,70 @@
+---
+import '../styles/fonts.css';
+import '../styles/story.css';
+import { storyIds, storyRoutes, type StoryLanguage } from '../data/home-story';
+interface Props { lang?: StoryLanguage; title?: string; description?: string; }
+const { lang = 'nl' } = Astro.props;
+const en = lang === 'en';
+const title = Astro.props.title ?? (en ? 'Room to move forward' : 'Ruimte om vooruit te gaan');
+const description = Astro.props.description ?? (en
+ ? 'Your business wants to grow. Stroomlijnen brings your building, charging, solar and storage together. Smart energy management starts with your working day.'
+ : 'Uw bedrijf wil verder. Stroomlijnen laat gebouw, laden, zon en opslag samenwerken. Slim energiemanagement begint bij uw werkdag.');
+const routes = storyRoutes[lang];
+const ids = storyIds[lang];
+const otherLanguage = en ? 'nl' : 'en';
+const otherRoute = storyRoutes[otherLanguage].home;
+const canonical = new URL(routes.home, 'https://stroomlijnen.nl').href;
+---
+<!doctype html>
+<html lang={lang}>
+ <head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{title} | Stroomlijnen</title>
+  <meta name="description" content={description}/>
+  <link rel="canonical" href={canonical}/>
+  <link rel="alternate" hreflang="nl" href="https://stroomlijnen.nl/"/>
+  <link rel="alternate" hreflang="en" href="https://stroomlijnen.nl/en/"/>
+  <link rel="alternate" hreflang="x-default" href="https://stroomlijnen.nl/"/>
+  <link rel="icon" href="/favicon-rings.png"/>
+  <meta name="theme-color" content="#f5f4ef"/>
+  <meta property="og:title" content={`${title} | Stroomlijnen`}/>
+  <meta property="og:description" content={description}/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content={canonical}/>
+  <meta property="og:locale" content={en ? 'en_GB' : 'nl_NL'}/>
+  <meta property="og:locale:alternate" content={en ? 'nl_NL' : 'en_GB'}/>
+  <meta property="og:image" content="https://stroomlijnen.nl/images/itgwo/main-stage-04275-1600.webp"/>
+ </head>
+ <body class="stroom-story">
+  <a class="skip-link" href="#main">{en ? 'Skip to content' : 'Naar de inhoud'}</a>
+  <div class="reading-progress" aria-hidden="true"></div>
+  <header class="site-header">
+   <a class="wordmark" href={routes.home} aria-label={en ? 'Stroomlijnen home' : 'Stroomlijnen startpagina'}><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37"/></a>
+   <button class="nav-toggle" aria-expanded="false" aria-controls="story-nav">Menu <span aria-hidden="true">+</span></button>
+   <nav id="story-nav" aria-label={en ? 'Main navigation' : 'Hoofdnavigatie'}>
+    <a href={`${routes.home}#${ids.story}`}>{en ? 'How it works' : 'Zo werkt het'}</a>
+    <a href={`${routes.home}#${ids.sectors}`}>{en ? 'For your business' : 'Voor uw bedrijf'}</a>
+    <a href={`${routes.home}#${ids.about}`}>{en ? 'Our story' : 'Ons verhaal'}</a>
+    <a href={routes.knowledge}>{en ? 'Knowledge base' : 'Kennisbank'} <span aria-hidden="true">↗</span></a>
+    <a class="nav-cta" href={routes.contact}>{en ? 'Let’s talk' : 'Laten we praten'} <span aria-hidden="true">↗</span></a>
+   </nav>
+   <a class="language-switch" href={otherRoute} lang={otherLanguage} hreflang={otherLanguage} aria-label={en ? 'Naar de Nederlandse website' : 'Switch to English'}>{en ? 'NL' : 'EN'} <span aria-hidden="true">↗</span></a>
+  </header>
+  <main id="main"><slot/></main>
+  <footer class="story-footer wrap">
+   <div class="footer-main">
+    <div><a class="wordmark" href={routes.home}><img src="/stroomlijnen-logo-docs.png" width="219" height="37" alt="Stroomlijnen" loading="lazy"/></a><p>{en ? 'Energy that works.' : 'Energie die werkt.'}<br/>{en ? 'For everything you want to do.' : 'Voor alles wat u wilt doen.'}</p></div>
+    <div><span class="small-label">{en ? 'A good conversation starts here' : 'Een goed gesprek begint hier'}</span><a class="footer-mail" href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl <span aria-hidden="true">↗</span></a><p>Nieuwe Hemweg 4-A<br/>1013 BG Amsterdam</p></div>
+    <nav aria-label={en ? 'Footer navigation' : 'Footernavigatie'}>
+     <a href={routes.technology}>{en ? 'Our technology' : 'Onze technologie'}</a>
+     <a href={routes.security}>{en ? 'Security' : 'Veiligheid'}</a>
+     <a href={routes.docs}>{en ? 'Documentation' : 'Documentatie'} <span aria-hidden="true">↗</span></a>
+     <a href={otherRoute} lang={otherLanguage} hreflang={otherLanguage}>{en ? 'Nederlands' : 'English'} <span aria-hidden="true">↗</span></a>
+    </nav>
+   </div>
+   <div class="footer-bottom"><span>© 2026 Stroomlijnen B.V.</span><span>{en ? 'Energy, charging and control. Designed to work together.' : 'Energie, laden en besturing. In samenhang ontworpen.'}</span><span>{en ? 'Chamber of Commerce' : 'KVK'} 93264526</span></div>
+  </footer>
+  <script>import '../scripts/energy-story';</script>
+ </body>
+</html>

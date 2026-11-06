@@ -1,0 +1,42 @@
+---
+interface Props { lang?: 'nl' | 'en'; idPrefix?: string; }
+const { lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl', idPrefix = `day-flow-${lang}` } = Astro.props;
+const en = lang === 'en';
+const periods = en ? [
+ {key:'morning',time:'08:00',tab:'Starting up',heading:'The working day gets going.',text:'The building and vehicles need power while solar generation is still low. The EMS shares available capacity. In this example, the battery stays on standby for later.',alt:'Morning light over a business site with a solar roof, storage cabinets and electric vehicles at their chargers.',sources:['Grid'],destinations:['Building','Chargers'],routeNote:'The battery stays on standby. Solar contributes where available.'},
+ {key:'midday',time:'13:00',tab:'Using solar',heading:'Use the sun. Save the surplus.',text:'Solar power goes straight to your building and vehicles. If generation exceeds demand, a battery can store the surplus for later.',alt:'Daylight over a business site with rooftop solar panels, battery storage and vehicles at their chargers.',sources:['Solar'],destinations:['Building','Chargers','Battery'],routeNote:'The grid supplies any shortfall. Storage charges only when energy is available.'},
+ {key:'evening',time:'18:00',tab:'Meeting the peak',heading:'A busy moment, with a buffer.',text:'Solar generation falls, but the business is still running. Stored energy can help meet the peak, within the battery’s available charge and power limits.',alt:'Evening light at the same business site, with the building lit, storage cabinets and electric vehicles connected.',sources:['Battery','Grid'],destinations:['Building','Chargers'],routeNote:'Stored energy supports the site. The grid supplies the balance.'}
+] : [
+ {key:'morning',time:'08:00',tab:'Opstarten',heading:'De werkdag komt op gang.',text:'Gebouw en voertuigen vragen energie terwijl de zon nog weinig levert. Het EMS verdeelt de beschikbare ruimte. De batterij blijft in dit voorbeeld beschikbaar voor later.',alt:'Ochtendlicht op een bedrijfslocatie met een zonnedak, batterijkasten en elektrische voertuigen bij hun laders.',sources:['Net'],destinations:['Gebouw','Laders'],routeNote:'De batterij blijft beschikbaar. Zon draagt bij waar mogelijk.'},
+ {key:'midday',time:'13:00',tab:'Zon benutten',heading:'Gebruik de zon. Bewaar het overschot.',text:'Zonnestroom gaat direct naar uw gebouw en voertuigen. Is er meer opwek dan verbruik? Dan kan de batterij energie bewaren voor later.',alt:'Daglicht op een bedrijfslocatie met zonnepanelen op het dak, batterijopslag en voertuigen bij hun laders.',sources:['Zon'],destinations:['Gebouw','Laders','Batterij'],routeNote:'Het net vult aan waar nodig. De batterij laadt alleen als daar energie voor beschikbaar is.'},
+ {key:'evening',time:'18:00',tab:'Piek opvangen',heading:'Een druk moment, met een buffer.',text:'De zon levert minder, maar het bedrijf draait nog door. Eerder opgeslagen energie kan de piek helpen opvangen, binnen de beschikbare lading en het vermogen van de batterij.',alt:'Avondlicht op dezelfde bedrijfslocatie, met een verlicht gebouw, batterijkasten en aangesloten elektrische voertuigen.',sources:['Batterij','Net'],destinations:['Gebouw','Laders'],routeNote:'Opgeslagen energie helpt de locatie. Het net levert de rest.'}
+];
+const initial = periods[1];
+---
+<div class="day-explorer rendered-day-explorer" data-day-flow data-period="midday" data-lang={lang}>
+ <div class="diagram-top"><span class="diagram-tag">{en ? 'One site. Three moments.' : 'Eén locatie. Drie momenten.'}</span><span>{en ? '02 / Store energy' : '02 / Energie bewaren'}</span></div>
+ <div class="day-tabs" role="tablist" aria-label={en ? 'Time of day' : 'Moment van de dag'}>
+  {periods.map(period => <button type="button" role="tab" id={`${idPrefix}-${period.key}`} aria-controls={`${idPrefix}-panel`} aria-selected={period.key === 'midday' ? 'true' : 'false'} tabindex={period.key === 'midday' ? 0 : -1} data-period={period.key}><span>{period.time}</span>{period.tab}</button>)}
+ </div>
+ <div id={`${idPrefix}-panel`} role="tabpanel" aria-labelledby={`${idPrefix}-midday`} tabindex="0">
+  <figure class="rendered-day-scene">
+   <div class="rendered-day-images">
+    {periods.map(period => <picture data-day-picture={period.key} aria-hidden={period.key !== 'midday' ? 'true' : 'false'}>
+     <source srcset={`/images/scenes/campus-${period.key}-960.webp 960w, /images/scenes/campus-${period.key}-1536.webp 1536w`} sizes="(max-width:800px) calc(100vw - 44px), (max-width:1100px) calc(100vw - 274px), 850px"/>
+     <img src={`/images/scenes/campus-${period.key}-960.webp`} width="1536" height="1024" alt={period.alt} loading="lazy" decoding="async"/>
+    </picture>)}
+   </div>
+   <figcaption>{en ? 'Illustrative site · the same equipment, at different times of day' : 'Illustratieve locatie · dezelfde installatie, op verschillende momenten'}</figcaption>
+  </figure>
+  <div class="day-route-area">
+   <span class="day-route-label">{en ? 'Where the energy goes' : 'Waar de energie naartoe gaat'}</span>
+   {periods.map(period => <div class="day-route" data-period-route={period.key} hidden={period.key !== 'midday'}>
+    <div class="day-route-line"><div class="day-route-nodes source-nodes">{period.sources.map(source => <span>{source}</span>)}</div><span class="day-route-arrow" aria-hidden="true"><i></i>→</span><div class="day-route-nodes destination-nodes">{period.destinations.map(destination => <span>{destination}</span>)}</div></div>
+    <p>{period.routeNote}</p>
+   </div>)}
+  </div>
+  <div class="day-explanation" aria-live="polite"><span class="day-time" data-day-time>{initial.time}</span><div><h4 data-day-heading>{initial.heading}</h4><p data-day-copy>{initial.text}</p></div></div>
+ </div>
+ <p class="diagram-note">{en ? 'Illustrative day, not a forecast. Storage depends on generation, demand, battery power and available charge. The images show a conceptual site, not a specific installation.' : 'Illustratieve dag, geen voorspelling. Inzet van opslag hangt af van opwek, verbruik, batterijvermogen en beschikbare lading. De beelden tonen een conceptlocatie, geen specifieke installatie.'}</p>
+ <script type="application/json" data-day-copy-set set:html={JSON.stringify(periods).replaceAll('<', '\\u003c')}/>
+</div>

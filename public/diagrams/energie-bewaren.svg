@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="day-scene-title day-scene-desc">
+<style>text{font-family:Inter,Arial,sans-serif}.chart-guides{stroke:#e0e5df;fill:#93a09d;font-size:11px}.chart-guides text{stroke:none}.chart-limit{fill:#53676b;font-size:12px}.chart-bar-label{font-size:23px}.chart-key{font-size:15px;font-weight:600;fill:#0c2340}.chart-small{font-size:10px;fill:#72827d}.chart-total{font-size:16px;font-weight:600;fill:#0c2340}.architecture-energy{fill:none;stroke:#00b0e4;stroke-width:3}.architecture-control{fill:none;stroke:#73a400;stroke-width:2;stroke-dasharray:6 5}.architecture-platform{fill:none;stroke:#8998a5;stroke-width:2;stroke-dasharray:2 5}.architecture-box{fill:white;stroke:#b7c4bf;stroke-width:1.2}.architecture-zone{fill:#7a8b84;font-size:11px;letter-spacing:.13em}.architecture-label{fill:#0c2340;font-size:14px;font-weight:500}.architecture-small{fill:#71837c;font-size:11px}</style>
+    <title id="day-scene-title">De zon levert stroom aan het gebouw, de laders en de batterij</title>
+    <desc id="day-scene-desc">Overdag wordt eigen zonnestroom direct gebruikt. Een eventueel overschot kan de batterij opladen voor later.</desc>
+    <defs><pattern id="day-grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#cbd3d1"/></pattern></defs>
+    <rect width="760" height="360" fill="url(#day-grid)"/>
+    <g class="day-sun" stroke="#84BD00" stroke-width="2" fill="none"><circle cx="376" cy="43" r="17"/><path d="M376 15V7M376 71V79M348 43H340M404 43H412M356 23L350 17M396 23L402 17M356 63L350 69M396 63L402 69"/></g>
+    <g stroke="#0C2340" stroke-width="1.8" stroke-linejoin="round">
+     <path d="M272 109L380 78L488 109V217L380 249L272 217Z" fill="#eef0eb"/>
+     <path d="M272 109L380 141L488 109M380 141V249" fill="none"/>
+     <path d="M291 108L380 83L469 108L380 134Z" fill="#0C2340"/>
+     <g stroke="#7093a5" stroke-width=".8"><path d="M313 102L403 128M335 96L425 122M357 90L447 115M313 115L402 90M335 122L425 96M357 128L447 102"/></g>
+     <path d="M292 145L316 152V181L292 174ZM332 157L356 164V193L332 186Z" fill="#d6e7e7"/>
+     <path d="M400 160L427 152V226L400 234ZM443 148L469 140V168L443 176Z" fill="#d6e7e7"/>
+     <path d="M84 161L129 148L161 158V238L116 251L84 241Z" fill="#f8f9f4"/>
+     <path d="M84 161L116 172L161 158M116 172V251" fill="none"/>
+     <path d="M96 179L106 182V217L96 214Z" fill="#84BD00" stroke="none" class="battery-fill"/>
+     <path d="M127 184L149 178M127 195L149 189M127 206L149 200M127 217L149 211" stroke="#b4c1bd"/>
+     <path d="M582 173L607 166L627 172V239L602 246L582 240Z" fill="#f8f9f4"/>
+     <path d="M582 173L602 179L627 172M602 179V246" fill="none"/>
+     <path d="M589 187L597 189V202L589 200Z" fill="#00B0E4"/>
+     <path d="M627 189C650 180 650 225 643 228" fill="none"/>
+     <path d="M594 285V265L618 248L677 264L702 284V304L676 312L594 290" fill="#e2e7e2"/>
+     <path d="M618 248L618 270L594 265M618 270L677 286L702 284M677 286V312M634 253V267L665 276V262" fill="none"/>
+     <ellipse cx="617" cy="290" rx="7" ry="10" fill="#0C2340"/><ellipse cx="682" cy="302" rx="7" ry="10" fill="#0C2340"/>
+    </g>
+    <g fill="none" stroke-width="3" stroke-linecap="round"><path d="M380 248V278L176 278L116 260" stroke="#d4dcd6"/><path d="M380 248V278H551L602 257" stroke="#d4dcd6"/><path class="flow-to-battery" d="M380 248V278L176 278L116 260" stroke="#84BD00"/><path class="flow-to-charger" d="M380 248V278H551L602 257" stroke="#00B0E4"/></g>
+    <g fill="#0C2340" font-family="Inter,Arial,sans-serif" font-size="13" font-weight="500"><text x="122" y="131" text-anchor="middle">Batterij</text><text x="380" y="321" text-anchor="middle">Uw gebouw + zonnedak</text><text x="605" y="149" text-anchor="middle">Laden</text></g>
+   </svg>

@@ -1,0 +1,42 @@
+---
+interface Props {kind: 'capacity'|'storage'|'overview';lang?:'nl'|'en'}
+const {kind,lang='nl'}=Astro.props;
+const en=lang==='en';
+const captions={capacity:en?'Make room within your limit':'Ruimte binnen uw grens',storage:en?'Generation and use, connected':'Opwek en gebruik, verbonden',overview:en?'One clear view of your site':'Uw locatie in één overzicht'};
+---
+<figure class={`benefit-visual visual-${kind}`}>
+<svg viewBox="0 0 360 220" role="img" aria-label={captions[kind]}>
+<rect width="360" height="220" fill="#edf0e6"/>
+{kind==='capacity' ? <>
+<g stroke="#d5ddcf" stroke-width=".75"><path d="M32 58H328M32 94H328M32 130H328M32 166H328"/></g>
+<path d="M32 166V143C60 143 65 126 83 126S112 87 143 87S183 125 210 125S250 104 271 104S309 140 328 140V166Z" fill="#c5d0bd"/>
+<path d="M32 143C60 143 65 126 83 126S112 87 143 87S183 125 210 125S250 104 271 104S309 140 328 140" stroke="#566e5b" stroke-width="2" fill="none"/>
+<path d="M32 143C60 143 65 126 83 126S112 87 143 87S183 125 210 125S250 104 271 104S309 140 328 140V65H32Z" fill="#00a8cb" fill-opacity=".1"/>
+<path class="allocation-line" d="M32 65H328" stroke="#00a8cb" stroke-width="2"/>
+<path d="M32 49H328" stroke="#71806c" stroke-dasharray="3 4" stroke-width="1"/>
+<text x="328" y="36" text-anchor="end" class="caption">{en?'YOUR LIMIT':'UW GRENS'}</text>
+<text x="35" y="185" class="time">08:00</text><text x="175" y="185" class="time">14:00</text><text x="301" y="185" class="time">22:00</text>
+<g class="key"><circle cx="39" cy="207" r="3" fill="#7d9672"/><text x="48" y="210">{en?'Building':'Gebouw'}</text><circle cx="187" cy="207" r="3" fill="#00a8cb"/><text x="196" y="210">{en?'Room to charge':'Ruimte om te laden'}</text></g>
+</> : kind==='storage' ? <>
+<g stroke="#d5ddcf" stroke-width=".75"><path d="M32 58H328M32 94H328M32 130H328M32 166H328"/></g>
+<path d="M32 166C76 166 81 147 105 111S144 53 176 53S219 116 247 148S292 166 328 166Z" fill="#c6d6b2"/>
+<path d="M32 166C76 166 81 147 105 111S144 53 176 53S219 116 247 148S292 166 328 166" stroke="#87a56a" stroke-width="2" fill="none"/>
+<path class="storage-curve" d="M32 144C77 144 95 132 133 132S180 142 217 113S268 88 285 101S308 124 328 124" stroke="#1c6776" stroke-width="2.2" fill="none"/>
+<path d="M177 36H278m-7-5 7 5-7 5" stroke="#849779" stroke-width="1" fill="none"/>
+<text x="32" y="36" class="caption">{en?'SAVE FOR LATER':'BEWAAR VOOR LATER'}</text>
+<text x="35" y="185" class="time">08:00</text><text x="175" y="185" class="time">14:00</text><text x="301" y="185" class="time">22:00</text>
+<g class="key"><circle cx="39" cy="207" r="3" fill="#8aa770"/><text x="48" y="210">{en?'Solar generation':'Zonne-opwek'}</text><circle cx="187" cy="207" r="3" fill="#1c6776"/><text x="196" y="210">{en?'Energy demand':'Energievraag'}</text></g>
+</> : <>
+<path d="M70 60H112Q130 60 130 78V110H149M70 150H112Q130 150 130 132V110M211 110H246Q262 110 262 93V60H291M262 110V150H291" stroke="#a9bba0" stroke-width="1.2" fill="none"/>
+<path class="connection-dots" d="M70 60H112Q130 60 130 78V110H149M211 110H246Q262 110 262 93V60H291" stroke="#00a8cb" stroke-width="2" stroke-dasharray="2 8" fill="none"/>
+<rect x="149" y="79" width="62" height="62" rx="4" fill="#21433f"/><path d="M167 110H194M171 100V120M188 100V120" stroke="#d8e5c6" stroke-width="1.5"/><circle cx="171" cy="106" r="3" fill="#d8e5c6"/><circle cx="188" cy="115" r="3" fill="#d8e5c6"/>
+<g fill="#f6f7f1" stroke="#9aaa91" stroke-width="1"><rect x="42" y="39" width="45" height="42" rx="3"/><rect x="42" y="129" width="45" height="42" rx="3"/><rect x="273" y="39" width="45" height="42" rx="3"/><rect x="273" y="129" width="45" height="42" rx="3"/></g>
+<g stroke="#526e59" stroke-width="1.5" fill="none"><path d="M53 70V51H76V70M59 51V70M69 51V70M53 60H76"/><path d="M55 144H73V159H55ZM60 140H68"/><circle cx="296" cy="59" r="6"/><path d="M296 47V44M296 71V74M284 59H281M308 59H311M287 50 285 48M305 68 307 70M287 68 285 70M305 50 307 48"/><path d="M286 140H303V160H286ZM290 145H299V151H290ZM303 146Q312 146 310 155"/></g>
+<g class="node-label" text-anchor="middle"><text x="65" y="96">{en?'Building':'Gebouw'}</text><text x="65" y="186">{en?'Storage':'Opslag'}</text><text x="295" y="96">{en?'Solar':'Zon'}</text><text x="295" y="186">{en?'Charging':'Laden'}</text><text x="180" y="161">{en?'Coordination':'Samen geregeld'}</text></g>
+</>}
+</svg>
+<figcaption>{en?'Illustrative':'Illustratief'} · {captions[kind]}</figcaption>
+</figure>
+<style>
+.benefit-visual{margin:0;background:#edf0e6;overflow:hidden;min-width:0}.benefit-visual svg{display:block;width:100%;height:auto}.benefit-visual text{font-family:Inter,Arial,sans-serif;fill:#59705e}.caption{font-size:8px;letter-spacing:1px}.time{font-size:8px}.key{font-size:8px}.node-label{font-size:8px}.benefit-visual figcaption{border-top:1px solid #dce3d4;color:#62765f;font-size:9px;padding:10px 13px;line-height:1.5}.connection-dots{animation:benefit-signal 6s linear infinite}@keyframes benefit-signal{to{stroke-dashoffset:-100}}:global(.motion-paused) .connection-dots{animation-play-state:paused}@media(prefers-reduced-motion:reduce){.connection-dots{animation:none}}@media(max-width:800px){.benefit-visual{grid-row:1/4;align-self:center}.benefit-visual figcaption{font-size:8px;padding:8px}.benefit-visual svg{min-height:135px}}
+</style>
