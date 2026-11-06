@@ -4,7 +4,7 @@ const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (story && 'IntersectionObserver' in window) {
   const reveals = Array.from(story.querySelectorAll<HTMLElement>('[data-reveal]'));
-  const flow = story.querySelector<HTMLElement>('.story-flow');
+  const illustrations = Array.from(story.querySelectorAll<HTMLElement>('.story-flow, .site-illustration'));
   let revealObserver: IntersectionObserver | undefined;
   let flowObserver: IntersectionObserver | undefined;
 
@@ -12,7 +12,7 @@ if (story && 'IntersectionObserver' in window) {
     revealObserver?.disconnect();
     flowObserver?.disconnect();
     story!.classList.remove('motion-ready');
-    flow?.classList.remove('is-flowing');
+    illustrations.forEach(el => el.classList.remove('is-flowing'));
     if (motion.matches) {
       reveals.forEach(el => el.classList.add('is-visible'));
       return;
@@ -30,11 +30,11 @@ if (story && 'IntersectionObserver' in window) {
     }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
     reveals.forEach(el => revealObserver!.observe(el));
     story!.classList.add('motion-ready');
-    if (flow) {
+    if (illustrations.length) {
       flowObserver = new IntersectionObserver(entries => {
-        flow.classList.toggle('is-flowing', entries[0].isIntersecting);
+        entries.forEach(entry => entry.target.classList.toggle('is-flowing', entry.isIntersecting));
       }, { threshold: 0.25 });
-      flowObserver.observe(flow);
+      illustrations.forEach(el => flowObserver!.observe(el));
     }
   }
   // Keyboard navigation must never land on an invisible link.

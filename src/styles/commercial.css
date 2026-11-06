@@ -451,3 +451,29 @@ form textarea { resize:vertical; margin-bottom:8px; }
  .story-flow svg { width:100%; margin:0; }
  .story-kit-body { display:block; }
 }
+
+/* Shared editorial energy illustrations. Forms are filled; strokes are details. */
+.site-illustration > .energy-art { display:block; width:100%; height:auto; }
+.energy-art { overflow:visible; }
+.energy-art .scene-labels { font-family:Inter,Arial,sans-serif; font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; }
+.energy-art .flow-device-labels { font-size:13px; letter-spacing:1.2px; }
+.energy-art.flow-compact .flow-device-labels { font-size:10px; letter-spacing:.7px; }
+.sector-visual { display:block; width:80px; height:auto; }
+.current-trace { stroke-dasharray:12 86; }
+/* Static drawings remain complete without JS. The existing viewport observer
+   starts and pauses CSS motion; reduced-motion also handles live preference changes. */
+.is-flowing .current-trace { animation:illustration-current 4s linear infinite; animation-delay:var(--trace-delay,0s); }
+.is-flowing .solar-current { animation-duration:5s; }
+.is-flowing .hub-glow { animation:illustration-breathe 4s ease-in-out infinite; }
+.is-flowing .device-led { animation:illustration-led 3.6s ease-in-out infinite; }
+.is-flowing .solar-shimmer { animation:illustration-shimmer 6s ease-in-out infinite; }
+@keyframes illustration-current { to { stroke-dashoffset:-196; } }
+@keyframes illustration-breathe { 0%,100% { opacity:.5; } 50% { opacity:1; } }
+@keyframes illustration-led { 0%,75%,100% { opacity:1; } 85% { opacity:.3; } }
+@keyframes illustration-shimmer { 0%,100% { opacity:.08; } 50% { opacity:.3; } }
+@media(max-width:760px) { .sector-visual { width:60px; } }
+@media(prefers-reduced-motion:reduce) {
+ .energy-art *, .energy-art use { animation:none!important; }
+ .energy-art .current-trace { stroke-dasharray:none; opacity:.8; }
+}
+@media print { .energy-art * { animation:none!important; } }

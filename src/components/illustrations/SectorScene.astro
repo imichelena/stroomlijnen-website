@@ -1,0 +1,29 @@
+---
+interface Props { sector: 'hospitality' | 'transport' | 'property' | 'industry' }
+const { sector } = Astro.props;
+const p = `sector-${sector}`;
+const glass = `url(#${p}-glass)`;
+---
+<svg class="sector-visual" viewBox="0 0 112 112" aria-hidden="true">
+ <defs><linearGradient id={`${p}-glass`} x2="1" y2="1"><stop stop-color="#00B0E4"/><stop offset="1" stop-color="#0C2340"/></linearGradient></defs>
+ <path d="M3 81L52 56L109 85L60 110Z" fill="#D7E3EC"/><path d="M3 81L60 109L109 85V89L60 112L3 85Z" fill="#BBCDDC"/>
+ {sector === 'transport' ? <>
+  <path d="M11 41L51 21L82 37L42 57Z" fill="#fff"/><path d="M11 41L42 57V87L11 72Z" fill="#B8C7D6"/><path d="M42 57L82 37V68L42 87Z" fill="#E4ECF2"/>
+  <path d="M11 48L42 64V69L11 53Z" fill="#00B0E4"/><path d="M48 61L84 43L99 61V81L66 98L48 89Z" fill="#64859F"/>
+  <path d="M55 62L82 49L91 61L65 74Z" fill={glass}/><path d="M65 74L91 61L99 65L73 79Z" fill="#F2F5F8"/>
+  <path d="M73 79L99 65V81L73 94Z" fill="#B8C7D6"/><path d="M77 83L95 74" stroke="#0C2340" stroke-width="2"/>
+  <g fill="#0C2340"><ellipse cx="26" cy="78" rx="5" ry="8"/><ellipse cx="60" cy="91" rx="5" ry="8"/><ellipse cx="90" cy="88" rx="5" ry="8"/></g><g fill="#99B2C5"><ellipse cx="26" cy="78" rx="2" ry="4"/><ellipse cx="60" cy="91" rx="2" ry="4"/><ellipse cx="90" cy="88" rx="2" ry="4"/></g>
+ </> : <>
+  <path d={sector === 'industry' ? 'M12 60L50 79V99L12 80Z' : 'M18 30L51 46V98L18 82Z'} fill="#C8D7E2"/>
+  <path d={sector === 'industry' ? 'M50 79L96 56V76L50 99Z' : 'M51 46L90 26V78L51 98Z'} fill="#819DB3"/>
+  <path d={sector === 'industry' ? 'M12 60L28 41L49 51L65 32L96 56L50 79Z' : 'M18 30L57 10L90 26L51 46Z'} fill="#F9FCFE"/>
+  {sector === 'industry' ? <><path d="M77 46V14L86 19V51Z" fill="#42617C"/><path d="M86 19L93 15V47L86 51Z" fill="#8AA3B8"/><path d="M77 14L84 10L93 15L86 19Z" fill="#BDCFDD"/><path d="M29 43L47 52L40 60L22 51ZM66 35L83 44L76 52L59 43Z" fill={glass}/></> : <>
+   <path d="M25 30L57 14L82 26L50 42Z" fill="#B8C7D6"/>
+   <g transform="matrix(1 -.5 0 1 57 50)">{[0,1,2].map(x => [0,1,2].map(y => <rect x={x*10} y={y*12} width="6" height="8" rx=".8" fill={glass}/>))}</g>
+  </>}
+  <g transform={sector === 'industry' ? 'matrix(1 .5 0 1 18 66)' : 'matrix(1 .5 0 1 24 39)'}>{[0,1,2].map(x => [0,1].map(y => <rect x={x*8} y={y*13} width="5" height="9" rx=".6" fill={glass}/>))}</g>
+  {sector === 'hospitality' && <><path d="M28 75L39 80V91L28 86Z" fill="#0C2340"/><path d="M23 73L31 69L47 77L39 81Z" fill="#00B0E4"/><path d="M23 73L39 81V85L23 77Z" fill="#007DA3"/></>}
+  {sector === 'property' && <><path d="M67 74L84 82V100L67 92Z" fill="#DCE7EF"/><path d="M84 82L103 72V90L84 100Z" fill="#607E99"/><path d="M67 74L86 64L103 72L84 82Z" fill="#fff"/><path d="M71 80L79 84V91L71 87ZM88 84L98 79V86L88 91Z" fill={glass}/></>}
+ </>}
+ {sector !== 'transport' && <><path d="M7 89L15 93L25 88L17 84Z" fill="#84BD00"/><ellipse cx="16" cy="80" rx="7" ry="9" fill="#598B20"/><ellipse cx="14" cy="77" rx="5" ry="7" fill="#94BE53"/></>}
+</svg>
