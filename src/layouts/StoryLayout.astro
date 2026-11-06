@@ -46,7 +46,7 @@ const canonical = new URL(routes.home, 'https://stroomlijnen.nl').href;
     <a href={`${routes.home}#${ids.story}`}>{en ? 'How it works' : 'Zo werkt het'}</a>
     <a href={`${routes.home}#${ids.sectors}`}>{en ? 'For your business' : 'Voor uw bedrijf'}</a>
     <a href={`${routes.home}#${ids.about}`}>{en ? 'Our story' : 'Ons verhaal'}</a>
-    <a href={routes.knowledge}>{en ? 'Knowledge base' : 'Kennisbank'} <span aria-hidden="true">↗</span></a>
+    <a href={routes.knowledge} target="_blank" rel="noopener noreferrer">{en ? 'Knowledge base' : 'Kennisbank'} <span aria-hidden="true">↗</span></a>
     <a class="nav-cta" href={routes.contact}>{en ? 'Let’s talk' : 'Laten we praten'} <span aria-hidden="true">↗</span></a>
    </nav>
    <a class="language-switch" href={otherRoute} lang={otherLanguage} hreflang={otherLanguage} aria-label={en ? 'Naar de Nederlandse website' : 'Switch to English'}>{en ? 'NL' : 'EN'} <span aria-hidden="true">↗</span></a>
@@ -59,7 +59,7 @@ const canonical = new URL(routes.home, 'https://stroomlijnen.nl').href;
     <nav aria-label={en ? 'Footer navigation' : 'Footernavigatie'}>
      <a href={routes.technology}>{en ? 'Our technology' : 'Onze technologie'}</a>
      <a href={routes.security}>{en ? 'Security' : 'Veiligheid'}</a>
-     <a href={routes.docs}>{en ? 'Documentation' : 'Documentatie'} <span aria-hidden="true">↗</span></a>
+     <a href={routes.docs} target="_blank" rel="noopener noreferrer">{en ? 'Documentation' : 'Documentatie'} <span aria-hidden="true">↗</span></a>
      <a href={otherRoute} lang={otherLanguage} hreflang={otherLanguage}>{en ? 'Nederlands' : 'English'} <span aria-hidden="true">↗</span></a>
     </nav>
    </div>

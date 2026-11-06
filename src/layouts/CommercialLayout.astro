@@ -38,7 +38,9 @@ const canonical = 'https://stroomlijnen.nl';
    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-open={c.menu} data-close={c.close}>{c.menu} <span aria-hidden="true">+</span></button>
    <nav id="main-nav" aria-label={lang === 'nl' ? 'Hoofdnavigatie' : 'Main navigation'}>
     {keys.filter(k=>k !== 'home' && k !== 'contact').map(k=><a href={routes[lang][k]} aria-current={page === k ? 'page' : undefined}>{c.nav[keys.indexOf(k)]}</a>)}
-    <a href={lang === 'nl' ? '/kennisbank/' : docsUrl(lang)}>{lang === 'nl' ? 'Kennisbank' : 'Knowledge'}</a>
+    {lang === 'nl'
+      ? <a href="/kennisbank/">Kennisbank</a>
+      : <a href={docsUrl(lang)} target="_blank" rel="noopener noreferrer">Knowledge <span aria-hidden="true">↗</span></a>}
     <a href={routes[lang].contact} aria-current={page === 'contact' ? 'page' : undefined} class="nav-contact">{c.nav[5]} <span aria-hidden="true">↗</span></a>
     <a class="language" href={routes[other][page]} lang={other} hreflang={other} aria-label={other === 'en' ? 'Read this page in English' : 'Lees deze pagina in het Nederlands'}>{other.toUpperCase()} <span aria-hidden="true">↗</span></a>
    </nav>
@@ -46,7 +48,7 @@ const canonical = 'https://stroomlijnen.nl';
  </header>
  <main id="main" tabindex="-1"><slot /></main>
  {showClosing && page !== 'contact' && <section class="closing"><div class="shell closing-inner"><div><p class="eyebrow">{lang==='nl'?'Uw volgende stap':'Your next step'}</p><h2>{c.next}</h2><p>{c.nextText}</p></div><a class="button" href={routes[lang].contact}>{c.discuss}<span aria-hidden="true">↗</span></a></div></section>}
- <footer class="footer shell"><div class="footer-top"><div><a class="brand" href={routes[lang].home}><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37" loading="lazy" /></a><p>{c.footer}</p></div><div class="footer-contact"><a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a><span>Nieuwe Hemweg 4-A<br/>1013 BG Amsterdam</span></div><div class="footer-links"><a href={docsUrl(lang)}>{c.docs} ↗</a><a href={routes[lang].contact}>{c.nav[5]}</a><a href={routes[other][page]} lang={other}>{other==='en'?'English':'Nederlands'}</a></div></div><div class="footer-bottom"><span>© 2026 Stroomlijnen B.V.</span><span>KVK 93264526 · {c.rights}</span></div></footer>
+ <footer class="footer shell"><div class="footer-top"><div><a class="brand" href={routes[lang].home}><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37" loading="lazy" /></a><p>{c.footer}</p></div><div class="footer-contact"><a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a><span>Nieuwe Hemweg 4-A<br/>1013 BG Amsterdam</span></div><div class="footer-links"><a href={docsUrl(lang)} target="_blank" rel="noopener noreferrer">{c.docs} ↗</a><a href={routes[lang].contact}>{c.nav[5]}</a><a href={routes[other][page]} lang={other}>{other==='en'?'English':'Nederlands'}</a></div></div><div class="footer-bottom"><span>© 2026 Stroomlijnen B.V.</span><span>KVK 93264526 · {c.rights}</span></div></footer>
  <script>
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
   const nav = document.querySelector<HTMLElement>('#main-nav');
