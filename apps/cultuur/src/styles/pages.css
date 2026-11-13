@@ -49,7 +49,7 @@ main #techniek { padding-top: 1.5rem; }
 .intro-tekst + .intro-tekst { margin-top: .85rem; }
 .team-intro { max-width: 67ch; margin-top: 1rem; }
 .page-over-ons section:has(.team-grid) { background: var(--surface); }
-.team-grid { margin-top: 2.15rem; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: var(--gap); }
+.team-grid { margin-top: 2.15rem; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--gap); }
 .team-photo { max-width: 16rem; margin-bottom: 1.1rem; }
 .team-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; }
 .team-card { border-top: 1px solid var(--rule); padding-top: 1rem; }
