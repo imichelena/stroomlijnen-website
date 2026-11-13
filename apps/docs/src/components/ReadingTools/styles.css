@@ -1,0 +1,63 @@
+.reading-tools {
+  --reading-surface: #f2f5f8;
+  --reading-ink: #0c2340;
+  --reading-border: #cad4df;
+  color: var(--reading-ink);
+  background: var(--reading-surface);
+  border: 1px solid var(--reading-border);
+  border-radius: 12px;
+  padding: .75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-family: Inter, sans-serif;
+  font-size: .875rem;
+}
+[data-theme='dark'] .reading-tools {
+  --reading-surface: #0a1628;
+  --reading-ink: #f2f5f8;
+  --reading-border: #45586e;
+}
+.reading-tools__bar, .reading-tools__resume, .reading-tools__settings {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+}
+.reading-tools__time { margin-right: auto; font-weight: 600; white-space: nowrap; }
+.reading-tools button, .reading-tools select {
+  min-height: 44px; border: 1px solid var(--reading-border); border-radius: 7px;
+  padding: .5rem .75rem; background: transparent; color: inherit; font: inherit; cursor: pointer;
+}
+.reading-tools select option { background: var(--reading-surface); color: var(--reading-ink); }
+.reading-tools button:hover { border-color: currentColor; }
+.reading-tools button[aria-pressed='true'], .reading-tools__exit { font-weight: 700; box-shadow: inset 0 -3px #00b0e4; }
+.reading-tools :is(button,select):focus-visible { outline: 3px solid #00b0e4; outline-offset: 3px; }
+.reading-tools__settings { padding-top: .75rem; margin-top: .75rem; border-top: 1px solid var(--reading-border); }
+.reading-tools__settings[hidden] { display: none; }
+.reading-tools__settings label { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.reading-tools__resume { margin-top: .75rem; }
+.reading-tools__progress { display: flex; align-items: center; gap: .75rem; margin-top: .5rem; font-variant-numeric: tabular-nums; }
+.reading-tools progress { appearance: none; height: 5px; flex: 1; min-width: 0; border: 0; border-radius: 4px; overflow: hidden; background: var(--reading-border); }
+.reading-tools progress::-webkit-progress-bar { background: var(--reading-border); }
+.reading-tools progress::-webkit-progress-value { background: #00b0e4; }
+.reading-tools progress::-moz-progress-bar { background: #00b0e4; }
+.reading-tools__status { margin: .5rem 0 0; }
+.reading-tools__status:empty { margin: 0; }
+html[data-reading-font='large'] .reading-layout .theme-doc-markdown { font-size: 1.125rem; }
+html[data-reading-font='larger'] .reading-layout .theme-doc-markdown { font-size: 1.25rem; }
+html[data-reading-width='wide'] .reading-layout [class*='docItemCol'] { max-width: 100% !important; }
+html[data-reading-width='wide'] main > .container { max-width: 1600px; }
+html[data-reading-focus='true'] :is(.navbar,.footer,[class*='docSidebarContainer'],.theme-doc-toc-mobile,.theme-doc-breadcrumbs) { display: none !important; }
+html[data-reading-focus='true'] .reading-layout > .row > .col--3 { display: none !important; }
+html[data-reading-focus='true'] [class*='docMainContainer'] { max-width: 100% !important; width: 100% !important; }
+html[data-reading-focus='true'] .reading-layout { max-width: 58rem; margin-inline: auto; }
+html[data-reading-focus='true'][data-reading-width='wide'] .reading-layout { max-width: 80rem; }
+html[data-reading-focus='true'] .reading-layout > .row > .col { max-width: 100% !important; width: 100% !important; flex-basis: 100% !important; }
+html[data-reading-focus='true'] .reading-tools { position: sticky; top: .5rem; z-index: 20; }
+@media (max-width: 600px), (max-height: 500px) {
+  .reading-tools { padding: .75rem; }
+  .reading-tools__time { width: 100%; }
+  html[data-reading-focus='true'] .reading-tools { position: static; }
+  html[data-reading-focus='true'] .reading-tools__exit { position: fixed; bottom: 1rem; right: 1rem; z-index: 30; background: var(--reading-surface); box-shadow: 0 2px 12px #0003; }
+}
+@media print {
+  .reading-tools, .navbar, .footer, [class*='docSidebarContainer'], .theme-doc-toc-desktop, .pagination-nav { display: none !important; }
+  .reading-layout .theme-doc-markdown { font-size: 11pt !important; color: #000; }
+  .reading-layout > .row > .col { max-width: 100% !important; width: 100% !important; }
+}

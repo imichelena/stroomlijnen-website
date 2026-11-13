@@ -1,0 +1,21 @@
+{
+  "name": "astro-tmp",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "PUBLIC_SITE_AUDIENCE=gateway astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "build:preview": "PUBLIC_SITE_AUDIENCE=preview astro build",
+    "build:commercial": "PUBLIC_SITE_AUDIENCE=commercial astro build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.4",
+    "tailwindcss": "^4.2.2"
+  }
+}

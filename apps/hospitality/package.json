@@ -1,0 +1,9 @@
+{
+  "name": "stroomlijnen-hospitality",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "build:preview": "node build.mjs --preview"
+  }
+}

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Production build
+/build/
+/.docusaurus/
+.docusaurus/
+
+# Misc
+.DS_Store
+*.log
+npm-debug.log*
+.env
+.env.local
+.idea/
+.vscode/

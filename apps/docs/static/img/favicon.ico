@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#0a1628"/>
+  <!-- Interlocking circles — Stroomlijnen mark -->
+  <g transform="translate(32,32)" fill="none" stroke-width="5">
+    <!-- Green circle -->
+    <circle cx="-8" cy="0" r="14" stroke="#7CB82F" stroke-dasharray="44 44" stroke-dashoffset="0"/>
+    <!-- Cyan circle -->
+    <circle cx="8" cy="0" r="14" stroke="#00B0E4" stroke-dasharray="44 44" stroke-dashoffset="0"/>
+    <!-- Overlap: green on top left -->
+    <path d="M 0 -12 A 14 14 0 0 0 0 12" stroke="#7CB82F"/>
+    <!-- Overlap: cyan on top right -->
+    <path d="M 0 -12 A 14 14 0 0 1 0 12" stroke="#00B0E4"/>
+  </g>
+</svg>

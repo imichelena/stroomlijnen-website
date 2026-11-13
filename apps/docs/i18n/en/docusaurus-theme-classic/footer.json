@@ -1,0 +1,58 @@
+{
+  "link.title.Documentatie": {
+    "message": "Documentation",
+    "description": "The title of the footer links column with title=Documentatie in the footer"
+  },
+  "link.title.Meer": {
+    "message": "More",
+    "description": "The title of the footer links column with title=Meer in the footer"
+  },
+  "link.title.Bedrijf": {
+    "message": "Company",
+    "description": "The title of the footer links column with title=Bedrijf in the footer"
+  },
+  "link.item.label.Aan de slag": {
+    "message": "Getting started",
+    "description": "The label of footer link with label=Aan de slag linking to /docs/getting-started/intro"
+  },
+  "link.item.label.Plug & Charge": {
+    "message": "Plug & Charge",
+    "description": "The label of footer link with label=Plug & Charge linking to /docs/plug-and-charge/what-is-pnc"
+  },
+  "link.item.label.Klantportaal": {
+    "message": "Customer portal",
+    "description": "The label of footer link with label=Klantportaal linking to /docs/klantportaal/overview"
+  },
+  "link.item.label.Technisch": {
+    "message": "Technical",
+    "description": "The label of footer link with label=Technisch linking to /docs/technical/ocpp-overview"
+  },
+  "link.item.label.FAQ": {
+    "message": "FAQ",
+    "description": "The label of footer link with label=FAQ linking to /docs/faq"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "link.item.label.RSS Feed": {
+    "message": "RSS Feed",
+    "description": "The label of footer link with label=RSS Feed linking to https://docs.stroomlijnen.nl/blog/rss.xml"
+  },
+  "link.item.label.stroomlijnen.nl": {
+    "message": "stroomlijnen.nl",
+    "description": "The label of footer link with label=stroomlijnen.nl linking to https://stroomlijnen.nl"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "The label of footer link with label=LinkedIn linking to https://www.linkedin.com/company/stroomlijnen"
+  },
+  "link.item.label.Contact": {
+    "message": "Contact",
+    "description": "The label of footer link with label=Contact linking to https://stroomlijnen.nl/contact"
+  },
+  "copyright": {
+    "message": "Copyright © 2026 Stroomlijnen B.V. — The Show Must Go On.",
+    "description": "The footer copyright"
+  }
+}

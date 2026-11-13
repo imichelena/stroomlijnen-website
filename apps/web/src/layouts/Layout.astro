@@ -1,0 +1,112 @@
+---
+import '../styles/fonts.css';
+import '../styles/global.css';
+import { commercialCanonical, commercialHome, contactEntry, gatewayHome, docsEntry, siteAudience } from '../data/site-target';
+import { legacyPaths } from '../../config/public-sites.mjs';
+
+interface Props {
+  title: string;
+  lang: 'nl' | 'en';
+  page: keyof typeof legacyPaths.nl;
+}
+
+const { title, lang, page } = Astro.props;
+const en = lang === 'en';
+const other = en ? 'nl' : 'en';
+const otherLabel = en ? 'Nederlands' : 'English';
+const pages = legacyPaths[lang];
+const home = commercialHome(lang);
+const description = en
+  ? 'Stroomlijnen connects theatres and transport companies through charging infrastructure for electric trucks. Discover fully managed charging and income from charging sessions.'
+  : 'Stroomlijnen verbindt theaters en transportbedrijven via laadinfrastructuur voor elektrische vrachtwagens. Geen investering vooraf, passief inkomen, volledig beheerd.';
+const contact = contactEntry(lang);
+const navItems = [
+  { href: home, label: en ? 'Home' : 'Startpagina' },
+  { href: pages.theatres, label: en ? 'Theatres' : 'Theaters' },
+  { href: pages.touring, label: en ? 'Touring companies' : 'Gezelschappen' },
+  { href: pages.story, label: en ? 'About us' : 'Over ons' },
+  { href: docsEntry(lang), docs: true, label: en ? 'Knowledge base' : 'Kennisbank' },
+];
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={commercialCanonical(pages[page])}/>
+    <link rel="alternate" hreflang="nl" href={commercialCanonical(legacyPaths.nl[page])}/>
+    <link rel="alternate" hreflang="en" href={commercialCanonical(legacyPaths.en[page])}/>
+    <link rel="alternate" hreflang="x-default" href={commercialCanonical(legacyPaths.nl[page])}/>
+    {(page === 'receipt' || siteAudience === 'preview') && <meta name="robots" content="noindex, follow"/>}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=rings-1" />
+    <link rel="icon" type="image/png" sizes="224x224" href="/favicon-rings.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>{title} | Stroomlijnen</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="site-header">
+      <nav class="container nav-inner">
+        <a href={home} class="nav-logo" aria-label={en ? 'Stroomlijnen home' : 'Stroomlijnen startpagina'}>
+          <img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" height="36" style="display:block;" />
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label={en ? 'Navigation menu' : 'Navigatiemenu'} aria-controls="navLinks" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks" role="list">
+          {navItems.map(({ href, label, docs }) => (
+            <li>
+              <a href={href} target={docs ? '_blank' : undefined} rel={docs ? 'noopener noreferrer' : undefined} class={pages[page] === href ? 'active' : ''} aria-current={pages[page] === href ? 'page' : undefined}>{label}</a>
+            </li>
+          ))}
+          <li>
+            <a href={contact}><span class="nav-cta">Contact</span></a>
+          </li>
+          <li><a href={legacyPaths[other][page]} lang={other} hreflang={other} aria-label={otherLabel}>{other.toUpperCase()}</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" height="28" style="display:block;" />
+        </div>
+        <div class="footer-links">
+          <a href={gatewayHome(lang)}>{en ? 'All sectors' : 'Alle sectoren'}</a>
+          {navItems.map(({ href, label, docs }) => <a href={href} target={docs ? '_blank' : undefined} rel={docs ? 'noopener noreferrer' : undefined}>{label}</a>)}
+          <a href={contact}>Contact</a>
+          <a href={legacyPaths[other][page]} lang={other} hreflang={other}>{otherLabel}</a>
+        </div>
+        <div class="footer-contact">
+          <a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a>
+          <span>Amsterdam</span>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 Stroomlijnen B.V. {en ? 'All rights reserved.' : 'Alle rechten voorbehouden.'}</p>
+          <p class="footer-disclaimer">
+            {en
+              ? 'Grant amounts and HBE/ERE proceeds are indicative and depend on RVO/NEa approval and current market rates.'
+              : 'Subsidiebedragen en HBE/ERE-opbrengsten zijn indicatief en onder voorbehoud van goedkeuring door RVO/NEa en actuele markttarieven.'}
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('navToggle');
+      const links = document.getElementById('navLinks');
+      toggle?.addEventListener('click', () => {
+        const open = links?.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    </script>
+  </body>
+</html>

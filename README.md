@@ -1,88 +1,25 @@
-# stroomlijnen.nl
+# Stroomlijnen websites
 
-De publieke marketingsite van **Stroomlijnen B.V.** — laadinfrastructuur voor
-culturele locaties en transport.
+The sector gateway, commercial website, Cultuur, Hospitality and technical documentation share a release. Dutch is the default on every host and the English edition starts at `/en/`.
 
-Live: https://stroomlijnen.nl
+| Website | Source | Production document root |
+| --- | --- | --- |
+| stroomlijnen.nl | apps/web | release/stroomlijnen.nl |
+| commercieel.stroomlijnen.nl | apps/web | release/commercieel.stroomlijnen.nl |
+| cultuur.stroomlijnen.nl | apps/cultuur | release/cultuur.stroomlijnen.nl |
+| hospitality.stroomlijnen.nl | apps/hospitality | release/hospitality.stroomlijnen.nl |
+| docs.stroomlijnen.nl | apps/docs | release/docs.stroomlijnen.nl |
 
-## Stack
-
-Astro 6 (static output) + Tailwind 4. Node ≥ 22.12.0.
-
-## Lokaal draaien
+Use Node.js 22.12 or newer. From the repository root:
 
 ```sh
-npm install
-npm run dev       # http://localhost:4321
-npm run build     # -> dist/
-npm run preview   # bekijk de build lokaal
+npm ci
+npm run build
+npm run verify
 ```
 
-## Pagina's
+The build installs the dependencies declared by each application's lockfile and verifies all five static document roots before replacing the release. It also emits the gateway in `dist/` for the existing apex hosting job. To work on an individual site, use the development or build scripts in its own directory.
 
-| Route | Bestand |
-|---|---|
-| `/` | `src/pages/index.astro` |
-| `/theaters/` | `src/pages/theaters.astro` |
-| `/transport/` | `src/pages/transport.astro` |
-| `/over-ons/` | `src/pages/over-ons.astro` |
-| `/contact/` | `src/pages/contact.astro` |
-| `/thanks/` | `src/pages/thanks.astro` (na contactformulier) |
+All sectors share the existing contact form at `https://stroomlijnen.nl/contact/` and its English counterpart at `/en/contact/`. The same Formspree endpoint receives both languages. Contact and confirmation pages are maintained in `apps/web`.
 
-Layout, navigatie en footer staan in `src/layouts/Layout.astro`. De
-kleuren staan als CSS-variabelen in `src/styles/global.css`:
-
-- `--cyan` `#00B0E4` · `--green` `#84BD00` · donkerblauw `#0C2340`
-
-## Deployen
-
-**Push naar `main`.** Meer niet — de deploy naar beide edge-VPS'en is
-geautomatiseerd.
-
-Upload **nooit** losse bestanden naar een server (geen SCP/rsync/SSH). Er
-staan twee edge-VPS'en achter Cloudflare round-robin; een losse upload raakt
-er maar één, waardoor de andere verouderde content serveert.
-
-De volledige uitleg en agent-instructies staan in `AGENTS.md`.
-
-## Content aanpassen zonder code
-
-De pagina's zijn losse `.astro`-bestanden: tekst staat direct in de HTML,
-met inline styling. Zoek de betreffende regel en pas hem aan. Er is geen CMS.
-
-
-## Visual redesign — 6 November 2026
-
-The Dutch homepage now tells a scroll-driven energy story. It uses an original
-SVG energy campus, four illustrative working-day states, a keyboard-accessible
-sector explorer and the repository’s original credited photography.
-
-- Homepage layout: `src/layouts/StoryLayout.astro`
-- Homepage motion and interactions: `src/scripts/energy-story.ts`
-- Responsive art direction: `src/styles/story.css`
-- Reusable campus illustration: `src/components/EnergyCampus.astro`
-- Interactive visual explanations: `/kennisbank/`
-- Reusable diagram components: `src/components/docs/`
-- Portable SVG diagrams: `public/diagrams/`
-- Inner-page styling: `src/styles/commercial-refresh.css`
-
-All example power values are illustrative, not measurements or savings promises.
-Animations respect reduced-motion preferences and have a pause control.
-The existing English content, other routes and contact submission are retained.
-The contact form was not submitted during verification.
-
-### Using the diagrams in the documentation site
-
-This repository does not contain the source of docs.stroomlijnen.nl.
-The `/kennisbank/` page demonstrates the three diagrams. SVG files can be
-embedded directly in that documentation repository; the interactive versions
-need the accompanying markup, CSS and browser TypeScript ported to its framework.
-Do not describe the documentation subdomain as updated until integrated there.
-
-### Preview and deployment
-
-Use Node 22.12+ and `npm ci`, then `npm run dev` or `npm run build`.
-In restricted environments, prefix Astro commands with
-`ASTRO_TELEMETRY_DISABLED=1` to avoid writing global telemetry preferences.
-The separate private review deployment does not replace stroomlijnen.nl.
-Production deployment remains the repository’s documented GitHub pipeline.
+See [deployment](DEPLOYMENT.md) for hosting and live checks.

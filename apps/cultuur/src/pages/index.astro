@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Stroomlijnen — Laadinfrastructuur voor theaters en transport" activeNav="/" bodyClass="page-index">
+<!-- Hero — propositie eerst, producten daarna -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+          <h1>Samen houden we het <em>theater draaiende</em></h1>
+        <div class="hero-content">
+          <p class="hero-sub">Het Nederlandse tourneesysteem is uniek — en het waard om te behouden.</p>
+          <p class="hero-sub">Zero-emissiezones, kilometerheffing en torenhoge dieselprijzen; het moment om over te stappen is nu!</p>
+          <div class="hero-ctas">
+            <a href="/podia/" class="btn btn-primary">Voor podia →</a>
+            <a href="/gezelschappen/" class="btn btn-outline">Voor gezelschappen →</a>
+          </div>
+        </div>
+        <figure class="hero-figure">
+          <img src="/images/hero-carre-2200.jpg"
+               srcset="/images/hero-carre-1100.jpg 1100w, /images/hero-carre-2200.jpg 2200w"
+               sizes="(max-width: 760px) 100vw, 54vw"
+               width="2200" height="1650"
+               alt="Elektrische truck bij theater Carré in Amsterdam" fetchpriority="high" decoding="async">
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Kernboodschap tussen de twee blokken -->
+  <section class="claim-banner">
+    <div class="container">
+      <div class="claim-pair">
+        <p class="claim-line">Producties touren straks alleen naar theaters waar ze ook kunnen laden.</p>
+        <p class="claim-line">Wie nu een lader plaatst staat straks in elk speelplan.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- Verhaal: waarom dit nodig is — foto links, tekst rechts -->
+  <section class="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-media">
+          <figure class="story-figure">
+            <img src="/images/a-fine-mess-1600.jpg"
+                 srcset="/images/a-fine-mess-800.jpg 800w, /images/a-fine-mess-1600.jpg 1600w"
+                 sizes="(max-width: 760px) 100vw, 54vw"
+                 width="1600" height="1200"
+                 alt="A Fine Mess met cast Pieter Smit" loading="lazy" decoding="async">
+          </figure>
+          <p class="story-caption">
+            <span>Cast van 'A Fine Mess' elektrisch op tour met Pieter Smit</span>
+          </p>
+        </div>
+        <div class="story-text">
+          <p>Stroomlijnen, dochteronderneming van theater technisch bedrijf Lichtwerk van Jacco Patist, heeft als ultieme ambitie om heel Nederland niet alleen versneld maar ook zeer efficiënt over te laten stappen op elektrisch rijden. Tijdig overstappen naar elektrisch vervoer is in de theatersector extra relevant. Vanaf 2030 is het immers niet meer mogelijk om met diesel aangedreven vrachtwagens licht, geluid en decor van artiesten naar de theaters in de binnensteden te vervoeren. Door de structureel hoge dieselprijs aan de pomp, de kilometerheffing en bewust omgaan met lange termijn investeringen zijn artiesten nu al bezig om over te stappen op elektrisch vervoer. Elektrische trucks hebben echter laadpunten nodig bij elke bestemming. Ook als je theater niet in een zero-emissiezone ligt.</p>
+        </div>
+      </div>
+
+      <p class="story-wide">De opzet is eigenlijk heel eenvoudig. Elk podium heeft een stroomaansluiting die het merendeel van de dag beschikt over een ruime overcapaciteit. Als gezelschappen investeren in nieuwe wagens, en alle zalen een lader plaatsen dan kunnen we ook in de toekomst, van Groningen tot Maastricht, theater en concerten blijven brengen.</p>
+    </div>
+  </section>
+
+  <!-- Acht pijlers: wat Stroomlijnen levert (2 rijen van 4) -->
+  <section>
+    <div class="container">
+      <div class="pillars">
+        <div class="pillar">
+          <h4>Hardware</h4>
+          <p>Directe import, eigen voorraad in Nederland. Modulaire 120 kW DC-laders met 2 jaar garantie. Hot swappable power modules.</p>
+        </div>
+        <div class="pillar">
+          <h4>Software</h4>
+          <p>Eigen gevalideerde software. Geen one size fits all, maar geconfigureerd op maat per locatie. GACS-compatible.</p>
+        </div>
+        <div class="pillar">
+          <h4>Cyber security</h4>
+          <p>Zero Trust Architecture: niet zichtbaar op het internet. Plug &amp; Charge gebruikt een gelijkwaardig type cryptografie als internetbankieren.</p>
+        </div>
+        <div class="pillar">
+          <h4>Platform</h4>
+          <p>Portal met alle laadsessies, afrekeningen, CO₂-rapportage en incidenten. Zelf je commerciële tarief instellen. Updates worden vooraf apart getest, onder meer op compatibiliteit; garantie op blijvende werking.</p>
+        </div>
+        <div class="pillar">
+          <h4>EMS</h4>
+          <p>Ons energiemanagementsysteem (EMS) is volledig op maat programmeerbaar en laadt nooit meer dan je contractueel vermogen. Blijft werken zonder internet.</p>
+        </div>
+        <div class="pillar">
+          <h4>Service</h4>
+          <p>24/7 monitoring, remote diagnose, respons binnen 4 uur. Mobiele backup-lader bij uitval van een DC-lader. Onderdelen op voorraad.</p>
+        </div>
+        <div class="pillar">
+          <h4>Brandveiligheid</h4>
+          <p>Ons laadsysteem is aan te sluiten op een BrandMeldInstallatie. Hierdoor kan de brandweer met één handeling de laders uitzetten.</p>
+        </div>
+        <div class="pillar">
+          <h4>ERE &amp; Cultuurfonds</h4>
+          <p>De volledige ERE-opbrengst gaat naar het Cultuurfonds, ten behoeve van projecten en makers op het gebied van muziek en theater.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-inner">
+      <h2>Kijken wat er bij jouw zaal past?</h2>
+      <p>Elektrische trucks hebben een laadplek nodig bij elke bestemming. Wij komen graag vrijblijvend langs om te bekijken wat er op jouw locatie mogelijk is.</p>
+      <a href="https://stroomlijnen.nl/contact/" class="btn btn-primary">Plan een vrijblijvend gesprek →</a>
+    </div>
+  </section>
+</Layout>

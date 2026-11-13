@@ -1,0 +1,65 @@
+---
+title: Cybersecurity & secure architecture
+description: The cloud, site bastion and custom charger APK — security responsibilities, trust boundaries and protocol diagrams.
+sidebar_label: Secure architecture
+---
+
+import ArchitectureDiagram from '@site/src/components/ArchitectureDiagram';
+
+# Secure energy infrastructure. By design.
+
+**Security is central to Stroomlijnen's approach to energy infrastructure.** Understanding it means looking beyond the charger: at the cloud platform, the site bastion and the software running on the device. Each has a different responsibility. A private network alone is not a substitute for device identity or application-level controls.
+
+## Private control network, not Internet-facing chargers
+
+The documented site implementation places chargers and other inside-network devices behind the bastion, with **no direct inside-to-Internet forwarding**. The bastion mediates their permitted communication and initiates the site connection over the private WireGuard overlay. There is no public charger OCPP endpoint in this architecture.
+
+This is deliberate separation, not just a public charger endpoint with a password. The inside network, the bastion and the cloud–site overlay form distinct boundaries. **Private does not mean air-gapped:** the overlay uses an underlying uplink. Public-facing customer services and explicitly permitted infrastructure egress are separate from the isolated charger network; “none of our infrastructure ever uses the Internet” would be inaccurate.
+
+## Bastion controls and protection against call-home traffic
+
+The documented bastion controls include a deny-by-default firewall, separation of the inside network from the WAN, local protocol termination, and certificate validation on the custom APK direct endpoint. Rather than granting chargers unrestricted outbound access and trying to enumerate every unwanted destination, the site boundary limits communication to required local services.
+
+That boundary matters even for OEM devices whose firmware we do not control. It is intended to prevent an unapproved remote-control or telemetry channel from reaching an external server. It does not prove the absence of unwanted code on the device itself.
+
+## A Stroomlijnen-controlled European software layer
+
+On our custom DC chargers, the APK is Stroomlijnen's own application layer, rather than simply the manufacturer's stock application with a new logo. Stroomlijnen controls this software layer and its integration with the site bastion. This is separate from the underlying hardware, operating system and embedded controllers; it is not a claim that every component is European-made.
+
+The security approach combines control of the charger application with containment at the site boundary. The canonical architecture specifies that inside-network devices have no direct Internet path, including for unauthorized call-home traffic. These are concrete architectural controls—not a blanket claim that every component of a complete device is provably free of backdoors.
+
+## Three layers, distinct responsibilities
+
+### Cloud: a platform-facing API
+
+The documented architecture uses bastion-originated API traffic between the site and the cloud platform. Charger OCPP connections terminate locally at the bastion, not at the cloud platform. This separates the platform interface from the protocols spoken by individual chargers.
+
+### Bastion: the site boundary
+
+The bastion mediates communication between the site's chargers and the platform. It terminates local OCPP for OEM AC chargers and accepts the direct API connection from our custom DC charger APK. The WireGuard overlay protects cloud–site transport; it does not make every local device protocol encrypted.
+
+### APK: our custom DC charger software
+
+Our custom DC APK uses the direct API rather than OCPP. Its connection to the bastion's direct API endpoint uses HTTPS with mutual TLS: the charger presents a client certificate. This statement applies to that connection—not automatically to every telemetry or control interface on the charger.
+
+<ArchitectureDiagram name="01-security-architecture" title="Cloud, bastion and custom APK" description="The cloud receives site API traffic. The bastion mediates the site boundary. Our custom DC APK authenticates to the bastion direct API with a client certificate. OEM AC follows a separate local OCPP path." />
+
+## Network overlay and protocols
+
+**Transport protection and application identity are different layers.** WireGuard connects the site and cloud transport. Mutual TLS applies to the custom APK's direct API connection. OEM AC chargers do not inherit that mutual-TLS capability merely because they are connected behind a bastion.
+
+<ArchitectureDiagram name="02-network-protocols" title="Network overlay and protocol boundaries" description="The bastion initiates platform API traffic over the WireGuard overlay. Inside the site, the custom DC APK connects to the bastion over HTTPS with mutual TLS, while OEM AC uses locally terminated OCPP. Legacy plaintext WebSocket links are not end-to-end encrypted." />
+
+### Why AC and DC are shown separately
+
+OEM AC firmware and our custom DC APK are different software environments. Client-certificate support cannot be assumed across the OEM fleet. The documented design contains the OEM OCPP link within the site network and translates it into the platform-facing API. Where a legacy local link uses plaintext WebSocket, that limitation remains real: network isolation is not encryption.
+
+## What these diagrams establish—and what they do not
+
+Security capabilities depend on the device model, firmware and commissioned site configuration. The diagrams explain the architecture; they are not a security certification.
+
+The protocol diagram covers authentication and session connectivity. Local Modbus telemetry, device-control paths, EMS safety enforcement and update delivery are separate subjects; they are not covered by the diagram's mutual-TLS label. We do not imply that all local traffic is encrypted or that a network tunnel alone authorizes a control command.
+
+## Site responsibilities
+
+The site's physical access, local network and the configuration of each installed device remain relevant. For an assessment of a particular installation, [contact Stroomlijnen](https://stroomlijnen.nl/en/contact/) to review the actual deployment rather than inferring its security posture from a generic diagram.

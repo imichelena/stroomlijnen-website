@@ -1,0 +1,53 @@
+---
+import '../styles/fonts.css';
+import '../styles/commercial.css';
+import '../styles/commercial-refresh.css';
+import { gatewayOrigin, commercialPaths, legacyPaths } from '../../config/public-sites.mjs';
+import { gatewayHome, siteAudience } from '../data/site-target';
+import type { Lang } from '../data/commercial';
+interface Props { lang: Lang; page: 'contact' | 'receipt' }
+const { lang, page } = Astro.props;
+const en = lang === 'en';
+const paths = page === 'contact'
+  ? { nl: commercialPaths.nl.contact, en: commercialPaths.en.contact }
+  : { nl: legacyPaths.nl.receipt, en: legacyPaths.en.receipt };
+const title = page === 'contact' ? 'Contact' : (en ? 'Message sent' : 'Bericht verzonden');
+const summary = en ? 'Contact Stroomlijnen about your venue, hotel or business.' : 'Neem contact op met Stroomlijnen over uw podium, hotel of bedrijf.';
+const canonical = (l: Lang) => new URL(paths[l], gatewayOrigin).href;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Stroomlijnen</title><meta name="description" content={summary} />
+    <link rel="canonical" href={canonical(lang)} />
+    <link rel="alternate" hreflang="nl" href={canonical('nl')} />
+    <link rel="alternate" hreflang="en" href={canonical('en')} />
+    <link rel="alternate" hreflang="x-default" href={canonical('nl')} />
+    {(page === 'receipt' || siteAudience === 'preview') && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:title" content={title+' | Stroomlijnen'} /><meta property="og:url" content={canonical(lang)} />
+    <link rel="icon" href="/favicon-rings.png" /><meta name="theme-color" content="#f5f4ef" />
+  </head>
+  <body data-page={page}>
+    <a class="skip" href="#main">{en ? 'Skip to content' : 'Naar de inhoud'}</a>
+    <header class="header"><div class="shell header-inner">
+      <a class="brand" href={gatewayHome(lang)} aria-label={en ? 'Stroomlijnen homepage' : 'Stroomlijnen startpagina'}><img src="/stroomlijnen-logo-docs.png" width="219" height="37" alt="Stroomlijnen" /></a>
+      <nav class="shared-nav" aria-label={en ? 'Navigation and language' : 'Navigatie en taal'}>
+        <a href={gatewayHome(lang)}>{en ? 'All sectors' : 'Alle sectoren'}</a>
+        <a href={paths.nl} lang="nl" hreflang="nl" aria-label="Nederlands" aria-current={!en ? 'page' : undefined}>NL</a><span aria-hidden="true">/</span><a href={paths.en} lang="en" hreflang="en" aria-label="English" aria-current={en ? 'page' : undefined}>EN</a>
+      </nav>
+    </div></header>
+    <main id="main" tabindex="-1"><slot /></main>
+    <footer class="shell shared-foot"><span>© {new Date().getFullYear()} Stroomlijnen B.V.</span>{page === 'receipt' && <a href={commercialPaths[lang].contact}>Contact</a>}<a href={gatewayHome(lang)}>{en ? 'All sectors' : 'Alle sectoren'}</a></footer>
+  </body>
+</html>
+<style>
+  .shared-nav, .shared-foot { display:flex; align-items:center; gap:.6rem; }
+  .header nav.shared-nav { display:flex; position:static; width:auto; flex-flow:row nowrap; align-items:center; padding:0; border:0; margin-left:auto; gap:.6rem; background:transparent; font-size:.85rem; }
+  .header .header-inner { flex-wrap:nowrap; }
+  .header nav.shared-nav a { width:auto; padding:.5rem 0; }
+  .shared-nav a:first-child { margin-right: .55rem; }
+  .shared-nav [aria-current] { font-weight:600; text-decoration:underline; text-underline-offset:.3em; }
+  .shared-foot { justify-content:space-between; border-top:1px solid var(--line); padding-block:1.25rem; font-size:.84rem; }
+  @media (max-width: 420px) { .header nav.shared-nav { gap:.3rem; font-size:.78rem; } .brand img { width:110px; } }
+</style>

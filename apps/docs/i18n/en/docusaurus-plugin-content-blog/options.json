@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Stroomlijnen Blog",
+    "description": "The title for the blog used in SEO"
+  },
+  "description": {
+    "message": "Insights on electric fleet charging, Plug & Charge, and EV infrastructure in the Netherlands and Europe.",
+    "description": "The description for the blog used in SEO"
+  },
+  "sidebar.title": {
+    "message": "Recent posts",
+    "description": "The label for the left sidebar"
+  }
+}

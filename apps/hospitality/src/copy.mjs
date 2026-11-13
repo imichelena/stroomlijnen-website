@@ -1,0 +1,60 @@
+export const copy = {
+  nl: {
+    mainTitle: 'Laden en energiebeheer voor hotels', safetyTitle: 'Batterijveiligheid voor hotels',
+    description: 'Reserveer laadvermogen voor uw gasten. Ontdek hoe het Stroomlijnen EMS en de ESS 261 passen bij de keuken, de kamers en het laadplein van uw hotel.',
+    skip: 'Naar de inhoud', nav: 'Hoofdnavigatie', language: 'Taal', home: 'Startpagina Hospitality', charge: 'Laden voor gasten', ems: 'Energiemanagement', safety: 'Batterijveiligheid', contact: 'Contact',
+    title: ['Een volle eetzaal.', 'Ruimte om te laden.'],
+    lead: 'Om zes uur komen de gasten binnen, draait de keuken op volle toeren en willen de eerste auto’s laden. Stroomlijnen stemt het laden af op wat uw hotel op dat moment aan stroom kan missen.',
+    tour: 'Bekijk hoe het werkt', consult: 'Bespreek uw hotel', illustrated: 'Een hotel met zonnedak en AC-laders voor gasten.',
+    guestTitle: ['Hoeveel wilt u laden', 'vóór vertrek?'],
+    guestLead: 'Een gast die morgen vroeg vertrekt, wil vanavond weten waar hij aan toe is. Met een laadreservering kunt u vooraf toetsen of zijn verzoek past.',
+    steps: [
+      ['De gast geeft zijn wensen door', 'Bijvoorbeeld 30 kWh vóór 07.00 uur. De tijd die de auto bij het hotel staat, geeft ruimte om het laden te plannen.'],
+      ['Het EMS controleert de ruimte', 'Het vergelijkt de aanvraag met het verwachte hotelverbruik en eerdere toezeggingen. Past de aanvraag, dan reserveert het laadvermogen in dat tijdvenster.'],
+      ['Bij aankomst sluit de gast de auto aan', 'Het hotel regelt de parkeerplek. De lader, de auto en het moment van inpluggen bepalen mede hoeveel energie de auto daadwerkelijk opneemt.']
+    ],
+    receipt: 'Voorbeeld van een laadaanvraag', departure: 'Gewenst vertrek', requested: 'Gevraagde energie', arrival: 'Inpluggen', next: 'Volgende ochtend', window: 'Beschikbaar laadvenster',
+    ticketNote: '30 kWh is de gevraagde hoeveelheid energie. Hoeveel kW tegelijk naar de auto gaat, kan gedurende de nacht veranderen.',
+    reserveDocs: 'Hoe laadreserveringen werken', storage: 'Batterijopslag', safetyLink: 'Bekijk de zes beschermingslagen', inverter: 'Bidirectioneel vermogen', capacity: 'Nominale opslag', perUnit: 'Per ESS 261-kast', productAlt: 'De ESS 261 met groene lichtring, verticale deurhendel en lage frontventilatie.',
+    storageText: 'Kan de aansluiting het avonddiner en de laders tegelijk aan? De ESS 261 kan overdag zonnestroom opslaan en tijdens een piek tijdelijk bijleveren. Uw kwartiermetingen laten zien hoe groot de piek is en of de batterij op tijd weer kan opladen.',
+    storageHead: ['Bewaar de zon', 'voor het diner.'],
+    storageSafety: 'Voor u een plek kiest, wilt u weten hoe de batterij wordt bewaakt, wat er bij een alarm gebeurt en welke informatie uw verzekeraar kan beoordelen.',
+    roadLabel: 'In ontwikkeling · 2027–2028', roadTitle: ['Een kamer boeken,', 'met laadvermogen erbij.'],
+    roadText: 'We ontwikkelen koppelingen met hotelreserveringssystemen. Het doel is dat een gast bij het boeken van een kamer ook een laadvenster kan kiezen, met een vooraf afgesproken vermogen als onderdeel van de kamerprijs of het arrangement.',
+    roadNote: 'De koppeling met de kamerboeking staat op de roadmap voor 2027–2028. Het EMS kan nu al afzonderlijke laadreserveringen op haalbaarheid toetsen.',
+    mock: 'Concept voor een kamerarrangement', room: 'Overnachting met laden', amenity: 'Inbegrepen voorziening', power: 'Afgesproken laadbudget', bookedWindow: 'Laadvenster', unitsNote: 'Voorbeeldbudget voor één auto, afhankelijk van de beschikbare capaciteit.',
+    ctaTitle: 'Wat past er op uw aansluiting?', ctaText: 'Neem uw kwartierverbruik, aansluitvermogen en de aankomst- en vertrektijden van uw gasten mee. Samen bekijken we wat er nu kan en wanneer opslag iets toevoegt.',
+    email: 'Naar het contactformulier', gateway: 'Alle sectoren', docs: 'Technische documentatie', partner: 'Verkooppartner Lemnion',
+    back: 'Hospitality', safetyHead: ['Batterijveiligheid', 'in uw hotel.'], safetyIntro: 'Van de chemie in de cel tot de verbinding met uw brandmeldcentrale. Zo is de bescherming van de ESS 261 opgebouwd en dit bespreekt u vóór plaatsing met uw installateur en verzekeraar.',
+    layersTitle: 'Zes lagen van bescherming', built: 'In de kast', onSite: 'Op locatie', assessment: 'De kast op uw locatie', size: 'Afmetingen en gewicht', docsEss: 'Lees meer over batterijopslag', inDossier: 'Onderbouwing voor uw locatie', toLayers: 'Naar de veiligheidslagen', goEMS: 'Terug naar het energiebeheer voor hotels'
+  },
+  en: {
+    mainTitle: 'Guest charging and energy management for hotels', safetyTitle: 'Battery safety for hotels',
+    description: 'Reserve charging capacity for your guests. See how the Stroomlijnen EMS and ESS 261 work alongside your hotel kitchen, guest rooms and EV chargers.',
+    skip: 'Skip to content', nav: 'Main navigation', language: 'Language', home: 'Hospitality homepage', charge: 'Guest charging', ems: 'Energy management', safety: 'Battery safety', contact: 'Contact',
+    title: ['A full dining room.', 'Room to charge.'],
+    lead: 'At six, guests are checking in, dinner service is in full swing and the first cars are plugging in. Stroomlijnen adjusts guest charging to the power your hotel can spare at that moment.',
+    tour: 'See how it works', consult: 'Discuss your hotel', illustrated: 'Hotel with rooftop solar and AC chargers in the guest car park.',
+    guestTitle: ['How much charge', 'before checkout?'],
+    guestLead: 'A guest leaving early tomorrow wants to know what to expect tonight. A charging reservation lets you check whether you can meet their request before accepting it.',
+    steps: [
+      ['The guest tells you what they need', 'For example, 30 kWh by 07:00. The hours the car will spend at the hotel give you a window in which to plan its charging.'],
+      ['The EMS checks capacity', 'It checks the request against expected hotel demand and existing commitments. If the request fits, it sets aside power during that window.'],
+      ['The guest plugs in on arrival', 'The hotel arranges the parking space. The charger, the car and when the guest plugs in all affect how much energy the car actually takes.']
+    ],
+    receipt: 'Example charging request', departure: 'Departure time', requested: 'Energy requested', arrival: 'Plug in', next: 'Next morning', window: 'Available charging window',
+    ticketNote: '30 kWh is the amount of energy requested. The power supplied to the car, in kW, can change throughout the night.',
+    reserveDocs: 'How charging reservations work', storage: 'Battery storage', safetyLink: 'Explore the six safety layers', inverter: 'Bidirectional power', capacity: 'Nominal storage', perUnit: 'Per ESS 261 cabinet', productAlt: 'ESS 261 cabinet with its green display ring, vertical door latch and lower front grille.',
+    storageText: 'Can your grid connection cover dinner service and guest charging at the same time? The ESS 261 can store surplus solar power during the day and supply extra power during a peak. Your 15-minute meter readings show the size of the peak and whether there is time to recharge before the next one.',
+    storageHead: ['Save the sunshine', 'for dinner service.'],
+    storageSafety: 'Before choosing a location, you’ll want to know how the battery is monitored, what happens during an alarm and what evidence your insurer can review.',
+    roadLabel: 'In development · 2027–2028', roadTitle: ['Book a room,', 'with power to charge.'],
+    roadText: 'We are developing integrations with hotel reservation systems. The aim is for a guest to select a charging window when booking a room, with an agreed power budget included in the room rate or package.',
+    roadNote: 'Room-booking integration is on the 2027–2028 roadmap. The EMS can already check the feasibility of a separate charging reservation.',
+    mock: 'Room package concept', room: 'Overnight stay with charging', amenity: 'Included amenity', power: 'Agreed charging budget', bookedWindow: 'Charging window', unitsNote: 'Example budget for one vehicle, subject to available capacity.',
+    ctaTitle: 'What can your grid connection support?', ctaText: 'Bring your 15-minute meter readings, connection limit and typical guest arrival and departure times. Together we can see what fits today and where storage could help.',
+    email: 'Open the contact form', gateway: 'All sectors', docs: 'Technical documentation', partner: 'Sales partner Lemnion',
+    back: 'Hospitality', safetyHead: ['Battery safety', 'in your hotel.'], safetyIntro: 'From the chemistry in each cell to the connection with your fire alarm panel. Explore the ESS 261 safety design and the questions to discuss with your installer and insurer before siting a cabinet.',
+    layersTitle: 'Six layers of protection', built: 'Inside the cabinet', onSite: 'At your property', assessment: 'Siting the cabinet', size: 'Dimensions and weight', docsEss: 'Read more about battery storage', inDossier: 'Evidence for your property', toLayers: 'Explore the safety layers', goEMS: 'Back to energy management for hotels'
+  }
+};

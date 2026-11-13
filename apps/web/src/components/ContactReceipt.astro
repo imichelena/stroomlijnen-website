@@ -1,0 +1,20 @@
+---
+import SharedLayout from '../layouts/SharedLayout.astro';
+import { gatewayHome } from '../data/site-target';
+import type { Lang } from '../data/commercial';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const en = lang === 'en';
+---
+<SharedLayout lang={lang} page="receipt">
+  <section class="shell receipt">
+    <h1>{en ? 'Message sent' : 'Bericht verzonden'}</h1>
+    <p>{en ? 'Thank you for your message. We’ll get back to you within two working days.' : 'Bedankt voor uw bericht. We nemen binnen twee werkdagen contact met u op.'}</p>
+    <a class="button" href={gatewayHome(lang)}>{en ? 'Back to all sectors' : 'Terug naar alle sectoren'} <span aria-hidden="true">→</span></a>
+  </section>
+</SharedLayout>
+<style>
+  .receipt { padding-block: clamp(4rem, 12vw, 10rem); }
+  .receipt h1 { font-size: clamp(2.75rem, 7vw, 6rem); line-height: 1.05; }
+  .receipt p { margin-block: 1rem 2rem; }
+</style>

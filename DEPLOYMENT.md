@@ -1,66 +1,11 @@
-# Deployment — stroomlijnen.nl
+# Releasing the Stroomlijnen sites
 
-## The Rule
+Build from the same Git revision with the root commands in [README.md](README.md). Serve each hostname from its matching directory in `release/`. The existing apex job can continue using `npm ci`, `npm run build` and the repository-root `dist/`. The four subdomains require their own host bindings. Pointing every hostname at the apex document root would serve the sector selector on all five sites.
 
-**Push to this repo. Never upload files directly to the server.**
+For a host that builds directly from Git, set its repository root to this repository, its build command to `npm run build`, and its output directory to the corresponding `release/<hostname>`. On shared web servers, the host routing must select those same independent document roots on every origin. Support directory indexes and both variants of paths with a trailing slash. Serve the docs site's own 404 page for missing documentation routes.
 
-No SCP, no rsync, no SSH into `/var/www/`. The repo is the single source of truth.
+The sector selector links to the matching Dutch or English edition of each site. Historical business routes on the apex forward to commercial. All sites link back to the gateway, and contact requests go to the two localized pages on the apex. The former contact and thank-you pages on commercial and Cultuur forward to those apex pages. The static redirects preserve incoming query strings and fragments. Keep these rules when configuring native redirects.
 
-## Why
+After publication, confirm the origin bindings, DNS and certificates for each hostname. Verify `/`, `/en/`, both contact routes, a deep link in each language and representative image and script assets through the public HTTPS addresses. The root verification command runs offline against the release, independently of DNS.
 
-- We have **2 edge VPSes** (slm-edge + slm-edge-2) behind Cloudflare DNS round-robin
-- Direct uploads only hit one server → the other serves stale content → half of visitors see broken site
-- No version control = no rollback when something breaks
-- This already caused a production outage on March 26, 2026
-
-## How to Deploy
-
-1. Make your changes locally
-2. Build: `npm run build` (Astro → `dist/`)
-3. Commit and push to `main`
-4. Deployment to both edge servers is automated
-
-## Infrastructure
-
-| Server | IP | Role |
-|--------|-----|------|
-| slm-edge | 46.224.113.157 | Primary edge (Caddy + static files) |
-| slm-edge-2 | 91.107.213.172 | HA mirror (identical config) |
-
-Both servers serve from `/var/www/stroomlijnen/`.
-Both are behind Cloudflare DNS (round-robin).
-Both must always have identical content.
-
-## Stack
-
-- **Framework:** Astro 6 (static site generator)
-- **Hosting:** Caddy on both edge VPSes
-- **CDN:** Cloudflare (proxied)
-- **TLS:** Caddy auto-cert via Cloudflare DNS challenge
-
-## Domain
-
-- `stroomlijnen.nl` is canonical (not .nu)
-- `www.stroomlijnen.nl` → CNAME to root
-
-## For AI Agents
-
-If you are an AI agent working on this repo:
-- **NEVER** deploy by uploading files to a server via SSH/SCP/rsync
-- **ALWAYS** commit to this repo and push
-- The deployment pipeline handles the rest
-- If you don't have push access, ask your human to push for you
-- Read `src/pages/` for the current site structure
-
-## Deploy Log
-
-| Date | Commit | Deployed by | Notes |
-|------|--------|-------------|-------|
-| 2026-03-26 17:30 | c466cac | Clio (airig) | CSS fix deployed to both edges |
-
-## Communication
-
-Coordinatie tussen Clio's gaat via dit repo:
-- Push je code → het wordt gedeployed
-- Vragen of status? Open een Issue op GitHub of schrijf in dit bestand
-- NIET via Ignacio als tussenpersoon
+For a rollback, use the preceding release revision for all five document roots. See [ROLLBACK.md](ROLLBACK.md) for the older November 6 redesign history.

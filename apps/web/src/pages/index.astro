@@ -1,0 +1,6 @@
+---
+import HomeStory from '../components/HomeStory.astro';
+import SectorGateway from '../components/SectorGateway.astro';
+import { siteAudience } from '../data/site-target';
+---
+{siteAudience === 'commercial' ? <HomeStory lang="nl" /> : <SectorGateway lang="nl" />}

@@ -1,0 +1,98 @@
+{
+  "nl": {
+    "productTitle": "Een batterij voor de avondpiek",
+    "productBody": "Als de keuken op volle toeren draait en gasten tegelijk inpluggen, kan de ESS 261 tijdelijk vermogen bijleveren. Overdag kan de batterij eigen zonnestroom opslaan. Met uw kwartiermetingen bekijken we hoe lang de piek duurt en of er vóór de volgende piek tijd is om bij te laden.",
+    "facts": [
+      [
+        "261 kWh",
+        "Nominale opslagcapaciteit per kast"
+      ],
+      [
+        "125 kW",
+        "Vermogen van de omvormer voor laden en ontladen"
+      ]
+    ],
+    "capacityNote": "Hoeveel energie het hotel kan gebruiken, hangt af van de laadstatus, de ingestelde reserve, de temperatuur en de omzettingsverliezen.",
+    "title": "Batterijveiligheid, van cel tot brandmeldcentrale",
+    "intro": "Vijf lagen beschermen de batterij in de kast. Een zesde laag is mogelijk door de brandmeldcentrale van uw hotel ter plaatse bedraad aan te sluiten.",
+    "layers": [
+      [
+        "Lithiumijzerfosfaat",
+        "De batterij gebruikt LFP-cellen. Hun thermisch stabiele chemie vormt de eerste, passieve beschermingslaag."
+      ],
+      [
+        "Bewaking per cel",
+        "Het batterijbeheer volgt de celspanning en temperatuur en bewaakt onder meer de stroom en de elektrische isolatie. Bij een afwijking kan het systeem waarschuwen, het laadvermogen begrenzen of de batterij afschakelen."
+      ],
+      [
+        "Vloeistofkoeling",
+        "Een vloeistofcircuit voert warmte uit de batterij af. Afzonderlijke temperatuurgrenzen bepalen wanneer laden en ontladen zijn toegestaan."
+      ],
+      [
+        "Automatische brandonderdrukking",
+        "Detecteert het batterijbeheer een ongecontroleerde temperatuurstijging (thermal runaway), dan activeert het de ingebouwde blussing, de noodstop en het kritieke alarm."
+      ],
+      [
+        "Fysieke noodstop",
+        "De rode noodstop opent een vermogensschakelaar. Die verbreekt de wisselstroomverbinding tussen de kast en de installatie van het hotel. In de cellen blijft energie opgeslagen."
+      ],
+      [
+        "Koppeling met de brandmeldcentrale",
+        "De installateur kan de brandmeldcentrale bedraad op dezelfde schakelaar aansluiten. Bij een brandmelding kan de centrale dan automatisch de wisselstroomverbinding van de kast onderbreken. De koppeling wordt per locatie ontworpen en getest."
+      ]
+    ],
+    "evidenceTitle": "Wat uw verzekeraar kan beoordelen",
+    "evidence": "Voor het complete opslagsysteem is de elektrische veiligheid gecertificeerd volgens IEC 62933-5-2:2020. Het certificaat volgens IEC 63056:2020 geldt voor het batterijcluster. De UL 9540A-rapporten beschrijven proeven op afzonderlijke cellen. De IP55-behuizing is in de fabriek gecertificeerd.",
+    "siteAssessment": "Voor plaatsing binnen of buiten beoordelen we met uw installateur de draagkracht, warmteafvoer, bereikbaarheid en brandveiligheid. Uw verzekeraar kan de certificaten, testrapporten en het plaatsingsplan opvragen. De opleveringstest en de beoordeling van de verzekering horen bij de gekozen locatie.",
+    "dimensions": "1,45 m breed × 1,33 m diep × 2,15 m hoog. Gewicht per kast: 2.650 ± 50 kg.",
+    "imageAlt": "Detail van de ESS 261 met de rode noodstop en het bedieningsvenster met groene lichtring."
+  },
+  "en": {
+    "productTitle": "Battery storage for the evening peak",
+    "productBody": "When the kitchen is busy and several guests plug in at once, the ESS 261 can supply extra power for a time. During the day it can store surplus solar energy from the roof. We use your 15-minute meter readings to see how long each peak lasts and whether the battery can recharge before the next one.",
+    "facts": [
+      [
+        "261 kWh",
+        "Nominal storage capacity per cabinet"
+      ],
+      [
+        "125 kW",
+        "Inverter power for charging and discharging"
+      ]
+    ],
+    "capacityNote": "The energy available to the hotel depends on the state of charge, the reserve setting, temperature and conversion losses.",
+    "title": "Battery safety, from the cell to the hotel fire panel",
+    "intro": "Five layers protect the battery inside the cabinet. A sixth layer is available when the hotel’s fire alarm panel is wired in on site.",
+    "layers": [
+      [
+        "Lithium iron phosphate",
+        "The battery uses LFP cells. Their thermally stable chemistry provides the first, passive layer of protection."
+      ],
+      [
+        "Cell monitoring",
+        "The battery management system tracks individual cell voltages and temperatures, as well as current and electrical insulation. Depending on the fault, it can issue a warning, reduce charging power or disconnect the battery."
+      ],
+      [
+        "Liquid cooling",
+        "A liquid circuit carries heat away from the battery. Separate temperature limits govern when the cells can charge and discharge."
+      ],
+      [
+        "Automatic fire suppression",
+        "If the battery management system detects uncontrolled heating (thermal runaway), it activates the built-in suppression system, emergency stop and critical alarm."
+      ],
+      [
+        "Physical emergency stop",
+        "The red stop button opens a power contactor, disconnecting the cabinet from the hotel’s AC electrical system. The cells still contain stored energy."
+      ],
+      [
+        "Hotel fire panel connection",
+        "The installer can hardwire the hotel’s fire panel to the same contactor. A fire alarm can then automatically disconnect the cabinet from AC power. This connection is designed and tested for each property."
+      ]
+    ],
+    "evidenceTitle": "What your insurer can review",
+    "evidence": "The complete storage system is certified for electrical safety to IEC 62933-5-2:2020. The IEC 63056:2020 certificate covers the battery cluster. The UL 9540A reports describe tests on individual cells. The enclosure is factory-certified to IP55.",
+    "siteAssessment": "For indoor or outdoor installation, we review floor loading, heat removal, access and fire safety with your installer. Your insurer can request the certificates, test reports and siting plan. Site acceptance testing and the insurance assessment apply to the individual property.",
+    "dimensions": "1.45 m wide × 1.33 m deep × 2.15 m high. Weight per cabinet is 2,650 ± 50 kg.",
+    "imageAlt": "Detail of the ESS 261 showing the red emergency stop and the control window with its green light ring."
+  }
+}

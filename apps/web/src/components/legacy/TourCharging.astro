@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { contactEntry } from '../../data/site-target';
+
+interface Props { lang: 'nl' | 'en' }
+const { lang } = Astro.props;
+const t = (nl: string, en: string) => lang === 'en' ? en : nl;
+---
+<Layout lang={lang} page="touring" title={t("Voor gezelschappen — elektrisch laden op tournee", "Charging on tour")}>
+<style>
+.page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 5rem}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:.75rem;max-width:800px}
+.page-hero p{font-size:1.1rem;color:var(--text);max-width:640px;line-height:1.75;margin-bottom:1.5rem}
+.steps-list{display:flex;flex-direction:column;gap:.85rem;margin-top:2rem}
+.step{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px}
+.step-num{background:var(--cyan);color:var(--navy);width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;min-width:2rem}
+.step h4{color:var(--white);margin-bottom:.25rem;font-size:.95rem}
+.step p{color:var(--text);font-size:.88rem;line-height:1.55;margin:0}
+.steps-cta{text-align:center;margin-top:1.5rem}
+.steps-cta a{color:var(--cyan);font-size:.88rem;font-weight:600}
+.steps-cta .btn{font-size:1rem;padding:.85rem 2.5rem;color:var(--navy)!important}
+
+/* Highlight box */
+.highlight-box{background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.highlight-box h3{color:var(--white);font-size:1.1rem;margin-bottom:.6rem}
+.highlight-box p{color:var(--text);font-size:.88rem;line-height:1.6;margin:0}
+.highlight-box .big-num{font-size:2rem;font-weight:700;color:var(--cyan);display:block}
+
+
+.cta-block{text-align:center;padding:5rem 0}
+.cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
+.cta-block p{color:var(--text);max-width:520px;margin:0 auto 2rem;line-height:1.7}
+.btn-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.faq{display:flex;flex-direction:column;gap:.75rem;margin-top:2rem}
+.faq-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1.5rem}
+.faq-item h4{color:var(--white);margin-bottom:.4rem;font-size:.95rem}
+.faq-item p{color:var(--text);font-size:.85rem;line-height:1.6;margin:0}
+
+@media(max-width:768px){
+  .highlight-box{grid-template-columns:1fr}
+}
+</style>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>{t("Laden op tournee — één tarief, landelijk", "Charge on tour at one nationwide rate")}</h1>
+      <p>{t("Uw wagen staat toch al uren bij het loadingdock. Laad op tijdens opbouw, voorstelling en afbouw — tegen een cultureel tarief, via het Stroomlijnen-netwerk.", "Your vehicle already spends hours at the loading dock. Charge during setup, the performance and load-out at the cultural rate through the Stroomlijnen network.")}</p>
+    </div>
+  </section>
+
+  <!-- Het netwerk -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">{t("Hoe het werkt", "How it works")}</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.75rem">{t("Laden bij elk aangesloten theater", "Charge at any participating theatre")}</h2>
+      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:1.5rem">{t("Stroomlijnen bouwt een landelijk dekkend netwerk van laders bij theaters. Eén pas, één tarief, één factuur — ongeacht waar uw tournee stopt. Geen roaming, geen externe laadpasaanbieders.", "Stroomlijnen is building a nationwide network of theatre chargers. One card, one rate and one invoice cover every stop on your tour, without roaming or an external charging card provider.")}</p>
+      <div class="steps-list">
+        <div class="step"><div class="step-num">1</div><div><h4>{t("Rijd naar het loadingdock", "Drive to the loading dock")}</h4><p>{t("Stroomlijnen-locaties hebben een lader bij of nabij het laaddok. Herkenbaar aan het Stroomlijnen-logo.", "Look for the Stroomlijnen logo at or near the loading dock at a participating venue.")}</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h4>{t("Sluit de kabel aan", "Plug in")}</h4><p>{t("CCS2 voor vrachtwagens en zware bestelwagens. Type 2 voor lichtere voertuigen en tourbussen.", "Use CCS2 for trucks and heavy vans, or Type 2 for lighter vehicles and tour minibuses.")}</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h4>{t("Authenticeer", "Identify your account")}</h4><p>{t("Via uw Stroomlijnen-account: app, QR-code, RFID-tag of Plug & Charge. Uw cultureel tarief wordt automatisch toegepast.", "Use the app, a QR code, an RFID tag or Plug & Charge. Your cultural rate applies automatically.")}</p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h4>{t("Laden loopt automatisch", "Charging starts automatically")}</h4><p>{t("Het systeem laadt slim en netbewust. U ontvangt een melding als de accu vol is.", "The system adjusts charging to the available grid capacity and notifies you when the battery is full.")}</p></div></div>
+        <div class="step"><div class="step-num">5</div><div><h4>{t("Maandelijks factuur", "Receive one monthly invoice")}</h4><p>{t("Alle laadsessies worden gebundeld en achteraf gefactureerd. Overzicht via uw persoonlijke portal.", "We combine your sessions into one invoice and bill in arrears. Your personal portal shows the details.")}</p></div></div>
+      </div>
+      <div class="steps-cta">
+        <a href={contactEntry(lang)} class="btn btn-primary">{t("Laadpassen aanvragen →", "Request charging cards →")}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Waarom Stroomlijnen voor transporteurs -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">{t("Waarom Stroomlijnen", "Why Stroomlijnen")}</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">{t("Voordelen voor gezelschappen", "Benefits for touring companies")}</h2>
+      <div class="highlight-box">
+        <div>
+          <h3>{t("Cultureel tarief — 30% onder marktprijs", "A cultural rate around 30% below market prices")}</h3>
+          <p>{t("Waar commerciële snelladers €0,60—€0,80/kWh rekenen, hanteren wij een cultuurtarief van €0,45/kWh. Vergeleken met diesel bespaart u nog veel meer: een elektrische truck kost ~€0,45/km*, diesel ~€0,60/km.", "Where commercial fast chargers charge €0.60–€0.80/kWh, the cultural rate is €0.45/kWh. In the example, an electric truck costs about €0.45/km* compared with around €0.60/km for diesel.")}</p>
+        </div>
+        <div>
+          <h3>{t("Netwerk dat meegroeit", "A network that grows with the industry")}</h3>
+          <p>{t("Hoe meer theaters zich aansluiten, hoe meer laadpunten. Het netwerk groeit met de sector — niet met winstoogmerk. Elk theater is een laadplek op uw route.", "Each theatre that joins adds another charging stop on your route. The network grows to meet the needs of touring companies.")}</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;margin-top:1.5rem">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1.25rem;text-align:center">
+          <span class="big-num" style="font-size:1.6rem;font-weight:700;color:var(--cyan);display:block">{t("€0,45/kWh", "€0.45/kWh")}</span>
+          <p style="color:var(--text);font-size:.85rem;margin-top:.35rem">{t("cultureel tarief", "cultural rate")}</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1.25rem;text-align:center">
+          <span class="big-num" style="font-size:1.6rem;font-weight:700;color:var(--cyan);display:block">{t("Eén pas", "One card")}</span>
+          <p style="color:var(--text);font-size:.85rem;margin-top:.35rem">{t("voor alle locaties", "for all locations")}</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.12);border-radius:8px;padding:1.25rem;text-align:center">
+          <span class="big-num" style="font-size:1.6rem;font-weight:700;color:var(--cyan);display:block">{t("4 uur", "4 hours")}</span>
+          <p style="color:var(--text);font-size:.85rem;margin-top:.35rem">{t("laadtijd volle truck (120 kW)", "for a full truck charge at 120 kW")}</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Kosten -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">{t("Kosten", "Costs")}</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">{t("Transparante tarieven, geen verrassingen", "What you pay")}</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:700px;line-height:1.7;margin-bottom:1.5rem">{t("Een laadpas kost", "A charging card costs")} <strong style="color:var(--white)">{t("€10 eenmalig", "€10 upfront")}</strong> {t("en", "and")} <strong style="color:var(--white)">{t("€5 per maand", "€5 per month")}</strong>{t(". Geen verdere (verborgen) kosten.", ". There are no additional fees for the card.")}</p>
+      <div style="background:rgba(0,176,228,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem">
+          <div>
+            <p style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">{t("Eenmalig", "One-off fee")}</p>
+            <p style="font-size:1.3rem;font-weight:700;color:var(--white)">€10</p>
+            <p style="color:var(--text);font-size:.82rem;margin-top:.2rem">{t("per laadpas", "per charging card")}</p>
+          </div>
+          <div>
+            <p style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">{t("Per maand", "Monthly fee")}</p>
+            <p style="font-size:1.3rem;font-weight:700;color:var(--white)">€5</p>
+            <p style="color:var(--text);font-size:.82rem;margin-top:.2rem">{t("per laadpas", "per charging card")}</p>
+          </div>
+          <div>
+            <p style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem">{t("Afrekening", "Billing")}</p>
+            <p style="font-size:1rem;font-weight:600;color:var(--white)">{t("Maandelijks", "Monthly")}</p>
+            <p style="color:var(--text);font-size:.82rem;margin-top:.2rem">{t("via SEPA-machtiging achteraf", "by SEPA direct debit in arrears")}</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem">
+        <div style="display:flex;gap:.75rem;align-items:flex-start;padding:.75rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">
+          <span style="color:var(--cyan);font-size:1.1rem">🔑</span>
+          <p style="color:var(--text);font-size:.88rem;line-height:1.55;margin:0">{t("Bij de pas krijgt u toegang tot uw eigen", "Your card gives you access to your own")} <strong style="color:var(--white)">{t("portaal", "portal")}</strong> {t("— elke pas is daar zichtbaar, krijgt een naam en kunt u schorsen of blokkeren.", "where you can view, name, suspend or block each card.")}</p>
+        </div>
+        <div style="display:flex;gap:.75rem;align-items:flex-start;padding:.75rem 1rem;background:rgba(255,255,255,.03);border-radius:8px">
+          <span style="color:var(--cyan);font-size:1.1rem">📊</span>
+          <p style="color:var(--text);font-size:.88rem;line-height:1.55;margin:0">{t("Overzicht van alle (historische) laadsessies en facturen — altijd inzicht in uw laadgedrag en kosten.", "See your charging sessions and invoices, including past activity, to keep track of usage and costs.")}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">{t("Veelgestelde vragen", "Frequently asked questions")}</h2>
+      <div class="faq">
+        <div class="faq-item"><h4>{t("Kan ik de hele tour elektrisch rijden?", "Can we run an entire tour on electricity?")}</h4><p>{t("In de meeste gevallen ja. Afstanden tussen Nederlandse theaters zijn goed haalbaar met moderne e-trucks. Een truck rijdt 250—500 km op een lading, een bakwagen 100—220 km. De bedoeling is dat u bij elk theater kunt laden — dan is de actieradius geen belemmering.", "In most cases, yes. Distances between Dutch theatres are within reach of modern electric trucks. A tractor unit typically travels 250–500 km on a charge and a box truck 100–220 km. The aim is to offer charging at every theatre along the route.")}</p></div>
+        <div class="faq-item"><h4>{t("Wat als een theater nog geen Stroomlijnen-lader heeft?", "What if a theatre has no Stroomlijnen charger yet?")}</h4><p>{t("Dan kunt u een mobiele lader meenemen (30 kW, plug-and-play).", "You can bring a 30 kW plug-and-play mobile charger.")}</p></div>
+        <div class="faq-item"><h4>{t("Hoe lang staat mijn wagen te laden?", "How long will our vehicle need to charge?")}</h4><p>{t("Met een 120 kW lader is een truck in 4 uur vol — de meeste producties, en dus wagens, zijn minimaal 10 uur aanwezig. Bakwagen bij 80—150 kW: 2—3 uur. Bestelbus bij 22 kW: 2—4 uur.", "A 120 kW charger can fill a truck battery in four hours, while most productions stay at a venue for at least ten hours. A box truck takes about 2–3 hours at 80–150 kW and a van about 2–4 hours at 22 kW.")}</p></div>
+        <div class="faq-item"><h4>{t("Is elektrisch goedkoper dan diesel?", "Does electricity cost less than diesel?")}</h4><p>{t("Ja. Truck: €0,45/km* (elektrisch) vs €0,60/km (diesel). Bakwagen: €0,18 vs €0,23. Plus: u vermijdt kilometerheffing voor dieselwagens en ZE-zone-boetes.", "In the example, an electric truck costs €0.45/km* compared with €0.60/km for diesel. For a box truck the figures are €0.18/km and €0.23/km. Electric vehicles can also avoid charges and restrictions that apply to diesel vehicles in zero-emission zones.")}</p></div>
+        <div class="faq-item"><h4>{t("Moet ik de hele tour in één keer omschakelen?", "Do we have to switch the entire tour at once?")}</h4><p>{t("Nee, maar het is efficiënter. Zodra meerdere steden op uw tour een ZE-zone hebben, wordt wisselen tussen elektrisch en diesel tijdrovend en duur.", "No. As more stops on your tour introduce zero-emission zones, switching between electric and diesel vehicles can become time-consuming and expensive.")}</p></div>
+        <div class="faq-item"><h4>{t("Hoe regel ik een Stroomlijnen-account?", "How do we open a Stroomlijnen account?")}</h4><p>{t("Neem contact op — wij regelen uw account, het cultureel tarief en de facturatie. Daarna laadt u bij alle aangesloten Stroomlijnen-locaties.", "Contact us and we’ll arrange the account, cultural rate and billing. You can then charge at all participating Stroomlijnen locations.")}</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="container cta-block">
+      <h2>{t("Laadpassen aanvragen of meer weten?", "Need charging cards or more information?")}</h2>
+      <p>{t("Neem contact op — wij zetten u op het culturele tarief en regelen uw account. Direct laden bij alle Stroomlijnen-locaties.", "Contact us to set up your account and cultural rate. You can then charge across the Stroomlijnen network.")}</p>
+      <div class="btn-row">
+        <a href={contactEntry(lang)} class="btn btn-primary">{t("Laadpassen aanvragen →", "Request charging cards →")}</a>
+      </div>
+    </div>
+  </section>
+</Layout>

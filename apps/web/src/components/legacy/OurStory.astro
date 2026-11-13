@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { contactEntry } from '../../data/site-target';
+
+interface Props { lang: 'nl' | 'en' }
+const { lang } = Astro.props;
+const t = (nl: string, en: string) => lang === 'en' ? en : nl;
+---
+<Layout lang={lang} page="story" title={t("Over ons", "About us")}>
+<style>
+.page-hero{background:linear-gradient(135deg,#0a1628,#0d1e38 60%,#091422);padding:7rem 0 6rem}
+.page-hero h1{font-size:clamp(2rem,4vw,3rem);color:var(--white);margin-bottom:1.25rem}
+.page-hero p{font-size:1.1rem;color:var(--text);max-width:640px;line-height:1.75}
+
+/* Team */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2rem}
+.team-card{background:rgba(255,255,255,.04);border:1px solid rgba(0,176,228,.15);border-radius:10px;padding:2rem;display:flex;flex-direction:column;align-items:center;text-align:center;transition:border-color .2s}
+.team-card:hover{border-color:rgba(0,176,228,.35)}
+.team-photo{width:6rem;height:6rem;border-radius:50%;background:rgba(0,176,228,.08);border:2px solid rgba(0,176,228,.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;overflow:hidden;font-size:1.6rem;font-weight:700;color:rgba(255,255,255,.3)}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+.team-card h3{color:var(--white);font-size:1.15rem;margin-bottom:.2rem}
+.team-role{color:var(--cyan);font-size:.83rem;font-weight:600;margin-bottom:.75rem;display:block}
+.team-card p{color:var(--text);font-size:.88rem;line-height:1.6;margin:0;max-width:320px}
+.team-social{margin-top:.75rem}
+.team-social a{color:rgba(255,255,255,.35);font-size:.82rem;text-decoration:none;transition:color .2s}
+.team-social a:hover{color:var(--cyan)}
+
+/* Missie */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:1rem}
+.two-col p{color:var(--text);line-height:1.75;margin-bottom:1rem}
+.sidebar-stats{display:flex;flex-direction:column;gap:1.5rem}
+.sidebar-stat{border-left:3px solid var(--cyan);padding-left:1.25rem}
+.sidebar-stat h3{color:var(--white);margin-bottom:.25rem}
+.sidebar-stat p{color:var(--text);font-size:.9rem;line-height:1.6;margin:0}
+
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem;margin-top:2rem}
+.lab-item{background:rgba(255,255,255,.06);border-radius:8px;padding:1.25rem}
+.lab-icon{margin-bottom:.5rem}
+.lab-item h4{color:var(--white);font-size:.95rem;margin-bottom:.25rem}
+.lab-item p{color:var(--text);font-size:.82rem;line-height:1.55;margin:0}
+.lab-status{margin-top:1.5rem;background:rgba(0,176,228,.06);border:1px solid rgba(0,176,228,.2);border-radius:8px;padding:1.25rem}
+.lab-status h4{color:var(--white);margin-bottom:.75rem}
+.lab-status ul{list-style:none}
+.lab-status li{color:var(--text);font-size:.88rem;padding:.2rem 0;padding-left:1.5rem;position:relative}
+.lab-status li:before{content:"✓";color:var(--green);position:absolute;left:0;font-weight:700}
+.lab-video{margin-top:1.5rem}
+.lab-video video{width:100%;display:block;border-radius:8px;border:1px solid rgba(0,176,228,.2);background:#0d1e38}
+.lab-video figcaption{margin-top:.6rem;color:var(--text);font-size:.85rem;line-height:1.55}
+
+.cta-block{text-align:center;padding:5rem 0}
+.cta-block h2{color:var(--white);font-size:2rem;margin-bottom:1rem}
+.cta-block p{color:var(--text);max-width:520px;margin:0 auto 2rem;line-height:1.7}
+
+@media(max-width:768px){.two-col{grid-template-columns:1fr}}
+</style>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>{t("Over ons", "About us")}</h1>
+      <p>{t("Stroomlijnen is opgericht vanuit de sector — niet vanuit een businessplan. Wij kennen de uitdagingen van binnenuit en bouwen een laadnetwerk dat past bij hoe het theater werkt.", "Stroomlijnen grew out of the theatre industry. We know its challenges firsthand and are building a charging network around the way theatres work.")}</p>
+    </div>
+  </section>
+
+  <!-- Team — eerst! -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">Team</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.5rem">{t("Wij zijn Stroomlijnen", "Meet Stroomlijnen")}</h2>
+      <p style="color:var(--text);font-size:.9rem;max-width:640px;line-height:1.7;margin-bottom:.5rem">{t("Van hardware en software tot theaterlogistiek en locatie-uitrol — samen brengen we de elektrificatie van de culturele tour van de grond.", "Our team brings together hardware, software, theatre logistics and site installation to make electric touring possible.")}</p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo"><img src="/team-ignacio.jpg" alt="Ignacio Michelena" /></div>
+          <h3>Ignacio Michelena</h3>
+          <span class="team-role">{t("CEO · Technisch directeur", "CEO · Technical Director")}</span>
+          <p>{t("Technische architectuur, hardware-import, open-source CPO/EMS, IT-infrastructuur. Bouwt en beheert het platform.", "Designs and runs the platform, covering system architecture, hardware sourcing, open-source charge point and energy management software, and IT infrastructure.")}</p>
+          <div class="team-social">
+            <a href="mailto:ignacio@stroomlijnen.nl">ignacio@stroomlijnen.nl</a><br>
+            <a href="https://www.linkedin.com/in/imichelena" target="_blank">LinkedIn →</a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="/team-jacco.jpg" alt="Jacco Patist" /></div>
+          <h3>Jacco Patist</h3>
+          <span class="team-role">{t("Commercieel directeur", "Commercial Director")}</span>
+          <p>{t("30 jaar ervaring in de theaterproductiesector. Commerciële strategie, klantrelaties. Eigenaar Lichtwerk B.V. — de eerste pilotlocatie.", "Brings 30 years of theatre production experience and leads commercial strategy and customer relationships. Owns Lichtwerk B.V., our first pilot site.")}</p>
+          <div class="team-social">
+            <a href="mailto:jacco@stroomlijnen.nl">jacco@stroomlijnen.nl</a><br>
+            <a href="https://www.linkedin.com/in/jacco-patist-81629897" target="_blank">LinkedIn →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Missie -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1.5rem">{t("Missie", "Our mission")}</p>
+      <div class="two-col">
+        <div>
+          <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1.25rem">{t("Maatschappelijke impact via commercie", "Using a business to support the cultural sector")}</h2>
+          <p>{t("Stroomlijnen is opgericht met een ideële inslag — niet om grote winsten te maken, maar om maatschappelijke impact te creëren met de culturele sector als vertrekpunt.", "We founded Stroomlijnen to make a social contribution, starting with the cultural sector.")}</p>
+          <p>{t("Het bedrijf is commercieel als middel, niet als doel. Wat we verdienen, gaat grotendeels terug naar de sector via het Cultuurfonds. Eventuele overwinsten vloeien eveneens terug — niet naar aandeelhouders.", "Much of what we earn goes back to the sector through the Cultuurfonds. Any surplus profits also go to the fund.")}</p>
+          <p>{t("We geloven dat verduurzaming niet afhankelijk moet zijn van grote marges. Bodemprijzen voor de sector zijn een bewuste keuze, niet een bijproduct van concurrentiedruk.", "Keeping prices low for the sector is a deliberate choice. We believe the transition to electric transport should be possible on modest margins.")}</p>
+        </div>
+        <div class="sidebar-stats">
+          <div class="sidebar-stat">
+            <h3>{t("25 jaar ervaring in de sector", "25 years of sector experience")}</h3>
+            <p>{t("Het team van Stroomlijnen komt uit de evenementenstroomvoorziening, theatertechniek en IT-infrastructuur. We installeren geen hardware zonder te begrijpen hoe een theater werkt — van de kleedkamer tot het laaddok.", "Our team comes from event power supply, theatre technology and IT infrastructure. We design installations with an understanding of how a theatre operates, from the dressing rooms to the loading dock.")}</p>
+          </div>
+          <div class="sidebar-stat">
+            <h3>{t("Reserveonderdelen op voorraad in Amsterdam", "Spare parts in stock in Amsterdam")}</h3>
+            <p>{t("Power modules, touchscreens, connectors — beschikbaar voor directe inzet. Geen weken wachten op onderdelen uit het buitenland. Fabrieksgetraind serviceteam.", "Our factory-trained service team keeps power modules, touchscreens and connectors ready for immediate use.")}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Living lab -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem">{t("Eerste locatie", "Our first site")}</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:.75rem">{t("Living lab — Lichtwerk Amsterdam", "Living lab at Lichtwerk Amsterdam")}</h2>
+      <p style="color:var(--text);max-width:700px;line-height:1.75;margin-bottom:2rem">{t("Het eerste Stroomlijnen-systeem draait bij Lichtwerk B.V. in Amsterdam — het productiebedrijf van Jacco Patist. Dit is het living lab waar wij de technologie testen en verfijnen voordat we uitrollen naar andere theaters.", "The first Stroomlijnen system runs at Lichtwerk B.V. in Amsterdam, Jacco Patist’s production company. We test and refine the technology here before rolling it out to other theatres.")}</p>
+      <div class="lab-grid">
+        <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h4>{t("120 kW DC-snellader CCS2", "120 kW CCS2 DC fast charger")}</h4><p>{t("Volledig operationeel voor elektrische vrachtwagens.", "Operational and charging electric trucks.")}</p></div>
+        <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="16" height="10" rx="2" ry="2"/><line x1="22" y1="11" x2="22" y2="13"/><line x1="7" y1="11" x2="7" y2="13"/><line x1="10" y1="9" x2="10" y2="15"/></svg></div><h4>{t("Batterijopslag (BSS)", "Battery storage (BSS)")}</h4><p>{t("Buffer voor peakshaving en laadoptimalisatie.", "Buffers peak demand and helps optimise charging.")}</p></div>
+        <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#84BD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></div><h4>{t("Zonnepanelen", "Solar panels")}</h4><p>{t("Eigen opwek gekoppeld aan het EMS.", "On-site generation connected to the energy management system.")}</p></div>
+        <div class="lab-item"><div class="lab-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00B0E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="#00B0E4"/></svg></div><h4>{t("Triple-redundante servers", "Triple-redundant servers")}</h4><p>{t("Lokaal draaiend via Tailscale, geen internetafhankelijkheid.", "Run locally with private Tailscale connectivity, independent of an internet connection.")}</p></div>
+      </div>
+
+      <figure class="lab-video">
+        <video src="/video/soc-status-op-afstand.mp4" poster="/video/soc-status-op-afstand-poster.jpg"
+               controls muted playsinline preload="none"></video>
+        <figcaption>{t("SOC en status op afstand zichtbaar", "Remotely viewing state of charge and charger status")}</figcaption>
+      </figure>
+
+      <div class="lab-status">
+        <h4>{t("Status living lab", "Living lab status")}</h4>
+        <ul>
+          <li>{t("120 kW DC-snellader — operationeel", "120 kW DC fast charger · operational")}</li>
+          <li>{t("Batterijopslag — operationeel", "Battery storage · operational")}</li>
+          <li>{t("Zonnepanelen — aangesloten", "Solar panels · connected")}</li>
+          <li>{t("EMS lokaal — productie", "Local energy management · in production")}</li>
+          <li>{t("OCPP 2.0.1 — live", "OCPP 2.0.1 · live")}</li>
+          <li>{t("Tailscale-netwerk — actief", "Tailscale network · active")}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ERE & Cultuurfonds -->
+  <section>
+    <div class="container">
+      <p style="color:var(--cyan);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem">{t("Maatschappelijke impact", "Social impact")}</p>
+      <h2 style="color:var(--white);font-size:1.8rem;margin-bottom:1rem">{t("ERE-certificaten naar het Cultuurfonds", "ERE proceeds for the Cultuurfonds")}</h2>
+      <div class="two-col">
+        <div>
+          <p>{t("Elke kWh die via een Stroomlijnen-lader wordt geleverd, genereert een Europees Energie Certificaat (ERE) — ook wel Garantie van Oorsprong (GvO) genoemd. Dit is een officieel, verhandelbaar bewijs van hernieuwbare energieopwekking.", "Electricity delivered through Stroomlijnen chargers contributes to renewable energy certificates. These certificates can be traded.")}</p>
+          <p>{t("Op de markt hebben deze certificaten een waarde. Bij de meeste CPO's verdwijnt die opbrengst in de bedrijfsresultaten. Bij Stroomlijnen niet.", "The certificates have a market value. Where many charge point operators keep this revenue, Stroomlijnen directs it back to the sector.")}</p>
+          <p>{t("De volledige ERE-opbrengst van alle Stroomlijnen-locaties gaat naar het Cultuurfonds — ten behoeve van projecten en makers op het gebied van muziek en theater.", "All ERE proceeds from Stroomlijnen locations go to the Cultuurfonds to support people and projects in music and theatre.")}</p>
+        </div>
+        <div>
+          <div class="sidebar-stat">
+            <h3>{t("Hoe werkt het?", "How does it work?")}</h3>
+            <p>{t("Stroomlijnen verzorgt de registratie, inning en levering van de ERE-certificaten aan het Cultuurfonds (in oprichting). Het fonds is een zelfstandige entiteit, los van Stroomlijnen, die de opbrengst besteedt aan projecten en makers op het gebied van muziek en theater.", "Stroomlijnen handles registration, collection and transfer of the certificates to the Cultuurfonds, which is being established as an independent body. The fund will use the proceeds to support people and projects in music and theatre.")}</p>
+          </div>
+          <div class="sidebar-stat" style="margin-top:2rem">
+            <h3>{t("Wat betekent dit voor u?", "What does this mean for your venue?")}</h3>
+            <p>{t("Het fonds verstrekt subsidies aan projecten en makers op het gebied van muziek en theater — organisaties die elektrisch rijden nog niet kunnen betalen. Zo reikt de impact van uw lader verder dan uw eigen locatie.", "The fund awards grants to music and theatre projects and to people who cannot yet afford to switch to electric transport. The benefits extend beyond the venue that hosts the charger.")}</p>
+          </div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:.85rem;max-width:600px;line-height:1.65;margin-top:1.5rem">{t("Het Cultuurfonds wordt formeel opgericht in 2025—2026. De bestemming van de certificaten staat vast in het contract — ongeacht de oprichtingstatus van het fonds.", "The plan was to formally establish the Cultuurfonds in 2025–2026. The contract sets out where the proceeds go, regardless of the fund’s incorporation status.")}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container cta-block">
+      <h2>{t("In gesprek?", "Talk to us")}</h2>
+      <p>{t("Voor theaters, transportbedrijven en andere vragen — neem direct contact op.", "We welcome enquiries from theatres, transport operators and anyone with a question.")}</p>
+      <a href={contactEntry(lang)} class="btn btn-primary">{t("Neem contact op →", "Get in touch →")}</a>
+    </div>
+  </section>
+</Layout>

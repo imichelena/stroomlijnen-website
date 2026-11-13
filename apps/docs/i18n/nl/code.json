@@ -1,0 +1,47 @@
+{
+  "theme.SearchBar.label": {
+    "message": "Zoeken"
+  },
+  "theme.SearchBar.noResultsText": {
+    "message": "Geen resultaten"
+  },
+  "theme.SearchBar.seeAll": {
+    "message": "Alle resultaten bekijken"
+  },
+  "theme.SearchBar.searchInContext": {
+    "message": "Alle resultaten binnen ‘{context}’ bekijken"
+  },
+  "theme.SearchBar.seeAllOutsideContext": {
+    "message": "Alle resultaten buiten ‘{context}’ bekijken"
+  },
+  "theme.SearchPage.emptyResultsTitle": {
+    "message": "Zoeken in de documentatie"
+  },
+  "theme.SearchPage.existingResultsTitle": {
+    "message": "Zoekresultaten voor ‘{query}’"
+  },
+  "theme.SearchPage.documentsFound.plurals": {
+    "message": "1 document gevonden|{count} documenten gevonden"
+  },
+  "theme.SearchPage.noResultsText": {
+    "message": "Geen documenten gevonden"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "Overal"
+  },
+  "theme.NavBar.navAriaLabel": {
+    "message": "Hoofdnavigatie"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(opent in een nieuw tabblad)"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "standaardinstelling"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Menu inklappen"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Menu uitklappen"
+  }
+}

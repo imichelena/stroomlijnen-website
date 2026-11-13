@@ -1,0 +1,19 @@
+---
+import { docsEntry } from '../data/site-target';
+const destination = docsEntry('nl');
+---
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <title>Kennisbank | Stroomlijnen</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={destination} />
+    <script define:vars={{ destination }}>location.replace(destination + location.search + location.hash);</script>
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+  </head>
+  <body>
+    <a href={destination} target="_blank" rel="noopener noreferrer">Ga naar de Nederlandse kennisbank</a>
+    <a href={docsEntry('en')} target="_blank" rel="noopener noreferrer" lang="en" hreflang="en">English documentation</a>
+  </body>
+</html>

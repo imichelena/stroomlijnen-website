@@ -1,0 +1,42 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docsSidebar.category.Aan de slag": {
+    "message": "Getting started",
+    "description": "The label for category 'Aan de slag' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Energie en vermogen": {
+    "message": "Energy and power",
+    "description": "The label for category 'Energie en vermogen' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Plug & Charge": {
+    "message": "Plug & Charge",
+    "description": "The label for category 'Plug & Charge' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Klantportaal": {
+    "message": "Customer portal",
+    "description": "The label for category 'Klantportaal' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Op locatie": {
+    "message": "On site",
+    "description": "The label for category 'Op locatie' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Chauffeurs": {
+    "message": "Drivers",
+    "description": "The label for category 'Chauffeurs' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Voor locatie-eigenaren": {
+    "message": "For site owners",
+    "description": "The label for category 'Voor locatie-eigenaren' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Technisch": {
+    "message": "Technical",
+    "description": "The label for category 'Technisch' in sidebar 'docsSidebar'"
+  },
+  "sidebar.docsSidebar.category.Over ons": {
+    "message": "About us",
+    "description": "The label for category 'Over ons' in sidebar 'docsSidebar'"
+  }
+}

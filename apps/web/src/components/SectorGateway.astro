@@ -1,0 +1,109 @@
+---
+import '../styles/fonts.css';
+import '../styles/gateway.css';
+import { commercialEntry, contactEntry, cultureEntry, docsEntry, hospitalityEntry } from '../data/site-target';
+
+interface Props { lang: 'nl' | 'en' }
+const { lang } = Astro.props;
+const english = lang === 'en';
+const words = english
+  ? ['Unlock the', 'hidden power', 'already in your building']
+  : ['Benut het', 'verborgen vermogen', 'van uw gebouw'];
+const headline = words.join(' ');
+const description = english
+  ? 'Find Stroomlijnen for culture, hospitality and business, or explore the technical documentation.'
+  : 'Ontdek Stroomlijnen voor cultuur, hospitality en bedrijven, of bekijk de technische documentatie.';
+const cards = [
+  {
+    brand: 'Stroomlijnen', title: 'Cultuur', image: 'stage',
+    description: english ? 'For theatres, venues and festivals.' : 'Voor theaters, podia en festivals.',
+    href: cultureEntry(lang),
+  },
+  {
+    brand: 'Stroomlijnen', title: 'Hospitality', image: 'hotel',
+    description: english ? 'For hotels and their guests.' : 'Voor hotels en hun gasten.',
+    href: hospitalityEntry(lang),
+  },
+  {
+    brand: 'Stroomlijnen', title: english ? 'Commercial' : 'Commercieel', image: 'factory',
+    description: english ? 'For businesses, buildings and fleets.' : 'Voor bedrijven, gebouwen en wagenparken.',
+    href: commercialEntry(lang),
+  },
+  {
+    newTab: true, brand: english ? 'Technical' : 'Technische', title: english ? 'Documentation' : 'Documentatie', image: null,
+    description: english ? 'Guides, diagrams and integrations.' : 'Handleidingen, schema’s en integraties.',
+    href: docsEntry(lang),
+  }
+];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{headline} | Stroomlijnen</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f4ef" />
+    <link rel="icon" href="/favicon-rings.png" />
+    <link rel="canonical" href={english ? 'https://stroomlijnen.nl/en/' : 'https://stroomlijnen.nl/'} />
+    <link rel="alternate" hreflang="nl" href="https://stroomlijnen.nl/" />
+    <link rel="alternate" hreflang="en" href="https://stroomlijnen.nl/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://stroomlijnen.nl/" />
+    <meta property="og:title" content={headline + ' | Stroomlijnen'} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={english ? 'en_GB' : 'nl_NL'} />
+    <meta property="og:url" content={english ? 'https://stroomlijnen.nl/en/' : 'https://stroomlijnen.nl/'} />
+    <meta property="og:image" content="https://stroomlijnen.nl/images/scenes/campus-960.webp" />
+  </head>
+  <body class="gateway">
+    <a class="skip" href="#destinations">{english ? 'Skip to destinations' : 'Naar de bestemmingen'}</a>
+    <header class="masthead">
+      <div class="masthead-inner">
+        <a href={english ? '/en/' : '/'} aria-label={english ? 'Stroomlijnen home' : 'Stroomlijnen startpagina'}>
+          <img class="wordmark" src="/stroomlijnen-logo-docs.png" width="219" height="37" alt="Stroomlijnen" />
+        </a>
+        <nav class="languages" aria-label={english ? 'Language' : 'Taal'}>
+          <a href="/" lang="nl" hreflang="nl" aria-current={!english ? 'page' : undefined} aria-label="Nederlands">NL</a>
+          <span aria-hidden="true">/</span>
+          <a href="/en/" lang="en" hreflang="en" aria-current={english ? 'page' : undefined} aria-label="English">EN</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <h1>{words[0]} <em>{words[1]}</em> <span class="headline-tail">{words[2]}</span></h1>
+      <nav id="destinations" class="destinations" aria-label={english ? 'Choose your destination' : 'Kies uw bestemming'}>
+        {cards.map((card, index) => (
+          <a class="destination" href={card.href} target={card.newTab ? '_blank' : undefined} rel={card.newTab ? 'noopener noreferrer' : undefined} aria-labelledby={`destination-${index}`} aria-describedby={`audience-${index}`}>
+            <div class="card-art" aria-hidden="true">
+              {card.image ? (
+                <img
+                  src={`/images/scenes/${card.image}-640.webp`}
+                  srcset={`/images/scenes/${card.image}-640.webp 640w, /images/scenes/${card.image}-960.webp 960w`}
+                  sizes="(max-width:600px) 32vw, (max-width:1000px) 44vw, 24vw"
+                  width="640" height="427" alt="" decoding="async"
+                />
+              ) : (
+                <div class="diagram-sheet">
+                  <span class="diagram-label">{english ? 'Site limit' : 'Locatiegrens'}</span>
+                  <div class="diagram-value">100 <small>kW</small></div>
+                  <div class="allocation"><i></i><b></b></div>
+                  <div class="diagram-legend">
+                    <span><i></i>{english ? 'Building' : 'Gebouw'} <strong>45</strong></span>
+                    <span><i></i>{english ? 'Charging' : 'Laden'} <strong>55</strong></span>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div class="card-caption">
+              <h2 id={`destination-${index}`}><span>{card.brand}</span> {card.title}</h2>
+              <span class="arrow" aria-hidden="true">↗</span>
+              <p id={`audience-${index}`}>{card.description}</p>
+            </div>
+          </a>
+        ))}
+      </nav>
+    </main>
+    <footer><span>© {new Date().getFullYear()} Stroomlijnen B.V.</span><a href={contactEntry(lang)}>Contact</a></footer>
+  </body>
+</html>

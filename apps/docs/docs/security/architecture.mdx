@@ -1,0 +1,65 @@
+---
+title: Cybersecurity en veilige architectuur
+description: Cloud, locatiebastion en eigen laadpaal-APK — beveiligingsrollen, vertrouwensgrenzen en protocoldiagrammen.
+sidebar_label: Veilige architectuur
+---
+
+import ArchitectureDiagram from '@site/src/components/ArchitectureDiagram';
+
+# Veilige energie-infrastructuur. Vanaf het ontwerp.
+
+**Beveiliging staat centraal in de aanpak van Stroomlijnen voor energie-infrastructuur.** Daarvoor kijken we verder dan de laadpaal: naar het cloudplatform, het bastion op locatie en de software op het apparaat. Elke laag heeft een andere verantwoordelijkheid. Een privénetwerk vervangt geen apparaatidentiteit of beveiliging op applicatieniveau.
+
+## Privébesturingsnetwerk, geen internetgerichte laadpalen
+
+De gedocumenteerde locatie-implementatie plaatst laadpalen en andere apparaten op het binnennetwerk achter het bastion, **zonder directe doorsturing van het binnennetwerk naar internet**. Het bastion bemiddelt hun toegestane communicatie en initieert de locatieverbinding via de private WireGuard-overlay. Deze architectuur heeft geen publiek OCPP-eindpunt voor laadpalen.
+
+Dit is bewuste scheiding, niet slechts een publiek laadpaaleindpunt met een wachtwoord. Het binnennetwerk, het bastion en de overlay tussen cloud en locatie vormen verschillende grenzen. **Privé betekent niet fysiek losgekoppeld:** de overlay gebruikt een onderliggende uplink. Publieke klantdiensten en expliciet toegestaan uitgaand infrastructuurverkeer staan los van het geïsoleerde laadpaalnetwerk. “Onze infrastructuur gebruikt nooit internet” zou onjuist zijn.
+
+## Bastionbeveiliging en bescherming tegen ongewenste externe verbindingen
+
+De gedocumenteerde bastionmaatregelen omvatten een standaard blokkerende firewall, scheiding van het binnennetwerk en de WAN, lokale protocolbeëindiging en certificaatvalidatie op het directe APK-eindpunt. In plaats van onbeperkte uitgaande toegang te geven en iedere ongewenste bestemming afzonderlijk op te sommen, beperkt de locatiegrens de communicatie tot noodzakelijke lokale diensten.
+
+Die grens is ook belangrijk voor OEM-apparaten waarvan wij de firmware niet beheren. Zij is bedoeld om te voorkomen dat een ongeautoriseerd afstandsbesturings- of telemetriekanaal een externe server bereikt. Dat bewijst niet dat het apparaat zelf geen ongewenste code bevat.
+
+## Een Europese softwarelaag onder beheer van Stroomlijnen
+
+Op onze eigen DC-laders is de APK de applicatielaag van Stroomlijnen, niet slechts de standaardfabrikantsapplicatie met een ander logo. Stroomlijnen beheert deze softwarelaag en de integratie met het locatiebastion. Dit staat los van de onderliggende hardware, het besturingssysteem en de ingebedde controllers; het is geen claim dat elk onderdeel in Europa is gemaakt.
+
+De beveiligingsaanpak combineert beheer van de laadpaalapplicatie met isolatie aan de locatiegrens. De canonieke architectuur bepaalt dat apparaten op het binnennetwerk geen direct internetpad hebben, ook niet voor ongeautoriseerde externe verbindingen. Dit zijn concrete architectuurmaatregelen, geen algemene claim dat elk onderdeel van een volledig apparaat aantoonbaar vrij is van achterdeuren.
+
+## Drie lagen, duidelijke verantwoordelijkheden
+
+### Cloud: een API voor het platform
+
+De gedocumenteerde architectuur gebruikt API-verkeer dat het bastion initieert tussen de locatie en het cloudplatform. OCPP-verbindingen van laadpalen eindigen lokaal bij het bastion, niet in het cloudplatform. Zo blijft de platforminterface gescheiden van de protocollen van afzonderlijke laadpalen.
+
+### Bastion: de grens van de locatie
+
+Het bastion bemiddelt tussen de laadpalen op locatie en het platform. Het beëindigt lokale OCPP-verbindingen van OEM-AC-laders en ontvangt de directe API-verbinding van onze eigen DC-laadpaal-APK. De WireGuard-overlay beveiligt het transport tussen cloud en locatie; daardoor zijn niet automatisch alle lokale apparaatprotocollen versleuteld.
+
+### APK: onze eigen DC-laadpaalsoftware
+
+Onze eigen DC-APK gebruikt de directe API in plaats van OCPP. De verbinding naar het directe API-eindpunt van het bastion gebruikt HTTPS met wederzijdse TLS: de laadpaal presenteert een clientcertificaat. Dit geldt voor die verbinding, niet automatisch voor elke telemetrie- of besturingsinterface van de laadpaal.
+
+<ArchitectureDiagram nl name="01-security-architecture" title="Cloud, bastion en eigen APK" description="De cloud ontvangt API-verkeer van de locatie. Het bastion vormt de locatiegrens. Onze eigen DC-APK authenticeert zich met een clientcertificaat bij de directe API van het bastion. OEM-AC gebruikt een apart lokaal OCPP-pad." />
+
+## Netwerkoverlay en protocollen
+
+**Transportbeveiliging en applicatie-identiteit zijn verschillende lagen.** WireGuard verbindt het transport tussen locatie en cloud. Wederzijdse TLS geldt voor de directe API-verbinding van onze eigen APK. OEM-AC-laders krijgen die mogelijkheid niet automatisch doordat ze achter een bastion staan.
+
+<ArchitectureDiagram nl name="02-network-protocols" title="Netwerkoverlay en protocolgrenzen" description="Het bastion initieert platform-API-verkeer via de WireGuard-overlay. Op locatie verbindt de eigen DC-APK met het bastion via HTTPS met wederzijdse TLS, terwijl OEM-AC lokaal beëindigde OCPP gebruikt. Oudere onversleutelde WebSocket-verbindingen zijn niet end-to-end versleuteld." />
+
+### Waarom AC en DC apart staan
+
+OEM-AC-firmware en onze eigen DC-APK zijn verschillende softwareomgevingen. Ondersteuning voor clientcertificaten kan niet voor de hele OEM-vloot worden aangenomen. Het gedocumenteerde ontwerp houdt de OEM-OCPP-verbinding binnen het locatienetwerk en vertaalt deze naar de platform-API. Als een oudere lokale verbinding onversleutelde WebSocket gebruikt, blijft die beperking bestaan: netwerkisolatie is geen versleuteling.
+
+## Wat deze diagrammen wel en niet aantonen
+
+Beveiligingsmogelijkheden hangen af van het apparaatmodel, de firmware en de configuratie bij oplevering. De diagrammen leggen de architectuur uit; ze zijn geen beveiligingscertificering.
+
+Het protocoldiagram beschrijft authenticatie- en sessieverbindingen. Lokale Modbus-telemetrie, apparaatbesturing, EMS-veiligheidsfuncties en software-updates zijn afzonderlijke onderwerpen; het label voor wederzijdse TLS dekt die niet. We suggereren niet dat al het lokale verkeer versleuteld is of dat een netwerktunnel op zichzelf een besturingscommando autoriseert.
+
+## Verantwoordelijkheden op locatie
+
+Fysieke toegang, het lokale netwerk en de configuratie van elk geïnstalleerd apparaat blijven relevant. [Neem contact op met Stroomlijnen](https://stroomlijnen.nl/contact) voor de beoordeling van een concrete installatie. Beoordeel de werkelijke configuratie in plaats van de beveiliging af te leiden uit een algemeen diagram.

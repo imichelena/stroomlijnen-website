@@ -1,0 +1,22 @@
+{
+  "logo.alt": {
+    "message": "Stroomlijnen",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Documentatie": {
+    "message": "Documentation",
+    "description": "Navbar item with label Documentatie"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.📡 RSS": {
+    "message": "📡 RSS",
+    "description": "Navbar item with label 📡 RSS"
+  },
+  "item.label.stroomlijnen.nl": {
+    "message": "stroomlijnen.nl",
+    "description": "Navbar item with label stroomlijnen.nl"
+  }
+}
