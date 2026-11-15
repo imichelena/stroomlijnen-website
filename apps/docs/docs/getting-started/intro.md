@@ -45,8 +45,8 @@ We werken met **Hongjiali (HGL)** laadstations, door ons zelf gevalideerd bij de
 
 | Type | Vermogen | Connector | Protocol |
 |---|---|---|---|
-| DC-snellader (ENC-DCL120B) | **120 kW**, modulair uitbreidbaar tot 180 kW; te configureren als 1×120 kW of 2×60 kW | 2× CCS2 | OCPP 2.0.1 |
-| AC-lader (ENC-DCX030A) | 30 kW | Type 2 | OCPP 1.6J |
+| DC-snellader (ENC-DCL120B) | **120 kW**, modulair uitbreidbaar tot 180 kW; te configureren als 1×120 kW of 2×60 kW | 2× CCS2 | Directe API naar lokaal bastion |
+| AC-lader (ENC-DCX030A) | 30 kW | Type 2 | Lokaal OCPP 1.6J |
 
 <p><strong>120 kW DC-snellader · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="" aria-label="120 kW DC-snellader · Nederlands (PDF)">Nederlands ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="" aria-label="120 kW DC-snellader · English (PDF)">English ↓</a></p>
 

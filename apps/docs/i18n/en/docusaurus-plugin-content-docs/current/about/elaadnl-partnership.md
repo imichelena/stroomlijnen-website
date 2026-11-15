@@ -26,8 +26,7 @@ ElaadNL is the Dutch knowledge centre for charging infrastructure, founded by th
 
 | Standard | For | Our implementation |
 |---|---|---|
-| **OCPP 2.0.1** | Charger ↔ back-end | Our DC chargers |
-| **OCPP 1.6J** | Charger ↔ back-end | Our AC chargers |
+| **OCPP** | OEM AC charger ↔ local bastion | Local protocol translation for the platform |
 | **OCPI 2.2.1** | CPO ↔ eMSP (roaming) | Present; deliberately off on chargers, see [roaming](/en/docs/pandeneigenaren/cpo-roaming-uitgelegd) |
 | **ISO 15118** | Vehicle ↔ charger (including Plug & Charge) | Vehicle recognition in use; certificate variant in development |
 | **IEC 61851** | Safety and signalling on the cable | Basis of every CCS connection |

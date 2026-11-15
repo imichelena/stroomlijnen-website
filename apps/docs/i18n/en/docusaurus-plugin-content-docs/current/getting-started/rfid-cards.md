@@ -14,7 +14,7 @@ An RFID card is the simplest fallback option: tap and charge. At Stroomlijnen yo
 Every card has a unique identifier (the **UID**). When you tap:
 
 1. The charger reads the UID.
-2. The charger asks our backend via OCPP whether this card may charge.
+2. The charger requests authorisation through the local bastion.
 3. Our backend checks whether the card is active and which organisation it belongs to.
 4. If the card is valid, the session starts and the energy is booked to that account.
 

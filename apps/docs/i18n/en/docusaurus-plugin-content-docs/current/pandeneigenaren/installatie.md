@@ -74,7 +74,7 @@ What physically arrives:
 
 ## 7. Commissioning
 
-1. Bringing the charger online (network, OCPP connection with our backend)
+1. Bringing the charger online (local connection to the bastion and private site connection to the platform)
 2. Configuration: capacity limits, charging profiles, energy management
 3. Check of the safety interlock with the fire alarm system
 4. Test sessions with a real vehicle

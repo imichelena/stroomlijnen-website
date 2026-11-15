@@ -74,7 +74,7 @@ Wat er fysiek komt:
 
 ## 7. Inbedrijfname
 
-1. Lader online brengen (netwerk, OCPP-verbinding met onze backend)
+1. Lader online brengen (lokale verbinding met het bastion en private locatieverbinding met het platform)
 2. Configuratie: vermogenslimieten, laadprofielen, energiebeheer
 3. Controle van de veiligheidskoppeling met de brandmeldinstallatie
 4. Testsessies met een echt voertuig

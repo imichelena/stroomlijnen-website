@@ -26,7 +26,7 @@ Praktisch:
 | Type | HGL ENC-DCL120B | HGL ENC-DCX030A |
 | Vermogen | 120 kW (1×120 of 2×60), uitbreidbaar tot 180 kW | 30 kW |
 | Connector | 2× CCS Combo 2 | Type 2 |
-| Protocol | OCPP 2.0.1 | OCPP 1.6J |
+| Protocol | Directe API naar lokaal bastion | Lokaal OCPP 1.6J |
 | Gebruik | Laden in uren, snelle aanvulling | Langdurig stilstaan |
 
 <p><strong>120 kW DC-snellader · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="" aria-label="120 kW DC-snellader · Nederlands (PDF)">Nederlands ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="" aria-label="120 kW DC-snellader · English (PDF)">English ↓</a></p>

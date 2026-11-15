@@ -26,8 +26,7 @@ ElaadNL is het Nederlandse kenniscentrum voor laadinfrastructuur, opgericht door
 
 | Standaard | Waarvoor | Onze implementatie |
 |---|---|---|
-| **OCPP 2.0.1** | Lader ↔ backend | Onze DC-laders |
-| **OCPP 1.6J** | Lader ↔ backend | Onze AC-laders |
+| **OCPP** | AC-lader ↔ lokaal bastion | Lokale protocolvertaling voor het platform |
 | **OCPI 2.2.1** | CPO ↔ eMSP (roaming) | Aanwezig; bij laders bewust uit, zie [roaming](/docs/pandeneigenaren/cpo-roaming-uitgelegd) |
 | **ISO 15118** | Voertuig ↔ lader (o.a. Plug & Charge) | Voertuigherkenning in gebruik; certificaatvariant in ontwikkeling |
 | **IEC 61851** | Veiligheid en signalering op de kabel | Basis van elke CCS-verbinding |

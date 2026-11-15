@@ -36,17 +36,17 @@ Dit is waar het meest wordt overdreven:
 
 | Versie | Status | Waar u het tegenkomt |
 |---|---|---|
-| **1.6J** | Nog steeds de meestgebruikte versie | Bestaande installaties, AC-laders, veel merken |
-| **2.0.1** | Huidige standaard | Nieuwe installaties; ISO 15118-integratie, beter apparaatmodel, sterkere beveiliging |
-| **2.1** | In ontwikkeling | Onder meer MCS en uitgebreidere V2G-ondersteuning |
+| **1.6J** | Uitgebracht in 2015 | Bestaande installaties, AC-laders, veel merken |
+| **2.0.1** | Uitgebracht in 2020 | Nieuwe installaties; ISO 15118-integratie, beter apparaatmodel, sterkere beveiliging |
+| **2.1** | Uitgebracht in 2025 | Onder meer MCS en uitgebreidere V2G-ondersteuning |
 
 Het verschil dat er voor u toe doet:
 
 - **1.6J** kan prima autoriseren, meten en een vaste limiet ontvangen. Voor veel toepassingen is dat genoeg.
 - **2.0.1** voegt onder meer een gestandaardiseerd apparaatmodel toe (welke connectoren, welke mogelijkheden), betere ondersteuning voor Plug & Charge-certificaten en meer grip op slim laden.
 
-:::note Onze situatie
-Onze DC-laders (HGL ENC-DCL120B) draaien **OCPP 2.0.1**. Onze AC-laders draaien **1.6J**. Beide zijn volwaardig; de versie zegt niets over de kwaliteit van de installatie.
+:::note Op een Stroomlijnen-locatie
+AC-laders van andere fabrikanten gebruiken lokaal OCPP. Het bastion vertaalt hun berichten naar API-verzoeken voor het platform. Onze eigen DC-laadapplicatie gebruikt de directe API op locatie. Stroomlijnen heeft geen publiek OCPP-eindpunt.
 :::
 
 ## Laadprofielen: hoe "slim laden" technisch werkt
@@ -59,24 +59,11 @@ OCPP kent een paar soorten laadprofielen:
 
 Een EMS vertaalt "er is nu 50 kW ruimte" naar een profiel en stuurt dat naar de lader. De lader voert het uit. Wie dat profiel zet, is precies één partij — anders vechten twee systemen om dezelfde lader.
 
-## Beveiliging
+## Beveiliging en hardware-integratie
 
-Wat u van een serieuze partij mag verwachten:
+Stem voor de integratie van een AC-lader de OCPP-versie, het beveiligingsprofiel en de ondersteunde laadprofielen af met de installateur. Ondersteuning voor TLS en clientcertificaten hangt af van apparaat en firmware. Het bastion houdt de OCPP-verbinding binnen het laadnetwerk. Een private uplink beschermt het verkeer tussen locatie en platform.
 
-- **TLS** op de verbinding tussen lader en backend (wss:// in plaats van ws://)
-- **Actualiteit** — OCPP 1.6J staat geen clientcertificaten toe; 2.0.1 wel. Bij 1.6J is de beveiliging dus afhankelijk van het netwerk eromheen. Dat is precies waarom wij een bastion plaatsen: de laders staan niet rechtstreeks aan het internet.
-- **Ondertekende meterwaarden** — alleen in 2.0.1. Nuttig, maar geen vervanging voor een geijkte meter bij formele facturering.
-
-## Voor hardwarepartners
-
-Werkt u met ons samen als fabrikant of installateur, dan vragen we:
-
-- OCPP **2.0.1** voor nieuwe DC-laders, 1.6J is bespreekbaar voor bestaande voorraad
-- TLS 1.2 of hoger
-- Werkende `GetConfiguration`/`SetChargingProfile` — in de praktijk de twee calls waar integraties op stuklopen
-- Een testomgeving of testunit voordat we een locatie in bedrijf nemen
-
-Neem contact op via de kanalen op [stroomlijnen.nl](https://stroomlijnen.nl).
+Toets bij de ingebruikname van een nieuw ladermodel de autorisatie, sessieregistratie en laadlimieten via de afgesproken lokale interface. Zie de [OCPP-specificaties](https://openchargealliance.org/protocols/ocpp-protocols/) voor de protocolversies.
 
 ## Verder lezen
 

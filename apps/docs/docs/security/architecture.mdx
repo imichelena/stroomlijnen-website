@@ -64,7 +64,7 @@ Het protocoldiagram beschrijft authenticatie- en sessieverbindingen. Lokale Modb
 
 Het bastion controleert de apparaatidentiteit, vertaalt protocollen en buffert berichten op de locatie. Het EMS bepaalt het beschikbare laadvermogen. Het platform verwerkt sessieberichten via zijn API.
 
-- **Start van de sessie.** Een automatische start met Plug & Charge op onze DC-lader vereist een nieuwe fysieke aansluiting. Opnieuw opstarten van de laadapp terwijl het voertuig aangesloten blijft, mag geen tweede sessie aanmaken.
+- **Start van de sessie.** Een automatische start voor een goedgekeurd voertuig op onze DC-lader vereist een nieuwe fysieke aansluiting. Opnieuw opstarten van de laadapp terwijl het voertuig aangesloten blijft, mag geen tweede sessie aanmaken.
 - **Verbindingsverlies.** De DC-applicatie buffert sessieberichten en diagnostische meetwaarden lokaal. Of een nieuwe sessie offline mag starten, hangt af van het autorisatiebeleid op de locatie.
 - **Verbindingsherstel.** Gebufferde berichten kunnen opnieuw worden verstuurd. Het platform koppelt updates aan de juiste sessie op basis van de berichtbron, de identiteit van de lader en de oorspronkelijke starttijd.
 

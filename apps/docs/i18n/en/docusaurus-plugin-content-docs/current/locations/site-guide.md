@@ -26,7 +26,7 @@ In practice:
 | Type | HGL ENC-DCL120B | HGL ENC-DCX030A |
 | Power | 120 kW (1×120 or 2×60), expandable to 180 kW | 30 kW |
 | Connector | 2× CCS Combo 2 | Type 2 |
-| Protocol | OCPP 2.0.1 | OCPP 1.6J |
+| Protocol | Direct API to local bastion | Local OCPP 1.6J |
 | Use | Charging in hours, quick top-up | Standing idle for long periods |
 
 <p><strong>120 kW DC fast charger · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="" aria-label="120 kW DC fast charger · English (PDF)">English ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="" aria-label="120 kW DC fast charger · Nederlands (PDF)">Nederlands ↓</a></p>

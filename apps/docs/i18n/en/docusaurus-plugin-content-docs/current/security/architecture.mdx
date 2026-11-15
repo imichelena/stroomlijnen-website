@@ -64,7 +64,7 @@ The protocol diagram covers authentication and session connectivity. Local Modbu
 
 The bastion handles device identity, protocol translation and message buffering at the site boundary. The EMS determines the site's charging power budget. The platform processes session events through its API.
 
-- **Session start.** An automatic Plug & Charge start on our DC charger requires a new physical connection. Restarting the app while the vehicle remains plugged in must not create another session.
+- **Session start.** An automatic start for an approved vehicle on our DC charger requires a new physical connection. Restarting the app while the vehicle remains plugged in must not create another session.
 - **Loss of connectivity.** The DC application buffers session events and diagnostic readings locally. Offline admission of a new session depends on the site's authorisation policy.
 - **Reconnection.** Buffered events can be replayed. The platform uses the event source, charger identity and original session start time to associate updates with the correct session.
 

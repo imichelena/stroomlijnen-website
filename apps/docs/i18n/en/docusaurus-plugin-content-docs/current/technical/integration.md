@@ -25,13 +25,11 @@ For structural integration with an ERP, fleet management system or accounting pa
 
 | Integration | For | Status |
 |---|---|---|
-| **OCPI** (CPO ↔ eMSP) | Roaming: that another eMSP can charge with us, or we with them | Technically present (OCPI 2.2.1); deliberately off on our chargers, can be enabled bilaterally on request |
+| **OCPI** (CPO ↔ eMSP) | Roaming: that another eMSP can charge with us, or we with them | Technically present (OCPI 2.2.1); disabled by default, can be enabled bilaterally on request |
 | **OCPI publication** | Making your charging points visible in public maps and databases | In preparation |
 | **Custom API** | Your system reads sessions or writes vehicles | On request, per customer |
 
-:::warning No public API with public documentation
-At this moment there is **no** public REST API with documentation, keys and rate limits that you can enable yourself. If you have seen one mentioned elsewhere: that is no longer correct. Request an integration via your account manager; we will then discuss what is needed and whether it fits.
-:::
+The private site API connects the bastion to the platform. For customer reporting, use portal exports or arrange a separate integration with your account manager. Neither requires access to the charging network.
 
 ## 3. What OCPI is and is not
 

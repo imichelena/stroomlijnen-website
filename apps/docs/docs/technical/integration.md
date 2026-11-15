@@ -25,13 +25,11 @@ Voor structurele integratie met een ERP, vlootmanagementsysteem of boekhoudpakke
 
 | Koppeling | Waarvoor | Status |
 |---|---|---|
-| **OCPI** (CPO ↔ eMSP) | Roaming: dat een andere eMSP bij ons kan laden, of wij bij hen | Technisch aanwezig (OCPI 2.2.1); bij onze laders bewust uit, op verzoek bilateraal aan te zetten |
+| **OCPI** (CPO ↔ eMSP) | Roaming: dat een andere eMSP bij ons kan laden, of wij bij hen | Technisch aanwezig (OCPI 2.2.1); standaard uit, op verzoek bilateraal aan te zetten |
 | **OCPI publicatie** | Uw laadpunten zichtbaar maken in publieke kaarten en databanken | In voorbereiding |
 | **Maatwerk-API** | Uw systeem leest sessies of schrijft voertuigen | Op aanvraag, per klant |
 
-:::warning Geen openbare API met publieke documentatie
-Er bestaat op dit moment **geen** openbare REST-API met documentatie, sleutels en snelheidslimieten die u zelf kunt aanzetten. Als u die elders heeft zien staan: dat klopt niet meer. Vraag een koppeling aan via uw accountmanager; we bespreken dan wat er nodig is en of het past.
-:::
+De private locatie-API verbindt het bastion met het platform. Voor klantrapportages gebruikt u de portaalexport of spreekt u met uw accountmanager een aparte koppeling af. In beide gevallen blijft het laadnetwerk afgeschermd.
 
 ## 3. Wat OCPI wel en niet is
 
@@ -48,7 +46,7 @@ Een sessie-export bevat per sessie in ieder geval:
 - gebruikt tarief en kosten
 - wijze van authenticatie (automatische herkenning, pas, QR)
 
-Wat er **niet** in staat: gegevens die het voertuig niet deelt. Deaccu-status (SoC) wordt lang niet door alle voertuigen doorgegeven; als die ontbreekt is dat geen fout in de export.
+Wat er **niet** in staat: gegevens die het voertuig niet deelt. De accu-status (SoC) wordt lang niet door alle voertuigen doorgegeven; als die ontbreekt is dat geen fout in de export.
 
 ## Verder lezen
 

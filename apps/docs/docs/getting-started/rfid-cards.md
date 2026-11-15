@@ -14,7 +14,7 @@ Een RFID-pas is de eenvoudigste terugvaloptie: tikken en laden. Bij Stroomlijnen
 Elke pas heeft een unieke identificatie (de **UID**). Bij het tikken:
 
 1. De lader leest de UID.
-2. De lader vraagt via OCPP aan onze backend of deze pas mag laden.
+2. De lader vraagt via het lokale bastion toestemming om te laden.
 3. Onze backend controleert of de pas actief is en bij welke organisatie hij hoort.
 4. Is de pas geldig, dan start de sessie en wordt de energie op dat account geboekt.
 
