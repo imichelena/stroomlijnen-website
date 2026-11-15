@@ -120,25 +120,6 @@ body.gateway { margin: 0; }
 }
 .gateway .arrow { align-self: end; padding-bottom: 1px; color: var(--sage); font-size: 22px; line-height: 1; }
 .gateway .destination:hover .arrow, .gateway .destination:focus-visible .arrow { color: var(--ink); }
-.gateway .diagram-sheet {
-  width: 76%;
-  padding: 7% 6% 6%;
-  border: 1px solid #c6cfbe;
-  box-shadow: 3px 3px 0 #e0e4d8;
-  background: #f9faf4;
-}
-.gateway .diagram-label { color: var(--muted); font-size: clamp(9px, .75vw, 12px); }
-.gateway .diagram-value { font-size: clamp(25px, 3.3vw, 55px); letter-spacing: -.07em; line-height: 1.15; }
-.gateway .diagram-value small { color: var(--muted); font-size: .37em; letter-spacing: -.02em; }
-.gateway .allocation { display: flex; height: clamp(8px, 1.2vw, 19px); margin-block: 7% 5%; }
-.gateway .allocation i, .gateway .diagram-legend span:first-child i { background: #526e78; }
-.gateway .allocation b, .gateway .diagram-legend span:last-child i { background: #b4c699; }
-.gateway .allocation i { flex: 45; border-right: 2px solid #f9faf4; }
-.gateway .allocation b { flex: 55; }
-.gateway .diagram-legend { display: flex; justify-content: space-between; gap: 7px; color: var(--muted); }
-.gateway .diagram-legend span { display: flex; align-items: center; gap: 3px; font-size: clamp(8px, .63vw, 12px); }
-.gateway .diagram-legend i { width: 5px; height: 5px; }
-.gateway .diagram-legend strong { color: var(--ink); font-weight: 500; }
 .gateway footer {
   display: flex;
   justify-content: space-between;
@@ -153,7 +134,6 @@ body.gateway { margin: 0; }
 @media (max-width: 1000px) and (min-width: 601px) {
   .gateway .destinations { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
   .gateway h2 { font-size: 29px; }
-  .gateway .diagram-sheet { max-width: 230px; }
 }
 @media (max-width: 600px) {
   .gateway main { padding-block: 36px; }
@@ -168,9 +148,5 @@ body.gateway { margin: 0; }
   .gateway h2 > span { margin-bottom: 3px; font-size: 10px; }
   .gateway .card-caption p { font-size: 12px; line-height: 1.35; }
   .gateway .arrow { font-size: 18px; }
-  .gateway .diagram-sheet { width: 84%; padding: 9% 7%; }
-  .gateway .diagram-value { font-size: 25px; }
-  .gateway .diagram-legend { display: none; }
-  .gateway .diagram-label { font-size: 8px; }
   .gateway footer { padding-block: 18px; font-size: 11px; }
 }

@@ -30,7 +30,7 @@ const cards = [
     href: commercialEntry(lang),
   },
   {
-    newTab: true, brand: english ? 'Technical' : 'Technische', title: english ? 'Documentation' : 'Documentatie', image: null,
+    newTab: true, brand: english ? 'Technical' : 'Technische', title: english ? 'Documentation' : 'Documentatie', image: 'manual',
     description: english ? 'Guides, diagrams and integrations.' : 'Handleidingen, schema’s en integraties.',
     href: docsEntry(lang),
   }
@@ -76,24 +76,12 @@ const cards = [
         {cards.map((card, index) => (
           <a class="destination" href={card.href} target={card.newTab ? '_blank' : undefined} rel={card.newTab ? 'noopener noreferrer' : undefined} aria-labelledby={`destination-${index}`} aria-describedby={`audience-${index}`}>
             <div class="card-art" aria-hidden="true">
-              {card.image ? (
-                <img
-                  src={`/images/scenes/${card.image}-640.webp`}
-                  srcset={`/images/scenes/${card.image}-640.webp 640w, /images/scenes/${card.image}-960.webp 960w`}
-                  sizes="(max-width:600px) 32vw, (max-width:1000px) 44vw, 24vw"
-                  width="640" height="427" alt="" decoding="async"
-                />
-              ) : (
-                <div class="diagram-sheet">
-                  <span class="diagram-label">{english ? 'Site limit' : 'Locatiegrens'}</span>
-                  <div class="diagram-value">100 <small>kW</small></div>
-                  <div class="allocation"><i></i><b></b></div>
-                  <div class="diagram-legend">
-                    <span><i></i>{english ? 'Building' : 'Gebouw'} <strong>45</strong></span>
-                    <span><i></i>{english ? 'Charging' : 'Laden'} <strong>55</strong></span>
-                  </div>
-                </div>
-              )}
+              <img
+                src={`/images/scenes/${card.image}-640.webp`}
+                srcset={`/images/scenes/${card.image}-640.webp 640w, /images/scenes/${card.image}-960.webp 960w`}
+                sizes="(max-width:600px) 32vw, (max-width:1000px) 44vw, 24vw"
+                width="640" height="427" alt="" decoding="async"
+              />
             </div>
             <div class="card-caption">
               <h2 id={`destination-${index}`}><span>{card.brand}</span> {card.title}</h2>
