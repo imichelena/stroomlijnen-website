@@ -1,4 +1,21 @@
+import { storyIds } from '../data/home-story';
+
 const isEnglish = document.documentElement.lang === 'en';
+const languageLinks = document.querySelectorAll<HTMLAnchorElement>('a[data-language-switch]');
+const chapterIds = isEnglish ? storyIds.en : storyIds.nl;
+const translated = isEnglish ? storyIds.nl : storyIds.en;
+
+function updateLanguageLinks() {
+  const id = location.hash.slice(1);
+  const chapter = (Object.keys(chapterIds) as (keyof typeof chapterIds)[]).find(key => chapterIds[key] === id);
+  const target = chapter ? translated[chapter] : id;
+  for (const link of languageLinks) {
+    link.hash = id && document.getElementById(id) ? target : '';
+  }
+}
+updateLanguageLinks();
+window.addEventListener('hashchange', updateLanguageLinks);
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
 const nav = document.querySelector<HTMLElement>('#story-nav');
