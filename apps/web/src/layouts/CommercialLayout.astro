@@ -39,6 +39,7 @@ const keys: Page[] = ['home','technology','security','applications','about','con
    <a href={routes[lang].home} class="brand" aria-label="Stroomlijnen home"><img src="/stroomlijnen-logo-docs.png" alt="Stroomlijnen" width="219" height="37" /></a>
    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-expanded="false" data-open={c.menu} data-close={c.close}>{c.menu} <span aria-hidden="true">+</span></button>
    <nav id="main-nav" aria-label={lang === 'nl' ? 'Hoofdnavigatie' : 'Main navigation'}>
+    <a href={routes[lang].hardware} aria-current={page === 'hardware' ? 'page' : undefined}>Hardware</a>
     {keys.filter(k=>k !== 'home' && k !== 'contact').map(k=><a href={routes[lang][k]} aria-current={page === k ? 'page' : undefined}>{c.nav[keys.indexOf(k)]}</a>)}
     <a href={docsUrl(lang)} target="_blank" rel="noopener noreferrer">{lang === 'nl' ? 'Kennisbank' : 'Knowledge'}</a>
     <a href={routes[lang].contact} aria-current={page === 'contact' ? 'page' : undefined} class="nav-contact">{c.nav[5]} <span aria-hidden="true">↗</span></a>

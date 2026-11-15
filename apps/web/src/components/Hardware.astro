@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/CommercialLayout.astro';
+import {copy, type Lang} from '../data/commercial';
+import {docsOrigin} from '../../config/public-sites.mjs';
+
+interface Props { lang: Lang }
+const {lang} = Astro.props;
+const en = lang === 'en';
+const products = [
+  {
+    id: 'dc', model: 'ENC-DCL120B', file: '120kW-DC-snellader', image: 'dc-120',
+    title: en ? '120 kW DC fast charger' : '120 kW DC-snellader',
+    body: en
+      ? 'Charge two vehicles at the same time with two CCS2 connectors. Both outlets share up to 120 kW. When demand in the building rises, the EMS reduces charging power and increases it again when capacity becomes available.'
+      : 'Via de twee CCS2-stekkers kunnen twee voertuigen tegelijk laden. Ze delen maximaal 120 kW. Vraagt het gebouw meer stroom, dan verlaagt het EMS het laadvermogen. Zodra er ruimte vrijkomt, kunnen de voertuigen weer sneller laden.',
+    facts: [['120 kW', en ? 'Total DC output' : 'Totaal DC-vermogen'], ['2 × CCS2', en ? 'Connectors' : 'Aansluitingen'], ['200–1000 V', en ? 'DC output range' : 'DC-uitgangsspanning']],
+  },
+  {
+    id: 'ess', model: en ? 'Battery storage' : 'Batterijopslag', file: 'ESS-261', image: 'ess-261',
+    title: 'ESS 261',
+    body: en
+      ? 'Store surplus solar energy during the day and use it for the building or chargers during the evening peak. One cabinet houses the liquid-cooled LFP battery and bidirectional inverter. How long it can support a peak depends on the available charge, the reserve and the power your site needs.'
+      : 'Sla overdag overtollige zonnestroom op en gebruik die tijdens de avondpiek voor uw gebouw of laadplein. De vloeistofgekoelde LFP-batterij en de bidirectionele omvormer zitten in één kast. Hoelang de batterij een piek kan opvangen, hangt af van de laadstatus, de reserve en het gevraagde vermogen.',
+    facts: [['261 kWh', en ? 'Nominal capacity' : 'Nominale capaciteit'], ['125 kW', en ? 'Bidirectional power' : 'Bidirectioneel vermogen'], ['IP55', en ? 'Enclosure rating' : 'Beschermingsgraad kast']],
+  },
+  {
+    id: 'ems', model: en ? 'Energy management' : 'Energiemanagement', file: 'EMS-v6.2', image: 'ems-site',
+    title: 'Stroomlijnen EMS v6.2',
+    body: en
+      ? 'The EMS measures grid demand and the load on each phase, then sets a power budget for the chargers. You can reserve energy for a vehicle with a scheduled departure. If the site has battery storage, the EMS takes its available charge and reserve into account.'
+      : 'Het EMS meet de netafname en de belasting per fase en bepaalt hoeveel vermogen de laders mogen gebruiken. Voor een voertuig met een geplande vertrektijd kunt u energie reserveren. Heeft de locatie een batterij, dan houdt het EMS ook rekening met de beschikbare lading en de ingestelde reserve.',
+    facts: [['15 min', en ? 'Planning interval' : 'Planning per kwartier'], ['1–5 s', en ? 'Budget update' : 'Nieuw laadbudget'], [en ? '0.5–1 s' : '0,5–1 s', en ? 'Independent check' : 'Onafhankelijke controle']],
+  },
+];
+---
+<Layout lang={lang} page="hardware">
+  <header class="shell hardware-intro">
+    <h1>Hardware</h1>
+    <p>{copy[lang].hardware.intro}</p>
+    <nav aria-label={en ? 'Products on this page' : 'Producten op deze pagina'}>
+      {products.map(product => <a class="text-link" href={`#${product.id}`}>{product.title} <span aria-hidden="true">↓</span></a>)}
+    </nav>
+  </header>
+  <div class="shell">
+    {products.map(product => (
+      <section class="hardware-product" id={product.id} aria-labelledby={`name-${product.id}`}>
+        <img src={`/images/hardware/${product.image}.webp`} width="960" height="640" alt="" loading={product.id === 'dc' ? 'eager' : 'lazy'} />
+        <div>
+          <p class="eyebrow">{product.model}</p>
+          <h2 id={`name-${product.id}`}>{product.title}</h2>
+          <p>{product.body}</p>
+          <dl>{product.facts.map(([value, label]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+          <a class="text-link" download href={`${docsOrigin}/brochures/Stroomlijnen-${product.file}-Brochure-NL.pdf`}>
+            {en ? `Download the ${product.title} brochure (PDF, Dutch)` : `Download de brochure voor ${product.title} (PDF)`}
+          </a>
+          {product.id === 'dc' && <p class="other-chargers">
+            {en ? 'For longer parking stays, there is also a 22 kW AC charger. A mobile 30 kW DC charger is available for temporary use.' : 'Voor voertuigen die langer geparkeerd staan is er ook een 22 kW AC-lader. Voor tijdelijk gebruik is er een mobiele DC-lader van 30 kW.'}
+            {' '}<a href={en ? '/en/technology/#technology-2' : '/technologie/#technology-2'}>{en ? 'Compare chargers' : 'Vergelijk de laders'} →</a>
+          </p>}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .hardware-intro { padding-block: clamp(3rem, 6vw, 6rem) 2.5rem; }
+  .hardware-intro p { max-width: 59ch; margin-top: 1.25rem; font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+  .hardware-intro nav { display: flex; flex-wrap: wrap; gap: .8rem 2rem; margin-top: 1.75rem; }
+  .hardware-product { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(2rem, 4.5vw, 4.5rem); border-top: 1px solid var(--line); scroll-margin-top: 1.25rem; }
+  .hardware-product img { width: 100%; height: auto; }
+  .hardware-product .eyebrow { margin-bottom: .65rem; }
+  .hardware-product h2 { margin-bottom: .85rem; }
+  .hardware-product dl { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .6rem; border-block: 1px solid var(--line); margin: 1.35rem 0; padding-block: .85rem; }
+  .hardware-product dt { font-size: .78rem; color: var(--slate); }
+  .hardware-product dd { margin: .3rem 0 0; font-size: clamp(1rem, 1.8vw, 1.55rem); font-weight: 500; }
+  .hardware-product .other-chargers { margin-top: 1.25rem; font-size: .92rem; }
+  @media (max-width: 760px) { .hardware-product { grid-template-columns: 1fr; gap: 1.25rem; } }
+</style>

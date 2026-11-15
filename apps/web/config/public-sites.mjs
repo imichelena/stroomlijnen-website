@@ -6,11 +6,11 @@ export const docsOrigin = 'https://docs.stroomlijnen.nl';
 
 export const commercialPaths = {
   nl: {
-    home: '/', technology: '/technologie/', security: '/veiligheid/',
+    home: '/', hardware: '/hardware/', technology: '/technologie/', security: '/veiligheid/',
     applications: '/toepassingen/', about: '/over-stroomlijnen/', contact: '/contact/'
   },
   en: {
-    home: '/en/', technology: '/en/technology/', security: '/en/security/',
+    home: '/en/', hardware: '/en/hardware/', technology: '/en/technology/', security: '/en/security/',
     applications: '/en/applications/', about: '/en/about/', contact: '/en/contact/'
   }
 };

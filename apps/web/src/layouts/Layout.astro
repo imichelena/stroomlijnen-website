@@ -2,7 +2,7 @@
 import '../styles/fonts.css';
 import '../styles/global.css';
 import { commercialCanonical, commercialHome, contactEntry, gatewayHome, docsEntry, siteAudience } from '../data/site-target';
-import { legacyPaths } from '../../config/public-sites.mjs';
+import { commercialPaths, legacyPaths } from '../../config/public-sites.mjs';
 
 interface Props {
   title: string;
@@ -22,6 +22,7 @@ const description = en
 const contact = contactEntry(lang);
 const navItems = [
   { href: home, label: en ? 'Home' : 'Startpagina' },
+  { href: commercialPaths[lang].hardware, label: 'Hardware' },
   { href: pages.theatres, label: en ? 'Theatres' : 'Theaters' },
   { href: pages.touring, label: en ? 'Touring companies' : 'Gezelschappen' },
   { href: pages.story, label: en ? 'About us' : 'Over ons' },

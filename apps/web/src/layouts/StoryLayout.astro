@@ -47,6 +47,7 @@ const canonical = commercialCanonical(commercialPaths[lang].home);
    <button class="nav-toggle" aria-expanded="false" aria-controls="story-nav">Menu <span aria-hidden="true">+</span></button>
    <nav id="story-nav" aria-label={en ? 'Main navigation' : 'Hoofdnavigatie'}>
     <a href={`${routes.home}#${ids.story}`}>{en ? 'How it works' : 'Zo werkt het'}</a>
+    <a href={commercialPaths[lang].hardware}>Hardware</a>
     <a href={`${routes.home}#${ids.sectors}`}>{en ? 'For your business' : 'Voor uw bedrijf'}</a>
     <a href={`${routes.home}#${ids.about}`}>{en ? 'Our story' : 'Ons verhaal'}</a>
     <a href={routes.knowledge} target="_blank" rel="noopener noreferrer">{en ? 'Knowledge base' : 'Kennisbank'} <span aria-hidden="true">↗</span></a>
