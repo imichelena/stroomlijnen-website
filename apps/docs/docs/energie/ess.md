@@ -11,7 +11,7 @@ import { DayFlow } from '@site/src/components/EnergyVisuals';
 
 Een **ESS (Energy Storage System)** is een stationaire batterij op uw locatie. Hij laadt wanneer er ruimte over is en levert wanneer het nodig is. Daarmee wordt de effectieve capaciteit van uw aansluiting groter zonder dat er een kabel de grond in hoeft.
 
-<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-ESS-261-Brochure-NL.pdf" download="">Download de brochure over ESS 261 (PDF)</a>
+<p><strong>ESS 261 · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-ESS-261-Brochure-NL.pdf" download="" aria-label="ESS 261 · Nederlands (PDF)">Nederlands ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-ESS-261-Brochure-EN.pdf" download="" aria-label="ESS 261 · English (PDF)">English ↓</a></p>
 
 ## Wat het oplost
 

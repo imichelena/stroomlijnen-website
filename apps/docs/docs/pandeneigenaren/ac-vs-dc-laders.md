@@ -69,7 +69,7 @@ Twee dingen bepalen de werkelijke laadsnelheid bij DC:
 
 Een 120 kW-lader is voor veel tourneedagen ruim voldoende: 400 kWh in 10 uur vraagt gemiddeld 40 kW.
 
-<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="">Download de brochure voor de 120 kW DC-snellader (PDF)</a>
+<p><strong>120 kW DC-snellader · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="" aria-label="120 kW DC-snellader · Nederlands (PDF)">Nederlands ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="" aria-label="120 kW DC-snellader · English (PDF)">English ↓</a></p>
 
 ## Hoe u kiest
 

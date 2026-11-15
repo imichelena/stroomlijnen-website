@@ -29,7 +29,7 @@ In practice:
 | Protocol | OCPP 2.0.1 | OCPP 1.6J |
 | Use | Charging in hours, quick top-up | Standing idle for long periods |
 
-<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="">Download the 120 kW DC fast charger brochure (PDF, English)</a>
+<p><strong>120 kW DC fast charger · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="" aria-label="120 kW DC fast charger · English (PDF)">English ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="" aria-label="120 kW DC fast charger · Nederlands (PDF)">Nederlands ↓</a></p>
 
 The DC charger is modular: if one power module fails, the others keep working. That is why a fault sometimes does not mean you cannot charge, but that it goes more slowly.
 
