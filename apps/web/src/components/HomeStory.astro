@@ -12,7 +12,21 @@ const ids = storyIds[lang];
 const sectors = storySectors[lang];
 ---
 <Layout lang={lang}>
-<section class="hero wrap" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow"><span></span> {c.heroEyebrow}</p><h1 id="hero-title"><Fragment set:html={c.heroTitle}/></h1><p class="hero-intro">{c.heroIntro}</p><a class="button button-dark" href={routes.contact}>{c.heroCta} <span aria-hidden="true">↗</span></a><a class="scroll-link" href={`#${ids.story}`}><span aria-hidden="true">↓</span> {c.heroScroll}</a></div><div class="hero-art"><div class="art-topline"><span>{c.artTopline}</span><span>SL / 01</span></div><EnergyCampus idPrefix="hero-campus" lang={lang}/><div class="hero-art-note"><span class="live-dot" aria-hidden="true"></span><span>{c.artNote}</span><button class="motion-control" data-home-motion type="button" aria-pressed="false">{c.pause}</button><span class="schematic">{c.schematic}</span></div></div><div class="hero-bottom"><span><Fragment set:html={c.heroBottom}/></span><div><span>{c.energyManagement}</span><i aria-hidden="true"></i><span>{c.smartCharging}</span><i aria-hidden="true"></i><span>{c.storageSolar}</span></div><a href={`#${ids.story}`} aria-label={c.readStory}>↓</a></div></section>
+<section class="hero wrap" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span></span> {c.heroEyebrow}</p>
+    <h1 id="hero-title"><Fragment set:html={c.heroTitle}/></h1>
+    <p class="hero-intro">{c.heroIntro}</p>
+    <a class="button button-dark" href={routes.contact}>{c.heroCta} <span aria-hidden="true">↗</span></a>
+    <a class="scroll-link" href={`#${ids.story}`}><span aria-hidden="true">↓</span> {c.heroScroll}</a>
+  </div>
+  <div class="hero-art">
+    <div class="art-topline"><span>{c.artTopline}</span><span>{c.schematic}</span></div>
+    <EnergyCampus idPrefix="hero-campus" lang={lang}>
+      <button class="motion-control" data-home-motion type="button" aria-pressed="false">{c.pause}</button>
+    </EnergyCampus>
+  </div>
+</section>
 <section class="intro-section wrap" id={ids.story} aria-labelledby="intro-title"><div class="section-index"><span>{c.challengeEyebrow}</span><span class="small-cross" aria-hidden="true">+</span></div><div class="intro-heading"><h2 id="intro-title"><Fragment set:html={c.challengeTitle}/></h2><p>{c.challengeBody}</p></div><div class="problem-line"><span>{c.yourBuilding}</span><span>{c.plusVehicles}</span><span>{c.plusPlans}</span><span class="problem-total">{c.sameConnection} <span aria-hidden="true">↴</span></span></div><div class="intro-conclusion"><span class="small-label">{c.newPerspective}</span><p><Fragment set:html={c.timingMessage}/></p><a class="text-link" href={`#${ids.day}`}>{c.viewDay} <span aria-hidden="true">↓</span></a></div></section>
 <section class="day-story" id={ids.day} aria-labelledby="day-title"><div class="wrap day-heading"><p class="eyebrow">{c.dayEyebrow}</p><h2 id="day-title"><Fragment set:html={c.dayTitle}/></h2><p><Fragment set:html={c.dayIntro}/></p></div><div class="wrap day-layout"><div class="day-chapters">
 <article class="day-chapter is-active" data-day="0" id={ids.morning}><span class="chapter-number">01 / 04</span><time>08:00</time><h3><Fragment set:html={c.morningTitle}/></h3><p>{c.morningBody}</p><span class="chapter-result"><i></i> {c.morningResult}</span></article>

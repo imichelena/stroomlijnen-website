@@ -23,9 +23,24 @@ const parts = en ? [
     <div class="campus-choices" role="group" aria-label={en ? 'Explore the energy system' : 'Ontdek het energiesysteem'}>
       {parts.map((part, i) => <button type="button" data-campus-choice={i} aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`${idPrefix}-detail`} data-description={part.text}><span aria-hidden="true">0{i + 1}</span>{part.name}</button>)}
     </div>
-    <p class="campus-detail" id={`${idPrefix}-detail`} aria-live="polite">{parts[0].text}</p>
+    <div class="campus-caption">
+      <p class="campus-detail" id={`${idPrefix}-detail`} aria-live="polite">{parts[0].text}</p>
+      <slot />
+    </div>
   </figcaption>
 </figure>
 <style>
-  .rendered-campus{margin:0;width:100%}.campus-image{position:relative}.campus-image img{display:block;width:100%;height:auto;mix-blend-mode:multiply}.campus-point{position:absolute;display:grid;place-items:center;width:25px;height:25px;transform:translate(-50%,-50%);border-radius:50%;background:#f8f8f0eb;color:#26453e;border:1px solid #fff;box-shadow:0 2px 8px #20352b20;font:500 9px Inter,sans-serif;transition:background .3s,color .3s}.campus-point.is-active{background:#23463f;color:white}.campus-explorer{margin:0 28px}.campus-choices{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-bottom:1px solid #cbd2c4}.campus-choices button{display:flex;align-items:center;gap:7px;border:0;border-bottom:2px solid transparent;padding:11px 0;background:none;color:#6a7768;font:500 11px Inter,sans-serif;white-space:nowrap;text-align:left}.campus-choices button span{font-size:8px;opacity:.7}.campus-choices button[aria-pressed=true]{border-color:#526d49;color:#193a35}.campus-detail{min-height:48px;padding:12px 0 0;max-width:590px;color:#63705f;font-size:11px;line-height:1.6}.campus-choices button:focus-visible{outline:2px solid #007e9e;outline-offset:3px}.campus-point{pointer-events:none}@media(prefers-reduced-motion:reduce){.campus-point{transition:none}}@media(max-width:800px){.campus-explorer{margin-inline:18px}.campus-choices{gap:8px}.campus-choices button{font-size:10px;gap:5px}.campus-detail{min-height:50px;font-size:11px}.campus-point{width:21px;height:21px;font-size:8px}}
+  .rendered-campus{margin:0;width:100%}.campus-image{position:relative}.campus-image img{display:block;width:100%;height:auto;mix-blend-mode:multiply}.campus-point{position:absolute;display:grid;place-items:center;width:25px;height:25px;transform:translate(-50%,-50%);border-radius:50%;background:#f8f8f0eb;color:#26453e;border:1px solid #fff;box-shadow:0 2px 8px #20352b20;font:500 9px Inter,sans-serif;transition:background .3s,color .3s}.campus-point.is-active{background:#23463f;color:white}.campus-explorer{margin:0 28px}.campus-choices{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-bottom:1px solid #cbd2c4}.campus-choices button{display:flex;align-items:center;gap:7px;border:0;border-bottom:2px solid transparent;padding:11px 0;background:none;color:#6a7768;font:500 11px Inter,sans-serif;white-space:nowrap;text-align:left}.campus-choices button span{font-size:8px;opacity:.7}.campus-choices button[aria-pressed=true]{border-color:#526d49;color:#193a35}.campus-detail{margin:0;max-width:590px;color:#63705f;font-size:11px;line-height:1.6}.campus-choices button:focus-visible{outline:2px solid #007e9e;outline-offset:3px}.campus-point{pointer-events:none}@media(prefers-reduced-motion:reduce){.campus-point{transition:none}}@media(max-width:800px){.campus-explorer{margin-inline:18px}.campus-choices{gap:8px}.campus-choices button{font-size:10px;gap:5px}.campus-detail{font-size:11px}.campus-point{width:21px;height:21px;font-size:8px}}
+  .campus-caption {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem 1rem;
+    align-items: baseline;
+    padding-top: 0.55rem;
+    min-height: 3rem;
+  }
+  @media (max-width: 480px) {
+    .campus-caption {align-items: start}
+    .campus-detail {min-height: 3.2em}
+  }
 </style>
