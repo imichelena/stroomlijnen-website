@@ -1,5 +1,9 @@
 export function brochureLinks(product, lang, className) {
-  const title = product === 'ESS-261' ? 'ESS 261' : 'EMS v6.2';
+  const title = {
+    'ESS-261': 'ESS 261',
+    'EMS-v6.2': 'EMS v6.2',
+    '120kW-DC-snellader': lang === 'en' ? '120 kW DC fast charger' : '120 kW DC-snellader'
+  }[product];
   const languages = lang === 'en' ? ['EN', 'NL'] : ['NL', 'EN'];
   const links = languages.map(code => {
     const label = code === 'EN' ? 'English' : 'Nederlands';

@@ -35,9 +35,25 @@ function footer(lang) {
 function home(lang) {
   const t=copy[lang], s=safetyCopy[lang], info=lang==='en'?'/en':'';
   return `<section class="hero frame"><div class="hero-text">
-    <h1>${heading(t.title)}</h1><p class="deck">${t.lead}</p><div class="actions"><a class="btn mainbtn" href="#laden">${t.tour} <span aria-hidden="true">↓</span></a><a class="inline" href="${contact(lang)}">${t.consult} ${arrow}</a></div>
+    <h1>${heading(t.title)}</h1><p class="deck">${t.lead}</p><div class="actions"><a class="btn mainbtn" href="#business">${t.tour} <span aria-hidden="true">↓</span></a><a class="inline" href="${contact(lang)}">${t.consult} ${arrow}</a></div>
   </div><figure class="hotel-view"><img src="/assets/hotel-960.webp" srcset="/assets/hotel-640.webp 640w, /assets/hotel-960.webp 960w, /assets/hotel-1536.webp 1536w" sizes="(min-width: 840px) 54vw, 100vw" width="1536" height="1024" alt="${t.illustrated}" fetchpriority="high"></figure></section>
-  <div class="chapter-nav"><nav class="frame" aria-label="${lang==='en'?'Explore the hotel site':'Onderwerpen voor hotels'}"><a href="#laden">${t.charge} <span>↓</span></a><a href="#ems">${t.ems} <span>↓</span></a><a href="#opslag">${t.storage} <span>↓</span></a><a href="#roadmap">Roadmap 2027–2028 <span>↓</span></a></nav></div>
+  <div class="chapter-nav"><nav class="frame" aria-label="${lang==='en'?'Explore the hotel site':'Onderwerpen voor hotels'}"><a href="#business">${t.businessNav} <span>↓</span></a><a href="#laden">${t.charge} <span>↓</span></a><a href="#ems">${t.ems} <span>↓</span></a><a href="#opslag">${t.storage} <span>↓</span></a><a href="#roadmap">Roadmap 2027–2028 <span>↓</span></a></nav></div>
+  <section id="business" class="section hotel-business" aria-labelledby="business-heading">
+    <div class="frame two-columns">
+      <div class="business-copy">
+        <h2 id="business-heading">${heading(t.businessTitle)}</h2>
+        <p class="intro">${t.businessLead}</p>
+        <h3>${t.expansionTitle}</h3><p>${t.expansionBody}</p>
+        <h3>${t.chargingTitle}</h3><p>${t.chargingBody}</p><p>${t.visitorBody}</p>
+      </div>
+      <figure class="storage-plate charger-plate">
+        <img src="https://commercieel.stroomlijnen.nl/images/hardware/dc-120.webp" width="960" height="640" loading="lazy" alt="${t.fastChargerAlt}">
+        <figcaption><strong>${t.fastCharger}</strong><p>${t.fastChargerCaption}</p>
+          ${brochureLinks('120kW-DC-snellader', lang, 'inline')}
+        </figcaption>
+      </figure>
+    </div>
+  </section>
   <section id="laden" class="guest section"><div class="frame two-columns"><div class="guest-story"><p class="eyebrow">${t.charge}</p><h2>${heading(t.guestTitle)}</h2><p class="intro">${t.guestLead}</p><ol class="steps">${t.steps.map(([label,body])=>`<li><h3>${label}</h3><p>${body}</p></li>`).join('')}</ol><a class="inline" target="_blank" rel="noopener noreferrer" href="${docs+info}/docs/energie/energiebudget/">${t.reserveDocs} ${arrow}</a></div>
   <figure class="folio"><figcaption>${t.receipt}</figcaption><div class="big-num">30 <span>kWh</span></div><p class="folio-label">${t.requested}</p>
   <div class="ruler"><div><b>19:00</b><small>${t.arrival}</small></div><div><b>07:00</b><small>${t.next}</small></div></div><p class="folio-caption">${t.ticketNote}</p></figure></div></section>

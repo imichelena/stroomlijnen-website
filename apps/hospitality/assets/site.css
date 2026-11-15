@@ -49,7 +49,7 @@ p{color:var(--soft)}
 .hotel-view{width:110%;margin-left:-3%}
 .hotel-view img{width:100%;height:auto}
 .chapter-nav{border-block:1px solid var(--line)}
-.chapter-nav nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.chapter-nav nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
 .chapter-nav a{padding:1rem 1.1rem;display:flex;gap:.5rem;align-items:center;justify-content:space-between;font-size:.83rem;border-left:1px solid var(--line)}
 .chapter-nav a:last-child{border-right:1px solid var(--line)}
 .chapter-nav span{color:var(--green)}
@@ -128,3 +128,13 @@ footer{background:var(--night);color:#f6f6ed;padding:clamp(3.5rem,6vw,6rem) 0 1.
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
 @media(min-width:841px) and (max-width:1049px){.hero h1{font-size:clamp(2.65rem,5.1vw,3.35rem);text-wrap:initial}.hero{grid-template-columns:1fr 1fr}.hero .hotel-view{width:105%;margin-left:-1%}}
+
+.hotel-business {background:var(--paper)}
+.business-copy h3 {margin:1.45rem 0 .35rem;font-size:1.2rem;letter-spacing:-.025em}
+.business-copy p+p {margin-top:.7rem}
+.charger-plate {background:var(--white)}
+.charger-plate figcaption {display:block;padding-block:1rem;border-bottom:0;letter-spacing:0}
+.charger-plate figcaption > strong {font-size:1.15rem}
+.charger-plate figcaption p {margin-top:.4rem;font-size:.95rem;font-weight:400}
+.charger-plate figcaption p+p {margin-top:1rem}
+@media(max-width:540px){.chapter-nav a:last-child{grid-column:1/-1}}
