@@ -85,7 +85,7 @@ export function emsSection(lang, docsOrigin = 'https://docs.stroomlijnen.nl') {
           </figure>
           <dl>${text.policies.map(([title, description]) => `<div><dt>${title}</dt><dd>${description}</dd></div>`).join('')}</dl>
           <p class="hotel-ems__basis">${text.basis}</p>
-          <p><a class="hotel-ems__link" href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-EMS-v6.2-Brochure-NL.pdf" download>${lang === 'en' ? 'Download the EMS v6.2 brochure (PDF, Dutch)' : 'Download de brochure over EMS v6.2 (PDF)'}</a></p>
+          <p><a class="hotel-ems__link" href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-EMS-v6.2-Brochure-${lang === 'en' ? 'EN' : 'NL'}.pdf" download>${lang === 'en' ? 'Download the EMS v6.2 brochure (PDF, English)' : 'Download de brochure over EMS v6.2 (PDF)'}</a></p>
           <a target="_blank" rel="noopener noreferrer" class="hotel-ems__link" href="${docsOrigin}${docsPrefix}/docs/energie/ems">${text.link}<span aria-hidden="true"> ↗</span></a>
         </div>
         <figure class="hotel-ems__figure" data-hotel-ems>

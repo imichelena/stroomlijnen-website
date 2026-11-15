@@ -9,7 +9,7 @@ const websiteHome = isEnglish ? 'https://stroomlijnen.nl/en/' : 'https://strooml
 const config: Config = {
   title: siteTitle,
   tagline: isEnglish ? 'Electric charging for fleets and sites' : 'Alles over elektrisch laden voor vloten en locaties',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-docs.svg',
 
   future: {
     v4: false,
@@ -150,6 +150,8 @@ const config: Config = {
       title: '',
       logo: {
         alt: 'Stroomlijnen',
+        href: websiteHome,
+        target: '_self',
         src: 'img/stroomlijnen-logo.png',
         srcDark: 'img/stroomlijnen-logo.png',
         width: 180,
@@ -196,6 +198,7 @@ const config: Config = {
           items: [
             { label: 'stroomlijnen.nl', href: websiteHome },
             { label: 'LinkedIn', href: 'https://www.linkedin.com/company/stroomlijnen' },
+            { label: isEnglish ? 'About us' : 'Over ons', href: isEnglish ? 'https://cultuur.stroomlijnen.nl/en/about/' : 'https://cultuur.stroomlijnen.nl/over-ons/' },
             { label: 'Contact', href: `${websiteHome}contact/` },
           ],
         },

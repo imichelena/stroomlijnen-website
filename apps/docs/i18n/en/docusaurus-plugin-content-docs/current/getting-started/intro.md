@@ -48,7 +48,7 @@ We work with **Hongjiali (HGL)** charging stations, validated by us at the facto
 | DC fast charger (ENC-DCL120B) | **120 kW**, modularly expandable to 180 kW; configurable as 1×120 kW or 2×60 kW | 2× CCS2 | OCPP 2.0.1 |
 | AC charger (ENC-DCX030A) | 30 kW | Type 2 | OCPP 1.6J |
 
-<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="">Download the 120 kW DC fast charger brochure (PDF, Dutch)</a>
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="">Download the 120 kW DC fast charger brochure (PDF, English)</a>
 
 The DC chargers are modularly built: if a power module fails, the others keep working and the module can be replaced on site.
 

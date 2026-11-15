@@ -199,8 +199,8 @@ export const storyRoutes = {
   "nl": {
     "home": commercialHome('nl'),
     "contact": contactEntry('nl'),
-    "about": "/over-stroomlijnen/",
-    "technology": "/technologie/",
+    "about": "https://cultuur.stroomlijnen.nl/over-ons/",
+    "hardware": "/hardware/",
     "security": "/veiligheid/",
     "knowledge": docsEntry('nl'),
     "docs": docsEntry('nl')
@@ -208,8 +208,8 @@ export const storyRoutes = {
   "en": {
     "home": commercialHome('en'),
     "contact": contactEntry('en'),
-    "about": "/en/about/",
-    "technology": "/en/technology/",
+    "about": "https://cultuur.stroomlijnen.nl/en/about/",
+    "hardware": "/en/hardware/",
     "security": "/en/security/",
     "knowledge": docsEntry('en'),
     "docs": docsEntry('en')

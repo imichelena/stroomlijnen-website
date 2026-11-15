@@ -11,7 +11,7 @@ import { DayFlow } from '@site/src/components/EnergyVisuals';
 
 An **ESS (Energy Storage System)** is a stationary battery at your location. It charges when there is headroom and delivers when needed. This increases the effective capacity of your connection without a cable having to go into the ground.
 
-<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-ESS-261-Brochure-NL.pdf" download="">Download the ESS 261 brochure (PDF, Dutch)</a>
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-ESS-261-Brochure-EN.pdf" download="">Download the ESS 261 brochure (PDF, English)</a>
 
 ## What it solves
 

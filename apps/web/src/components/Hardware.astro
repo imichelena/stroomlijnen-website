@@ -1,6 +1,6 @@
 ---
 import EmsDiagram from './EmsDiagram.astro';
-import Layout from '../layouts/CommercialLayout.astro';
+import Layout from '../layouts/StoryLayout.astro';
 import {copy, type Lang} from '../data/commercial';
 import {docsOrigin} from '../../config/public-sites.mjs';
 
@@ -34,15 +34,16 @@ const products = [
   },
 ];
 ---
-<Layout lang={lang} page="hardware">
-  <header class="shell hardware-intro">
+<Layout lang={lang} page="hardware" title="Hardware" description={copy[lang].hardware.intro}>
+  <header class="wrap hardware-intro guide-intro">
+    <p class="eyebrow"><span></span>{en ? 'Commercial equipment' : 'Commerciële installaties'}</p>
     <h1>Hardware</h1>
     <p>{copy[lang].hardware.intro}</p>
     <nav aria-label={en ? 'Products on this page' : 'Producten op deze pagina'}>
       {products.map(product => <a class="text-link" href={`#${product.id}`}>{product.title} <span aria-hidden="true">↓</span></a>)}
     </nav>
   </header>
-  <div class="shell">
+  <div class="wrap">
     {products.map(product => (
       <section class="hardware-product" id={product.id} aria-labelledby={`name-${product.id}`}>
         {product.id === 'ems' ? <EmsDiagram lang={lang} /> : <img src={`/images/hardware/${product.image}.webp`} width="960" height="640" alt="" loading={product.id === 'dc' ? 'eager' : 'lazy'} />}
@@ -51,12 +52,13 @@ const products = [
           <h2 id={`name-${product.id}`}>{product.title}</h2>
           <p>{product.body}</p>
           <dl>{product.facts.map(([value, label]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-          <a class="text-link" download href={`${docsOrigin}/brochures/Stroomlijnen-${product.file}-Brochure-NL.pdf`}>
-            {en ? `Download the ${product.title} brochure (PDF, Dutch)` : `Download de brochure voor ${product.title} (PDF)`}
-          </a>
+          <div class="brochure-links"><strong>Brochure (PDF)</strong>{(en ? ['EN', 'NL'] : ['NL', 'EN']).map(code =>
+            <a class="text-link" download hreflang={code.toLowerCase()} href={`${docsOrigin}/brochures/Stroomlijnen-${product.file}-Brochure-${code}.pdf`}
+              aria-label={`${product.title} · ${code === 'EN' ? 'English' : 'Nederlands'} (PDF)`}>{code === 'EN' ? 'English' : 'Nederlands'} ↓</a>
+          )}</div>
           {product.id === 'dc' && <p class="other-chargers">
             {en ? 'For longer parking stays, there is also a 22 kW AC charger. A mobile 30 kW DC charger is available for temporary use.' : 'Voor voertuigen die langer geparkeerd staan is er ook een 22 kW AC-lader. Voor tijdelijk gebruik is er een mobiele DC-lader van 30 kW.'}
-            {' '}<a href={en ? '/en/technology/#technology-2' : '/technologie/#technology-2'}>{en ? 'Compare chargers' : 'Vergelijk de laders'} →</a>
+            {' '}<a href={docsOrigin + (en ? '/en' : '') + '/docs/pandeneigenaren/ac-vs-dc-laders/'}>{en ? 'Compare chargers' : 'Vergelijk de laders'} →</a>
           </p>}
         </div>
       </section>
@@ -65,15 +67,16 @@ const products = [
 </Layout>
 
 <style>
+  .brochure-links { display:flex; align-items:baseline; flex-wrap:wrap; gap:.5rem 1.25rem; }
   .hardware-intro { padding-block: clamp(3rem, 6vw, 6rem) 2.5rem; }
-  .hardware-intro p { max-width: 59ch; margin-top: 1.25rem; font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
+  .hardware-intro p:not(.eyebrow) { max-width: 59ch; margin-top: 1.25rem; font-size: clamp(1.1rem, 1.5vw, 1.35rem); }
   .hardware-intro nav { display: flex; flex-wrap: wrap; gap: .8rem 2rem; margin-top: 1.75rem; }
   .hardware-product { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(2rem, 4.5vw, 4.5rem); border-top: 1px solid var(--line); scroll-margin-top: 1.25rem; }
   .hardware-product img { width: 100%; height: auto; }
   .hardware-product .eyebrow { margin-bottom: .65rem; }
   .hardware-product h2 { margin-bottom: .85rem; }
   .hardware-product dl { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .6rem; border-block: 1px solid var(--line); margin: 1.35rem 0; padding-block: .85rem; }
-  .hardware-product dt { font-size: .78rem; color: var(--slate); }
+  .hardware-product dt { font-size: .78rem; color: var(--muted); }
   .hardware-product dd { margin: .3rem 0 0; font-size: clamp(1rem, 1.8vw, 1.55rem); font-weight: 500; }
   .hardware-product .other-chargers { margin-top: 1.25rem; font-size: .92rem; }
   @media (max-width: 760px) { .hardware-product { grid-template-columns: 1fr; gap: 1.25rem; } }

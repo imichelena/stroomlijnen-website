@@ -29,7 +29,7 @@ const closeLabel = en ? 'Close menu' : 'Menu sluiten';
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title} | Stroomlijnen Cultuur</title>
     <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-cultuur.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="nl" href={sectorOrigin + page.nl} />
     <link rel="alternate" hreflang="en" href={sectorOrigin + page.en} />
@@ -44,7 +44,7 @@ const closeLabel = en ? 'Close menu' : 'Menu sluiten';
     <a class="skip-link" href="#content">{en ? 'Skip to content' : 'Naar de inhoud'}</a>
     <header class="site-header">
       <div class="container nav-inner">
-        <a href={pages[0][lang]} class="nav-logo" aria-label={en ? 'Stroomlijnen Cultuur homepage' : 'Stroomlijnen Cultuur startpagina'}>
+        <a href={gatewayOrigin + (en ? '/en/' : '/')} class="nav-logo" aria-label={en ? 'Stroomlijnen homepage' : 'Stroomlijnen startpagina'}>
           <img src="/stroomlijnen-logo-transparent-OFFICIAL.png" alt="Stroomlijnen" width="216" height="36" /><span>Cultuur</span>
         </a>
         <nav class="primary-nav" aria-label={en ? 'Main navigation' : 'Hoofdnavigatie'}>
