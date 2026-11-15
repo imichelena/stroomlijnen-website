@@ -18,8 +18,8 @@ const paths = [
 <Layout lang={lang} page="security" title="Cybersecurity" description={security.intro}>
   <header class="wrap guide-intro security-intro">
     <div><p class="eyebrow"><span></span>Cybersecurity</p>
-      <h1>{en ? 'One site.' : 'Eén locatie.'}<br/><em>{en ? 'Clear boundaries.' : 'Heldere grenzen.'}</em></h1>
-      <p class="lead">{en ? 'The chargers talk to the controller on site. The controller opens the connection to the platform. This keeps the charging network separate from the public internet.' : 'De laders communiceren met de regelaar op locatie. Die opent de verbinding met het platform. Zo blijft het laadnetwerk gescheiden van het openbare internet.'}</p>
+      <h1>{en ? 'Mobility depends on' : 'Mobiliteit vraagt om'} <em>{en ? 'secure charging.' : 'veilig laden.'}</em></h1>
+      <p class="lead">{en ? 'A delivery van that misses its overnight charge can miss its first delivery. As more fleets go electric, the systems that start, stop and schedule charging become critical infrastructure for mobility. We isolate the charging network and control which devices can communicate with the platform.' : 'Een bestelbus die ’s nachts niet oplaadt, mist ’s ochtends misschien zijn eerste bezorging. Hoe meer wagenparken elektrisch rijden, hoe belangrijker de systemen die het laden starten, stoppen en plannen. Die laadinfrastructuur is cruciaal voor onze mobiliteit. Daarom isoleren we het laadnetwerk en bepalen we welke apparaten met het platform mogen communiceren.'}</p>
     </div>
     <figure class="network-map">
       <figcaption>{security.diagramTitle}</figcaption>
@@ -36,6 +36,29 @@ const paths = [
       <p><i aria-hidden="true"></i>{en ? 'The bastion initiates the platform connection over WireGuard.' : 'Het bastion start de verbinding met het platform via WireGuard.'}</p>
     </figure>
   </header>
+  <section class="comparison" aria-labelledby="isolation">
+    <div class="wrap">
+      <h2 id="isolation">{en ? 'Where does the charger connect?' : 'Waarmee maakt de lader verbinding?'}</h2>
+      <div class="comparison-grid">
+        <article>
+          <h3>{en ? 'OCPP over the public internet' : 'OCPP via het openbare internet'}</h3>
+          <p class="path">{en ? 'Charger → Internet → Public OCPP endpoint' : 'Lader → Internet → Publiek OCPP-eindpunt'}</p>
+          <p>{en ? 'Some chargers connect directly to an operator’s public management system using OCPP, the protocol that carries charging commands and session records. Some public endpoints still accept connections without TLS. On such a connection, someone on the network path could read or alter those messages.' : 'Sommige laders maken rechtstreeks verbinding met het publieke beheersysteem van een laadpaalexploitant. Dat gebeurt via OCPP, het protocol voor laadopdrachten en sessiegegevens. Sommige publieke eindpunten accepteren nog verbindingen zonder TLS. Wie zich op dat netwerkpad bevindt, kan die berichten dan meelezen of wijzigen.'}</p>
+          <p>{en ? 'OCPP supports TLS to encrypt traffic and authenticate the server. A public endpoint remains reachable from the internet even when TLS is enabled.' : 'OCPP ondersteunt TLS om het verkeer te versleutelen en de identiteit van de server te controleren. Ook mét TLS blijft een publiek eindpunt bereikbaar vanaf het internet.'}</p>
+        </article>
+        <article>
+          <h3>{en ? 'An isolated Stroomlijnen site' : 'Een geïsoleerd laadnetwerk'}</h3>
+          <p class="path">{en ? 'Charger → Local bastion → Private tunnel' : 'Lader → Lokaal bastion → Privétunnel'}</p>
+          <p>{en ? 'At a Stroomlijnen site, the charger connects to a controller on the premises. This controller, the bastion, accepts the local charging protocol. Its firewall allows only the connections required on site. The charger needs no public management endpoint or direct route to the internet.' : 'Op een Stroomlijnen-locatie maakt de lader verbinding met een regelaar ter plaatse. Deze regelaar, het bastion, handelt het laadprotocol lokaal af. De firewall laat alleen de benodigde verbindingen toe. De lader heeft geen publiek beheereindpunt of rechtstreekse route naar het internet nodig.'}</p>
+          <p>{en ? 'The bastion opens a private WireGuard tunnel to the platform. The tunnel protects traffic leaving the site. On the local network, the protection depends on the charger and its protocol.' : 'Het bastion opent een private WireGuard-tunnel naar het platform. Die tunnel beschermt het verkeer dat de locatie verlaat. Binnen het laadnetwerk hangt de beveiliging af van de lader en het gebruikte protocol.'}</p>
+        </article>
+      </div>
+      <div class="sources">
+        <a href="https://openchargealliance.org/ocpp-info-whitepapers/ocpp-1-6-security-whitepaper-4th-edition/">{en ? 'OCPP security profiles' : 'OCPP-beveiligingsprofielen'} ↗</a>
+        <a href="https://flare.io/learn/resources/blog/growing-cybersecurity-threat-ev-charging-infrastructure">{en ? 'Field study of public OCPP endpoints' : 'Veldonderzoek naar publieke OCPP-eindpunten'} ↗</a>
+      </div>
+    </div>
+  </section>
   <section class="wrap routes-section">
     <div><p class="eyebrow">{en ? 'Inside the site' : 'Op locatie'}</p>
       <h2>{en ? 'Two paths to the controller.' : 'Twee routes naar de regelaar.'}</h2>
@@ -48,6 +71,24 @@ const paths = [
   </section>
   <section class="wrap principles" aria-label={en ? 'Security measures' : 'Beveiligingsmaatregelen'}>
     {security.principles.map(([heading,body])=><article><h3>{heading}</h3><p>{body}</p></article>)}
+  </section>
+  <section class="wrap routes-section" aria-labelledby="continuity">
+    <div>
+      <p class="eyebrow">{en ? 'During an outage' : 'Bij een storing'}</p>
+      <h2 id="continuity">{en ? 'What if the charger loses its connection?' : 'Wat als de verbinding met het bastion wegvalt?'}</h2>
+      <p>{en ? 'Our DC charger keeps a local record so the operator can still see what happened during the interruption.' : 'Onze DC-lader houdt lokaal bij wat er gebeurt. Zo kan de beheerder ook na een onderbreking zien hoe een laadsessie is verlopen.'}</p>
+    </div>
+    <ol class="recovery">
+      <li><strong>{en ? 'At the charger' : 'Bij de lader'}</strong><p>{en ? 'A driver whose card is on the local authorisation list can start a session offline.' : 'Staat de laadpas op de lokale autorisatielijst, dan kan de bestuurder ook offline een sessie starten.'}</p></li>
+      <li><strong>{en ? 'While disconnected' : 'Tijdens de onderbreking'}</strong><p>{en ? 'The charger stores session events and diagnostic readings locally. Start and end records take priority if storage fills up.' : 'De lader bewaart sessiegegevens en meetwaarden lokaal. Raakt de opslag vol, dan krijgen het begin en einde van een sessie voorrang.'}</p></li>
+      <li><strong>{en ? 'After reconnection' : 'Na herstel'}</strong><p>{en ? 'Once the connection is accepted again, the charger sends queued session events in order.' : 'Zodra de verbinding weer is geaccepteerd, verstuurt de lader de bewaarde sessieberichten in de oorspronkelijke volgorde.'}</p></li>
+    </ol>
+  </section>
+  <section class="wrap routes-section" aria-labelledby="open-source">
+    <h2 id="open-source">{en ? 'Device identity in OpenCPO' : 'Apparaatidentiteit in OpenCPO'}</h2>
+    <div><p>{en ? 'Our open-source charging platform shows how operators can identify each device. A certificate can be revoked for one unit when it is replaced. Mutual TLS lets both ends verify who they are talking to. An audit log links commands and charging sessions to authentication events, helping operators trace what happened.' : 'Ons opensourcelaadplatform laat zien hoe een exploitant elk apparaat kan herkennen. Bij vervanging kan het certificaat van één apparaat worden ingetrokken. Met wederzijdse TLS controleren beide partijen elkaars identiteit. In het logboek kan de beheerder laadopdrachten, sessies en authenticaties terugvinden om een incident te reconstrueren.'}</p>
+      <a class="text-link" href="https://opencpo.io/">{en ? 'Explore OpenCPO' : 'Bekijk OpenCPO'} ↗</a>
+    </div>
   </section>
   <section class="scope"><div class="wrap routes-section">
     <h2>{en ? 'What we check at your site' : 'Wat we op uw locatie toetsen'}</h2>
@@ -79,6 +120,22 @@ const paths = [
   .principles {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding-bottom:clamp(3rem,6vw,6rem)}
   .principles article {border-top:1px solid var(--line);padding-top:1rem}
   .principles h3 {margin-bottom:.8rem}
+  .comparison {padding-block:clamp(2.5rem,5vw,5rem);background:#e9edde}
+  .comparison h2 {margin-bottom:2rem}
+  .comparison-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,4vw,4rem)}
+  .comparison-grid article {border-top:2px solid #607269;padding-top:1.25rem}
+  .comparison-grid article+article {border-color:#66833a}
+  .comparison-grid h3 {font-size:clamp(1.45rem,2.4vw,2.15rem)}
+  .comparison-grid p {max-width:62ch;margin-top:.8rem}
+  .comparison-grid .path {font-size:.94rem;font-weight:600;padding:.7rem 0;border-bottom:1px solid #bbc8b5}
+  .sources {display:flex;flex-wrap:wrap;gap:.65rem 1.8rem;margin-top:1.8rem;font-size:.88rem}
+  .sources a {text-decoration:underline;text-underline-offset:.2em}
+  .recovery {list-style:none;margin:0;padding:0 0 0 1.2rem}
+  .recovery li {position:relative;padding:0 0 1.4rem 1.6rem;border-left:1px solid #71886a}
+  .recovery li:last-child {border-left-color:transparent;padding-bottom:0}
+  .recovery li:before {content:'';position:absolute;left:-.35rem;top:.2rem;width:.65rem;height:.65rem;border-radius:50%;background:#537143}
+  .recovery p {margin-top:.25rem}
+  @media(max-width:800px){.comparison-grid{grid-template-columns:1fr}}
   .scope {background:#e9edde}
   .scope p+p {margin-top:.8rem}
   @media(max-width:800px){.security-intro,.routes-section,.principles{grid-template-columns:1fr}.wire{left:90%}.node strong{font-size:.85rem}.route{gap:.5rem}}
