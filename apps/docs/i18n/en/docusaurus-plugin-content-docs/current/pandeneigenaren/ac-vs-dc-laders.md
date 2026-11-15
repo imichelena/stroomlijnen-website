@@ -69,6 +69,8 @@ Two things determine the actual charging speed with DC:
 
 A 120 kW charger is more than sufficient for many touring days: 400 kWh in 10 hours requires an average of 40 kW.
 
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="">Download the 120 kW DC fast charger brochure (PDF, Dutch)</a>
+
 ## How to choose
 
 | Situation | Recommendation |

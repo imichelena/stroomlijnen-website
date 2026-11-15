@@ -13,6 +13,8 @@ An **EMS (energy management system)** is the layer between your meter and your c
 
 Without an EMS, charging is a guess. With an EMS, it is a budget.
 
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-EMS-v6.2-Brochure-NL.pdf" download="">Download the EMS v6.2 brochure (PDF, Dutch)</a>
+
 ## The overall picture
 
 The controller allocates charging power. Electricity flows through cables and the distribution board, not through software.

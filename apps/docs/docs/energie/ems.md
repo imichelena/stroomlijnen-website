@@ -13,6 +13,8 @@ Een **EMS (energiebeheersysteem)** is de laag tussen uw meter en uw laadpunten. 
 
 Zonder EMS is laden een gok. Met EMS is het een begroting.
 
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-EMS-v6.2-Brochure-NL.pdf" download="">Download de brochure over EMS v6.2 (PDF)</a>
+
 ## Eerst het overzicht
 
 De regelaar verdeelt het laadbudget. Het elektrische vermogen loopt door de kabels en de verdeler, niet door de software.

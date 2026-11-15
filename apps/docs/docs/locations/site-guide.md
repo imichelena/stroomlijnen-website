@@ -29,6 +29,8 @@ Praktisch:
 | Protocol | OCPP 2.0.1 | OCPP 1.6J |
 | Gebruik | Laden in uren, snelle aanvulling | Langdurig stilstaan |
 
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="">Download de brochure voor de 120 kW DC-snellader (PDF)</a>
+
 De DC-lader is modulair: valt er een vermogensmodule uit, dan blijven de andere werken. Dat is de reden dat een defect soms niet betekent dat u niet kunt laden, maar dat het langzamer gaat.
 
 ## Aansluiten

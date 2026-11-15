@@ -48,6 +48,8 @@ We werken met **Hongjiali (HGL)** laadstations, door ons zelf gevalideerd bij de
 | DC-snellader (ENC-DCL120B) | **120 kW**, modulair uitbreidbaar tot 180 kW; te configureren als 1×120 kW of 2×60 kW | 2× CCS2 | OCPP 2.0.1 |
 | AC-lader (ENC-DCX030A) | 30 kW | Type 2 | OCPP 1.6J |
 
+<a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="">Download de brochure voor de 120 kW DC-snellader (PDF)</a>
+
 De DC-laders zijn modulair opgebouwd: als er een vermogensmodule uitvalt, blijven de andere werken en kan de module ter plaatse worden vervangen.
 
 :::note Geen 400 kW
