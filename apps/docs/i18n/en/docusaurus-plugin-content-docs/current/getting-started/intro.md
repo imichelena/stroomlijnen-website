@@ -41,12 +41,13 @@ The middle layer is where the real work happens. See [Grid congestion and power]
 
 ## Our chargers
 
-We work with **Hongjiali (HGL)** charging stations, validated by us at the factory:
+Our DC fast charger uses **Hongjiali (HGL)** hardware validated by Stroomlijnen at the factory.
 
 | Type | Power | Connector | Protocol |
 |---|---|---|---|
 | DC fast charger (ENC-DCL120B) | **120 kW**, modularly expandable to 180 kW; configurable as 1×120 kW or 2×60 kW | 2× CCS2 | Direct API to local bastion |
-| AC charger (ENC-DCX030A) | 30 kW | Type 2 | Local OCPP 1.6J |
+
+New AC models supporting OCPP 2.0.1 and ISO 15118 Plug & Charge are under test. We can also integrate existing customer-owned AC chargers locally via the bastion.
 
 <p><strong>120 kW DC fast charger · Brochure (PDF)</strong><br /><a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-EN.pdf" download="" aria-label="120 kW DC fast charger · English (PDF)">English ↓</a> &nbsp;·&nbsp; <a href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-120kW-DC-snellader-Brochure-NL.pdf" download="" aria-label="120 kW DC fast charger · Nederlands (PDF)">Nederlands ↓</a></p>
 

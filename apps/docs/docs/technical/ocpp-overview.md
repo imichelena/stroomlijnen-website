@@ -42,12 +42,16 @@ Dit is waar het meest wordt overdreven:
 
 Het verschil dat er voor u toe doet:
 
-- **1.6J** kan prima autoriseren, meten en een vaste limiet ontvangen. Voor veel toepassingen is dat genoeg.
+- **1.6J** kan prima autoriseren, meten en een vaste limiet ontvangen.
 - **2.0.1** voegt onder meer een gestandaardiseerd apparaatmodel toe (welke connectoren, welke mogelijkheden), betere ondersteuning voor Plug & Charge-certificaten en meer grip op slim laden.
 
-:::note Op een Stroomlijnen-locatie
-AC-laders van andere fabrikanten gebruiken lokaal OCPP. Het bastion vertaalt hun berichten naar API-verzoeken voor het platform. Onze eigen DC-laadapplicatie gebruikt de directe API op locatie. Stroomlijnen heeft geen publiek OCPP-eindpunt.
-:::
+## Hoe Stroomlijnen laders aansluit
+
+- **DC-laders van Stroomlijnen** communiceren via onze directe API met het lokale bastion.
+- **Nieuwe AC-laders in de testfase** ondersteunen OCPP 2.0.1 en ISO 15118 Plug & Charge. Stroomlijnen test deze modellen voordat ze in het aanbod komen.
+- **Bestaande AC-laders van de klant** vormen de enige uitzondering voor OCPP 1.6J. Wil een klant al geïnstalleerde AC-laders behouden, dan kan het bastion hun OCPP-verbinding lokaal afhandelen en de berichten vertalen voor het platform. Stroomlijnen verkoopt geen laders met OCPP 1.6.
+
+Stroomlijnen heeft geen publiek OCPP-eindpunt.
 
 ## Laadprofielen: hoe "slim laden" technisch werkt
 
@@ -59,7 +63,7 @@ OCPP kent een paar soorten laadprofielen:
 
 Een EMS vertaalt "er is nu 50 kW ruimte" naar een profiel en stuurt dat naar de lader. De lader voert het uit. Wie dat profiel zet, is precies één partij — anders vechten twee systemen om dezelfde lader.
 
-## Beveiliging en hardware-integratie
+## Beveiliging van het lokale laadnetwerk
 
 Stem voor de integratie van een AC-lader de OCPP-versie, het beveiligingsprofiel en de ondersteunde laadprofielen af met de installateur. Ondersteuning voor TLS en clientcertificaten hangt af van apparaat en firmware. Het bastion houdt de OCPP-verbinding binnen het laadnetwerk. Een private uplink beschermt het verkeer tussen locatie en platform.
 

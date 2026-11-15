@@ -21,10 +21,10 @@ In practice:
 
 ## The chargers
 
-| Feature | DC fast charger | AC charger |
+| Feature | DC fast charger | Existing customer-owned AC charger |
 |---|---|---|
-| Type | HGL ENC-DCL120B | HGL ENC-DCX030A |
-| Power | 120 kW (1×120 or 2×60), expandable to 180 kW | 30 kW |
+| Type | HGL ENC-DCL120B | Site-specific |
+| Power | 120 kW (1×120 or 2×60), expandable to 180 kW | Check charger label |
 | Connector | 2× CCS Combo 2 | Type 2 |
 | Protocol | Direct API to local bastion | Local OCPP 1.6J |
 | Use | Charging in hours, quick top-up | Standing idle for long periods |

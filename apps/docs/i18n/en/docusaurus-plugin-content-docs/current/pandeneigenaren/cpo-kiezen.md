@@ -22,8 +22,8 @@ Everyone says "OCPP, so no vendor lock-in". Ask further:
 - **Who owns the hardware** and what happens in the event of a dispute?
 - **Are there features that only work via the supplier** (for example their own app, their own ports, their own authentication)? That is lock-in, even with OCPP.
 
-:::note OCPP 2.0.1 is not a requirement
-A frequently made mistake in checklists: "do you require OCPP 2.0.1". For many applications **1.6J** is entirely sufficient, and many existing installations run on it. 2.0.1 is better in the areas of device model, Plug & Charge certificates and security, but it is not a precondition for a working installation. Rather ask: *does it work, and can I continue with it later?*
+:::note Existing chargers and new purchases
+An operator's ability to integrate an installed charger is a separate question from what it sells. Stroomlijnen supports OCPP 1.6J only for existing customer-owned AC chargers. Our DC chargers use our direct API. New AC models supporting OCPP 2.0.1 and Plug & Charge are under test.
 :::
 
 ### 2. Who determines the capacity?

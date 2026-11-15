@@ -13,7 +13,7 @@ keywords: [netwerkvereisten, firewall, VLAN, DHCP, DNS, NTP, laadpaal offline, c
 
 | Verbinding | Wat de netwerkbeheerder moet regelen |
 |---|---|
-| AC-lader van een andere fabrikant naar bastion | Lokale bereikbaarheid op het laadnetwerk. De OCPP-verbinding eindigt bij het bastion. |
+| AC-lader van een andere fabrikant naar bastion | Lokale bereikbaarheid op het laadnetwerk. De OCPP-verbinding eindigt bij het bastion. OCPP 1.6J is uitsluitend een uitzondering voor de integratie van bestaande AC-laders van de klant. |
 | Stroomlijnen DC-lader naar bastion | Lokale bereikbaarheid voor de laadapplicatie van Stroomlijnen. Deze gebruikt de directe API. |
 | Bastion naar platform | Een betrouwbare uplink voor de uitgaande privétunnel. Via deze tunnel wisselt het bastion API-verkeer uit met het platform. |
 

@@ -13,7 +13,7 @@ keywords: [network requirements, firewall, VLAN, DHCP, DNS, NTP, charge point of
 
 | Connection | What site IT needs to provide |
 |---|---|
-| OEM AC charger to bastion | Local connectivity on the charging network. OCPP terminates at the bastion. |
+| OEM AC charger to bastion | Local connectivity on the charging network. OCPP terminates at the bastion. OCPP 1.6J is an exception solely for integrating existing customer-owned AC chargers. |
 | Stroomlijnen DC charger to bastion | Local connectivity for the Stroomlijnen application. It uses the direct API. |
 | Bastion to platform | A reliable uplink for the outbound private tunnel. The bastion exchanges API traffic with the platform through that tunnel. |
 

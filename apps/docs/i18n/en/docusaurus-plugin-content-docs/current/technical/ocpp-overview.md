@@ -42,12 +42,16 @@ This is where it is most often overstated:
 
 The difference that matters to you:
 
-- **1.6J** can authorise, meter and receive a fixed limit perfectly well. For many applications that is enough.
+- **1.6J** can authorise, meter and receive a fixed limit perfectly well.
 - **2.0.1** adds, among other things, a standardised device model (which connectors, which capabilities), better support for Plug & Charge certificates and more control over smart charging.
 
-:::note At a Stroomlijnen site
-OEM AC chargers use OCPP locally. The bastion translates their messages into platform API requests. Our own DC charger application uses the direct API on site. Stroomlijnen has no public OCPP endpoint.
-:::
+## How Stroomlijnen connects chargers
+
+- **Stroomlijnen DC chargers** communicate with the local bastion through our direct API.
+- **New AC chargers under test** support OCPP 2.0.1 and ISO 15118 Plug & Charge. Stroomlijnen is validating these models before offering them for sale.
+- **Existing customer-owned AC chargers** are the sole exception for OCPP 1.6J. If a customer wants to keep installed AC equipment, the bastion can accept its OCPP connection locally and translate it for the platform. Stroomlijnen sells no OCPP 1.6 chargers.
+
+Stroomlijnen has no public OCPP endpoint.
 
 ## Charging profiles: how "smart charging" works technically
 
@@ -59,7 +63,7 @@ OCPP has a few types of charging profile:
 
 An EMS translates "there is 50 kW of headroom now" into a profile and sends it to the charger. The charger executes it. Whoever sets that profile must be exactly one party — otherwise two systems fight over the same charger.
 
-## Security and hardware integration
+## Local network security
 
 For an OEM AC integration, confirm the OCPP version, supported security profile and charging profiles with the installer. TLS and client-certificate support depend on the device and firmware. The bastion confines the OCPP connection to the charging network. A private uplink protects traffic between the site and the platform.
 
