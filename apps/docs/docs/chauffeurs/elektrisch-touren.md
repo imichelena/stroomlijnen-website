@@ -83,7 +83,7 @@ DC-laders zetten de stroom zelf om en laden direct op de batterij — zonder OBC
 - **Vermogen:** 20–350+ kW
 - **Prijs:** fors hoger dan AC — publieke snelladers zitten indicatief tussen €0,50 en €0,90/kWh, afhankelijk van netwerk en of je met een pas van een derde partij betaalt
 - **Locaties voor personenwagens/bestelwagens:** Fastned, Shell Recharge, Allego, etc.
-- **Locaties voor vrachtwagens:** een groeiend aantal vrachtwagenlaadpleinen in Nederland — te vinden via [Chargemap](https://chargemap.com) of [Truckcharging van Volvo](https://truckscharging.com)
+- **Locaties voor vrachtwagens:** een groeiend aantal vrachtwagenlaadpleinen in Nederland — te vinden via [Chargemap](https://chargemap.com) of [de vrachtwagenlaadkaart van IRU](https://www.iru.org/intelligence/operational/hdv-charging-stations)
 
 :::warning Reguliere snelladers zijn meestal geen optie voor een vrachtwagen
 De meeste publieke snelladers zijn ontworpen voor personenauto's: krappe vakken, lage kabelhouders en geen doorrijdmogelijkheid. Met een vrachtwagen kom je er fysiek vaak niet bij, ook als het formeel niet verboden is. Reken op speciale vrachtwagenlaadpleinen en check vooraf of je er met jouw combinatie terecht kunt.

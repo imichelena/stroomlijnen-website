@@ -24,3 +24,11 @@
 .section-links p { margin-top:.6rem; color:var(--muted); }
 .section-links a > span { font-size:1.7rem; color:#59774e; }
 @media(max-width:700px){ .section-links { grid-template-columns:1fr; } }
+
+.equipment-summary { padding-bottom:clamp(2.5rem,5vw,5rem); }
+.equipment-summary > p { margin-block:1rem 1.5rem; color:var(--muted); }
+.equipment-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.5rem; }
+.equipment-list a { border-top:1px solid var(--line); padding-top:1rem; }
+.equipment-list strong { display:block; font-weight:550; text-decoration:underline; text-underline-offset:.25em; }
+.equipment-list span { display:block; margin-top:.65rem; color:var(--muted); line-height:1.6; }
+@media(max-width:700px){ .equipment-list { grid-template-columns:1fr; } }

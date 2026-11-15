@@ -83,7 +83,7 @@ DC chargers convert the current themselves and charge the battery directly — w
 - **Capacity:** 20–350+ kW
 - **Price:** considerably higher than AC — public fast chargers are indicatively between €0,50 and €0,90/kWh, depending on the network and whether you pay with a card from a third party
 - **Locations for passenger cars/delivery vans:** Fastned, Shell Recharge, Allego, etc.
-- **Locations for trucks:** a growing number of truck charging plazas in the Netherlands — find them via [Chargemap](https://chargemap.com) or [Truckcharging by Volvo](https://truckscharging.com)
+- **Locations for trucks:** a growing number of truck charging plazas in the Netherlands — find them via [Chargemap](https://chargemap.com) or [IRU’s truck charging map](https://www.iru.org/intelligence/operational/hdv-charging-stations)
 
 :::warning Regular fast chargers are usually not an option for a truck
 Most public fast chargers are designed for passenger cars: tight bays, low cable holders and no drive-through possibility. With a truck you often physically cannot get to them, even if it is not formally prohibited. Reckon on dedicated truck charging plazas and check in advance whether you can get there with your combination.

@@ -42,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
             <p class="what-title">Stroomlijnen regelt</p>
             <div class="what-list">
               <div class="what-item"><p><strong>DC-snellader</strong> — 120 kW, modulair, CCS2</p></div>
-              <div class="what-item"><p><strong>OCPP 2.0.1 platform</strong> — eigen servers, eigen app, eigen software</p></div>
+              <div class="what-item"><p><strong>Stroomlijnen-laadplatform</strong> — eigen servers, eigen app, eigen software</p></div>
               <div class="what-item"><p><strong>24/7 monitoring</strong> — remote diagnose, respons binnen 4 uur</p></div>
               <div class="what-item"><p><strong>Facturatie & inning</strong> — alle administratie, maandelijkse uitbetaling</p></div>
               <div class="what-item"><p><strong>CO₂-rapportage</strong> — inzicht in besparing, klaar voor duurzaamheidsverslag</p></div>
@@ -55,7 +55,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="what-list">
               <div class="what-item"><p><strong>Plek vrijmaken</strong> — bij het laaddok, dicht bij je hoofdaansluiting</p></div>
               <div class="what-item"><p><strong>Stroom leveren</strong> — via je bestaande aansluiting, overdag is er ruimte</p></div>
-              <div class="what-item"><p><strong>Internetverbinding</strong> — bekabeld</p></div>
+              <div class="what-item"><p><strong>Bekabelde internetverbinding</strong> voor de regelaar op locatie</p></div>
               <div class="what-item"><p><strong>Installatie</strong> — aansluiten op de (hoofd)verdeelinstallatie door je installateur</p></div>
               <div class="what-item"><p><strong>Inkomen ontvangen</strong> — maandelijks, per kWh, automatisch</p></div>
             </div>
@@ -74,8 +74,8 @@ import Layout from '../layouts/Layout.astro';
           <ul>
             <li>DC-snellader 120 kW — modulair</li>
             <li>CCS2-stekker — voor vrachtwagens, busjes en personenauto's</li>
-            <li>4 uur voor een volle truck bij 120 kW</li>
-            <li>OCPP 2.0.1 — met Plug &amp; Charge</li>
+            <li>Vier uur laden op 120 kW levert tot 480 kWh vóór laadverliezen</li>
+            <li>Directe API-verbinding met de regelaar op locatie</li>
             <li>24/7 monitoring — remote diagnose, reactie binnen 4 uur</li>
             <li>Op je bestaande aansluiting — geen verzwaring nodig</li>
           </ul>
@@ -108,7 +108,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="faq-item"><h4>Hebben we genoeg capaciteit op onze aansluiting?</h4><p>Waarschijnlijk wel. Theaters zijn gedimensioneerd op avondpiekbelasting. Overdag staat die capaciteit grotendeels stil — precies de ruimte die we gebruiken voor laden. Een 60 kW lader laadt in 10 uur ruim voldoende voor een volle vrachtwagen. Ons EMS begrenst de lader automatisch binnen je gecontracteerd vermogen.</p></div>
         <div class="faq-item"><h4>Gaat het laden ten koste van onze voorstelling?</h4><p>Nee. Het Stroomlijnen-platform monitort real-time je gebouwverbruik en begrenst de lader. Je voorstelling heeft altijd prioriteit. Laden gebeurt vooral overdag en 's nachts.</p></div>
         <div class="faq-item"><h4>Welk vermogen hebben we nodig?</h4><p>Minimaal 60 kW DC — daarmee laadt een elektrische trekker-oplegger in 7—10 uur volledig op. Een 120 kW lader is optimaal: je laadt overdag snel bij en kunt 's avonds stoppen. Het theater gebruikt die stroomcapaciteit overdag toch niet. Een 22 kW AC-lader volstaat voor lichte bestelwagens en tourbussen.</p></div>
-        <div class="faq-item"><h4>Hoe zit het met veiligheid en verzekering?</h4><p>Stroomlijnen levert gecertificeerde hardware (CE, MID etc) met automatische foutdetectie, noodstop en branddetectiekoppeling. Laders zijn onzichtbaar op internet via een privaat Tailscale-netwerk — geen open poorten, geen externe toegang. Elke lader heeft een eigen digitaal paspoort. Het systeem voldoet aan NIS2-normen.</p></div>
+        <div class="faq-item"><h4>Hoe zit het met veiligheid en verzekering?</h4><p>De lader staat op een apart laadnetwerk. De regelaar op locatie opent de beveiligde verbinding met het platform. Bij oplevering controleren we met je installateur welke veiligheidsvoorzieningen zijn aangesloten. Voor je verzekeraar kun je de documentatie van de installatie opvragen.</p></div>
         <div class="faq-item"><h4>Wat als we het pand huren van de gemeente?</h4><p>Dan heb je toestemming nodig van de eigenaar. Stroomlijnen begeleidt dit traject en kan technische documentatie aanleveren voor gemeente of verhuurder.</p></div>
         <div class="faq-item"><h4>Wie installeert en onderhoudt?</h4><p>Installatie door je installateur. Stroomlijnen doet de inbedrijfstelling en is verantwoordelijk voor al het onderhoud, software-updates en 24/7 monitoring.</p></div>
         <div class="faq-item"><h4>Hoe lang duurt het voordat de lader er staat?</h4><p>Vanaf bestelling is levering binnen 1 werkweek uit voorraad (bij aanvulling van voorraad zit er maximaal een extra 7 weken levertijd). Installatie + inbedrijfstelling kost 1—2 dagen.</p></div>
