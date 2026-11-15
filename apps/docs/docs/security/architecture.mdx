@@ -60,6 +60,20 @@ Beveiligingsmogelijkheden hangen af van het apparaatmodel, de firmware en de con
 
 Het protocoldiagram beschrijft authenticatie- en sessieverbindingen. Lokale Modbus-telemetrie, apparaatbesturing, EMS-veiligheidsfuncties en software-updates zijn afzonderlijke onderwerpen; het label voor wederzijdse TLS dekt die niet. We suggereren niet dat al het lokale verkeer versleuteld is of dat een netwerktunnel op zichzelf een besturingscommando autoriseert.
 
+## Sessie-integriteit en verbindingsverlies
+
+Het bastion controleert de apparaatidentiteit, vertaalt protocollen en buffert berichten op de locatie. Het EMS bepaalt het beschikbare laadvermogen. Het platform verwerkt sessieberichten via zijn API.
+
+- **Start van de sessie.** Een automatische start met Plug & Charge op onze DC-lader vereist een nieuwe fysieke aansluiting. Opnieuw opstarten van de laadapp terwijl het voertuig aangesloten blijft, mag geen tweede sessie aanmaken.
+- **Verbindingsverlies.** De DC-applicatie buffert sessieberichten en diagnostische meetwaarden lokaal. Of een nieuwe sessie offline mag starten, hangt af van het autorisatiebeleid op de locatie.
+- **Verbindingsherstel.** Gebufferde berichten kunnen opnieuw worden verstuurd. Het platform koppelt updates aan de juiste sessie op basis van de berichtbron, de identiteit van de lader en de oorspronkelijke starttijd.
+
+## Protocol en open source
+
+OCPP ondersteunt versleuteld transport. Er zijn ook publiek bereikbare implementaties aangetroffen die onversleutelde verbindingen accepteren. TLS beschermt de berichten onderweg. Netwerkisolatie beperkt daarnaast welke systemen elkaar kunnen bereiken. Zie het [beveiligingsdocument van de Open Charge Alliance](https://openchargealliance.org/ocpp-info-whitepapers/ocpp-1-6-security-whitepaper-4th-edition/) en het [veldonderzoek naar publiek bereikbare OCPP-diensten](https://flare.io/learn/resources/blog/growing-cybersecurity-threat-ev-charging-infrastructure).
+
+Ons [OpenCPO-project](https://opencpo.io/) documenteert apparaatgebonden certificaten, individuele intrekking en auditlogs voor laadpaalexploitanten. Welke maatregelen lokaal gelden, hangt af van de geïnstalleerde apparatuur en de locatieconfiguratie.
+
 ## Verantwoordelijkheden op locatie
 
 Fysieke toegang, het lokale netwerk en de configuratie van elk geïnstalleerd apparaat blijven relevant. [Neem contact op met Stroomlijnen](https://stroomlijnen.nl/contact) voor de beoordeling van een concrete installatie. Beoordeel de werkelijke configuratie in plaats van de beveiliging af te leiden uit een algemeen diagram.

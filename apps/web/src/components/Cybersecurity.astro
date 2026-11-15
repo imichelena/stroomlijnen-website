@@ -1,142 +1,67 @@
 ---
 import Layout from '../layouts/StoryLayout.astro';
-import {copy, docsUrl, type Lang} from '../data/commercial';
+import { docsUrl, type Lang } from '../data/commercial';
 interface Props { lang: Lang }
-const {lang} = Astro.props;
-const en = lang === 'en';
-const security = copy[lang].security;
-const steps = [
-  {kind:'charger', title: en ? 'Chargers' : 'Laders', detail: en ? 'AC and DC' : 'AC en DC'},
-  {kind:'controller', title: en ? 'On-site bastion' : 'Lokaal bastion', detail: 'UniPi Edge E410'},
-  {kind:'cloud', title: en ? 'Platform' : 'Platform', detail: en ? 'Session API' : 'Sessie-API'}
-];
-const paths = [
-  {name: en ? 'Stroomlijnen DC charger' : 'Stroomlijnen DC-lader', protocol: 'HTTPS · mTLS', receiver: en ? 'Bastion API' : 'Bastion-API'},
-  {name: en ? 'OEM AC charger' : 'OEM-AC-lader', protocol: 'OCPP', receiver: en ? 'Local OCPP endpoint' : 'Lokaal OCPP-eindpunt'}
-];
+const { lang } = Astro.props;
+const story = {
+  en: {
+    title: 'The first delivery', emphasis: 'starts the night before.',
+    intro: 'When a driver arrives for the early shift, the van needs to be ready. A missed charge can delay a whole route. As more journeys depend on electricity, charging becomes critical infrastructure. Protecting it is part of keeping people and goods moving.',
+    image: 'A delivery truck connected to a charger outside a depot.',
+    connection: 'Who can reach your chargers?',
+    public: 'Some chargers exchange instructions with a service on the public internet. Sometimes those messages travel without encryption. Someone along that route could read a charging record or change an instruction meant for the charger.',
+    private: 'At a Stroomlijnen site, the chargers sit on a separate, private network. The operator can still manage charging, but the chargers themselves have no direct path to the public internet. Only the connections needed to run the site are allowed.',
+    outage: 'When a connection drops',
+    continuity: 'Imagine a van is plugged in when the connection goes down. Our fast charger keeps a local record of the session. When communication returns, the operator can see what happened. Whether another driver can start charging offline depends on the access arrangements for that site.',
+    detail: 'Technical documentation for your IT team'
+  },
+  nl: {
+    title: 'De eerste bezorging', emphasis: 'begint de avond ervoor.',
+    intro: 'Als de chauffeur ’s ochtends instapt, moet de bestelbus klaar zijn voor vertrek. Eén gemiste laadbeurt kan een hele route vertragen. Nu steeds meer vervoer elektrisch wordt, is laden cruciaal voor onze mobiliteit. Door het laadnetwerk te beveiligen, helpen we mensen en goederen op weg.',
+    image: 'Een vrachtwagen aan de lader bij een distributiegebouw.',
+    connection: 'Wie kan er bij uw laders?',
+    public: 'Sommige laders wisselen opdrachten uit met een dienst op het openbare internet. Soms gebeurt dat zonder versleuteling. Iemand die op die verbinding kan meelezen, zou dan ook laadgegevens kunnen inzien of een opdracht aan de lader kunnen wijzigen.',
+    private: 'Op een Stroomlijnen-locatie staan de laders op een apart, besloten netwerk. De beheerder kan het laden op afstand regelen, terwijl de laders zelf geen rechtstreekse verbinding met het openbare internet hebben. We laten alleen de verbindingen toe die de locatie nodig heeft.',
+    outage: 'Als de verbinding wegvalt',
+    continuity: 'Stel dat de verbinding wegvalt terwijl een bestelbus aan de lader staat. Onze snellader bewaart de sessiegegevens ter plaatse. Na herstel kan de beheerder terugzien wat er is gebeurd. Of een volgende chauffeur ook offline kan laden, hangt af van de toegangsafspraken op die locatie.',
+    detail: 'Technische documentatie voor uw IT-team'
+  }
+}[lang];
 ---
-<Layout lang={lang} page="security" title="Cybersecurity" description={security.intro}>
-  <header class="wrap guide-intro security-intro">
-    <div><p class="eyebrow"><span></span>Cybersecurity</p>
-      <h1>{en ? 'Mobility depends on' : 'Mobiliteit vraagt om'} <em>{en ? 'secure charging.' : 'veilig laden.'}</em></h1>
-      <p class="lead">{en ? 'A delivery van that misses its overnight charge can miss its first delivery. As more fleets go electric, the systems that start, stop and schedule charging become critical infrastructure for mobility. We isolate the charging network and control which devices can communicate with the platform.' : 'Een bestelbus die ’s nachts niet oplaadt, mist ’s ochtends misschien zijn eerste bezorging. Hoe meer wagenparken elektrisch rijden, hoe belangrijker de systemen die het laden starten, stoppen en plannen. Die laadinfrastructuur is cruciaal voor onze mobiliteit. Daarom isoleren we het laadnetwerk en bepalen we welke apparaten met het platform mogen communiceren.'}</p>
-    </div>
-    <figure class="network-map">
-      <figcaption>{security.diagramTitle}</figcaption>
-      <ol>
-        {steps.map((node,i) => <li class:list={['node',node.kind]}>
-          <svg aria-hidden="true" viewBox="0 0 90 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
-            {node.kind==='charger' ? <><path d="M24 55V12h30v43zm-4 0h38M30 18h18v12H30zm24 2h6l6 8v15q0 7-5 7t-5-7v-8"/><path d="m41 33-5 9h6l-3 8" stroke="#8cab48"/></> :
-             node.kind==='controller' ? <><rect x="12" y="21" width="64" height="32" rx="3"/><path d="M12 29h64M17 22v-6h16v6m19-1V11h17M22 53v4h14v-4m21 0v4h12v-4"/><path d="M21 36h3m4 0h3m4 0h3" stroke="#a7ca69"/><path d="M48 43h18"/></> :
-             <><path d="M23 48a11 11 0 0 1-1-22 18 18 0 0 1 34-6 14 14 0 0 1 9 28z"/><path d="M32 36h22m-18 6h15" stroke="#91ad64"/></>}
-          </svg><strong>{node.title}</strong><small>{node.detail}</small>
-          {i<2 && <span class="wire" aria-hidden="true">→</span>}
-        </li>)}
-      </ol>
-      <p><i aria-hidden="true"></i>{en ? 'The bastion handles device identity, local protocols and buffering. It initiates the platform connection over WireGuard. The EMS determines how much power is available for charging.' : 'Het bastion controleert de apparaatidentiteit, handelt lokale protocollen af en buffert berichten. Het opent de verbinding met het platform via WireGuard. Het EMS bepaalt hoeveel vermogen er beschikbaar is om te laden.'}</p>
-    </figure>
-  </header>
-  <section class="comparison" aria-labelledby="isolation">
-    <div class="wrap">
-      <h2 id="isolation">{en ? 'Where does the charger connect?' : 'Waarmee maakt de lader verbinding?'}</h2>
-      <div class="comparison-grid">
-        <article>
-          <h3>{en ? 'OCPP over the public internet' : 'OCPP via het openbare internet'}</h3>
-          <p class="path">{en ? 'Charger → Internet → Public OCPP endpoint' : 'Lader → Internet → Publiek OCPP-eindpunt'}</p>
-          <p>{en ? 'Some chargers connect directly to an operator’s public management system using OCPP, the protocol that carries charging commands and session records. Some public endpoints still accept connections without TLS. On such a connection, someone on the network path could read or alter those messages.' : 'Sommige laders maken rechtstreeks verbinding met het publieke beheersysteem van een laadpaalexploitant. Dat gebeurt via OCPP, het protocol voor laadopdrachten en sessiegegevens. Sommige publieke eindpunten accepteren nog verbindingen zonder TLS. Wie zich op dat netwerkpad bevindt, kan die berichten dan meelezen of wijzigen.'}</p>
-          <p>{en ? 'OCPP supports TLS to encrypt traffic and authenticate the server. A public endpoint remains reachable from the internet even when TLS is enabled.' : 'OCPP ondersteunt TLS om het verkeer te versleutelen en de identiteit van de server te controleren. Ook mét TLS blijft een publiek eindpunt bereikbaar vanaf het internet.'}</p>
-        </article>
-        <article>
-          <h3>{en ? 'An isolated Stroomlijnen site' : 'Een geïsoleerd laadnetwerk'}</h3>
-          <p class="path">{en ? 'Charger → Local bastion → Private tunnel' : 'Lader → Lokaal bastion → Privétunnel'}</p>
-          <p>{en ? 'At a Stroomlijnen site, the charger connects to a controller on the premises. This controller, the bastion, accepts the local charging protocol. Its firewall allows only the connections required on site. The charger needs no public management endpoint or direct route to the internet.' : 'Op een Stroomlijnen-locatie maakt de lader verbinding met een regelaar ter plaatse. Deze regelaar, het bastion, handelt het laadprotocol lokaal af. De firewall laat alleen de benodigde verbindingen toe. De lader heeft geen publiek beheereindpunt of rechtstreekse route naar het internet nodig.'}</p>
-          <p>{en ? 'The bastion opens a private WireGuard tunnel to the platform. The tunnel protects traffic leaving the site. On the local network, the protection depends on the charger and its protocol.' : 'Het bastion opent een private WireGuard-tunnel naar het platform. Die tunnel beschermt het verkeer dat de locatie verlaat. Binnen het laadnetwerk hangt de beveiliging af van de lader en het gebruikte protocol.'}</p>
-        </article>
-      </div>
-      <div class="sources">
-        <a href="https://openchargealliance.org/ocpp-info-whitepapers/ocpp-1-6-security-whitepaper-4th-edition/">{en ? 'OCPP security profiles' : 'OCPP-beveiligingsprofielen'} ↗</a>
-        <a href="https://flare.io/learn/resources/blog/growing-cybersecurity-threat-ev-charging-infrastructure">{en ? 'Field study of public OCPP endpoints' : 'Veldonderzoek naar publieke OCPP-eindpunten'} ↗</a>
-      </div>
-    </div>
-  </section>
-  <section class="wrap routes-section">
-    <div><p class="eyebrow">{en ? 'Inside the site' : 'Op locatie'}</p>
-      <h2>{en ? 'Two paths to the controller.' : 'Twee routes naar de regelaar.'}</h2>
-      <p>{en ? 'Our DC charger talks directly to the bastion’s API. An OEM AC charger uses OCPP on the local network. The bastion translates those OCPP messages into API requests for the platform. The platform receives session records from both charger types through its API.' : 'Onze DC-lader communiceert rechtstreeks met de API van het bastion. Een AC-lader van een andere fabrikant gebruikt OCPP op het lokale netwerk. Het bastion vertaalt die OCPP-berichten naar API-verzoeken voor het platform. Zo ontvangt het platform de sessiegegevens van beide typen laders via zijn API.'}</p>
-    </div>
-    <figure class="protocols">
-      <figcaption>{en ? 'Charger communication' : 'Communicatie met de lader'}</figcaption>
-      {paths.map(row => <div class="route"><strong>{row.name}</strong><span class="channel">{row.protocol}</span><strong>{row.receiver}</strong></div>)}
-    </figure>
-  </section>
-  <section class="wrap principles" aria-label={en ? 'Security measures' : 'Beveiligingsmaatregelen'}>
-    {security.principles.map(([heading,body])=><article><h3>{heading}</h3><p>{body}</p></article>)}
-  </section>
-  <section class="wrap routes-section" aria-labelledby="continuity">
+<Layout {lang} page="security" title="Cybersecurity" description={story.intro}>
+  <header class="wrap security-hero">
     <div>
-      <p class="eyebrow">{en ? 'During an outage' : 'Bij een storing'}</p>
-      <h2 id="continuity">{en ? 'What if the charger loses its connection?' : 'Wat als de verbinding met het bastion wegvalt?'}</h2>
-      <p>{en ? 'Our DC charger keeps a local record during an interruption. Whether a driver can start a new offline session depends on the authorisation configured at that site.' : 'Onze DC-lader houdt tijdens een onderbreking lokaal bij wat er gebeurt. Of een bestuurder offline een nieuwe laadsessie kan starten, hangt af van de ingestelde autorisatie op die locatie.'}</p>
+      <p class="eyebrow"><span></span>Cybersecurity</p>
+      <h1>{story.title} <em>{story.emphasis}</em></h1>
+      <p class="intro">{story.intro}</p>
     </div>
-    <ol class="recovery">
-      <li><strong>{en ? 'At the charger' : 'Bij de lader'}</strong><p>{en ? 'For an automatic Plug & Charge start, the charger checks that a vehicle has just been plugged in. Restarting the charger app while the cable is attached does not start another session.' : 'Voor een automatische start met Plug & Charge controleert de lader of er zojuist een voertuig is aangesloten. Als de laadapp opnieuw opstart terwijl de stekker nog vastzit, begint er geen tweede sessie.'}</p></li>
-      <li><strong>{en ? 'While disconnected' : 'Tijdens de onderbreking'}</strong><p>{en ? 'The charger stores session events and diagnostic readings locally. Start and end records take priority if storage fills up.' : 'De lader bewaart sessiegegevens en meetwaarden lokaal. Raakt de opslag vol, dan krijgen het begin en einde van een sessie voorrang.'}</p></li>
-      <li><strong>{en ? 'After reconnection' : 'Na herstel'}</strong><p>{en ? 'Buffered events can be sent again. The platform uses the charger identity, session source and original start time to match updates to the same session.' : 'De gebufferde berichten kunnen weer worden verstuurd. Het platform koppelt de updates aan dezelfde sessie op basis van de lader, de herkomst van de sessie en de oorspronkelijke starttijd.'}</p></li>
-    </ol>
-  </section>
-  <section class="wrap routes-section" aria-labelledby="open-source">
-    <h2 id="open-source">{en ? 'Device identity in OpenCPO' : 'Apparaatidentiteit in OpenCPO'}</h2>
-    <div><p>{en ? 'Our open-source charging platform shows how operators can identify each device. A certificate can be revoked for one unit when it is replaced. Mutual TLS lets both ends verify who they are talking to. An audit log links commands and charging sessions to authentication events, helping operators trace what happened.' : 'Ons opensourcelaadplatform laat zien hoe een exploitant elk apparaat kan herkennen. Bij vervanging kan het certificaat van één apparaat worden ingetrokken. Met wederzijdse TLS controleren beide partijen elkaars identiteit. In het logboek kan de beheerder laadopdrachten, sessies en authenticaties terugvinden om een incident te reconstrueren.'}</p>
-      <a class="text-link" href="https://opencpo.io/">{en ? 'Explore OpenCPO' : 'Bekijk OpenCPO'} ↗</a>
+    <img src="/images/scenes/logistics-960.webp"
+      srcset="/images/scenes/logistics-640.webp 640w, /images/scenes/logistics-960.webp 960w, /images/scenes/logistics-1536.webp 1536w"
+      sizes="(max-width:800px) 100vw, 48vw" width="960" height="640" alt={story.image}/>
+  </header>
+  <section class="private-network" aria-labelledby="isolation">
+    <div class="wrap chapter">
+      <h2 id="isolation">{story.connection}</h2>
+      <div><p>{story.public}</p><p>{story.private}</p></div>
     </div>
   </section>
-  <section class="scope"><div class="wrap routes-section">
-    <h2>{en ? 'What we check at your site' : 'Wat we op uw locatie toetsen'}</h2>
-    <div><p>{security.commissioning}</p><p>{security.compliance}</p>
-      <a class="text-link" href={docsUrl(lang,'security/architecture')}>{security.docsLink} <span aria-hidden="true">↗</span></a>
+  <section class="wrap chapter" aria-labelledby="continuity">
+    <h2 id="continuity">{story.outage}</h2>
+    <div><p>{story.continuity}</p>
+      <a class="text-link" href={docsUrl(lang,'security/architecture')}>{story.detail} <span aria-hidden="true">↗</span></a>
     </div>
-  </div></section>
+  </section>
 </Layout>
 <style>
-  .security-intro,.routes-section {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);align-items:center;gap:clamp(2rem,5vw,5rem);padding-block:clamp(3rem,6vw,6rem)}
-  .security-intro h1 {font-size:clamp(3rem,5.5vw,6rem)}
-  .lead,.routes-section p,.principles p {color:#4f605b;max-width:62ch}
-  figure {min-width:0}
-  .network-map {padding:clamp(1.2rem,3vw,2.6rem);color:#f4f4eb;background-color:#19343e;background-image:radial-gradient(#65808466 .7px,transparent .7px);background-size:13px 13px}
-  figcaption {font-size:.82rem;font-weight:550;letter-spacing:.025em}
-  .network-map ol {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;padding:2.6rem 0;margin:0;text-align:center}
-  .node {position:relative;display:grid;justify-items:center;align-content:start}
-  .node svg {width:clamp(3rem,7vw,6rem);height:auto;margin-bottom:.6rem;color:#e1ebd8}
-  .node small {font-size:.73rem;color:#c8d9d5;margin-top:.4rem}
-  .wire {position:absolute;left:92%;top:20%;color:#b4d57e;font-size:1.3rem}
-  .network-map p {border-top:1px solid #78908e77;padding-top:1rem;font-size:.84rem;line-height:1.5}
-  .network-map i {display:inline-block;width:.5rem;height:.5rem;border-radius:50%;background:#b3d979;margin-right:.5rem}
-  .routes-section {border-top:1px solid var(--line)}
-  .routes-section h2 {font-size:clamp(2.3rem,4vw,4rem);margin:.5rem 0 1rem}
-  .protocols {padding:clamp(1rem,2.5vw,2rem);border:1px solid #c7d1bf;background:#e9edde}
-  .route {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #b8c6af;font-size:clamp(.82rem,1vw,1rem)}
-  .channel {display:flex;flex-direction:column;align-items:center;gap:.4rem;color:#38564e;font-size:.8rem}
-  .channel:after {content:'';width:100%;height:.55rem;background:#5f7f69;clip-path:polygon(0 42%,91% 42%,91% 0,100% 50%,91% 100%,91% 58%,0 58%)}
-  .principles {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;padding-bottom:clamp(3rem,6vw,6rem)}
-  .principles article {border-top:1px solid var(--line);padding-top:1rem}
-  .principles h3 {margin-bottom:.8rem}
-  .comparison {padding-block:clamp(2.5rem,5vw,5rem);background:#e9edde}
-  .comparison h2 {margin-bottom:2rem}
-  .comparison-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(1.5rem,4vw,4rem)}
-  .comparison-grid article {border-top:2px solid #607269;padding-top:1.25rem}
-  .comparison-grid article+article {border-color:#66833a}
-  .comparison-grid h3 {font-size:clamp(1.45rem,2.4vw,2.15rem)}
-  .comparison-grid p {max-width:62ch;margin-top:.8rem}
-  .comparison-grid .path {font-size:.94rem;font-weight:600;padding:.7rem 0;border-bottom:1px solid #bbc8b5}
-  .sources {display:flex;flex-wrap:wrap;gap:.65rem 1.8rem;margin-top:1.8rem;font-size:.88rem}
-  .sources a {text-decoration:underline;text-underline-offset:.2em}
-  .recovery {list-style:none;margin:0;padding:0 0 0 1.2rem}
-  .recovery li {position:relative;padding:0 0 1.4rem 1.6rem;border-left:1px solid #71886a}
-  .recovery li:last-child {border-left-color:transparent;padding-bottom:0}
-  .recovery li:before {content:'';position:absolute;left:-.35rem;top:.2rem;width:.65rem;height:.65rem;border-radius:50%;background:#537143}
-  .recovery p {margin-top:.25rem}
-  @media(max-width:800px){.comparison-grid{grid-template-columns:1fr}}
-  .scope {background:#e9edde}
-  .scope p+p {margin-top:.8rem}
-  @media(max-width:800px){.security-intro,.routes-section,.principles{grid-template-columns:1fr}.wire{left:90%}.node strong{font-size:.85rem}.route{gap:.5rem}}
+  .security-hero,.chapter {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,6vw,6rem);padding-block:clamp(3rem,7vw,6rem)}
+  .security-hero {align-items:center}
+  .security-hero h1 {font-size:clamp(3rem,5.8vw,6rem);margin:.8rem 0 1.25rem}
+  .security-hero em {color:#637c51}
+  .security-hero img {width:100%;height:auto}
+  .intro,.chapter p {color:#405651;max-width:60ch}
+  .private-network {background:#e9edde}
+  .chapter h2 {font-size:clamp(2.2rem,4.3vw,4.3rem);max-width:15ch}
+  .chapter p+p {margin-top:1rem}
+  .chapter .text-link {margin-top:1.5rem}
+  @media(max-width:800px){.security-hero,.chapter{grid-template-columns:1fr;gap:1.5rem}}
 </style>

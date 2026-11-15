@@ -60,6 +60,20 @@ Security capabilities depend on the device model, firmware and commissioned site
 
 The protocol diagram covers authentication and session connectivity. Local Modbus telemetry, device-control paths, EMS safety enforcement and update delivery are separate subjects; they are not covered by the diagram's mutual-TLS label. We do not imply that all local traffic is encrypted or that a network tunnel alone authorizes a control command.
 
+## Session integrity and service interruptions
+
+The bastion handles device identity, protocol translation and message buffering at the site boundary. The EMS determines the site's charging power budget. The platform processes session events through its API.
+
+- **Session start.** An automatic Plug & Charge start on our DC charger requires a new physical connection. Restarting the app while the vehicle remains plugged in must not create another session.
+- **Loss of connectivity.** The DC application buffers session events and diagnostic readings locally. Offline admission of a new session depends on the site's authorisation policy.
+- **Reconnection.** Buffered events can be replayed. The platform uses the event source, charger identity and original session start time to associate updates with the correct session.
+
+## Protocol and project references
+
+OCPP supports encrypted transport. Some publicly reachable deployments have also accepted unencrypted connections. TLS protects the messages in transit. Network isolation separately limits which systems can reach each other. See the [Open Charge Alliance security whitepaper](https://openchargealliance.org/ocpp-info-whitepapers/ocpp-1-6-security-whitepaper-4th-edition/) and the [field study of publicly reachable OCPP services](https://flare.io/learn/resources/blog/growing-cybersecurity-threat-ev-charging-infrastructure).
+
+Our [OpenCPO project](https://opencpo.io/) documents per-device certificates, individual revocation and audit logging for charging operators. The installed device and site configuration determine which controls apply locally.
+
 ## Site responsibilities
 
 The site's physical access, local network and the configuration of each installed device remain relevant. For an assessment of a particular installation, [contact Stroomlijnen](https://stroomlijnen.nl/en/contact/) to review the actual deployment rather than inferring its security posture from a generic diagram.
