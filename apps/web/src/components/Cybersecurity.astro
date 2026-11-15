@@ -8,7 +8,7 @@ const security = copy[lang].security;
 const steps = [
   {kind:'charger', title: en ? 'Chargers' : 'Laders', detail: en ? 'AC and DC' : 'AC en DC'},
   {kind:'controller', title: en ? 'On-site bastion' : 'Lokaal bastion', detail: 'UniPi Edge E410'},
-  {kind:'cloud', title: en ? 'Platform' : 'Platform', detail: en ? 'Session data' : 'Sessiegegevens'}
+  {kind:'cloud', title: en ? 'Platform' : 'Platform', detail: en ? 'Session API' : 'Sessie-API'}
 ];
 const paths = [
   {name: en ? 'Stroomlijnen DC charger' : 'Stroomlijnen DC-lader', protocol: 'HTTPS · mTLS', receiver: en ? 'Bastion API' : 'Bastion-API'},
@@ -33,7 +33,7 @@ const paths = [
           {i<2 && <span class="wire" aria-hidden="true">→</span>}
         </li>)}
       </ol>
-      <p><i aria-hidden="true"></i>{en ? 'The bastion initiates the platform connection over WireGuard.' : 'Het bastion start de verbinding met het platform via WireGuard.'}</p>
+      <p><i aria-hidden="true"></i>{en ? 'The bastion handles device identity, local protocols and buffering. It initiates the platform connection over WireGuard. The EMS determines how much power is available for charging.' : 'Het bastion controleert de apparaatidentiteit, handelt lokale protocollen af en buffert berichten. Het opent de verbinding met het platform via WireGuard. Het EMS bepaalt hoeveel vermogen er beschikbaar is om te laden.'}</p>
     </figure>
   </header>
   <section class="comparison" aria-labelledby="isolation">
@@ -62,7 +62,7 @@ const paths = [
   <section class="wrap routes-section">
     <div><p class="eyebrow">{en ? 'Inside the site' : 'Op locatie'}</p>
       <h2>{en ? 'Two paths to the controller.' : 'Twee routes naar de regelaar.'}</h2>
-      <p>{en ? 'The charging equipment determines which protocol reaches the bastion. Both paths terminate locally.' : 'Het type lader bepaalt via welk protocol de verbinding het bastion bereikt. Beide routes eindigen op locatie.'}</p>
+      <p>{en ? 'Our DC charger talks directly to the bastion’s API. An OEM AC charger uses OCPP on the local network. The bastion translates those OCPP messages into API requests for the platform. The platform receives session records from both charger types through its API.' : 'Onze DC-lader communiceert rechtstreeks met de API van het bastion. Een AC-lader van een andere fabrikant gebruikt OCPP op het lokale netwerk. Het bastion vertaalt die OCPP-berichten naar API-verzoeken voor het platform. Zo ontvangt het platform de sessiegegevens van beide typen laders via zijn API.'}</p>
     </div>
     <figure class="protocols">
       <figcaption>{en ? 'Charger communication' : 'Communicatie met de lader'}</figcaption>
@@ -76,12 +76,12 @@ const paths = [
     <div>
       <p class="eyebrow">{en ? 'During an outage' : 'Bij een storing'}</p>
       <h2 id="continuity">{en ? 'What if the charger loses its connection?' : 'Wat als de verbinding met het bastion wegvalt?'}</h2>
-      <p>{en ? 'Our DC charger keeps a local record so the operator can still see what happened during the interruption.' : 'Onze DC-lader houdt lokaal bij wat er gebeurt. Zo kan de beheerder ook na een onderbreking zien hoe een laadsessie is verlopen.'}</p>
+      <p>{en ? 'Our DC charger keeps a local record during an interruption. Whether a driver can start a new offline session depends on the authorisation configured at that site.' : 'Onze DC-lader houdt tijdens een onderbreking lokaal bij wat er gebeurt. Of een bestuurder offline een nieuwe laadsessie kan starten, hangt af van de ingestelde autorisatie op die locatie.'}</p>
     </div>
     <ol class="recovery">
-      <li><strong>{en ? 'At the charger' : 'Bij de lader'}</strong><p>{en ? 'A driver whose card is on the local authorisation list can start a session offline.' : 'Staat de laadpas op de lokale autorisatielijst, dan kan de bestuurder ook offline een sessie starten.'}</p></li>
+      <li><strong>{en ? 'At the charger' : 'Bij de lader'}</strong><p>{en ? 'For an automatic Plug & Charge start, the charger checks that a vehicle has just been plugged in. Restarting the charger app while the cable is attached does not start another session.' : 'Voor een automatische start met Plug & Charge controleert de lader of er zojuist een voertuig is aangesloten. Als de laadapp opnieuw opstart terwijl de stekker nog vastzit, begint er geen tweede sessie.'}</p></li>
       <li><strong>{en ? 'While disconnected' : 'Tijdens de onderbreking'}</strong><p>{en ? 'The charger stores session events and diagnostic readings locally. Start and end records take priority if storage fills up.' : 'De lader bewaart sessiegegevens en meetwaarden lokaal. Raakt de opslag vol, dan krijgen het begin en einde van een sessie voorrang.'}</p></li>
-      <li><strong>{en ? 'After reconnection' : 'Na herstel'}</strong><p>{en ? 'Once the connection is accepted again, the charger sends queued session events in order.' : 'Zodra de verbinding weer is geaccepteerd, verstuurt de lader de bewaarde sessieberichten in de oorspronkelijke volgorde.'}</p></li>
+      <li><strong>{en ? 'After reconnection' : 'Na herstel'}</strong><p>{en ? 'Buffered events can be sent again. The platform uses the charger identity, session source and original start time to match updates to the same session.' : 'De gebufferde berichten kunnen weer worden verstuurd. Het platform koppelt de updates aan dezelfde sessie op basis van de lader, de herkomst van de sessie en de oorspronkelijke starttijd.'}</p></li>
     </ol>
   </section>
   <section class="wrap routes-section" aria-labelledby="open-source">
