@@ -7,6 +7,14 @@ keywords: [OCPP, OCPP 1.6, OCPP 2.0.1, CSMS, laadpaal protocol, slim laden, Open
 
 # OCPP — het protocol tussen lader en backend
 
+:::info Stroomlijnen-beleid voor nieuwe en bestaande laders
+**Nieuwe verkoop.** OCPP 2.0.1 is de minimumeis voor elke OCPP-lader die Stroomlijnen verkoopt. We testen nieuwe AC-modellen die OCPP 2.0.1 en ISO 15118 Plug & Charge ondersteunen.
+
+**Integratie van bestaande AC-laders.** Ons bastion ondersteunt ook OCPP 1.6J, uitsluitend voor AC-laders die de klant al bezit en heeft geïnstalleerd. Zo kunnen klanten hun laders behouden als ze overstappen op Stroomlijnen. We verkopen geen OCPP 1.6-laders.
+
+**DC-laders van Stroomlijnen.** Onze eigen DC-laders gebruiken de directe API naar het lokale bastion. De OCPP-minimumeis geldt voor laders die via OCPP communiceren. Stroomlijnen heeft geen publiek OCPP-eindpunt.
+:::
+
 **OCPP (Open Charge Point Protocol)** is de open standaard waarmee een laadpunt communiceert met het beheersysteem — het **CSMS** (Charging Station Management System). Het is de reden dat u van beheerder kunt wisselen zonder de laders te vervangen.
 
 OCPP wordt beheerd door de **Open Charge Alliance (OCA)** en is vrij te gebruiken.
@@ -44,14 +52,6 @@ Het verschil dat er voor u toe doet:
 
 - **1.6J** kan prima autoriseren, meten en een vaste limiet ontvangen.
 - **2.0.1** voegt onder meer een gestandaardiseerd apparaatmodel toe (welke connectoren, welke mogelijkheden), betere ondersteuning voor Plug & Charge-certificaten en meer grip op slim laden.
-
-## Hoe Stroomlijnen laders aansluit
-
-- **DC-laders van Stroomlijnen** communiceren via onze directe API met het lokale bastion.
-- **Nieuwe AC-laders in de testfase** ondersteunen OCPP 2.0.1 en ISO 15118 Plug & Charge. Stroomlijnen test deze modellen voordat ze in het aanbod komen.
-- **Bestaande AC-laders van de klant** vormen de enige uitzondering voor OCPP 1.6J. Wil een klant al geïnstalleerde AC-laders behouden, dan kan het bastion hun OCPP-verbinding lokaal afhandelen en de berichten vertalen voor het platform. Stroomlijnen verkoopt geen laders met OCPP 1.6.
-
-Stroomlijnen heeft geen publiek OCPP-eindpunt.
 
 ## Laadprofielen: hoe "slim laden" technisch werkt
 

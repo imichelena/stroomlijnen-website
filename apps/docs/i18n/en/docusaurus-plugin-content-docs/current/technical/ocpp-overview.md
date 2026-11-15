@@ -7,6 +7,14 @@ keywords: [OCPP, OCPP 1.6, OCPP 2.0.1, CSMS, charge point protocol, smart chargi
 
 # OCPP — the protocol between charger and back-end
 
+:::info Stroomlijnen policy for new and existing chargers
+**New sales.** OCPP 2.0.1 is the minimum for every OCPP charger Stroomlijnen sells. We are testing new AC models that support OCPP 2.0.1 and ISO 15118 Plug & Charge.
+
+**Legacy AC integration.** Our bastion also supports OCPP 1.6J, exclusively for AC chargers a customer already owns and has installed. This lets customers keep those chargers when they move to Stroomlijnen. We do not sell OCPP 1.6 chargers.
+
+**Stroomlijnen DC chargers.** Our own DC chargers use the direct API to the local bastion. The OCPP minimum applies to chargers that use OCPP. Stroomlijnen has no public OCPP endpoint.
+:::
+
 **OCPP (Open Charge Point Protocol)** is the open standard with which a charging point communicates with the management system — the **CSMS** (Charging Station Management System). It is the reason you can change operator without replacing the chargers.
 
 OCPP is maintained by the **Open Charge Alliance (OCA)** and is free to use.
@@ -44,14 +52,6 @@ The difference that matters to you:
 
 - **1.6J** can authorise, meter and receive a fixed limit perfectly well.
 - **2.0.1** adds, among other things, a standardised device model (which connectors, which capabilities), better support for Plug & Charge certificates and more control over smart charging.
-
-## How Stroomlijnen connects chargers
-
-- **Stroomlijnen DC chargers** communicate with the local bastion through our direct API.
-- **New AC chargers under test** support OCPP 2.0.1 and ISO 15118 Plug & Charge. Stroomlijnen is validating these models before offering them for sale.
-- **Existing customer-owned AC chargers** are the sole exception for OCPP 1.6J. If a customer wants to keep installed AC equipment, the bastion can accept its OCPP connection locally and translate it for the platform. Stroomlijnen sells no OCPP 1.6 chargers.
-
-Stroomlijnen has no public OCPP endpoint.
 
 ## Charging profiles: how "smart charging" works technically
 

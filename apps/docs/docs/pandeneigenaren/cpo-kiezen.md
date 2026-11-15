@@ -23,7 +23,7 @@ Iedereen zegt "OCPP, dus geen vendor lock-in". Vraag door:
 - **Zijn er functies die alleen via de leverancier werken** (bijvoorbeeld eigen app, eigen poorten, eigen authenticatie)? Dat is lock-in, ook met OCPP.
 
 :::note Bestaande laders en nieuwe aanschaf
-Vraag apart naar de integratie van bestaande laders en het aanbod voor nieuwe aanschaf. Stroomlijnen ondersteunt OCPP 1.6J uitsluitend voor bestaande AC-laders van de klant. Onze DC-laders gebruiken onze directe API. Nieuwe AC-modellen met OCPP 2.0.1 en Plug & Charge zijn in de testfase.
+Vraag apart naar de integratie van bestaande laders en het aanbod voor nieuwe aanschaf. OCPP 2.0.1 is de minimumeis voor OCPP-laders die Stroomlijnen verkoopt. We ondersteunen OCPP 1.6J uitsluitend voor bestaande AC-laders van de klant. Onze DC-laders gebruiken onze directe API. Nieuwe AC-modellen met OCPP 2.0.1 en Plug & Charge zijn in de testfase.
 :::
 
 ### 2. Wie bepaalt het vermogen?
