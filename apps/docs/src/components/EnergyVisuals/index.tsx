@@ -206,12 +206,13 @@ export function DayFlow({locale}: EnergyVisualProps = {}) {
 }
 
 export function ControlArchitecture({locale}: EnergyVisualProps = {}) {
- const {id,t,scenes}=useVisual(locale);
+ const {id,t}=useVisual(locale);
+ const controllerImage = useBaseUrl('/img/ems-edge-e410.webp');
  const c=t.architecture;
  return <figure className={styles.visual} aria-labelledby={`${id}-caption`}>
   <FigureHeader eyebrow={c.eyebrow} model={c.model}/>
   <div className={styles.architectureContext}>
-   <div className={styles.contextImage}><img src={`${scenes}campus-midday-960.webp`} srcSet={`${scenes}campus-midday-640.webp 640w, ${scenes}campus-midday-960.webp 960w`} sizes="(max-width: 700px) 100vw, 380px" width={960} height={640} alt={c.imageAlt} loading="lazy" decoding="async"/></div>
+   <div className={styles.contextImage}><img src={controllerImage} width={1536} height={1024} alt={c.imageAlt} loading="lazy" decoding="async"/></div>
    <div className={styles.contextCopy}><span>{c.contextLabel}</span><h4>{c.contextTitle}</h4><p>{c.contextText}</p></div>
   </div>
   <div className={styles.architectureLayers}>

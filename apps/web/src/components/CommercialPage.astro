@@ -1,4 +1,5 @@
 ---
+import EmsDiagram from './EmsDiagram.astro';
 import Layout from '../layouts/CommercialLayout.astro';
 import Architecture from './CommercialArchitecture.astro';
 import Fieldwork from './CommercialFieldwork.astro';
@@ -27,7 +28,7 @@ const team=[['Ignacio Michelena','ignacio'],['Jacco Patist','jacco']];
   <div class="shell">
     {c.technology.rows.map(([label,title,text,note],i) =>
       <section id={`technology-${i}`} class="technology-row">
-        <div><p class="eyebrow">{label}</p><h2>{title}</h2></div>
+        <div><p class="eyebrow">{label}</p><h2>{title}</h2>{i === 0 && <div class="technology-controller"><EmsDiagram lang={lang} /></div>}</div>
         <div>
           <p class="lead">{text}</p><p>{note}</p>
           {i===0&&<p><a class="text-link" href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-EMS-v6.2-Brochure-NL.pdf" download>{lang === 'en' ? 'Download the EMS v6.2 brochure (PDF, Dutch)' : 'Download de brochure over EMS v6.2 (PDF)'}</a></p>}

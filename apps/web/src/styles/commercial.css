@@ -88,6 +88,7 @@ p+p { margin-top:1.25rem; }
 .section-nav { display:flex; flex-wrap:wrap; gap:30px; border-block:1px solid var(--line); padding-block:20px; }
 .section-nav a { font-size:.8rem; padding-block:12px; }
 .technology-row { padding-block:80px; display:grid; grid-template-columns:1fr 1fr; gap:28px 100px; border-bottom:1px solid var(--line); scroll-margin-top:30px; }
+.technology-controller { margin-top: 1.5rem; }
 .technology-row:last-child { border-bottom:0; }
 .technology-row .lead { margin-bottom:24px; }
 .technology-row h2 { font-size:clamp(1.9rem,3vw,2.7rem); }

@@ -48,9 +48,9 @@ export const strings = {
     ['Het EMS verdeelt.','De lokale besturing past het laadbudget aan de locatiegrenzen aan.'],
     ['Het platform toont.','Sessies en locatiegegevens ondersteunen het beheer.']
    ],
-   imageAlt:'Een illustratieve bedrijfslocatie met laden, gebouw, zonnedak en batterijopslag.',
+   imageAlt:'De Stroomlijnen-regelaar op de UniPi Edge E410 verbindt de meter, zonne-omvormer en gebouwinstallaties met de 120 kW DC-snellader, de ESS 261 en het klantportaal.',
    contextLabel:'Eén locatie, drie verschillende routes',contextTitle:'Wat levert stroom? Wat geeft een opdracht?',
-   contextText:'De fysieke installatie, de lokale regeling en het platform hebben elk een eigen taak.',
+   contextText:'De regelaar leest de meter en stemt het laden en de batterij af op de opwek en het gebouwverbruik. Het portaal toont de gegevens. De regeling werkt op locatie.',
    layerTitles:['Elektrisch vermogen','Lokale besturing','Gegevens voor beheer'],
    layerDescriptions:['Stroom loopt via de elektrische installatie naar de verbruikers.','Metingen worden vertaald naar een lokaal laadbudget.','Locatiegegevens gaan via de netwerkgrens naar het platform.'],
    nodes:[
@@ -108,9 +108,9 @@ export const strings = {
     ['The EMS allocates.','Local control adapts the charging budget to site limits.'],
     ['The platform shows.','Sessions and site data support management.']
    ],
-   imageAlt:'An illustrative business site combining charging, a building, rooftop solar and battery storage.',
+   imageAlt:'The Stroomlijnen controller on the UniPi Edge E410 connects the meter, solar inverter and building systems to the 120 kW DC charger, ESS 261 battery and customer portal.',
    contextLabel:'One site, three different routes',contextTitle:'What carries power? What gives an instruction?',
-   contextText:'The physical installation, local control and platform each have a separate role.',
+   contextText:'The controller reads the meter and coordinates charging and storage with solar generation and building demand. The portal displays the data. Control runs on site.',
    layerTitles:['Electrical power','Local control','Management data'],
    layerDescriptions:['Power flows through the electrical installation to the loads.','Measurements are translated into a local charging budget.','Site data passes through the network boundary to the platform.'],
    nodes:[

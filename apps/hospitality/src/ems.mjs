@@ -79,6 +79,10 @@ export function emsSection(lang, docsOrigin = 'https://docs.stroomlijnen.nl') {
       </header>
       <div class="hotel-ems__columns">
         <div class="hotel-ems__settings">
+          <figure class="hotel-ems__controller">
+            <img src="${docsOrigin}/img/ems-edge-e410.webp" width="1536" height="1024" loading="lazy" decoding="async" alt="${isEnglish ? 'The Stroomlijnen controller on the UniPi Edge E410 connects the meter, solar inverter and building systems to the 120 kW DC charger, ESS 261 battery and customer portal.' : 'De Stroomlijnen-regelaar op de UniPi Edge E410 verbindt de meter, zonne-omvormer en gebouwinstallaties met de 120 kW DC-snellader, de ESS 261 en het klantportaal.'}">
+            <figcaption>${isEnglish ? 'The controller reads the meter and coordinates charging and storage with solar generation and building demand. The portal displays the data. Control runs on site.' : 'De regelaar leest de meter en stemt het laden en de batterij af op de opwek en het gebouwverbruik. Het portaal toont de gegevens. De regeling werkt op locatie.'}</figcaption>
+          </figure>
           <dl>${text.policies.map(([title, description]) => `<div><dt>${title}</dt><dd>${description}</dd></div>`).join('')}</dl>
           <p class="hotel-ems__basis">${text.basis}</p>
           <p><a class="hotel-ems__link" href="https://docs.stroomlijnen.nl/brochures/Stroomlijnen-EMS-v6.2-Brochure-NL.pdf" download>${lang === 'en' ? 'Download the EMS v6.2 brochure (PDF, Dutch)' : 'Download de brochure over EMS v6.2 (PDF)'}</a></p>

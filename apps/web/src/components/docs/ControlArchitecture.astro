@@ -1,4 +1,5 @@
 ---
+import EmsDiagram from '../EmsDiagram.astro';
 interface Props { lang?: 'nl' | 'en'; idPrefix?: string; }
 const { lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'nl', idPrefix = `architecture-${lang}` } = Astro.props;
 const en = lang === 'en';
@@ -15,7 +16,7 @@ const layers = en ? [
 <div class="architecture-explorer layered-architecture">
  <div class="diagram-top"><span class="diagram-tag">{en ? 'Three distinct responsibilities' : 'Drie verschillende verantwoordelijkheden'}</span><span>{en ? '03 / Measure & control' : '03 / Meten & besturen'}</span></div>
  <div class="architecture-context">
-  <img src="/images/scenes/campus-960.webp" srcset="/images/scenes/campus-960.webp 960w, /images/scenes/campus-1536.webp 1536w" sizes="(max-width:550px) calc(100vw - 80px), 350px" width="1536" height="1024" loading="lazy" decoding="async" alt={en ? 'Illustrative business site with a solar roof, battery storage and vehicle charging.' : 'Illustratieve bedrijfslocatie met een zonnedak, batterijopslag en laden voor voertuigen.'}/>
+  <EmsDiagram lang={lang} />
   <div><p class="architecture-context-label">{en ? 'One site. Separate roles.' : 'Eén locatie. Eigen verantwoordelijkheden.'}</p><h3 id={`${idPrefix}-title`}>{en ? 'Power flows. Control coordinates. Data informs.' : 'Stroom loopt. Besturing verdeelt. Data geeft inzicht.'}</h3><p>{en ? 'Three layers work together, with a clear role for each.' : 'Drie lagen werken samen, elk met een duidelijke taak.'}</p></div>
  </div>
  <ol class="architecture-layers" aria-labelledby={`${idPrefix}-title`}>
