@@ -15,7 +15,7 @@ const docs = preview ? 'https://stroomlijnen-kennis-in-beeld.frizzyjasmine.chatg
 const routes = {nl:{home:'/', safety:'/batterijveiligheid/'}, en:{home:'/en/', safety:'/en/battery-safety/'}};
 const arrow = '<span aria-hidden="true">↗</span>';
 const heading = words => words[0]+' <em>'+words[1]+'</em>';
-const contact = lang => gateway + (lang === 'en' ? '/en/contact/' : '/contact/');
+const contact = lang => 'https://lemnion.nl' + (lang === 'en' ? '/en/' : '/');
 
 function header(lang, page) {
   const t=copy[lang], here=routes[lang], other=lang==='nl'?'en':'nl';
@@ -23,13 +23,19 @@ function header(lang, page) {
     <a href="${gateway + here.home}" class="brand" aria-label="Stroomlijnen home"><img src="/assets/wordmark.png" alt="Stroomlijnen" width="480" height="73"><span>Hospitality</span></a>
     <nav class="topnav" aria-label="${t.nav}"><a href="${here.home}#laden">${t.charge}</a><a href="${here.home}#ems">${t.ems}</a><a href="${here.safety}" ${page==='safety'?'aria-current="page"':''}>${t.safety}</a></nav>
     <div class="mast-right"><nav class="langs" aria-label="${t.language}">${['nl','en'].map(l=>`<a lang="${l}" hreflang="${l}" aria-label="${l==='nl'?'Nederlands':'English'}" href="${routes[l][page]}" ${l===lang?'aria-current="page"':''} ${l===other?'data-language-switch':''}>${l.toUpperCase()}</a>`).join('<i aria-hidden="true">/</i>')}</nav><a class="top-contact" href="${contact(lang)}">${t.contact} ${arrow}</a></div>
-    </div></header>`;
+    </div></header>
+    <aside class="partner-notice" aria-label="${t.partnerLabel}">
+      <div class="frame partner-inner">
+        <p><strong>${t.partnerStatement}</strong> ${t.partnerIntro}</p>
+        <a class="inline" href="${contact(lang)}">${t.partnerCta} ${arrow}</a>
+      </div>
+    </aside>`;
 }
 
 function footer(lang) {
   const t=copy[lang], base=lang==='en'?'/en/':'/';
-  return `<footer id="contact"><div class="frame"><div class="contact-flex"><div><h2>${t.ctaTitle}</h2><p>${t.ctaText}</p></div><a class="btn light" href="${contact(lang)}">${t.email} ${arrow}</a></div>
-  <div class="foot-end"><div><strong>Stroomlijnen</strong> Hospitality</div><nav><a href="${gateway+base}">${t.gateway}</a><a target="_blank" rel="noopener noreferrer" href="${docs+base}">${t.docs}</a><a href="https://cultuur.stroomlijnen.nl${lang==='en'?'/en/about/':'/over-ons/'}">${lang==='en'?'About us':'Over ons'}</a><a href="https://lemnion.nl${lang==='en'?'/en/':'/'}">${t.partner}</a></nav><a href="mailto:info@stroomlijnen.nl">info@stroomlijnen.nl</a></div></div></footer>`;
+  return `<footer id="contact"><div class="frame"><div class="contact-flex"><div><h2>${t.ctaTitle}</h2><p>${t.ctaText}</p></div><a class="btn light" href="${contact(lang)}">${t.partnerCta} ${arrow}</a></div>
+  <div class="foot-end"><div><strong>Stroomlijnen</strong> Hospitality</div><nav><a href="${gateway+base}">${t.gateway}</a><a target="_blank" rel="noopener noreferrer" href="${docs+base}">${t.docs}</a><a href="https://cultuur.stroomlijnen.nl${lang==='en'?'/en/about/':'/over-ons/'}">${lang==='en'?'About us':'Over ons'}</a></nav><a href="${contact(lang)}">${t.partner}</a></div></div></footer>`;
 }
 
 function home(lang) {

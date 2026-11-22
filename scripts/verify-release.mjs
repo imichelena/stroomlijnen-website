@@ -201,9 +201,12 @@ for (const host of hosts) {
     const url = new URL(pageKey(host,path));
     const page = resolvePage(url);
     if (!page || page.redirect || page.lang !== locale) {report(url, 'Missing localized entry point');continue;}
-    const contact = new URL(pageKey(gateway,path + 'contact/'));
-    if (!page.tags.some(tag => tag.name === 'a' && tag.attrs.href && sameDocument(address(tag.attrs.href,url),contact))) {
-      report(url, 'No direct link to the central form at ' + contact);
+    const contact = host === 'hospitality.stroomlijnen.nl'
+      ? new URL(path, 'https://lemnion.nl')
+      : new URL(pageKey(gateway,path + 'contact/'));
+    if (!page.tags.some(tag => tag.name === 'a' && tag.attrs.href &&
+      (address(tag.attrs.href,url)?.href === contact.href || sameDocument(address(tag.attrs.href,url),contact)))) {
+      report(url, 'No direct link to the contact destination at ' + contact);
     }
     if (host === gateway) {
       if (!resolvePage(new URL(pageKey(host,path + 'thanks/')))) report(url,'Missing central receipt page');
